@@ -67,5 +67,4 @@ ActiveAdmin.register Produto do
     end
   end
 
-
 end
