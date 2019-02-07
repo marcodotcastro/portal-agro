@@ -3,7 +3,7 @@
 <div class="row">
   
   <div class="col-md-6">
-    <div class="row">
+
       <p>
         <strong>Nome:</strong>
         <%= @produtor.nome %>
@@ -20,7 +20,7 @@
         <strong>Endereço:</strong>
         <%= @produtor.endereco %>
       </p>
-    </div>
+
   
     <div class="row">
 
@@ -44,7 +44,7 @@
               <td><%= produto.categoria.nome %></td>
               <td><%= produto.producao %></td>
               <td><%= produto.preco %></td>
-              <td><%= link_to 'Show', produto %></td>
+              <td><%= link_to 'Ver', produto %></td>
             </tr>
           <% end %>
         </tbody>
