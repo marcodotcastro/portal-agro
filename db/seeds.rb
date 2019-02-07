@@ -9,7 +9,7 @@ if Rails.env.development?
         nome: "Vanderley Pio", 
         telefone: "(62)99998-12345", 
         email: "vanderley.pio@gmail.com", 
-        endereco: "R 03, , Bro 9 de Julho - Corumbá de Goiás, GO",
+        endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
         foto: "http://www.sebrae.com.br/Sebrae/Portal%20Sebrae/UFs/AP/Imagens/rural.png",
         video: "Fdbk4v4a16Y"
         )
@@ -19,7 +19,7 @@ if Rails.env.development?
         nome: "Wilson Frade", 
         telefone: "(62)99998-12345", 
         email: "vanderley.pio@gmail.com", 
-        endereco: "R 03, , Bro 9 de Julho - Corumbá de Goiás, GO",
+        endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
         foto: "https://zootecniaativa.com/wp-content/uploads/2015/04/2012_fevereiro_thumbnails_thumb_alaor_rodrigues_acude_acrelandia_foto_gleilson_miranda_01-300x193.jpg",
         video: "Uit7H-78XPI"
         )

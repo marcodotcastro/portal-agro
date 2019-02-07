@@ -1,56 +1,73 @@
-<h1>Produtor</h1>
+<h1 class="display-2">Produtor</h1>
 
-<p>
-  <%= image_tag(@produtor.foto, size: "400x300", alt: @produtor.nome)%>
-</p>
+<div class="row">
+  
+  <div class="col-md-6">
+    <div class="row">
+      <p>
+        <strong>Nome:</strong>
+        <%= @produtor.nome %>
+      </p>
+      <p>
+        <strong>Telefone:</strong>
+        <%= @produtor.telefone %>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <%= @produtor.email %>
+      </p>
+      <p>
+        <strong>Endereço:</strong>
+        <%= @produtor.endereco %>
+      </p>
+    </div>
+  
+    <div class="row">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @produtor.video %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h2 class="display-3">Produtos</h2>
+    
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th>Produto</th>
+            <th>Categoria</th>
+            <th>Produção</th>
+            <th>Preço</th>
+            <th></th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @produtor.produtos.each do |produto| %>
+            <tr>
+              <td><%= produto.nome %></td>
+              <td><%= produto.categoria.nome %></td>
+              <td><%= produto.producao %></td>
+              <td><%= produto.preco %></td>
+              <td><%= link_to 'Show', produto %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @produtor.nome %>
-</p>
+    </div>
+  </div>
+    
+  <div class="col-md-6">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <%= image_tag(@produtor.foto, size: "400x300", alt: @produtor.nome, class: "rounded")%>
+      </div> 
+    </div> 
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <iframe width="400" height="300" src="https://www.youtube.com/embed/<%= @produtor.video %>" frameborder="0" ></iframe>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Telefone:</strong>
-  <%= @produtor.telefone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @produtor.email %>
-</p>
-
-<p>
-  <strong>Endereço:</strong>
-  <%= @produtor.endereco %>
-</p>
+</div>
 
 
-<h1>Produtos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Produto</th>
-      <th>Categoria</th>
-      <th>Produção</th>
-      <th>Preço</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @produtor.produtos.each do |produto| %>
-      <tr>
-        <td><%= produto.nome %></td>
-        <td><%= produto.categoria.nome %></td>
-        <td><%= produto.producao %></td>
-        <td><%= produto.preco %></td>
-        <td><%= link_to 'Show', produto %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Back', produtos_path %>
+<%= link_to 'Voltar', produtos_path %>

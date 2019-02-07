@@ -1,39 +1,47 @@
-<h1>Produto</h1>
+<h1 class="display-2">Produto</h1>
 
-<p>
-  <%= image_tag(@produto.foto, size: "400x300", alt: @produto.nome)%>
-</p>
+<div class="row">
+  
+  <div class="col-md-6">
+    <p>
+      <strong>Nome:</strong>
+      <%= @produto.nome %>
+    </p>
+    <p>
+      <strong>Descrição:</strong>
+      <%= @produto.descricao %>
+    </p>
+    <p>
+      <strong>Categoria:</strong>
+      <%= @produto.categoria.nome %>
+    </p>
+    <p>
+      <strong>Produção:</strong>
+      <%= @produto.producao %>
+    </p>
+    <p>
+      <strong>Preço:</strong>
+      <%= @produto.preco %>
+    </p>
+    <p>
+      <strong>Produtor:</strong>
+      <%= link_to @produto.produtor.nome, @produto.produtor %>
+    </p>
+  </div>
+  
+  <div class="col-md-6">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <%= image_tag(@produto.foto, size: "400x300", alt: @produto.nome, class: "rounded")%>
+      </div> 
+    </div> 
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <iframe width="400" height="300" src="https://www.youtube.com/embed/<%= @produto.video %>" frameborder="0" ></iframe>
+      </div>
+    </div>
+  </div>
+  
+</div>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @produto.video %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>
-  <strong>Nome:</strong>
-  <%= @produto.nome %>
-</p>
-
-<p>
-  <strong>Descrição:</strong>
-  <%= @produto.descricao %>
-</p>
-
-<p>
-  <strong>Categoria:</strong>
-  <%= @produto.categoria.nome %>
-</p>
-
-<p>
-  <strong>Produção:</strong>
-  <%= @produto.producao %>
-</p>
-
-<p>
-  <strong>Preço:</strong>
-  <%= @produto.preco %>
-</p>
-
-<p>
-  <strong>Produtor:</strong>
-  <%= link_to @produto.produtor.nome, @produto.produtor %>
-</p>
-
-<%= link_to 'Back', produtos_path %>
+<%= link_to 'Voltar', produtos_path %>
