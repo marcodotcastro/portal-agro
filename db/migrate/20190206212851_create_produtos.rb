@@ -8,6 +8,7 @@ class CreateProdutos < ActiveRecord::Migration[5.2]
       t.string :video
       t.string :foto
       t.references :produtor, foreign_key: true
+      t.references :categoria, foreign_key: true
 
       t.timestamps
     end

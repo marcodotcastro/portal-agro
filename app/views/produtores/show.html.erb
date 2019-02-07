@@ -26,15 +26,6 @@
   <%= @produtor.endereco %>
 </p>
 
-<p>
-  <strong>Foto:</strong>
-  <%= @produtor.foto %>
-</p>
-
-<p>
-  <strong>Video:</strong>
-  <%= @produtor.video %>
-</p>
 
 <h1>Produtos</h1>
 
@@ -42,7 +33,7 @@
   <thead>
     <tr>
       <th>Produto</th>
-      <th>Produtor</th>
+      <th>Categoria</th>
       <th>Produção</th>
       <th>Preço</th>
       <th></th>
@@ -53,6 +44,7 @@
     <% @produtor.produtos.each do |produto| %>
       <tr>
         <td><%= produto.nome %></td>
+        <td><%= produto.categoria.nome %></td>
         <td><%= produto.producao %></td>
         <td><%= produto.preco %></td>
         <td><%= link_to 'Show', produto %></td>

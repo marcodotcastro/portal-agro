@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Produto</th>
+      <th>Categoria</th>
       <th>Produtor</th>
       <th>Produção</th>
       <th>Preço</th>
@@ -15,6 +16,7 @@
     <% @produtos.each do |produto| %>
       <tr>
         <td><%= produto.nome %></td>
+        <td><%= produto.categoria.nome %></td>
         <td><%= link_to produto.produtor.nome, produto.produtor %></td>
         <td><%= produto.producao %></td>
         <td><%= produto.preco %></td>

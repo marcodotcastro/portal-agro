@@ -1,12 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-AdminUser.create!(email: "admin@portalagro.com.br", password: "password", password_confirmation: "password") if Rails.env.development?
+animal = Categoria.create(nome: "Animal", descricao: "")
+Categoria.create(nome: "Vegetal", descricao: "")
+Categoria.create(nome: "Industrial", descricao: "")
+
 if Rails.env.development?
+    AdminUser.create!(email: "admin@portalagro.com.br", password: "password", password_confirmation: "password")
+    
     produtor = Produtor.create(
         nome: "Vanderley Pio", 
         telefone: "(62)99998-12345", 
@@ -45,6 +43,7 @@ if Rails.env.development?
     )
     
     produto1.produtor = produtor
+    produto1.categoria = animal
     produto1.save
 
     produto2 = Produto.create(
@@ -57,8 +56,8 @@ if Rails.env.development?
     )
 
     produto2.produtor = produtor
+    produto2.categoria = animal
     produto2.save
-    
    
 end
 
