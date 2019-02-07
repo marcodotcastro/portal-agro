@@ -14,7 +14,7 @@ ActiveAdmin.register Produto do
   filter :producao
   filter :preco
 
- index do
+  index do
     selectable_column
     column :foto do |obj|
         image_tag obj.foto, size: "50x50"
@@ -45,6 +45,7 @@ ActiveAdmin.register Produto do
       actions
     end
   end
+  
   show do
     attributes_table do 
       row :foto do |ad|

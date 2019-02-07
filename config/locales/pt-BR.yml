@@ -18,6 +18,12 @@ pt-BR:
         foto: "Foto"
         created_at: "Criado em"
         updated_at: "Atualizado em"
+      categoria:
+        nome: "Nome"
+        descricao: "Descrição"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+      
   date:
     abbr_day_names:
     - Dom
