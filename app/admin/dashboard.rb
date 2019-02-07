@@ -22,8 +22,8 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Números" do
            ul do
-               li "Produtos #{Produto.count}"
-               li "Produtores #{Produtor.count}"
+               li "Total de Produtos: #{Produto.count}"
+               li "Total de Produtores: #{Produtor.count}"
            end
         end
       end
