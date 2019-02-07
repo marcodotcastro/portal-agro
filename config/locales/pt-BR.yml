@@ -4,10 +4,21 @@ pt-BR:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
-          has_one: Não é possível excluir o registro pois existe um %{record} dependente
-          has_many: Não é possível excluir o registro pois existem %{record} dependentes
+          has_one: "Não é possível excluir o registro pois existe um %{record} dependente"
+          has_many: "Não é possível excluir o registro pois existem %{record} dependentes"
     models:
-      produto: Produto
+      produto:
+        one: "Produto"
+        other: "Produtos"
+      produtor:
+        one: "Produtor"
+        other: "Produtores"
+      categoria:
+        one: "Categoria"
+        other: "Categorias"
+      admin_user:
+        one: "Administrador"
+        other: "Administradores"
     attributes:
       produto:
         nome: "Nome"
@@ -16,13 +27,34 @@ pt-BR:
         preco: "Preço"
         video: "Vídeo"
         foto: "Foto"
-        created_at: "Criado em"
-        updated_at: "Atualizado em"
+        created_at: "Criado Em"
+        updated_at: "Atualizado Em"
+      produtor:
+        nome: "Nome"
+        telefone: "Telefone"
+        email: "Email"
+        endereco: "Endereço"
+        video: "Vídeo"
+        foto: "Foto"
+        created_at: "Criado Em"
+        updated_at: "Atualizado Em"
       categoria:
         nome: "Nome"
         descricao: "Descrição"
-        created_at: "Criado em"
-        updated_at: "Atualizado em"
+        created_at: "Criado Em"
+        updated_at: "Atualizado Em"
+      admin_user:
+        email: "Email"
+        password: "Senha"
+        password_confirmation: "Confirmação da Senha"
+        current_sign_in_at: "Último Acesso"
+        sign_in_count: "Total de Acesso"
+        encrypted_password: "Senha Criptografada"
+        reset_password_token: "Token para Resetar a Senha"
+        reset_password_sent_at: "Resetar a Senha Enviado Em"
+        remember_created_at: "Lembrança da Senha Criada Em"
+        created_at: "Criado Em"
+        updated_at: "Atualizado Em"
       
   date:
     abbr_day_names:
