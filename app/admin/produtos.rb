@@ -11,15 +11,33 @@ ActiveAdmin.register Produto do
   }
   
   filter :nome
-  filter :producao, label: "Produção"
-  filter :preco, label: "Preço"
+  filter :producao
+  filter :preco
+
+ index do
+    selectable_column
+    column :foto do |obj|
+        image_tag obj.foto, size: "50x50"
+    end
+    column :nome
+    column :descricao
+    column :producao
+    column :preco
+    column "Produtor", sortable: :name do |obj|
+      link_to obj.produtor.nome, admin_produtor_path(obj)
+    end
+    column "Categoria", sortable: :name do |obj|
+      link_to obj.categoria.nome, admin_categoria_path(obj)
+    end
+    actions
+  end
 
   form do |f|
     f.inputs do
       f.input :produtor_id, :label => 'Produtor', :as => :select, :collection => Produtor.all.map{|u| ["#{u.nome}", u.id]}
       f.input :categoria_id, :label => 'Categoria', :as => :select, :collection => Categoria.all.map{|u| ["#{u.nome}", u.id]}
       f.input :nome
-      f.input :descricao
+      f.input :descricao, as: :text
       f.input :producao
       f.input :preco
       f.input :video
@@ -27,22 +45,20 @@ ActiveAdmin.register Produto do
       actions
     end
   end
-  
-  index do
-    selectable_column
-    
-    column "Produtor", sortable: :name do |obj|
-      link_to obj.produtor.nome, admin_produtor_path(obj)
+  show do
+    attributes_table do 
+      row :foto do |ad|
+        image_tag ad.foto, size: "300x200"
+      end
+      row :nome
+      row :descricao
+      row :producao
+      row :preco
+      row :video
+      row :created_at
+      row :updated_at
     end
-    column "Nome", :nome
-    column "Descrição", :descricao
-    column "Produção", :producao
-    column "Preço", :producao
-    column "Categoria", sortable: :name do |obj|
-      link_to obj.categoria.nome, admin_categoria_path(obj)
-    end
-    
-    actions
   end
+
 
 end
