@@ -5,28 +5,28 @@ ActiveAdmin.register_page "Dashboard" do
   content title: proc{ I18n.t("active_admin.dashboard") } do
     div class: "blank_slate_container", id: "dashboard_default_message" do
       span class: "blank_slate" do
-        span "Bem vindo ao Portal Agro de Corumbá de Goiás"
+        span "Bem Vindo ao Portal Agro de Corumbá de Goiás"
       end
     end
 
-    # Here is an example of a simple dashboard with columns and panels.
-    #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
-
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
-  end # content
+    columns do
+       column do
+         panel "Recentes Produtos Cadastrados" do
+           ul do
+             Produto.last(5).map do |obj|
+               li link_to("#{obj.nome}", admin_produto_path(obj)) + ", #{obj.producao}, #{obj.preco}, #{obj.produtor.nome}"
+             end
+           end
+         end
+       end
+      column do
+        panel "Números" do
+           ul do
+               li "Produtos #{Produto.count}"
+               li "Produtores #{Produtor.count}"
+           end
+        end
+      end
+    end
+  end 
 end
