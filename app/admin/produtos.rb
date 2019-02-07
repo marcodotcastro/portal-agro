@@ -1,15 +1,19 @@
 ActiveAdmin.register Produto do
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
+menu priority: 2
+
+permit_params :nome, :descricao, :producao, :preco, :video, :foto, :produtor_id
+
+form do |f|
+  f.inputs do
+    f.input :produtor_id, :label => 'Produtor', :as => :select, :collection => Produtor.all.map{|u| ["#{u.nome}", u.id]}
+    f.input :nome
+    f.input :descricao
+    f.input :producao
+    f.input :preco
+    f.input :video
+    f.input :foto
+    actions
+  end
+end
 
 end

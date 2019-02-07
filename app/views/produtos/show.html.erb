@@ -1,0 +1,44 @@
+<h1>Produto</h1>
+
+<p>
+  <%= image_tag(@produto.foto, size: "400x300", alt: @produto.nome)%>
+</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @produto.video %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @produto.nome %>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @produto.descricao %>
+</p>
+
+<p>
+  <strong>Produção:</strong>
+  <%= @produto.producao %>
+</p>
+
+<p>
+  <strong>Preço:</strong>
+  <%= @produto.preco %>
+</p>
+
+<p>
+  <strong>Foto:</strong>
+  <%= @produto.foto %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @produto.video %>
+</p>
+
+<p>
+  <strong>Produtor:</strong>
+  <%= link_to @produto.produtor.nome, @produto.produtor %>
+</p>
+
+<%= link_to 'Back', produtos_path %>

@@ -1,0 +1,25 @@
+<h1>Produtos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Produtor</th>
+      <th>Produção</th>
+      <th>Preço</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= produto.nome %></td>
+        <td><%= link_to produto.produtor.nome, produto.produtor %></td>
+        <td><%= produto.producao %></td>
+        <td><%= produto.preco %></td>
+        <td><%= link_to 'Show', produto %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
