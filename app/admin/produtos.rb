@@ -23,11 +23,11 @@ ActiveAdmin.register Produto do
     column :descricao
     column :producao
     column :preco
-    column "Produtor", sortable: :name do |obj|
-      link_to obj.produtor.nome, admin_produtor_path(obj)
+    column :produtor, sortable: :name do |obj|
+      link_to obj.produtor.nome, admin_produtor_path(obj.produtor)
     end
-    column "Categoria", sortable: :name do |obj|
-      link_to obj.categoria.nome, admin_categoria_path(obj)
+    column :categoria, sortable: :name do |obj|
+      link_to obj.categoria.nome, admin_categoria_path(obj.categoria)
     end
     actions
   end
@@ -48,14 +48,20 @@ ActiveAdmin.register Produto do
   
   show do
     attributes_table do 
-      row :foto do |ad|
-        image_tag ad.foto, size: "300x200"
+      row :foto do |obj|
+        image_tag obj.foto, size: "300x200"
       end
       row :nome
       row :descricao
       row :producao
       row :preco
       row :video
+      row :produtor do |obj|
+        link_to obj.produtor.nome, admin_produtor_path(obj.produtor)
+      end
+      row :categoria do |obj|
+        link_to obj.categoria.nome, admin_categoria_path(obj.categoria)
+      end
       row :created_at
       row :updated_at
     end
