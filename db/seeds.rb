@@ -2,6 +2,10 @@ animal = Categoria.create(nome: "Animal", descricao: "")
 vegetal = Categoria.create(nome: "Vegetal", descricao: "")
 industrial = Categoria.create(nome: "Industrial", descricao: "")
 
+normal = Qualidade.create(nome: "Normal", descricao: "")
+natural = Qualidade.create(nome: "Natural", descricao: "")
+organica = Qualidade.create(nome: "Orgânica", descricao: "")
+
 AdminUser.create!(email: "admin@portalagro.com.br", password: "abc12345", password_confirmation: "abc12345")
 
 if Rails.env.development?
@@ -17,7 +21,6 @@ if Rails.env.development?
         whatsapp: true,
         cartao: true
         )
-        
     
     Produtor.create(
         nome: "Wilson Frade", 
@@ -52,6 +55,7 @@ if Rails.env.development?
     
     produto1.produtor = produtor
     produto1.categoria = animal
+    produto1.qualidade = normal
     produto1.save
 
     produto2 = Produto.create(
@@ -65,6 +69,7 @@ if Rails.env.development?
 
     produto2.produtor = produtor
     produto2.categoria = vegetal
+    produto2.qualidade = natural
     produto2.save
    
 end

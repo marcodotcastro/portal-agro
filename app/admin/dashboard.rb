@@ -14,7 +14,7 @@ ActiveAdmin.register_page "Dashboard" do
          panel "Recentes Produtos Cadastrados" do
            ul do
              Produto.last(5).map do |obj|
-               li link_to("#{obj.nome}", admin_produto_path(obj)) + ", #{obj.producao}, #{obj.preco}, #{obj.produtor.nome}"
+               li link_to("#{obj.nome}", admin_produto_path(obj)) + ", #{obj.producao}, #{obj.preco}, " + link_to("#{obj.produtor.nome}", admin_produtor_path(obj.produtor)) 
              end
            end
          end

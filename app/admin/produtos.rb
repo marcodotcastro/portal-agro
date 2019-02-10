@@ -1,7 +1,7 @@
 ActiveAdmin.register Produto do
   menu priority: 2
 
-  permit_params :nome, :descricao, :producao, :preco, :video, :foto, :produtor_id, :categoria_id
+  permit_params :nome, :descricao, :producao, :preco, :video, :foto, :produtor_id, :categoria_id, :qualidade_id
   
   filter :produtor, collection: -> {
     Produtor.all.map { |map| [map.nome, map.id] }
@@ -29,13 +29,17 @@ ActiveAdmin.register Produto do
     column :categoria, sortable: :name do |obj|
       link_to obj.categoria.nome, admin_categoria_path(obj.categoria)
     end
+    column :qualidade, sortable: :name do |obj|
+      link_to obj.qualidade.nome, admin_qualidade_path(obj.qualidade)
+    end
     actions
   end
 
   form do |f|
     f.inputs do
-      f.input :produtor_id, :label => 'Produtor', :as => :select, :collection => Produtor.all.map{|u| ["#{u.nome}", u.id]}
-      f.input :categoria_id, :label => 'Categoria', :as => :select, :collection => Categoria.all.map{|u| ["#{u.nome}", u.id]}
+      f.input :produtor_id, :as => :select, :collection => Produtor.all.map{|u| ["#{u.nome}", u.id]}
+      f.input :categoria_id, :as => :select, :collection => Categoria.all.map{|u| ["#{u.nome}", u.id]}
+      f.input :qualidade_id, :as => :select, :collection => Qualidade.all.map{|u| ["#{u.nome}", u.id]}
       f.input :nome
       f.input :descricao, as: :text
       f.input :producao
@@ -61,6 +65,9 @@ ActiveAdmin.register Produto do
       end
       row :categoria do |obj|
         link_to obj.categoria.nome, admin_categoria_path(obj.categoria)
+      end
+      row :qualidade do |obj|
+        link_to obj.qualidade.nome, admin_qualidade_path(obj.qualidade)
       end
       row :created_at
       row :updated_at

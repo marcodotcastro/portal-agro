@@ -45,6 +45,11 @@ pt-BR:
         descricao: "Descrição"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
+      qualidade:
+        nome: "Nome"
+        descricao: "Descrição"
+        created_at: "Criado Em"
+        updated_at: "Atualizado Em"
       admin_user:
         email: "Email"
         password: "Senha"
