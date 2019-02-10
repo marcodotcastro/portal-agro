@@ -12,6 +12,8 @@ ActiveAdmin.register Produtor do
         end
         column :nome
         column :telefone
+        column :whatsapp
+        column :cartao
         column :email
         column :endereco
         column :video do |obj|
@@ -25,6 +27,8 @@ ActiveAdmin.register Produtor do
         f.inputs do
           f.input :nome
           f.input :telefone
+          f.input :whatsapp
+          f.input :cartao
           f.input :email
           f.input :endereco
           f.input :video
@@ -40,6 +44,8 @@ ActiveAdmin.register Produtor do
             end
             row :nome
             row :telefone
+            row :whatsapp
+            row :cartao
             row :email
             row :endereco
             row :video

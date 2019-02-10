@@ -36,6 +36,8 @@ pt-BR:
         endereco: "Endereço"
         video: "Vídeo"
         foto: "Foto"
+        whatsapp: "Whatsapp"
+        cartao: "Cartão"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
       categoria:

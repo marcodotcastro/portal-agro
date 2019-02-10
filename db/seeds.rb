@@ -2,8 +2,10 @@ animal = Categoria.create(nome: "Animal", descricao: "")
 vegetal = Categoria.create(nome: "Vegetal", descricao: "")
 industrial = Categoria.create(nome: "Industrial", descricao: "")
 
+AdminUser.create!(email: "admin@portalagro.com.br", password: "abc12345", password_confirmation: "abc12345")
+
 if Rails.env.development?
-    AdminUser.create!(email: "admin@portalagro.com.br", password: "password", password_confirmation: "password")
+   
     
     produtor = Produtor.create(
         nome: "Vanderley Pio", 
@@ -11,7 +13,9 @@ if Rails.env.development?
         email: "vanderley.pio@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
         foto: "http://www.sebrae.com.br/Sebrae/Portal%20Sebrae/UFs/AP/Imagens/rural.png",
-        video: "Fdbk4v4a16Y"
+        video: "Fdbk4v4a16Y",
+        whatsapp: true,
+        cartao: true
         )
         
     
@@ -21,7 +25,9 @@ if Rails.env.development?
         email: "wilson.frade@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
         foto: "https://zootecniaativa.com/wp-content/uploads/2015/04/2012_fevereiro_thumbnails_thumb_alaor_rodrigues_acude_acrelandia_foto_gleilson_miranda_01-300x193.jpg",
-        video: "Uit7H-78XPI"
+        video: "Uit7H-78XPI",
+        whatsapp: false,
+        cartao: false
         )
     
     Produtor.create(
@@ -30,7 +36,9 @@ if Rails.env.development?
         email: "stephan.gaehwiler@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
         foto: "https://blog.oobj.com.br/wp-content/uploads/2018/05/cpf-produtor-rual-650x390.png",
-        video: "cen9ZMYzUm0"
+        video: "cen9ZMYzUm0",
+        whatsapp: false,
+        cartao: true
         )
     
     produto1 = Produto.create(
