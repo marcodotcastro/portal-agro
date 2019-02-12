@@ -5,7 +5,6 @@ class CreateProdutores < ActiveRecord::Migration[5.2]
       t.string :telefone
       t.string :email
       t.string :endereco
-      t.string :foto
 
       t.timestamps
     end

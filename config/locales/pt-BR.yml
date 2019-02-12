@@ -19,6 +19,9 @@ pt-BR:
       video:
         one: "Vídeo"
         other: "Vídeos"
+      foto:
+        one: "Foto"
+        other: "Fotos"
       admin_user:
         one: "Administrador"
         other: "Administradores"
@@ -57,6 +60,12 @@ pt-BR:
         nome: "Nome"
         descricao: "Descrição"
         codigo: "Código"
+        created_at: "Criado Em"
+        updated_at: "Atualizado Em"
+      foto:
+        nome: "Nome"
+        descricao: "Descrição"
+        url: "Url"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
       admin_user:

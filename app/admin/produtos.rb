@@ -2,7 +2,8 @@ ActiveAdmin.register Produto do
   menu priority: 2
 
   permit_params :nome, :descricao, :producao, :preco, :video, :foto, :produtor_id, :categoria_id, :qualidade_id,
-    videos_attributes: [:id, :nome, :descricao, :codigo, :_destroy]
+    videos_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
+    fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy]
   
   filter :produtor, collection: -> {
     Produtor.all.map { |map| [map.nome, map.id] }
@@ -15,10 +16,43 @@ ActiveAdmin.register Produto do
   filter :producao
   filter :preco
 
+  form do |f|
+    f.inputs do
+      f.input :produtor_id, :as => :select, :collection => Produtor.all.map{|u| ["#{u.nome}", u.id]}
+      f.input :categoria_id, :as => :select, :collection => Categoria.all.map{|u| ["#{u.nome}", u.id]}
+      f.input :qualidade_id, :as => :select, :collection => Qualidade.all.map{|u| ["#{u.nome}", u.id]}
+      f.input :nome
+      f.input :descricao, as: :text
+      f.input :producao
+      f.input :preco
+      f.inputs do
+        f.has_many :fotos, allow_destroy: true, new_record: true do |a|
+          a.input :url
+          a.input :principal
+          a.input :nome
+          a.input :descricao, as: :text
+        end
+      end
+      f.inputs do
+        f.has_many :videos, allow_destroy: true, new_record: true do |a|
+          a.input :nome
+          a.input :descricao, as: :text
+          a.input :codigo
+        end
+      end
+      actions
+    end
+  end
+
   index do
     selectable_column
     column :foto do |obj|
-        image_tag obj.foto, size: "50x50"
+      #TODO: Mover essa imagem para um local correto
+      foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
+      foto_principal = obj.fotos.where(principal: true)
+      foto = foto_principal.empty? ? foto_vazia : foto_principal.take.url
+  
+      image_tag foto, size: "50x50"
     end
     column :nome
     column :descricao
@@ -36,32 +70,8 @@ ActiveAdmin.register Produto do
     actions
   end
 
-  form do |f|
-    f.inputs do
-      f.input :produtor_id, :as => :select, :collection => Produtor.all.map{|u| ["#{u.nome}", u.id]}
-      f.input :categoria_id, :as => :select, :collection => Categoria.all.map{|u| ["#{u.nome}", u.id]}
-      f.input :qualidade_id, :as => :select, :collection => Qualidade.all.map{|u| ["#{u.nome}", u.id]}
-      f.input :nome
-      f.input :descricao, as: :text
-      f.input :producao
-      f.input :preco
-      f.input :foto
-      f.inputs do
-        f.has_many :videos, allow_destroy: true, new_record: true do |a|
-          a.input :nome
-          a.input :descricao
-          a.input :codigo
-        end
-      end
-      actions
-    end
-  end
-  
   show title: proc{|p| "Produto: " + p.nome }do
     attributes_table do 
-      row :foto do |obj|
-        image_tag obj.foto, size: "300x200"
-      end
       row :nome
       row :descricao
       row :producao
@@ -77,14 +87,24 @@ ActiveAdmin.register Produto do
       end
       row :created_at
       row :updated_at
-      panel "Vídeos" do
-          table_for produto.videos do
-              column  :nome
-              column  :descricao
-              column :codigo do |obj|
-                  link_to "Assista" , "https://www.youtube.com/watch?v=#{obj.codigo}", target: "_blank"
-              end
+      panel "Fotos" do
+        table_for produto.fotos do
+          column  :foto do |obj|
+            image_tag obj.url, size: "50x50"
           end
+          column  :nome
+          column  :descricao
+          column  :principal
+        end
+      end
+      panel "Vídeos" do
+        table_for produto.videos do
+          column :codigo do |obj|
+              link_to "Assista" , "https://www.youtube.com/watch?v=#{obj.codigo}", target: "_blank"
+          end
+          column  :nome
+          column  :descricao
+        end
       end
     end
   end

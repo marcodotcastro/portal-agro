@@ -16,10 +16,12 @@ if Rails.env.development?
         telefone: "(62)99998-12345", 
         email: "vanderley.pio@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
-        foto: "http://www.sebrae.com.br/Sebrae/Portal%20Sebrae/UFs/AP/Imagens/rural.png",
         whatsapp: true,
         cartao: true
         )
+    
+    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://www.sebrae.com.br/Sebrae/Portal%20Sebrae/UFs/AP/Imagens/rural.png", principal: true, produtor: produtor1)
+    Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "http://www.sebrae.com.br/Sebrae/Portal%20Sebrae/UFs/AP/Imagens/rural.png", principal: false, produtor: produtor1)
     
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "Fdbk4v4a16Y", produtor: produtor1)
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "Fdbk4v4a16Y", produtor: produtor1)
@@ -29,11 +31,11 @@ if Rails.env.development?
         telefone: "(62)99998-12345", 
         email: "wilson.frade@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
-        foto: "https://zootecniaativa.com/wp-content/uploads/2015/04/2012_fevereiro_thumbnails_thumb_alaor_rodrigues_acude_acrelandia_foto_gleilson_miranda_01-300x193.jpg",
         whatsapp: false,
         cartao: false
         )
     
+    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://zootecniaativa.com/wp-content/uploads/2015/04/2012_fevereiro_thumbnails_thumb_alaor_rodrigues_acude_acrelandia_foto_gleilson_miranda_01-300x193.jpg", principal: true, produtor: produtor2)
     Video.create(nome: "Video 2",descricao: "Video 2", codigo: "Uit7H-78XPI", produtor: produtor2)
     
     produtor3 = Produtor.create(
@@ -41,19 +43,18 @@ if Rails.env.development?
         telefone: "(62)99998-12345", 
         email: "stephan.gaehwiler@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
-        foto: "https://blog.oobj.com.br/wp-content/uploads/2018/05/cpf-produtor-rual-650x390.png",
         whatsapp: false,
         cartao: true
         )
-    
+        
+    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://blog.oobj.com.br/wp-content/uploads/2018/05/cpf-produtor-rual-650x390.png", principal: true, produtor: produtor3)
     Video.create(nome: "Video 3",descricao: "Video 3", codigo: "cen9ZMYzUm0", produtor: produtor3)
     
     produto1 = Produto.create(
         nome: "Leite", 
         descricao: "Leite é uma secreção nutritiva de cor esbranquiçada e opaca produzida pelas glândulas mamárias das fêmeas dos mamíferos. O líquido é produzido pelas células secretoras das glândulas mamárias ou mamas. A secreção láctea de uma fêmea dias antes e depois do parto se chama colostro.", 
         producao:"1000 L / dia", 
-        preco: "R$ 1,00 L",
-        foto: "http://dicademae.com/weloly/wp-content/uploads/2014/12/leite-de-vaca.jpg"
+        preco: "R$ 1,00 L"
     )
     
     produto1.produtor = produtor1
@@ -61,14 +62,14 @@ if Rails.env.development?
     produto1.qualidade = normal
     produto1.save
     
+    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://dicademae.com/weloly/wp-content/uploads/2014/12/leite-de-vaca.jpg", principal: true, produto: produto1)
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "XRgDSQJgoCI", produto: produto1)
 
     produto2 = Produto.create(
         nome: "Soja", 
         descricao: "A soja (Glycine max), também conhecida como feijão-soja e feijão-chinês,[1] é uma planta pertence à família Fabaceae, família esta que compreende também plantas como o feijão, a lentilha e a ervilha.", 
         producao:"1000 sc / ano", 
-        preco: "R$ 60,00 sc",
-        foto: "https://assets.xtechcommerce.com/uploads/images/medium/7645e2a788a8965a7f33691158602968.jpg"
+        preco: "R$ 60,00 sc"
     )
     
     produto2.produtor = produtor1
@@ -76,6 +77,7 @@ if Rails.env.development?
     produto2.qualidade = natural
     produto2.save
     
+    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://assets.xtechcommerce.com/uploads/images/medium/7645e2a788a8965a7f33691158602968.jpg", principal: true, produto: produto2)
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "0FuZWc8Bpw8", produto: produto2)
    
 end

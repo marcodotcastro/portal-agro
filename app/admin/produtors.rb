@@ -1,15 +1,48 @@
 ActiveAdmin.register Produtor do
     menu priority: 1
 
-    permit_params :nome, :telefone, :email, :endereco, :foto, :whatsapp, :cartao,
-        videos_attributes: [:id, :nome, :descricao, :codigo, :_destroy]
+    permit_params :nome, :telefone, :email, :endereco, :whatsapp, :cartao,
+        videos_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
+        fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy]
     
     filter :nome
+    
+    form do |f|
+        f.inputs do
+            f.input :nome
+            f.input :telefone
+            f.input :whatsapp
+            f.input :cartao
+            f.input :email
+            f.input :endereco
+            f.inputs do
+              f.has_many :fotos, allow_destroy: true, new_record: true do |a|
+                a.input :url
+                a.input :principal
+                a.input :nome
+                a.input :descricao, as: :text
+              end
+            end
+            f.inputs do
+              f.has_many :videos, allow_destroy: true, new_record: true do |a|
+                a.input :codigo
+                a.input :nome
+                a.input :descricao, as: :text
+              end
+            end
+           f.actions
+        end
+    end
     
     index do
         selectable_column
         column :foto do |obj|
-            image_tag obj.foto, size: "50x50"
+            #TODO: Mover essa imagem para um local correto
+            foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
+            foto_principal = obj.fotos.where(principal: true)
+            foto = foto_principal.empty? ? foto_vazia : foto_principal.take.url
+        
+            image_tag foto, size: "50x50"
         end
         column :nome
         column :telefone
@@ -21,31 +54,8 @@ ActiveAdmin.register Produtor do
         actions
     end
 
-    form do |f|
-        f.inputs do
-            f.input :nome
-            f.input :telefone
-            f.input :whatsapp
-            f.input :cartao
-            f.input :email
-            f.input :endereco
-            f.input :foto
-            f.inputs do
-              f.has_many :videos, allow_destroy: true, new_record: true do |a|
-                a.input :nome
-                a.input :descricao
-                a.input :codigo
-              end
-            end
-           f.actions
-        end
-    end
-  
     show title: proc{|p| "Produtor: " + p.nome }do
         attributes_table do 
-            row :foto do |obj|
-                image_tag obj.foto, size: "300x200"
-            end
             row :nome
             row :telefone
             row :whatsapp
@@ -66,13 +76,23 @@ ActiveAdmin.register Produtor do
                 end
             end
         end
-        panel "Vídeos" do
-            table_for produtor.videos do
+        panel "Fotos" do
+            table_for produtor.fotos do
+                column  :foto do |obj|
+                    image_tag obj.url, size: "50x50"
+                end
                 column  :nome
                 column  :descricao
-                column :codigo do |obj|
+                column  :principal
+            end
+        end
+        panel "Vídeos" do
+            table_for produtor.videos do
+                column  :codigo do |obj|
                     link_to "Assista" , "https://www.youtube.com/watch?v=#{obj.codigo}", target: "_blank"
                 end
+                column  :nome
+                column  :descricao
             end
         end
     end
