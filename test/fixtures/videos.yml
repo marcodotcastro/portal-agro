@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  descricao: MyString
+  codigo: MyString
+  produtor: one
+  produto: one
+
+two:
+  nome: MyString
+  descricao: MyString
+  codigo: MyString
+  produtor: two
+  produto: two

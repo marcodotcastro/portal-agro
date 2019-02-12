@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_10_170248) do
+ActiveRecord::Schema.define(version: 2019_02_12_120251) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2019_02_10_170248) do
     t.string "telefone"
     t.string "email"
     t.string "endereco"
-    t.string "video"
     t.string "foto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -63,7 +62,6 @@ ActiveRecord::Schema.define(version: 2019_02_10_170248) do
     t.string "descricao"
     t.string "producao"
     t.string "preco"
-    t.string "video"
     t.string "foto"
     t.integer "produtor_id"
     t.integer "categoria_id"
@@ -80,6 +78,18 @@ ActiveRecord::Schema.define(version: 2019_02_10_170248) do
     t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string "nome"
+    t.string "descricao"
+    t.string "codigo"
+    t.integer "produtor_id"
+    t.integer "produto_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["produto_id"], name: "index_videos_on_produto_id"
+    t.index ["produtor_id"], name: "index_videos_on_produtor_id"
   end
 
 end
