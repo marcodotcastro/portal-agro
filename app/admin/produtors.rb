@@ -2,7 +2,7 @@ ActiveAdmin.register Produtor do
     menu priority: 1
 
     permit_params :nome, :telefone, :email, :endereco, :whatsapp, :cartao,
-        videos_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
+        video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
         fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy]
     
     filter :nome
@@ -24,7 +24,8 @@ ActiveAdmin.register Produtor do
               end
             end
             f.inputs do
-              f.has_many :videos, allow_destroy: true, new_record: true do |a|
+            #FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
+              f.has_many :video, allow_destroy: true, new_record: true do |a|
                 a.input :codigo
                 a.input :nome
                 a.input :descricao, as: :text
@@ -37,12 +38,7 @@ ActiveAdmin.register Produtor do
     index do
         selectable_column
         column :foto do |obj|
-            #TODO: Mover essa imagem para um local correto
-            foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
-            foto_principal = obj.fotos.where(principal: true)
-            foto = foto_principal.empty? ? foto_vazia : foto_principal.take.url
-        
-            image_tag foto, size: "50x50"
+           image_tag obj.foto_principal_url, size: "50x50"
         end
         column :nome
         column :telefone
@@ -67,6 +63,9 @@ ActiveAdmin.register Produtor do
         end
         panel "Produtos" do
             table_for produtor.produtos do
+                column  :foto do |obj|
+                    image_tag obj.foto_principal_url, size: "50x50"
+                end
                 column  :nome
                 column  :producao
                 column  :preco
@@ -86,10 +85,10 @@ ActiveAdmin.register Produtor do
                 column  :principal
             end
         end
-        panel "Vídeos" do
-            table_for produtor.videos do
+        panel "Vídeo" do
+            table_for produtor.video do
                 column  :codigo do |obj|
-                    link_to "Assista" , "https://www.youtube.com/watch?v=#{obj.codigo}", target: "_blank"
+                   obj ? link_to("Assista" , "https://www.youtube.com/watch?v=#{obj.codigo}", target: "_blank") : ""
                 end
                 column  :nome
                 column  :descricao

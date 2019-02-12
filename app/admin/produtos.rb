@@ -2,7 +2,7 @@ ActiveAdmin.register Produto do
   menu priority: 2
 
   permit_params :nome, :descricao, :producao, :preco, :video, :foto, :produtor_id, :categoria_id, :qualidade_id,
-    videos_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
+    video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
     fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy]
   
   filter :produtor, collection: -> {
@@ -34,7 +34,8 @@ ActiveAdmin.register Produto do
         end
       end
       f.inputs do
-        f.has_many :videos, allow_destroy: true, new_record: true do |a|
+        #FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
+        f.has_many :video, allow_destroy: true, new_record: true do |a|
           a.input :nome
           a.input :descricao, as: :text
           a.input :codigo
@@ -47,12 +48,7 @@ ActiveAdmin.register Produto do
   index do
     selectable_column
     column :foto do |obj|
-      #TODO: Mover essa imagem para um local correto
-      foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
-      foto_principal = obj.fotos.where(principal: true)
-      foto = foto_principal.empty? ? foto_vazia : foto_principal.take.url
-  
-      image_tag foto, size: "50x50"
+      image_tag obj.foto_principal_url, size: "50x50"
     end
     column :nome
     column :descricao
@@ -97,10 +93,10 @@ ActiveAdmin.register Produto do
           column  :principal
         end
       end
-      panel "Vídeos" do
-        table_for produto.videos do
+      panel "Vídeo" do
+        table_for produto.video do
           column :codigo do |obj|
-              link_to "Assista" , "https://www.youtube.com/watch?v=#{obj.codigo}", target: "_blank"
+            obj ? link_to("Assista" , "https://www.youtube.com/watch?v=#{obj.codigo}", target: "_blank") : ""
           end
           column  :nome
           column  :descricao

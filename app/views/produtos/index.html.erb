@@ -3,7 +3,7 @@
 <div class="row">
   <% @produtos.each do |produto| %>
     <div class="card" style="width: 18rem;">
-      <img src="http://dicademae.com/weloly/wp-content/uploads/2014/12/leite-de-vaca.jpg" class="card-img-top" alt="..."  height="200" width="200">
+      <img src="<%= produto.foto_principal_url %>" class="card-img-top" alt="..."  height="200" width="200">
       <div class="card-body">
         <h5 class="card-title">Produto: <%= link_to produto.nome, produto %></h5>
       </div>
