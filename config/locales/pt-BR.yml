@@ -16,6 +16,9 @@ pt-BR:
       categoria:
         one: "Categoria"
         other: "Categorias"
+      video:
+        one: "Vídeo"
+        other: "Vídeos"
       admin_user:
         one: "Administrador"
         other: "Administradores"
@@ -48,6 +51,12 @@ pt-BR:
       qualidade:
         nome: "Nome"
         descricao: "Descrição"
+        created_at: "Criado Em"
+        updated_at: "Atualizado Em"
+      video:
+        nome: "Nome"
+        descricao: "Descrição"
+        codigo: "Código"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
       admin_user:
