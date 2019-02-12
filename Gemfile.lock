@@ -285,6 +285,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 5.2.2)
   rails_layout
+  ransack
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

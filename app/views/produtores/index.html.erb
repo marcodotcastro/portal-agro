@@ -1,5 +1,19 @@
 <h1 class="display-2">Produtores</h1>
 
+<%= search_form_for @q do |f| %>
+ <div class='row'>
+    <div class='col-md-12'>
+      <div class="form-group">
+        <label class="col-sm-2 col-form-label">Nome</label>
+        <input type="text" id='q_nome_cont' name='q[nome_cont]' class="form-control">
+        
+        <%= f.button "Pesquisar", class: "btn btn-primary btn-block" %>
+        <%= link_to "Cancelar", request.path, class: "btn btn-primary btn-block" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <div class="row">
   <% @produtores.each do |produtor| %>
     <div class="card" style="width: 18rem;">
