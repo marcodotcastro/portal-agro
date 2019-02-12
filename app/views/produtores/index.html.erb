@@ -1,0 +1,19 @@
+<h1 class="display-2">Produtores</h1>
+
+<div class="row">
+  <% @produtores.each do |produtor| %>
+    <div class="card" style="width: 18rem;">
+      <%= link_to image_tag(produtor.foto_principal_url, class: "card-img-top", size: "200x200"), produtor %>
+      <div class="card-body">
+        <h5 class="card-title">Produtor: <%= link_to produtor.nome, produtor %></h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Telefone: </b><%= produtor.telefone %></li>
+        <li class="list-group-item"><b>Whatsapp: </b><%= produtor.whatsapp %></li>
+        <li class="list-group-item"><b>Cartão: </b><%= produtor.cartao %></li>
+        <li class="list-group-item"><b>Email: </b><%= produtor.email %></li>
+        <li class="list-group-item"><b>Endereço: </b><%= produtor.endereco %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>

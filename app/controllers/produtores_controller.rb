@@ -1,6 +1,10 @@
 class ProdutoresController < ApplicationController
   before_action :set_produtor, only: [:show]
    
+  def index
+    @produtores = Produtor.all
+  end
+   
   def show
   end
   

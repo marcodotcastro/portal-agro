@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   
   root 'home#index'
   resources :produtos,  only: [:index, :show]
-  resources :produtores,  only: [:show]
+  resources :produtores,  only: [:index, :show]
 end
