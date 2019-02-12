@@ -21,7 +21,8 @@ if Rails.env.development?
         )
     
     Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://www.sebrae.com.br/Sebrae/Portal%20Sebrae/UFs/AP/Imagens/rural.png", principal: true, produtor: produtor1)
-    Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "http://www.sebrae.com.br/Sebrae/Portal%20Sebrae/UFs/AP/Imagens/rural.png", principal: false, produtor: produtor1)
+    Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "https://www.jornalcontabil.com.br/wp-content/uploads/2018/12/funrural-e1544089438373.jpg", principal: false, produtor: produtor1)
+    Foto.create(nome: "Foto 3",descricao: "Foto 3", url: "https://www.somaurbanismo.com.br/wp-content/uploads/2018/05/08-04-Produtor-rural-de-Jaguar%C3%A9-pode-pagar-por-lote-nas-colheitas.jpg", principal: false, produtor: produtor1)
     
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "Fdbk4v4a16Y", produtor: produtor1)
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "Fdbk4v4a16Y", produtor: produtor1)
@@ -63,6 +64,8 @@ if Rails.env.development?
     produto1.save
     
     Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://dicademae.com/weloly/wp-content/uploads/2014/12/leite-de-vaca.jpg", principal: true, produto: produto1)
+    Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "http://www.sobrepeso.com.br/wp-content/uploads/2015/02/leite-de-vaca-cru-ou-pasteurizado.jpg", principal: false, produto: produto1)
+    Foto.create(nome: "Foto 3",descricao: "Foto 3", url: "https://static.noticiasaominuto.com.br/stockimages/1920/naom_5addb8b6e4f88.jpg", principal: false, produto: produto1)
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "XRgDSQJgoCI", produto: produto1)
 
     produto2 = Produto.create(

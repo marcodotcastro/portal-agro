@@ -2,7 +2,7 @@
 
 <div class="row">
   
-  <div class="col-md-6">
+  <div class="col-md-4">
 
       <p>
         <strong>Nome:</strong>
@@ -61,15 +61,35 @@
     </div>
   </div>
     
-  <div class="col-md-6">
+    <div class="col-md-8">
     <div class="row justify-content-center align-items-center">
       <div class="col-md-6">
-        <%= image_tag(@produtor.foto, size: "400x300", alt: @produtor.nome, class: "rounded")%>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+             <% @produtor.fotos.each do |foto| %>
+                <div class="carousel-item <%= foto.principal? ? "active" : "" %>">
+                    <img src="<%= foto.url %>" class="d-block w-100" alt="..." height="200" width="200">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5><%= foto.nome %></h5>
+                        <p><%= foto.descricao %></p>
+                    </div>
+                </div>
+            <% end %>
+          </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>
       </div> 
     </div> 
     <div class="row justify-content-center align-items-center">
       <div class="col-md-6">
-        <iframe width="400" height="300" src="https://www.youtube.com/embed/<%= @produtor.video %>" frameborder="0" ></iframe>
+        <iframe width="400" height="300" src="https://www.youtube.com/embed/<%# @produtor.video %>" frameborder="0" ></iframe>
       </div>
     </div>
   </div>
