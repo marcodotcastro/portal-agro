@@ -1,7 +1,8 @@
 ActiveAdmin.register Produto do
   menu priority: 2
 
-  permit_params :nome, :descricao, :producao, :preco, :video, :foto, :produtor_id, :categoria_id, :qualidade_id
+  permit_params :nome, :descricao, :producao, :preco, :video, :foto, :produtor_id, :categoria_id, :qualidade_id,
+    videos_attributes: [:id, :nome, :descricao, :codigo, :_destroy]
   
   filter :produtor, collection: -> {
     Produtor.all.map { |map| [map.nome, map.id] }
@@ -44,13 +45,19 @@ ActiveAdmin.register Produto do
       f.input :descricao, as: :text
       f.input :producao
       f.input :preco
-      f.input :video
       f.input :foto
+      f.inputs do
+        f.has_many :videos, allow_destroy: true, new_record: true do |a|
+          a.input :nome
+          a.input :descricao
+          a.input :codigo
+        end
+      end
       actions
     end
   end
   
-  show do
+  show title: proc{|p| "Produto: " + p.nome }do
     attributes_table do 
       row :foto do |obj|
         image_tag obj.foto, size: "300x200"
@@ -59,7 +66,6 @@ ActiveAdmin.register Produto do
       row :descricao
       row :producao
       row :preco
-      row :video
       row :produtor do |obj|
         link_to obj.produtor.nome, admin_produtor_path(obj.produtor)
       end
@@ -71,6 +77,15 @@ ActiveAdmin.register Produto do
       end
       row :created_at
       row :updated_at
+      panel "Vídeos" do
+          table_for produto.videos do
+              column  :nome
+              column  :descricao
+              column :codigo do |obj|
+                  link_to "Assista" , "https://www.youtube.com/watch?v=#{obj.codigo}", target: "_blank"
+              end
+          end
+      end
     end
   end
 

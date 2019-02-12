@@ -2,7 +2,7 @@ ActiveAdmin.register Produtor do
     menu priority: 1
 
     permit_params :nome, :telefone, :email, :endereco, :foto, :whatsapp, :cartao,
-    videos_attributes: [:id, :nome, :descricao, :codigo, :_destroy]
+        videos_attributes: [:id, :nome, :descricao, :codigo, :_destroy]
     
     filter :nome
     
