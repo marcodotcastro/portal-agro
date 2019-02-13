@@ -1,33 +1,56 @@
-<h1 class="display-2">Produtores</h1>
-
-<%= search_form_for @q do |f| %>
- <div class='row'>
-    <div class='col-md-12'>
-      <div class="form-group">
-        <label class="col-sm-2 col-form-label">Nome</label>
-        <input type="text" id='q_nome_cont' name='q[nome_cont]' class="form-control">
-        
-        <%= f.button "Pesquisar", class: "btn btn-primary btn-block" %>
-        <%= link_to "Cancelar", request.path, class: "btn btn-primary btn-block" %>
+<section class="section pb-4">
+  <div class="container">
+    <div class="row check-availabilty" id="next">
+      <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+        <%= search_form_for @q do |f| %>
+          <div class='row'>
+            <div class="col-md-4 col-lg-4">
+              <label for="checkin_date" class="font-weight-bold text-black">Nome</label>
+              <div class="field-icon-wrap">
+                <input type="text" id='q_nome_cont' name='q[nome_cont]' class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class='row'>
+            <div class="col-md-6 col-lg-6 align-self-end">
+              <%= f.button "Pesquisar", class: "btn btn-primary btn-block text-white" %>
+            </div>
+            <div class="col-md-6 col-lg-6 align-self-end">
+              <%= link_to "Cancelar", request.path, class: "btn btn-primary btn-block  text-white" %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-<% end %>
+</section>
 
-<div class="row">
-  <% @produtores.each do |produtor| %>
-    <div class="card" style="width: 18rem;">
-      <%= link_to image_tag(produtor.foto_principal_url, class: "card-img-top", size: "200x200"), produtor %>
-      <div class="card-body">
-        <h5 class="card-title">Produtor: <%= link_to produtor.nome, produtor %></h5>
+<section class="section">
+  <div class="container">
+    
+    <div class="row">
+      <% @produtores.each do |produtor| %>
+      
+      <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+        <%= link_to(produtor, class: "room") do %>
+        
+          <figure class="img-wrap">
+              <%= image_tag(produtor.foto_principal_url, class: "img-fluid mb-3", size: "500x500") %>
+          </figure>
+        
+          <div class="p-3 text-center room-info">
+            <h2>Produtor: <%= produtor.nome %></h2>
+            <span class="letter-spacing-1">Telefone: <%= produtor.telefone %> <%= produtor.whatsapp ? "<span class='fa fa-whatsapp'></span>".html_safe : "" %></span><br>
+            <%= produtor.cartao ? "<span class='letter-spacing-1'>Aceita Cartão</span><br>".html_safe : "" %>
+            <span class="letter-spacing-1">Email: <%= produtor.email %></span><br>
+            <span class="letter-spacing-1">Endereço: <%= produtor.endereco %></span><br>
+          </div>
+        <% end %>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><b>Telefone: </b><%= produtor.telefone %></li>
-        <li class="list-group-item"><b>Whatsapp: </b><%= produtor.whatsapp %></li>
-        <li class="list-group-item"><b>Cartão: </b><%= produtor.cartao %></li>
-        <li class="list-group-item"><b>Email: </b><%= produtor.email %></li>
-        <li class="list-group-item"><b>Endereço: </b><%= produtor.endereco %></li>
-      </ul>
+      
+      <% end %>
+
     </div>
-  <% end %>
-</div>
+  </div>
+</section>
+
