@@ -1,46 +1,84 @@
-<h1 class="display-2">Produtos</h1>
-
-<%= search_form_for @q do |f| %>
-  <div class='row'>
-    
-    <div class='col-md-12'>
-      <div class="form-group">
-        <label class="col-sm-2 col-form-label">Nome</label>
-        <input type="text" id='q_nome_cont' name='q[nome_cont]' class="form-control">
-      
-        <label class="col-sm-2 col-form-label">Categoria</label>
-        <%= f.select :categoria_id_eq, options_from_collection_for_select(Categoria.all, "id", "nome", @q.categoria_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
-        
-        <label class="col-sm-2 col-form-label">Qualidade</label>
-        <%= f.select :qualidade_id_eq, options_from_collection_for_select(Qualidade.all, "id", "nome", @q.qualidade_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
-        
-        <label  class="col-sm-2 col-form-label">Produtor</label>
-        <%= f.select :produtor_id_eq, options_from_collection_for_select(Produtor.all, "id", "nome", @q.produtor_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
-        
-        <%= f.button "Pesquisar", class: "btn btn-primary btn-block" %>
-        <%= link_to "Cancelar", request.path, class: "btn btn-primary btn-block" %>
+<section class="section pb-4">
+  <div class="container">
+    <div class="row check-availabilty" id="next">
+      <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+        <%= search_form_for @q do |f| %>
+          <div class='row'>
+            <div class="col-md-4 col-lg-4">
+              <label for="checkin_date" class="font-weight-bold text-black">Nome</label>
+              <div class="field-icon-wrap">
+                <input type="text" id='q_nome_cont' name='q[nome_cont]' class="form-control">
+              </div>
+            </div>
+            <div class="col-md-8 col-lg-8">
+              <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <label for="adults" class="font-weight-bold text-black">Categoria</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <%= f.select :categoria_id_eq, options_from_collection_for_select(Categoria.all, "id", "nome", @q.categoria_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <label for="children" class="font-weight-bold text-black">Qualidade</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                   <%= f.select :qualidade_id_eq, options_from_collection_for_select(Qualidade.all, "id", "nome", @q.qualidade_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <label for="children" class="font-weight-bold text-black">Produtor</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                   <%= f.select :produtor_id_eq, options_from_collection_for_select(Produtor.all, "id", "nome", @q.produtor_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class='row'>
+            <div class="col-md-6 col-lg-6 align-self-end">
+              <%= f.button "Pesquisar", class: "btn btn-primary btn-block text-white" %>
+            </div>
+            <div class="col-md-6 col-lg-6 align-self-end">
+              <%= link_to "Cancelar", request.path, class: "btn btn-primary btn-block  text-white" %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-<% end %>
+</section>
 
-<div class="row">
-  <% @produtos.each do |produto| %>
-    <div class="card" style="width: 18rem;">
-      <%= link_to image_tag(produto.foto_principal_url, class: "card-img-top", size: "200x200"), produto %>
+<section class="section">
+  <div class="container">
+    
+    <div class="row">
+      <% @produtos.each do |produto| %>
       
-      <div class="card-body">
-        <h5 class="card-title">Produto: <%= link_to produto.nome, produto %></h5>
+      <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+        <%= link_to(produto, class: "room") do %>
+        
+          <figure class="img-wrap">
+              <%= image_tag(produto.foto_principal_url, class: "img-fluid mb-3", size: "500x500") %>
+          </figure>
+        
+          <div class="p-3 text-center room-info">
+            <h2>Produto: <%= produto.nome %></h2>
+            <span class="text-uppercase letter-spacing-1">Categoria: <%= produto.categoria.nome %></span><br>
+            <span class="text-uppercase letter-spacing-1">Qualidade: <%= produto.qualidade.nome %></span><br>
+            <span class="text-uppercase letter-spacing-1">Produção: <%= produto.producao %></span><br>
+            <span class="text-uppercase letter-spacing-1">Preço: <%= produto.preco %></span><br>
+            <span class="text-uppercase letter-spacing-1">Produtor: <%= produto.produtor.nome %></span><br>
+            
+          </div>
+        <% end %>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><b>Categoria: </b><%= produto.categoria.nome %></li>
-        <li class="list-group-item"><b>Qualidade: </b><%= produto.qualidade.nome %></li>
-        <li class="list-group-item"><b>Produção: </b><%= produto.producao %></li>
-        <li class="list-group-item"><b>Preço: </b><%= produto.preco %></li>
-      </ul>
-      <div class="card-body">
-        <b>Produtor: </b><%= link_to produto.produtor.nome, produto.produtor, class: "card-link" %>
-      </div>
+      
+      <% end %>
+
     </div>
-  <% end %>
-</div>
+  </div>
+</section>
+
