@@ -1,103 +1,94 @@
-<h1 class="display-2">Produtor</h1>
-
-<div class="row">
-  
-  <%= link_to 'Voltar', produtos_path %>
-  
-  <% if @produtor.video %>
-    <div class="col-md-12">
-      <div class="row justify-content-center align-items-center">
-        <iframe width="400" height="300" src="https://www.youtube.com/embed/<%= @produtor.video.codigo %>" frameborder="0" ></iframe>
+<div class="container section">
+  <div class="row">
+    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="block-2">
+        <div class="flipper">
+          <div class="front" style="background-image: url(<%= @produtor.foto_principal_url %>);">
+            <div class="box">
+              <h2><%= @produtor.nome %></h2>
+              <p>President</p>
+            </div>
+          </div>
+          <div class="back">
+             <div class="container">
+              <br>
+              <span class="letter-spacing-1">Telefone: </span><h5><%= @produtor.telefone %><%= @produtor.whatsapp ? " <span class='fa fa-whatsapp'></span>".html_safe : "" %></h5>
+              <span class="letter-spacing-1">Email: </span><h5><%= @produtor.email %></h5>
+              <span class="letter-spacing-1">Endereço: </span><h5><%= @produtor.endereco %></h5>
+              <%= @produtor.cartao ? "<span class='letter-spacing-1'>Aceita Cartão</span><br>".html_safe : "" %>
+              </div>
+            <div class="author d-flex">
+              <div class="image mr-3 align-self-center">
+                <img src="<%= @produtor.foto_principal_url %>" alt="">
+              </div>
+              <div class="name align-self-center"><%= @produtor.nome %> <span class="position">President</span></div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- .flip-container -->
+    </div>
+    <div class="col-md-6 mb-5">
+      <h2 class="heading" data-aos="fade">História</h2>
+      <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="timeline-item" date-is='2019' data-aos="fade">
+          <h3>More Branches Worldwide</h3>
+          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+          <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+        </div>
+        
+        <div class="timeline-item" date-is='2011' data-aos="fade">
+          <h3>Company Full Blast</h3>
+          <p>
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+          </p>
+        </div>
+        
+        <div class="timeline-item" date-is='2008' data-aos="fade">
+          <h3>The Birth of the Company</h3>
+          <p>
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+          </p>
+        </div>
       </div>
     </div>
-  <% end %>
-  
-  <div class="col-md-6">
-
-      <p>
-        <strong>Nome:</strong>
-        <%= @produtor.nome %>
-      </p>
-      <p>
-        <strong>Telefone:</strong>
-        <%= @produtor.telefone %>
-      </p>
-      <p>
-        <strong>Whatsapp:</strong>
-        <%= @produtor.whatsapp %>
-      </p>
-      <p>
-        <strong>Cartão:</strong>
-        <%= @produtor.cartao %>
-      </p>
-      <p>
-        <strong>Email:</strong>
-        <%= @produtor.email %>
-      </p>
-      <p>
-        <strong>Endereço:</strong>
-        <%= @produtor.endereco %>
-      </p>
-
-  </div>
-    
-  <div class="col-md-6">
-    <div class="row justify-content-center align-items-center">
-      <div class="col-md-6">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-         <div class="carousel-inner">
-             <% @produtor.fotos.each do |foto| %>
-                <div class="carousel-item <%= foto.principal? ? "active" : "" %>">
-                    <img src="<%= foto.url %>" class="d-block w-100" alt="..." height="200" width="200">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><%= foto.nome %></h5>
-                        <p><%= foto.descricao %></p>
-                    </div>
-                </div>
-            <% end %>
-          </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-        </div>
-      </div> 
-    </div> 
-  </div>
-  
-  <div class="col-md-12">
-
-    <h2 class="display-3">Produtos</h2>
-    
-      <table class="table table-hover">
-        <thead class="thead-light">
-          <tr>
-            <th>Produto</th>
-            <th>Categoria</th>
-            <th>Produção</th>
-            <th>Preço</th>
-            <th></th>
-          </tr>
-        </thead>
-      
-        <tbody>
-          <% @produtor.produtos.each do |produto| %>
-            <tr>
-              <td><%= produto.nome %></td>
-              <td><%= produto.categoria.nome %></td>
-              <td><%= produto.producao %></td>
-              <td><%= produto.preco %></td>
-              <td><%= link_to 'Ver', produto %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-
     </div>
-
+  </div>
 </div>
 
+<section class="container">
+  <div class="row justify-content-center text-center mb-5">
+   
+      <h2 class="heading" data-aos="fade-up">Produtos</h2>
+
+      </div>
+  
+     
+
+    <div class="row">
+      <% @produtor.produtos.each do |produto| %>
+      
+      <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+        <%= link_to(produto, class: "room") do %>
+        
+          <figure class="img-wrap">
+              <%= image_tag(produto.foto_principal_url, class: "img-fluid mb-3", size: "500x500") %>
+          </figure>
+        
+          <div class="p-3 text-center room-info">
+            <h2>Produto: <%= produto.nome %></h2>
+            <span class="letter-spacing-1">Categoria: <%= produto.categoria.nome %></span><br>
+            <span class="letter-spacing-1">Qualidade: <%= produto.qualidade.nome %></span><br>
+            <span class="letter-spacing-1">Produção: <%= produto.producao %></span><br>
+            <span class="letter-spacing-1">Preço: <%= produto.preco %></span><br>
+            <span class="letter-spacing-1">Produtor: <%= produto.produtor.nome %></span><br>
+            
+          </div>
+        <% end %>
+      </div>
+      
+      <% end %>
+
+
+  </div>
+</section>
