@@ -20,7 +20,7 @@ if Rails.env.development?
         cartao: true
         )
     
-    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://www.sebrae.com.br/Sebrae/Portal%20Sebrae/UFs/AP/Imagens/rural.png", principal: true, produtor: produtor1)
+    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://i.ytimg.com/vi/A8Rok7zz2mg/maxresdefault.jpg", principal: true, produtor: produtor1)
     Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "https://www.jornalcontabil.com.br/wp-content/uploads/2018/12/funrural-e1544089438373.jpg", principal: false, produtor: produtor1)
     Foto.create(nome: "Foto 3",descricao: "Foto 3", url: "https://www.somaurbanismo.com.br/wp-content/uploads/2018/05/08-04-Produtor-rural-de-Jaguar%C3%A9-pode-pagar-por-lote-nas-colheitas.jpg", principal: false, produtor: produtor1)
     
@@ -35,7 +35,7 @@ if Rails.env.development?
         cartao: false
         )
     
-    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://zootecniaativa.com/wp-content/uploads/2015/04/2012_fevereiro_thumbnails_thumb_alaor_rodrigues_acude_acrelandia_foto_gleilson_miranda_01-300x193.jpg", principal: true, produtor: produtor2)
+    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://4.bp.blogspot.com/-JS8bro-9T5s/URQ8mMDk74I/AAAAAAAAGiY/oUz6VRqdEWU/s1600/DSC02793.JPG", principal: true, produtor: produtor2)
     Video.create(nome: "Video 2",descricao: "Video 2", codigo: "Uit7H-78XPI", produtor: produtor2)
     
     produtor3 = Produtor.create(
@@ -62,9 +62,9 @@ if Rails.env.development?
     produto1.qualidade = normal
     produto1.save
     
-    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://dicademae.com/weloly/wp-content/uploads/2014/12/leite-de-vaca.jpg", principal: true, produto: produto1)
-    Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "http://www.sobrepeso.com.br/wp-content/uploads/2015/02/leite-de-vaca-cru-ou-pasteurizado.jpg", principal: false, produto: produto1)
-    Foto.create(nome: "Foto 3",descricao: "Foto 3", url: "https://static.noticiasaominuto.com.br/stockimages/1920/naom_5addb8b6e4f88.jpg", principal: false, produto: produto1)
+    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://i.ytimg.com/vi/0-Fu3Aj4SoY/maxresdefault.jpg", principal: true, produto: produto1)
+    Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "https://i.ytimg.com/vi/6ZFDEWwBttM/maxresdefault.jpg", principal: false, produto: produto1)
+    Foto.create(nome: "Foto 3",descricao: "Foto 3", url: "https://sebraers.com.br/wp-content/uploads/2017/11/iStock-671065136.jpg", principal: false, produto: produto1)
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "XRgDSQJgoCI", produto: produto1)
 
     produto2 = Produto.create(
@@ -79,7 +79,7 @@ if Rails.env.development?
     produto2.qualidade = natural
     produto2.save
     
-    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://assets.xtechcommerce.com/uploads/images/medium/7645e2a788a8965a7f33691158602968.jpg", principal: true, produto: produto2)
+    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://forabuvaeamargoso.com.br/assets/img/temp/Soja_1140x760px.jpg", principal: true, produto: produto2)
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "0FuZWc8Bpw8", produto: produto2)
    
 end

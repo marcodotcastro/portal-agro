@@ -45,10 +45,10 @@
           <h1 class="heading">O Melhor da Agricultura Familiar da Sua Cidade</h1>
         <% elsif action_name == "index"  %>
         <span class="custom-caption text-uppercase text-white d-block  mb-3"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Cidade <span class="fa fa-star text-primary"></span></span>
-          <h1 class="heading"><%= controller_name.capitalize %></h2>
+          <h1 class="heading">Os <%= controller_name.capitalize %></h2>
         <% else %>
         <span class="custom-caption text-uppercase text-white d-block  mb-3"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Cidade <span class="fa fa-star text-primary"></span></span>
-          <h1 class="heading"><%= controller_name.capitalize.singularize %></h2>
+          <h1 class="heading">O <%= controller_name.capitalize.singularize %></h2>
         <% end %>
       </div>
     </div>

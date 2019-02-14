@@ -203,14 +203,14 @@ textarea.form-control {
     right: 0; }
   .site-hero.inner-page {
     height: 50vh;
-    min-height: 700px; }
+    min-height: 400px; }
     .site-hero.inner-page.overlay:before {
       height: 50vh;
-      min-height: 700px; }
+      min-height: 400px; }
 
 .site-hero-inner {
   height: 100vh;
-  min-height: 700px; }
+  min-height: 400px; }
   .site-hero-inner .heading {
     font-size: 80px;
     font-family: "Playfair Display", times, serif;
@@ -231,7 +231,7 @@ textarea.form-control {
 
 .inner-page .site-hero-inner {
   height: 50vh;
-  min-height: 700px; }
+  min-height: 400px; }
 
 .page-inside .site-hero-inner, .page-inside {
   height: 70vh;
@@ -1116,7 +1116,9 @@ textarea.form-control {
 .text-opacity-5 {
   opacity: .5; }
   
-.top-buffer { margin-top:20px; }
+.top-buffer { margin-top: 20px; }
+
+.not-top-buffer { margin-top: -100px; }
 
 .letter-spacing-2 {
   letter-spacing: .2em; }
