@@ -306,7 +306,13 @@ textarea.form-control {
     transform: rotate(-135deg); }
 
 .section {
-  padding: 7em 0; }
+  padding: 7em 0; 
+  /*FIXME: Sobreescrevendo o activeadmin*/
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  margin-bottom: 0px !important; 
+  /* */
+}
   @media (max-width: 991.98px) {
     .section {
       padding: 3em 0; } }
