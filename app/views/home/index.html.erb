@@ -1,19 +1,18 @@
 <!-- Mostrar o Objetivo do Portal -->
-<section class="py-5 bg-light">
+<section class="py-5 bg-light" id="next">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
+     <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
         <figure class="img-absolute">
-          <img src="images/produtor.jpg" alt="Image" class="img-fluid">
+          <%= image_tag(@produto.produtor.foto_principal_url, class: "img-fluid mb-3", size: "500x500") %>
         </figure>
-        <img src="images/produto.jpg" alt="Image" class="img-fluid rounded">
+        <%= image_tag(@produto.foto_principal_url, class: "img-fluid rounded", size: "500x500") %>
       </div>
       <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
         <h2 class="heading">Bem Vindo</h2>
         <p class="mb-4">Aqui você encontrará ....</p>
         <p><a href="https://www.youtube.com/watch?v=Uit7H-78XPI"  data-fancybox class="btn btn-primary text-white py-2 mr-3">Os Produtos</a><span class="mr-3 font-family-serif"><em>e</em></span><a href="https://www.youtube.com/watch?v=cen9ZMYzUm0"  data-fancybox class="btn btn-primary text-white py-2 mr-3">Os Produtores</a></p>
       </div>
-      
     </div>
   </div>
 </section>
@@ -28,42 +27,18 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 col-lg-4" data-aos="fade-up">
-        <a href="#" class="room">
-          <figure class="img-wrap">
-            <img src="images/milho.jpg" alt="Free website template" class="img-fluid mb-3">
-          </figure>
-          <div class="p-3 text-center room-info">
-            <h2>Milho</h2>
-            <span class="text-uppercase letter-spacing-1">R$ 60,00 / por mão</span>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4" data-aos="fade-up">
-        <a href="#" class="room">
-          <figure class="img-wrap">
-            <img src="images/leite.jpg" alt="Free website template" class="img-fluid mb-3">
-          </figure>
-          <div class="p-3 text-center room-info">
-            <h2>Leite</h2>
-            <span class="text-uppercase letter-spacing-1">R$ 1,00 / por litro</span>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4" data-aos="fade-up">
-        <a href="#" class="room">
-          <figure class="img-wrap">
-            <img src="images/ovo.jpg" alt="Free website template" class="img-fluid mb-3">
-          </figure>
-          <div class="p-3 text-center room-info">
-            <h2>Ovo</h2>
-            <span class="text-uppercase letter-spacing-1">R$ 6,00 / por duzia</span>
-          </div>
-        </a>
-      </div>
-
+      <% @produtos.each do |produto| %>
+        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+          <%= link_to(produto, class: "room") do %>
+            <figure class="img-wrap">
+                <%= image_tag(produto.foto_principal_url, class: "img-fluid mb-3", size: "500x500") %>
+            </figure>
+            <div class="p-3 text-center room-info">
+              <h2><%= produto.nome %></h2>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>
@@ -78,38 +53,18 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="media media-custom d-block mb-4 h-100">
-          <a href="#" class="mb-4 d-block"><img src="images/vanderley-pio.jpg" alt="Image placeholder" class="img-fluid"></a>
-          <div class="media-body">
-            <span class="meta-post">Inscrito em 30/02/2018</span>
-            <h2 class="mt-0 mb-3"><a href="#">Vanderley Pio</a></h2>
-            <p>Sr Vanderley é nascido ....</p>
-          </div>
+      <% @produtores.each do |produtor| %>
+        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+          <%= link_to(produtor, class: "room") do %>
+            <figure class="img-wrap">
+                <%= image_tag(produtor.foto_principal_url, class: "img-fluid mb-3", size: "500x500") %>
+            </figure>
+            <div class="p-3 text-center room-info">
+              <h2><%= produtor.nome %></h2>
+            </div>
+          <% end %>
         </div>
-
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="200">
-        <div class="media media-custom d-block mb-4 h-100">
-          <a href="#" class="mb-4 d-block"><img src="images/wilson-frade.jpg" alt="Image placeholder" class="img-fluid"></a>
-          <div class="media-body">
-            <span class="meta-post">Inscrito em 26/02/2018</span>
-            <h2 class="mt-0 mb-3"><a href="#">Wilson Frande</a></h2>
-            <p>Nascido e criado em ...</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="300">
-        <div class="media media-custom d-block mb-4 h-100">
-          <a href="#" class="mb-4 d-block"><img src="images/stephan-gaehwiler.jpg" alt="Image placeholder" class="img-fluid"></a>
-          <div class="media-body">
-            <span class="meta-post">Inscrito em 01/02/2019</span>
-            <h2 class="mt-0 mb-3"><a href="#">Stephan Gaehwiler</a></h2>
-            <p>Nascido na Suíça ...</p>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </section>
