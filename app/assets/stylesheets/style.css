@@ -177,7 +177,7 @@ textarea.form-control {
 .site-hero {
   background-size: cover;
   height: 100vh;
-  min-height: 700px;
+  min-height: 400px;
   width: 100%;
   position: relative; }
   .site-hero .heading {
@@ -196,7 +196,7 @@ textarea.form-control {
     content: "";
     position: absolute;
     height: 100vh;
-    min-height: 700px;
+    min-height: 400px;
     top: 0;
     left: 0;
     bottom: 0;
@@ -1082,7 +1082,9 @@ textarea.form-control {
   display: block; }
   .room .img-wrap {
     position: relative;
-    overflow: hidden; }
+    overflow: hidden; 
+
+  }
     .room .img-wrap img {
       -webkit-transition: .3s all ease-in-out;
       -o-transition: .3s all ease-in-out;
@@ -1090,7 +1092,10 @@ textarea.form-control {
       -webkit-transform: scale(1);
       -ms-transform: scale(1);
       transform: scale(1);
-      margin-bottom: 0 !important; }
+      margin-bottom: 0 !important; 
+      height: 220px;
+      width: 330px;
+    }
   .room:hover .img-wrap img, .room:focus .img-wrap img {
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
@@ -1110,6 +1115,8 @@ textarea.form-control {
 
 .text-opacity-5 {
   opacity: .5; }
+  
+.top-buffer { margin-top:20px; }
 
 .letter-spacing-2 {
   letter-spacing: .2em; }
