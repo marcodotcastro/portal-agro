@@ -24,7 +24,7 @@
   <% end %>
 </section>
 
-<section class="section slider-section">
+<section class="py-5">
   <div class="container">
     <div class="row justify-content-center text-center mb-5">
       <div class="col-md-7">
@@ -47,7 +47,7 @@
 </section>
 
 <%# FIXME: Código duplicado %>
-<section class="section bg-light">
+<section class="py-5 bg-light">
   <div class="container">
     <div class="row justify-content-center text-center">
         <div class="col-md-7">
@@ -56,7 +56,7 @@
         </div>
     </div>
     <div class="row">
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
         <div class="block-2">
           <div class="flipper">
             <div class="front" style="background-image: url(<%= @produto.produtor.foto_principal_url %>);">

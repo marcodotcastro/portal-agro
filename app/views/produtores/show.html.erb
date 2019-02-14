@@ -1,7 +1,7 @@
-<section class="section bg-light">
+<section class="py-5 bg-light">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
         <div class="block-2">
           <div class="flipper">
             <div class="front" style="background-image: url(<%= @produtor.foto_principal_url %>);">
@@ -60,7 +60,7 @@
   </div>
 </section>
 
-<section class="section slider-section">
+<section class="py-5">
   <div class="container">
     <div class="row justify-content-center text-center mb-5">
       <div class="col-md-7">
@@ -86,31 +86,35 @@
     <% end %>
   </div>
 </section>
-<section class="container">
-  <div class="row justify-content-center text-center mb-5">
-    <h2 class="heading" data-aos="fade-up">Os Produtos</h2>
-  </div>
-  <div class="row">
-    <% @produtor.produtos.each do |produto| %>
-      <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-        <%= link_to(produto, class: "room") do %>
-          <figure class="img-wrap">
-              <%= image_tag(produto.foto_principal_url, class: "img-fluid mb-3", size: "500x500") %>
-          </figure>
-          <div class="p-3 text-center room-info">
-            <h2><%= produto.nome %></h2>
-            <span class="letter-spacing-1">Categoria: <%= produto.categoria.nome %></span><br>
-            <span class="letter-spacing-1">Qualidade: <%= produto.qualidade.nome %></span><br>
-            <span class="letter-spacing-1">Produção: <%= produto.producao %></span><br>
-            <span class="letter-spacing-1">Preço: <%= produto.preco %></span><br>
-          </div>
-        <% end %>
-      </div>
+<section class="py-5 bg-light">
+  <div class="container">
+    
+    
+    <div class="row justify-content-center text-center mb-5">
+      <h2 class="heading" data-aos="fade-up">Os Produtos</h2>
+    </div>
+    <div class="row">
+      <% @produtor.produtos.each do |produto| %>
+        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+          <%= link_to(produto, class: "room") do %>
+            <figure class="img-wrap">
+                <%= image_tag(produto.foto_principal_url, class: "img-fluid mb-3", size: "500x500") %>
+            </figure>
+            <div class="p-3 text-center room-info">
+              <h2><%= produto.nome %></h2>
+              <span class="letter-spacing-1">Categoria: <%= produto.categoria.nome %></span><br>
+              <span class="letter-spacing-1">Qualidade: <%= produto.qualidade.nome %></span><br>
+              <span class="letter-spacing-1">Produção: <%= produto.producao %></span><br>
+              <span class="letter-spacing-1">Preço: <%= produto.preco %></span><br>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <% unless @produtor.produtos %>
+        <div class="row justify-content-center text-center">
+          <h4 data-aos="fade-up">Nenhum produto disponível</h4>
+        </div>
     <% end %>
   </div>
-  <% unless @produtor.produtos %>
-      <div class="row justify-content-center text-center">
-        <h4 data-aos="fade-up">Nenhum produto disponível</h4>
-      </div>
-  <% end %>
 </section>
