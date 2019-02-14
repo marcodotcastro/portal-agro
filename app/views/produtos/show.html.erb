@@ -17,12 +17,14 @@
       </div>
     </div>
   </div>
-  <div class="row justify-content-center text-center mb-5">
-    <p><a href="https://www.youtube.com/embed/<%= @produto.video.codigo %>" data-fancybox class="btn btn-primary text-white py-2 mr-3 text-uppercase letter-spacing-1">Vídeo Sobre o Produto</a> <span class="mr-3 font-family-serif"></span></p>
-  </div>
+  <% if @produto.video %>
+    <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+      <p><a href="https://www.youtube.com/embed/<%= @produto.video.codigo %>" data-fancybox class="btn btn-primary text-white py-2 mr-3 text-uppercase letter-spacing-1">Vídeo Sobre o Produto</a> <span class="mr-3 font-family-serif"></span></p>
+    </div>
+  <% end %>
 </section>
 
-<section class="section slider-section bg-light">
+<section class="section slider-section">
   <div class="container">
     <div class="row justify-content-center text-center mb-5">
       <div class="col-md-7">
@@ -45,68 +47,78 @@
 </section>
 
 <%# FIXME: Código duplicado %>
-<div class="container section">
-  <div class="row justify-content-center text-center mb-5 not-top-buffer">
-      <div class="col-md-7">
-        <h2 class="heading" data-aos="fade-up">O Produtor</h2>
-        <p data-aos="fade-up" data-aos-delay="100">O produtor ...</p>
-      </div>
+<section class="section bg-light">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+        <div class="col-md-7">
+          <h2 class="heading" data-aos="fade-up">O Produtor</h2>
+          <p data-aos="fade-up" data-aos-delay="100">O produtor ...</p>
+        </div>
     </div>
-  <div class="row">
-    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-      <div class="block-2">
-        <div class="flipper">
-          <div class="front" style="background-image: url(<%= @produto.produtor.foto_principal_url %>);">
-            <div class="box">
-              <h2><%= @produto.produtor.nome %></h2>
-              <p>Apelido</p>
-            </div>
-          </div>
-          <div class="back">
-             <div class="container">
-              <br>
-              <span class="letter-spacing-1">Telefone: </span><h5><%= @produto.produtor.telefone %><%= @produto.produtor.whatsapp ? " <span class='fa fa-whatsapp'></span>".html_safe : "" %></h5>
-              <span class="letter-spacing-1">Email: </span><h5><%= @produto.produtor.email %></h5>
-              <span class="letter-spacing-1">Endereço: </span><h5><%= @produto.produtor.endereco %></h5>
-              <%= @produto.produtor.cartao ? "<span class='letter-spacing-1'>Aceita Cartão</span><br>".html_safe : "" %>
+    <div class="row">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="block-2">
+          <div class="flipper">
+            <div class="front" style="background-image: url(<%= @produto.produtor.foto_principal_url %>);">
+              <div class="box">
+                <h2><%= @produto.produtor.nome %></h2>
+                <p><%= @produto.produtor.apelido %></p>
               </div>
-            <%= link_to @produto.produtor do %>
-            <div class="author d-flex">
-              <div class="image mr-3 align-self-center">
-                <img src="<%= @produto.produtor.foto_principal_url %>" alt="">
-              </div>
-              <div class="name align-self-center"><%= @produto.produtor.nome %> <span class="position">Apelido</span> <span  class="position"><a href="https://www.youtube.com/embed/<%= @produto.produtor.video.codigo %>" data-fancybox >Vídeo Sobre o Produtor</a></span></div>
             </div>
-            <% end %>
+            <div class="back">
+               <div class="container">
+                <br>
+                <span class="letter-spacing-1">Telefone: </span><h5><%= @produto.produtor.telefone %><%= @produto.produtor.whatsapp ? " <span class='fa fa-whatsapp'></span>".html_safe : "" %></h5>
+                <span class="letter-spacing-1">Email: </span><h5><%= @produto.produtor.email %></h5>
+                <span class="letter-spacing-1">Endereço: </span><h5><%= @produto.produtor.endereco %></h5>
+                <%= @produto.produtor.cartao ? "<span class='letter-spacing-1'>Aceita Cartão</span><br>".html_safe : "" %>
+                </div>
+              <%= link_to @produto.produtor do %>
+              <div class="author d-flex">
+                <div class="image mr-3 align-self-center">
+                  <img src="<%= @produto.produtor.foto_principal_url %>" alt="">
+                </div>
+                <div class="name align-self-center">
+                  <%= @produto.produtor.nome %> 
+                  <span class="position"><%= @produto.produtor.apelido %></span>
+                  <% if @produto.produtor.video %>
+                    <span class="position">
+                      <a href="https://www.youtube.com/embed/<%= @produto.produtor.video.codigo %>" data-fancybox >Vídeo Sobre o Produtor</a>
+                    </span>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-6 mb-5">
-      <h2 class="heading" data-aos="fade">A História</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="timeline-item" date-is='2019' data-aos="fade">
-              <h5>More Branches Worldwide</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-              </p>
-            </div>
-            <div class="timeline-item" date-is='2011' data-aos="fade">
-              <h5>Company Full Blast</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-              </p>
-            </div>
-            
-            <div class="timeline-item" date-is='2008' data-aos="fade">
-              <h5>The Birth of the Company</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-              </p>
-            </div>
+      <div class="col-md-6 mb-5">
+        <h2 class="heading" data-aos="fade">A História</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+              <div class="timeline-item" date-is='2019' data-aos="fade">
+                <h5>More Branches Worldwide</h3>
+                <p>
+                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                </p>
+              </div>
+              <div class="timeline-item" date-is='2011' data-aos="fade">
+                <h5>Company Full Blast</h3>
+                <p>
+                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                </p>
+              </div>
+              
+              <div class="timeline-item" date-is='2008' data-aos="fade">
+                <h5>The Birth of the Company</h3>
+                <p>
+                  Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                </p>
+              </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>

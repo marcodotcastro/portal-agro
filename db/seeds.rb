@@ -16,6 +16,7 @@ if Rails.env.development?
         telefone: "(62)99998-12345", 
         email: "vanderley.pio@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
+        apelido: "Dentista", 
         whatsapp: true,
         cartao: true
         )
@@ -31,6 +32,7 @@ if Rails.env.development?
         telefone: "(62)99998-12345", 
         email: "wilson.frade@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
+        apelido: "Wilson do Bar", 
         whatsapp: false,
         cartao: false
         )
@@ -43,6 +45,7 @@ if Rails.env.development?
         telefone: "(62)99998-12345", 
         email: "stephan.gaehwiler@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
+        apelido: "Queijo Suíço", 
         whatsapp: false,
         cartao: true
         )
