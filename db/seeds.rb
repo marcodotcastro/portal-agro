@@ -1,16 +1,20 @@
+puts "# Administrador"
+AdminUser.create!(email: "admin@portalagro.com.br", password: "abc12345", password_confirmation: "abc12345")
+
+puts "# Categoria"
 animal = Categoria.create(nome: "Animal", descricao: "")
 vegetal = Categoria.create(nome: "Vegetal", descricao: "")
 industrial = Categoria.create(nome: "Industrial", descricao: "")
 
+puts "# Qualidade"
 normal = Qualidade.create(nome: "Normal", descricao: "")
 natural = Qualidade.create(nome: "Natural", descricao: "")
 organica = Qualidade.create(nome: "Orgânica", descricao: "")
 
-AdminUser.create!(email: "admin@portalagro.com.br", password: "abc12345", password_confirmation: "abc12345")
 
-if Rails.env.development?
+#if Rails.env.development?
    
-    
+puts "# Produtores e Produtos"   
     produtor1 = Produtor.create(
         nome: "Vanderley Pio", 
         telefone: "(62)99998-12345", 
@@ -89,6 +93,4 @@ if Rails.env.development?
     Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://forabuvaeamargoso.com.br/assets/img/temp/Soja_1140x760px.jpg", principal: true, produto: produto2)
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "0FuZWc8Bpw8", produto: produto2)
    
-end
-
-    
+#end

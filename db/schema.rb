@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2019_02_18_125548) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(version: 2019_02_18_125548) do
     t.string "descricao"
     t.string "url"
     t.boolean "principal"
-    t.integer "produtor_id"
-    t.integer "produto_id"
+    t.bigint "produtor_id"
+    t.bigint "produto_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["produto_id"], name: "index_fotos_on_produto_id"
@@ -62,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_125548) do
     t.datetime "data"
     t.string "titulo"
     t.string "descricao"
-    t.integer "produtor_id"
+    t.bigint "produtor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["produtor_id"], name: "index_historias_on_produtor_id"
@@ -85,9 +88,9 @@ ActiveRecord::Schema.define(version: 2019_02_18_125548) do
     t.string "descricao"
     t.string "producao"
     t.string "preco"
-    t.integer "produtor_id"
-    t.integer "categoria_id"
-    t.integer "qualidade_id"
+    t.bigint "produtor_id"
+    t.bigint "categoria_id"
+    t.bigint "qualidade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["categoria_id"], name: "index_produtos_on_categoria_id"
@@ -106,12 +109,20 @@ ActiveRecord::Schema.define(version: 2019_02_18_125548) do
     t.string "nome"
     t.string "descricao"
     t.string "codigo"
-    t.integer "produtor_id"
-    t.integer "produto_id"
+    t.bigint "produtor_id"
+    t.bigint "produto_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["produto_id"], name: "index_videos_on_produto_id"
     t.index ["produtor_id"], name: "index_videos_on_produtor_id"
   end
 
+  add_foreign_key "fotos", "produtores"
+  add_foreign_key "fotos", "produtos"
+  add_foreign_key "historias", "produtores"
+  add_foreign_key "produtos", "categorias"
+  add_foreign_key "produtos", "produtores"
+  add_foreign_key "produtos", "qualidades"
+  add_foreign_key "videos", "produtores"
+  add_foreign_key "videos", "produtos"
 end
