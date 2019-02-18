@@ -3,9 +3,9 @@
     <div class="row align-items-center">
       <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
         <figure class="img-absolute">
-          <%= image_tag(@produto.produtor.foto_principal_url, class: "img-fluid mb-3") %>
+          <%= image_tag(@produto.produtor.foto_perfil_url, class: "img-fluid mb-3") %>
         </figure>
-        <%= image_tag(@produto.foto_principal_url, class: "img-fluid rounded") %>
+        <%= image_tag(@produto.foto_capa_url, class: "img-fluid rounded") %>
       </div>
       <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
         <h2 class="heading"><%= @produto.nome %></h2>
@@ -59,7 +59,7 @@
       <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
         <div class="block-2">
           <div class="flipper">
-            <div class="front" style="background-image: url(<%= @produto.produtor.foto_principal_url %>);">
+            <div class="front" style="background-image: url(<%= url_for @produto.produtor.foto_perfil_url %>);">
               <div class="box">
                 <h2><%= @produto.produtor.nome %></h2>
                 <p><%= @produto.produtor.apelido %></p>
@@ -76,7 +76,7 @@
               <%= link_to @produto.produtor do %>
               <div class="author d-flex">
                 <div class="image mr-3 align-self-center">
-                  <img src="<%= @produto.produtor.foto_principal_url %>" alt="">
+                  <img src="<%= @produto.produtor.foto_perfil_url %>" alt="">
                 </div>
                 <div class="name align-self-center">
                   <%= @produto.produtor.nome %> 
