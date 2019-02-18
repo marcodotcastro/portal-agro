@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.0'
 
 gem 'rails', '~> 5.2.2'
-gem 'sqlite3', '~> 1.3.6'
+gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -15,6 +15,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'ransack'
 
 group :development, :test do
+  gem 'sqlite3', '~> 1.3.6'
   gem 'annotate'
   gem 'pry-byebug'
 end
