@@ -1,7 +1,7 @@
 ActiveAdmin.register Produtor do
     menu priority: 1
 
-    permit_params :nome, :telefone, :email, :endereco, :whatsapp, :cartao,
+    permit_params :perfil, :nome, :telefone, :email, :endereco, :whatsapp, :cartao, fotos: [],
         video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
         fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy],
         historias_attributes: [:id, :data, :titulo, :descricao, :_destroy]
@@ -10,20 +10,14 @@ ActiveAdmin.register Produtor do
     
     form do |f|
         f.inputs do
+            f.input :perfil, as: :file
+            f.input :fotos, as: :file, input_html: { multiple: true}
             f.input :nome
             f.input :telefone
             f.input :whatsapp
             f.input :cartao
             f.input :email
             f.input :endereco
-            f.inputs do
-              f.has_many :fotos, allow_destroy: true, new_record: true do |a|
-                a.input :url
-                a.input :principal
-                a.input :nome
-                a.input :descricao, as: :text
-              end
-            end
             f.inputs do
             #FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
               f.has_many :video, allow_destroy: true, new_record: true do |a|
@@ -45,8 +39,8 @@ ActiveAdmin.register Produtor do
     
     index do
         selectable_column
-        column :foto do |obj|
-           image_tag obj.foto_principal_url, size: "50x50"
+        column :perfil do |obj|
+            image_tag obj.foto_perfil_url, size: "50x50"
         end
         column :nome
         column :telefone
@@ -60,6 +54,9 @@ ActiveAdmin.register Produtor do
 
     show title: proc{|p| "Produtor: " + p.nome }do
         attributes_table do 
+            row :perfil do |obj|
+             image_tag obj.foto_perfil_url, size: "50x50"
+            end
             row :nome
             row :telefone
             row :whatsapp
@@ -71,8 +68,8 @@ ActiveAdmin.register Produtor do
         end
         panel "Produtos" do
             table_for produtor.produtos do
-                column  :foto do |obj|
-                    image_tag obj.foto_principal_url, size: "50x50"
+                column  :capa do |obj|
+                    image_tag obj.foto_capa_url, size: "50x50"
                 end
                 column  :nome
                 column  :producao
@@ -83,16 +80,7 @@ ActiveAdmin.register Produtor do
                 end
             end
         end
-        panel "Fotos" do
-            table_for produtor.fotos do
-                column  :foto do |obj|
-                    image_tag obj.url, size: "50x50"
-                end
-                column  :nome
-                column  :descricao
-                column  :principal
-            end
-        end
+       
         panel "Vídeo" do
             table_for produtor.video do
                 column  :codigo do |obj|

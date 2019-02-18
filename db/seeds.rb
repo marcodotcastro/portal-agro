@@ -24,6 +24,8 @@ puts "# Produtores e Produtos"
         whatsapp: true,
         cartao: true
         )
+        
+    produtor1.perfil.attach(io: File.open(Rails.root + "test/imagens/vanderley-pio-perfil.jpg"), filename: "vanderley-pio-perfil.jpg" )
     
     Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://i.ytimg.com/vi/A8Rok7zz2mg/maxresdefault.jpg", principal: true, produtor: produtor1)
     Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "https://www.jornalcontabil.com.br/wp-content/uploads/2018/12/funrural-e1544089438373.jpg", principal: false, produtor: produtor1)
@@ -40,10 +42,11 @@ puts "# Produtores e Produtos"
         telefone: "(62)99998-12345", 
         email: "wilson.frade@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
-        apelido: "Wilson do Bar", 
+        apelido: "Wilson do Bar",
         whatsapp: false,
         cartao: false
         )
+    produtor2.perfil.attach(io: File.open(Rails.root + "test/imagens/wilson-frade-perfil.jpg"), filename: "wilson-frade-perfil.jpg" )
     
     Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://4.bp.blogspot.com/-JS8bro-9T5s/URQ8mMDk74I/AAAAAAAAGiY/oUz6VRqdEWU/s1600/DSC02793.JPG", principal: true, produtor: produtor2)
     Video.create(nome: "Video 2",descricao: "Video 2", codigo: "Uit7H-78XPI", produtor: produtor2)
@@ -57,6 +60,8 @@ puts "# Produtores e Produtos"
         whatsapp: false,
         cartao: true
         )
+        
+    produtor3.perfil.attach(io: File.open(Rails.root + "test/imagens/stephan-gaehwiler-perfil.jpg"), filename: "stephan-gaehwiler-perfil.jpg" )
         
     Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://blog.oobj.com.br/wp-content/uploads/2018/05/cpf-produtor-rual-650x390.png", principal: true, produtor: produtor3)
     Video.create(nome: "Video 3",descricao: "Video 3", codigo: "cen9ZMYzUm0", produtor: produtor3)
@@ -72,6 +77,8 @@ puts "# Produtores e Produtos"
     produto1.categoria = animal
     produto1.qualidade = normal
     produto1.save
+    
+    produto1.capa.attach(io: File.open(Rails.root + "test/imagens/leite-capa.jpg"), filename: "leite-capa.jpg" )
     
     Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://i.ytimg.com/vi/0-Fu3Aj4SoY/maxresdefault.jpg", principal: true, produto: produto1)
     Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "https://i.ytimg.com/vi/6ZFDEWwBttM/maxresdefault.jpg", principal: false, produto: produto1)
@@ -89,6 +96,8 @@ puts "# Produtores e Produtos"
     produto2.categoria = vegetal
     produto2.qualidade = natural
     produto2.save
+    
+    produto2.capa.attach(io: File.open(Rails.root + "test/imagens/soja-capa.jpg"), filename: "soja-capa.jpg" )
     
     Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://forabuvaeamargoso.com.br/assets/img/temp/Soja_1140x760px.jpg", principal: true, produto: produto2)
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "0FuZWc8Bpw8", produto: produto2)

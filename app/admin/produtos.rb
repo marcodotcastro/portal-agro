@@ -1,7 +1,7 @@
 ActiveAdmin.register Produto do
   menu priority: 2
 
-  permit_params :nome, :descricao, :producao, :preco, :video, :foto, :produtor_id, :categoria_id, :qualidade_id,
+  permit_params :capa, :nome, :descricao, :producao, :preco, :video, :produtor_id, :categoria_id, :qualidade_id, fotos: [],
     video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
     fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy]
   
@@ -21,18 +21,12 @@ ActiveAdmin.register Produto do
       f.input :produtor_id, :as => :select, :collection => Produtor.all.map{|u| ["#{u.nome}", u.id]}
       f.input :categoria_id, :as => :select, :collection => Categoria.all.map{|u| ["#{u.nome}", u.id]}
       f.input :qualidade_id, :as => :select, :collection => Qualidade.all.map{|u| ["#{u.nome}", u.id]}
+      f.input :capa, as: :file
+      f.input :fotos, as: :file, input_html: { multiple: true}
       f.input :nome
       f.input :descricao, as: :text
       f.input :producao
       f.input :preco
-      f.inputs do
-        f.has_many :fotos, allow_destroy: true, new_record: true do |a|
-          a.input :url
-          a.input :principal
-          a.input :nome
-          a.input :descricao, as: :text
-        end
-      end
       f.inputs do
         #FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
         f.has_many :video, allow_destroy: true, new_record: true do |a|
@@ -47,8 +41,8 @@ ActiveAdmin.register Produto do
 
   index do
     selectable_column
-    column :foto do |obj|
-      image_tag obj.foto_principal_url, size: "50x50"
+    column :capa do |obj|
+      image_tag obj.foto_capa_url, size: "50x50"
     end
     column :nome
     column :descricao
@@ -67,7 +61,10 @@ ActiveAdmin.register Produto do
   end
 
   show title: proc{|p| "Produto: " + p.nome }do
-    attributes_table do 
+    attributes_table do
+      row :capa do |obj|
+       image_tag obj.foto_capa_url, size: "50x50"
+      end
       row :nome
       row :descricao
       row :producao
@@ -83,16 +80,6 @@ ActiveAdmin.register Produto do
       end
       row :created_at
       row :updated_at
-      panel "Fotos" do
-        table_for produto.fotos do
-          column  :foto do |obj|
-            image_tag obj.url, size: "50x50"
-          end
-          column  :nome
-          column  :descricao
-          column  :principal
-        end
-      end
       panel "Vídeo" do
         table_for produto.video do
           column :codigo do |obj|

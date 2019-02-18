@@ -4,7 +4,7 @@
       <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
         <div class="block-2">
           <div class="flipper">
-            <div class="front" style="background-image: url(<%= @produtor.foto_principal_url %>);">
+            <div class="front" style="background-image: url(<%= url_for @produtor.foto_perfil_url %>);">
               <div class="box">
                 <h2><%= @produtor.nome %></h2>
                 <p><%= @produtor.apelido %></p>
@@ -21,7 +21,7 @@
               <%= link_to @produtor do %>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img src="<%= @produtor.foto_principal_url %>" alt="">
+                    <img src="<%= @produtor.foto_perfil_url %>" alt="">
                   </div>
                   <div class="name align-self-center"><%= @produtor.nome %> <span class="position"><%= @produtor.apelido %></span> <span  class="position"><a href="https://www.youtube.com/embed/<%= @produtor.video.codigo %>" data-fancybox >Vídeo Sobre o Produtor</a></span></div>
                 </div>
@@ -85,7 +85,7 @@
         <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
           <%= link_to(produto, class: "room") do %>
             <figure class="img-wrap">
-                <%= image_tag(produto.foto_principal_url, class: "img-fluid mb-3", size: "500x500") %>
+                <%= image_tag(produto.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
               <h2><%= produto.nome %></h2>
