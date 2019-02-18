@@ -34,25 +34,12 @@
         <h2 class="heading" data-aos="fade">A História</h2>
         <div class="row justify-content-center">
           <div class="col-md-12">
-            <div class="timeline-item" date-is='2019' data-aos="fade">
-              <h5>More Branches Worldwide</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-              </p>
-            </div>
-            <div class="timeline-item" date-is='2011' data-aos="fade">
-              <h5>Company Full Blast</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-              </p>
-            </div>
-            
-            <div class="timeline-item" date-is='2008' data-aos="fade">
-              <h5>The Birth of the Company</h3>
-              <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-              </p>
-            </div>
+            <% @produtor.historias.order(data: :asc).each do |historia| %>
+              <div class="timeline-item" date-is='<%= historia.data.year%>' data-aos="fade">
+                <h5><%= historia.titulo %></h5>
+                <%= historia.descricao %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
