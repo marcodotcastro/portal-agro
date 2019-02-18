@@ -18,15 +18,15 @@ ActiveAdmin.register Produto do
 
   form do |f|
     f.inputs do
-      f.input :produtor_id, :as => :select, :collection => Produtor.all.map{|u| ["#{u.nome}", u.id]}
-      f.input :categoria_id, :as => :select, :collection => Categoria.all.map{|u| ["#{u.nome}", u.id]}
-      f.input :qualidade_id, :as => :select, :collection => Qualidade.all.map{|u| ["#{u.nome}", u.id]}
       f.input :capa, as: :file
-      f.input :fotos, as: :file, input_html: { multiple: true}
       f.input :nome
       f.input :descricao, as: :text
       f.input :producao
       f.input :preco
+      f.input :produtor_id, :as => :select, :collection => Produtor.all.map{|u| ["#{u.nome}", u.id]}
+      f.input :categoria_id, :as => :select, :collection => Categoria.all.map{|u| ["#{u.nome}", u.id]}
+      f.input :qualidade_id, :as => :select, :collection => Qualidade.all.map{|u| ["#{u.nome}", u.id]}
+      f.input :fotos, as: :file, input_html: { multiple: true}
       f.inputs do
         #FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
         f.has_many :video, allow_destroy: true, new_record: true do |a|
@@ -80,6 +80,13 @@ ActiveAdmin.register Produto do
       end
       row :created_at
       row :updated_at
+      panel "Fotos" do	
+        table_for produto.fotos do	
+            column  :foto do |obj|	
+                image_tag obj, size: "50x50"	
+            end	
+        end	
+      end
       panel "Vídeo" do
         table_for produto.video do
           column :codigo do |obj|

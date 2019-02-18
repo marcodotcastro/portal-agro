@@ -60,7 +60,7 @@
         <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
           <% @produtor.fotos.each do |foto| %>
             <div class="slider-item">
-              <a href="<%= foto.url %>" data-fancybox="images" data-caption="<%= foto.descricao %>"><img src="<%= foto.url %>" alt="<%= foto.nome %>" class="img-fluid"></a>
+              <a href="<%= url_for foto %>" data-fancybox="images"><img src="<%= url_for foto %>" class="img-fluid"></a>
             </div>
           <% end %>
         </div>

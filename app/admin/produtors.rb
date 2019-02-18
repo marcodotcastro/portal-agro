@@ -11,13 +11,13 @@ ActiveAdmin.register Produtor do
     form do |f|
         f.inputs do
             f.input :perfil, as: :file
-            f.input :fotos, as: :file, input_html: { multiple: true}
             f.input :nome
             f.input :telefone
             f.input :whatsapp
             f.input :cartao
             f.input :email
             f.input :endereco
+            f.input :fotos, as: :file, input_html: { multiple: true}
             f.inputs do
             #FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
               f.has_many :video, allow_destroy: true, new_record: true do |a|
@@ -80,7 +80,13 @@ ActiveAdmin.register Produtor do
                 end
             end
         end
-       
+        panel "Fotos" do	
+             table_for produtor.fotos do	
+                column  :foto do |obj|	
+                    image_tag obj, size: "50x50"	
+                end	
+            end	
+        end
         panel "Vídeo" do
             table_for produtor.video do
                 column  :codigo do |obj|

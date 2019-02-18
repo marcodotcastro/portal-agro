@@ -27,9 +27,8 @@ puts "# Produtores e Produtos"
         
     produtor1.perfil.attach(io: File.open(Rails.root + "test/imagens/vanderley-pio-perfil.jpg"), filename: "vanderley-pio-perfil.jpg" )
     
-    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://i.ytimg.com/vi/A8Rok7zz2mg/maxresdefault.jpg", principal: true, produtor: produtor1)
-    Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "https://www.jornalcontabil.com.br/wp-content/uploads/2018/12/funrural-e1544089438373.jpg", principal: false, produtor: produtor1)
-    Foto.create(nome: "Foto 3",descricao: "Foto 3", url: "https://www.somaurbanismo.com.br/wp-content/uploads/2018/05/08-04-Produtor-rural-de-Jaguar%C3%A9-pode-pagar-por-lote-nas-colheitas.jpg", principal: false, produtor: produtor1)
+    produtor1.fotos.attach(io: File.open(Rails.root + "test/imagens/produtor-foto-1.jpg"), filename: "produtor-foto-1.jpg" )
+    produtor1.fotos.attach(io: File.open(Rails.root + "test/imagens/produtor-foto-2.jpg"), filename: "produtor-foto-2.jpg" )
     
     Historia.create(data: Date.parse("Dec 8 1930"), titulo: "O Nascimento", descricao: "Nasceu na cidade de ... em uma casa com 12 irmão...", produtor: produtor1)
     Historia.create(data: Date.parse("Dec 8 1945"), titulo: "A Mudança", descricao: "Se mudou para ... devido ... e lá criou ...", produtor: produtor1)
@@ -48,7 +47,6 @@ puts "# Produtores e Produtos"
         )
     produtor2.perfil.attach(io: File.open(Rails.root + "test/imagens/wilson-frade-perfil.jpg"), filename: "wilson-frade-perfil.jpg" )
     
-    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://4.bp.blogspot.com/-JS8bro-9T5s/URQ8mMDk74I/AAAAAAAAGiY/oUz6VRqdEWU/s1600/DSC02793.JPG", principal: true, produtor: produtor2)
     Video.create(nome: "Video 2",descricao: "Video 2", codigo: "Uit7H-78XPI", produtor: produtor2)
     
     produtor3 = Produtor.create(
@@ -63,7 +61,6 @@ puts "# Produtores e Produtos"
         
     produtor3.perfil.attach(io: File.open(Rails.root + "test/imagens/stephan-gaehwiler-perfil.jpg"), filename: "stephan-gaehwiler-perfil.jpg" )
         
-    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://blog.oobj.com.br/wp-content/uploads/2018/05/cpf-produtor-rual-650x390.png", principal: true, produtor: produtor3)
     Video.create(nome: "Video 3",descricao: "Video 3", codigo: "cen9ZMYzUm0", produtor: produtor3)
     
     produto1 = Produto.create(
@@ -80,9 +77,9 @@ puts "# Produtores e Produtos"
     
     produto1.capa.attach(io: File.open(Rails.root + "test/imagens/leite-capa.jpg"), filename: "leite-capa.jpg" )
     
-    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "https://i.ytimg.com/vi/0-Fu3Aj4SoY/maxresdefault.jpg", principal: true, produto: produto1)
-    Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "https://i.ytimg.com/vi/6ZFDEWwBttM/maxresdefault.jpg", principal: false, produto: produto1)
-    Foto.create(nome: "Foto 3",descricao: "Foto 3", url: "https://sebraers.com.br/wp-content/uploads/2017/11/iStock-671065136.jpg", principal: false, produto: produto1)
+    produto1.fotos.attach(io: File.open(Rails.root + "test/imagens/produto-foto-1.jpg"), filename: "produto-foto-1.jpg" )
+    produto1.fotos.attach(io: File.open(Rails.root + "test/imagens/produto-foto-2.jpg"), filename: "produto-foto-2.jpg" )
+    
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "XRgDSQJgoCI", produto: produto1)
 
     produto2 = Produto.create(
@@ -99,7 +96,6 @@ puts "# Produtores e Produtos"
     
     produto2.capa.attach(io: File.open(Rails.root + "test/imagens/soja-capa.jpg"), filename: "soja-capa.jpg" )
     
-    Foto.create(nome: "Foto 1",descricao: "Foto 1", url: "http://forabuvaeamargoso.com.br/assets/img/temp/Soja_1140x760px.jpg", principal: true, produto: produto2)
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "0FuZWc8Bpw8", produto: produto2)
    
 #end
