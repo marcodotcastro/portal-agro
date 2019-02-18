@@ -68,6 +68,12 @@ pt-BR:
         url: "Url"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
+      historia:
+        data: "Data"
+        titulo: "Título"
+        descricao: "Descrição"
+        created_at: "Criado Em"
+        updated_at: "Atualizado Em"
       admin_user:
         email: "Email"
         password: "Senha"

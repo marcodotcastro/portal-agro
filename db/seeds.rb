@@ -25,6 +25,10 @@ if Rails.env.development?
     Foto.create(nome: "Foto 2",descricao: "Foto 2", url: "https://www.jornalcontabil.com.br/wp-content/uploads/2018/12/funrural-e1544089438373.jpg", principal: false, produtor: produtor1)
     Foto.create(nome: "Foto 3",descricao: "Foto 3", url: "https://www.somaurbanismo.com.br/wp-content/uploads/2018/05/08-04-Produtor-rural-de-Jaguar%C3%A9-pode-pagar-por-lote-nas-colheitas.jpg", principal: false, produtor: produtor1)
     
+    Historia.create(data: Date.parse("Dec 8 1930"), titulo: "O Nascimento", descricao: "Nasceu na cidade de ... em uma casa com 12 irmão...", produtor: produtor1)
+    Historia.create(data: Date.parse("Dec 8 1945"), titulo: "A Mudança", descricao: "Se mudou para ... devido ... e lá criou ...", produtor: produtor1)
+    Historia.create(data: Date.parse("Dec 8 1955"), titulo: "A Compra", descricao: "Já com 2 filhos comprou sua primeira terra de 2 alqueires ....", produtor: produtor1)
+    
     Video.create(nome: "Video 1",descricao: "Video 1", codigo: "Fdbk4v4a16Y", produtor: produtor1)
     
     produtor2 = Produtor.create(

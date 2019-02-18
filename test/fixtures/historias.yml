@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2019-02-18 12:55:48
+  titulo: MyString
+  descricao: MyString
+  produtor: 
+
+two:
+  data: 2019-02-18 12:55:48
+  titulo: MyString
+  descricao: MyString
+  produtor: 

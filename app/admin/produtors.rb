@@ -3,7 +3,8 @@ ActiveAdmin.register Produtor do
 
     permit_params :nome, :telefone, :email, :endereco, :whatsapp, :cartao,
         video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
-        fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy]
+        fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy],
+        historias_attributes: [:id, :data, :titulo, :descricao, :_destroy]
     
     filter :nome
     
@@ -28,6 +29,13 @@ ActiveAdmin.register Produtor do
               f.has_many :video, allow_destroy: true, new_record: true do |a|
                 a.input :codigo
                 a.input :nome
+                a.input :descricao, as: :text
+              end
+            end
+            f.inputs do
+              f.has_many :historias, allow_destroy: true, new_record: true do |a|
+                a.input :data, as: :datepicker
+                a.input :titulo
                 a.input :descricao, as: :text
               end
             end
@@ -91,6 +99,13 @@ ActiveAdmin.register Produtor do
                    obj ? link_to("Assista" , "https://www.youtube.com/watch?v=#{obj.codigo}", target: "_blank") : ""
                 end
                 column  :nome
+                column  :descricao
+            end
+        end
+        panel "História" do
+            table_for produtor.historias do
+                column  :data
+                column  :titulo
                 column  :descricao
             end
         end
