@@ -18,4 +18,10 @@ class Produto < ApplicationRecord
       self.capa.attached? ? self.capa : foto_vazia
   end
   
+  def producao
+    if self.producoes
+     self.producoes.last.numero.to_s + " " + self.producoes.last.unidade + "/" + self.producoes.last.periodo
+    end
+  end
+  
 end

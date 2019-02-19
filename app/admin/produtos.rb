@@ -52,11 +52,7 @@ ActiveAdmin.register Produto do
     end
     column :nome
     column :descricao
-    column :producao do |obj|
-      if obj.producoes
-        obj.producoes.last.numero.to_s + " " + obj.producoes.last.unidade + "/" + obj.producoes.last.periodo
-      end
-    end
+    column :producao
     column :preco
     column :produtor, sortable: :name do |obj|
       link_to obj.produtor.nome, admin_produtor_path(obj.produtor)
