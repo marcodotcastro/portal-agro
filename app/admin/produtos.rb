@@ -1,9 +1,10 @@
 ActiveAdmin.register Produto do
   menu priority: 2
 
-  permit_params :capa, :nome, :descricao, :producao, :preco, :video, :produtor_id, :categoria_id, :qualidade_id, fotos: [],
+  permit_params :capa, :nome, :descricao, :producao, :preco, :video, :produtor_id, :categoria_id, :qualidade_id, 
+    fotos: [],
     video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
-    fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy]
+    producoes_attributes: [:id, :numero, :unidade, :periodo, :_destroy]
   
   filter :produtor, collection: -> {
     Produtor.all.map { |map| [map.nome, map.id] }
@@ -13,7 +14,6 @@ ActiveAdmin.register Produto do
   }
   
   filter :nome
-  filter :producao
   filter :preco
 
   form do |f|
@@ -21,11 +21,17 @@ ActiveAdmin.register Produto do
       f.input :capa, as: :file
       f.input :nome
       f.input :descricao, as: :text
-      f.input :producao
       f.input :preco
       f.input :produtor_id, :as => :select, :collection => Produtor.all.map{|u| ["#{u.nome}", u.id]}
       f.input :categoria_id, :as => :select, :collection => Categoria.all.map{|u| ["#{u.nome}", u.id]}
       f.input :qualidade_id, :as => :select, :collection => Qualidade.all.map{|u| ["#{u.nome}", u.id]}
+      f.inputs do
+        f.has_many :producoes, allow_destroy: true, new_record: true do |a|
+          a.input :numero
+          a.input :unidade
+          a.input :periodo
+        end
+      end
       f.input :fotos, as: :file, input_html: { multiple: true}
       f.inputs do
         #FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
@@ -46,7 +52,11 @@ ActiveAdmin.register Produto do
     end
     column :nome
     column :descricao
-    column :producao
+    column :producao do |obj|
+      if obj.producoes
+        obj.producoes.last.numero.to_s + " " + obj.producoes.last.unidade + "/" + obj.producoes.last.periodo
+      end
+    end
     column :preco
     column :produtor, sortable: :name do |obj|
       link_to obj.produtor.nome, admin_produtor_path(obj.produtor)
@@ -67,7 +77,6 @@ ActiveAdmin.register Produto do
       end
       row :nome
       row :descricao
-      row :producao
       row :preco
       row :produtor do |obj|
         link_to obj.produtor.nome, admin_produtor_path(obj.produtor)
@@ -94,6 +103,13 @@ ActiveAdmin.register Produto do
           end
           column  :nome
           column  :descricao
+        end
+      end
+      panel "Produções" do
+        table_for produto.producoes do
+          column  :numero
+          column  :unidade
+          column  :periodo
         end
       end
     end

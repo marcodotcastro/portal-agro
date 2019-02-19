@@ -19,9 +19,9 @@ pt-BR:
       video:
         one: "Vídeo"
         other: "Vídeos"
-      foto:
-        one: "Foto"
-        other: "Fotos"
+      producao:
+        one: "Produção"
+        other: "Produções"
       admin_user:
         one: "Administrador"
         other: "Administradores"
@@ -62,10 +62,10 @@ pt-BR:
         codigo: "Código"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
-      foto:
-        nome: "Nome"
-        descricao: "Descrição"
-        url: "Url"
+      producao:
+        numero: "Número"
+        unidade: "Unidade"
+        periodo: "Período"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
       historia:
