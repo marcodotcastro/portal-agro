@@ -7,9 +7,9 @@ vegetal = Categoria.create(nome: "Vegetal", descricao: "")
 industrial = Categoria.create(nome: "Industrial", descricao: "")
 
 puts "# Qualidade"
-normal = Qualidade.create(nome: "Normal", descricao: "")
+normal = Qualidade.create(nome: "Tradicional", descricao: "")
 natural = Qualidade.create(nome: "Natural", descricao: "")
-organica = Qualidade.create(nome: "Orgânica", descricao: "")
+organico = Qualidade.create(nome: "Orgânico", descricao: "")
 
 
 #if Rails.env.development?
@@ -66,12 +66,12 @@ puts "# Produtores e Produtos"
     produto1 = Produto.create(
         nome: "Leite", 
         descricao: "Leite é uma secreção nutritiva de cor esbranquiçada e opaca produzida pelas glândulas mamárias das fêmeas dos mamíferos. O líquido é produzido pelas células secretoras das glândulas mamárias ou mamas. A secreção láctea de uma fêmea dias antes e depois do parto se chama colostro.", 
-        preco: "R$ 1,00 L"
+        preco: "R$ 1,00 l"
     )
     
     producao1 = Producao.create(numero: 100, unidade: :litro, periodo: :dia)
     producao2 = Producao.create(numero: 150, unidade: :litro, periodo: :dia)
-    producao3 = Producao.create(numero: 300, unidade: :litro, periodo: :dia)
+    producao3 = Producao.create(numero: 250, unidade: :litro, periodo: :dia)
     
     produto1.produtor = produtor1
     produto1.categoria = animal
@@ -93,7 +93,7 @@ puts "# Produtores e Produtos"
     )
     
     producao4 = Producao.create(numero: 500, unidade: :saco, periodo: :ano)
-    producao5 = Producao.create(numero: 1000, unidade: :saco, periodo: :ano)
+    producao5 = Producao.create(numero: 450, unidade: :saco, periodo: :ano)
     
     produto2.produtor = produtor1
     produto2.categoria = vegetal

@@ -27,7 +27,14 @@ class Produto < ApplicationRecord
   def evolucao
     if self.producoes
       ultima_e_penultima = self.producoes.last(2)
-      "Evolução de " + ((ultima_e_penultima.last.numero / ultima_e_penultima.first.numero) * 100).to_s + "%" 
+      alteracao = (((ultima_e_penultima.last.numero.to_f / ultima_e_penultima.first.numero.to_f) - 1) * 100).round(2)
+      
+      if alteracao >= 0
+        "um aumento de #{alteracao}%" 
+      else
+        "uma diminuição de #{alteracao * -1}%"
+      end
+      
     end
   end
   
