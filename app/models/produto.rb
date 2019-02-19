@@ -24,4 +24,11 @@ class Produto < ApplicationRecord
     end
   end
   
+  def evolucao
+    if self.producoes
+      ultima_e_penultima = self.producoes.last(2)
+      "Evolução de " + ((ultima_e_penultima.last.numero / ultima_e_penultima.first.numero) * 100).to_s + "%" 
+    end
+  end
+  
 end

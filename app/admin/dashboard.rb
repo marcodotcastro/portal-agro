@@ -11,7 +11,7 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
        column do
-         panel "Recentes Produtos Cadastrados" do
+         panel "Recentes Produtos" do
            ul do
              Produto.last(5).map do |obj|
                li link_to("#{obj.nome}", admin_produto_path(obj)) + ", #{obj.preco}, " + link_to("#{obj.produtor.nome}", admin_produtor_path(obj.produtor)) 
@@ -27,14 +27,19 @@ ActiveAdmin.register_page "Dashboard" do
            end
         end
       end
+    end
+    
+    columns do
       column do
-        panel "Produções" do
-           ul do
-               li "Total de Produtos: #{Produto.count}"
-               li "Total de Produtores: #{Produtor.count}"
-           end
+        panel "Recentes Produções" do
+          ul do
+             Produto.last(5).map do |obj|
+               li link_to("#{obj.nome}", admin_produto_path(obj)) + ", " + link_to("#{obj.produtor.nome}", admin_produtor_path(obj.produtor)) + ", " + obj.evolucao.to_s 
+             end
+          end
         end
       end
     end
+    
   end 
 end
