@@ -2,6 +2,7 @@ class Produto < ApplicationRecord
   belongs_to :produtor
   belongs_to :categoria
   belongs_to :qualidade
+  has_many :producoes
   has_one_attached :capa
   has_many_attached :fotos
   has_one :video, :dependent => :destroy

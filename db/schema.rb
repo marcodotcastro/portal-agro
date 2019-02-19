@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_18_125548) do
+ActiveRecord::Schema.define(version: 2019_02_19_181839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,16 @@ ActiveRecord::Schema.define(version: 2019_02_18_125548) do
     t.index ["produtor_id"], name: "index_historias_on_produtor_id"
   end
 
+  create_table "producoes", force: :cascade do |t|
+    t.integer "numero"
+    t.integer "unidade", default: 0
+    t.integer "periodo", default: 0
+    t.bigint "produto_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["produto_id"], name: "index_producoes_on_produto_id"
+  end
+
   create_table "produtores", force: :cascade do |t|
     t.string "nome"
     t.string "telefone"
@@ -107,7 +117,6 @@ ActiveRecord::Schema.define(version: 2019_02_18_125548) do
   create_table "produtos", force: :cascade do |t|
     t.string "nome"
     t.string "descricao"
-    t.string "producao"
     t.string "preco"
     t.bigint "produtor_id"
     t.bigint "categoria_id"
@@ -142,6 +151,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_125548) do
   add_foreign_key "fotos", "produtores"
   add_foreign_key "fotos", "produtos"
   add_foreign_key "historias", "produtores"
+  add_foreign_key "producoes", "produtos"
   add_foreign_key "produtos", "categorias"
   add_foreign_key "produtos", "produtores"
   add_foreign_key "produtos", "qualidades"
