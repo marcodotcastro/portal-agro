@@ -1,3 +1,5 @@
+puts Rails.env
+
 puts "# Administrador"
 AdminUser.first_or_create!(email: "admin@portalagro.com.br", password: "abc12345", password_confirmation: "abc12345")
 
