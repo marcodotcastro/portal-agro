@@ -13,6 +13,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'ransack'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.3.6'
