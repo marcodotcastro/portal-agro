@@ -1,13 +1,29 @@
 # PORTAL AGRO
+- [c] criada funcionalidade
+- [a] atualizada funcionalidade
+- [e] excluida funcionalidade
 
-# Versão 0.1
+## Versão 0.1
 
-[add] adicionado framework active admin
-[add] criar de produtos
-[add] alterar de produtos
-[add] excluir de produtos
-[add] listar de produtos
-[add] criar de produtores
-[add] alterar de produtores
-[add] excluir de produtores
-[add] listar de produtores
+### Modulo de Administração
+- [c] Produtos
+    - [c] detalhar
+    - [c] criar
+    - [c] alterar
+    - [c] excluir
+    - [c] listar
+- [c] Produtores
+    - [c] detalhar
+    - [c] criar
+    - [c] alterar
+    - [c] excluir
+    - [c] listar
+    
+### Modulo de Consumidor/Atacadista/Varejista
+
+- [c] Produtos
+    - [c] detalhar
+    - [c] listar
+- [c] Produtores
+    - [c] detalhar
+    - [c] listar
