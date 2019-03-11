@@ -15,6 +15,10 @@ gem 'ransack'
 gem 'mini_magick'
 gem "rubycritic", require: false
 
+group :production do
+  gem 'aws-sdk-s3'
+end
+
 group :development, :test do
   gem 'annotate'
   gem 'pry-byebug'
