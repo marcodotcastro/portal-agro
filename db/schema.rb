@@ -69,19 +69,6 @@ ActiveRecord::Schema.define(version: 2019_02_19_181839) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "fotos", force: :cascade do |t|
-    t.string "nome"
-    t.string "descricao"
-    t.string "url"
-    t.boolean "principal"
-    t.bigint "produtor_id"
-    t.bigint "produto_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["produto_id"], name: "index_fotos_on_produto_id"
-    t.index ["produtor_id"], name: "index_fotos_on_produtor_id"
-  end
-
   create_table "historias", force: :cascade do |t|
     t.datetime "data"
     t.string "titulo"
@@ -148,8 +135,6 @@ ActiveRecord::Schema.define(version: 2019_02_19_181839) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "fotos", "produtores"
-  add_foreign_key "fotos", "produtos"
   add_foreign_key "historias", "produtores"
   add_foreign_key "producoes", "produtos"
   add_foreign_key "produtos", "categorias"

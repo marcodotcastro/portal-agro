@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.0'
-
-gem 'rails', '~> 5.2.2'
+ruby '2.6.1'
 gem 'pg'
+gem 'rails', '~> 5.2.2'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -16,7 +15,6 @@ gem 'ransack'
 gem 'mini_magick'
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.3.6'
   gem 'annotate'
   gem 'pry-byebug'
 end
@@ -32,6 +30,7 @@ group :development do
 end
 
 group :test do
+  gem 'sqlite3', '~> 1.3.6'
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
