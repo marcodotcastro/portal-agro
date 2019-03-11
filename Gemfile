@@ -16,7 +16,7 @@ gem 'mini_magick'
 gem "rubycritic", require: false
 
 group :production do
-  gem 'aws-sdk-s3'
+  gem 'aws-sdk-s3', require: false
 end
 
 group :development, :test do
