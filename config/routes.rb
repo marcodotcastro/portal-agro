@@ -62,10 +62,10 @@
 #                  admin_comment GET        /admin/comments/:id(.:format)                                                            admin/comments#show
 #                                DELETE     /admin/comments/:id(.:format)                                                            admin/comments#destroy
 #                           root GET        /                                                                                        home#index
-#              produtor_produtos GET        /produtores/:produtor_id/produtos(.:format)                                              produtos#index
 #               produtor_produto GET        /produtores/:produtor_id/produtos/:id(.:format)                                          produtos#show
-#                     produtores GET        /produtores(.:format)                                                                    produtores#index
 #                       produtor GET        /produtores/:id(.:format)                                                                produtores#show
+#                     produtores GET        /produtores(.:format)                                                                    produtores#index
+#                       produtos GET        /produtos(.:format)                                                                      produtos#index
 #             rails_service_blob GET        /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 #      rails_blob_representation GET        /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #             rails_disk_service GET        /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
@@ -78,7 +78,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   root 'home#index'
-  resources :produtores, only: [:index, :show] do
-    resources :produtos, only: [:index, :show]
+  resources :produtores, only: [:show] do
+    resources :produtos, only: [:show]
   end
+
+  resources :produtores, only: [:index]
+  resources :produtos, only: [:index]
 end
