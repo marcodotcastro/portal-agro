@@ -1,4 +1,6 @@
 class Produto < ApplicationRecord
+  extend FriendlyId
+
   belongs_to :produtor
   belongs_to :categoria
   belongs_to :qualidade
@@ -10,7 +12,9 @@ class Produto < ApplicationRecord
   
   accepts_nested_attributes_for :video, allow_destroy: true
   accepts_nested_attributes_for :producoes, allow_destroy: true
-  
+
+  friendly_id :friendly_url, use: :slugged
+
   def foto_capa_url
       #FIXME: Código duplicado
       foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
@@ -36,6 +40,14 @@ class Produto < ApplicationRecord
       end
       
     end
+  end
+
+  def friendly_url
+    self.nome
+  end
+
+  def should_generate_new_friendly_id?
+    nome_changed? || super
   end
   
 end

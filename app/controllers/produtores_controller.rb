@@ -11,7 +11,7 @@ class ProdutoresController < ApplicationController
   
   private
     def set_produtor
-      @produtor = Produtor.find(params[:id])
+      @produtor = Produtor.friendly.find(params[:id])
     end
 
 end

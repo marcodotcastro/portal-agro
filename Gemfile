@@ -14,6 +14,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'ransack'
 gem 'mini_magick'
 gem "rubycritic", require: false
+gem 'friendly_id', '~> 5.2.4'
 
 group :production do
   gem 'aws-sdk-s3', require: false

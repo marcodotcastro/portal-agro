@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_180820) do
+ActiveRecord::Schema.define(version: 2019_03_11_195059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(version: 2019_03_11_180820) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
   create_table "historias", force: :cascade do |t|
     t.datetime "data"
     t.string "titulo"
@@ -100,6 +111,8 @@ ActiveRecord::Schema.define(version: 2019_03_11_180820) do
     t.boolean "cartao"
     t.string "apelido"
     t.string "sobrenome"
+    t.string "slug"
+    t.index ["slug"], name: "index_produtores_on_slug", unique: true
   end
 
   create_table "produtos", force: :cascade do |t|
@@ -111,9 +124,11 @@ ActiveRecord::Schema.define(version: 2019_03_11_180820) do
     t.bigint "qualidade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["categoria_id"], name: "index_produtos_on_categoria_id"
     t.index ["produtor_id"], name: "index_produtos_on_produtor_id"
     t.index ["qualidade_id"], name: "index_produtos_on_qualidade_id"
+    t.index ["slug"], name: "index_produtos_on_slug", unique: true
   end
 
   create_table "qualidades", force: :cascade do |t|

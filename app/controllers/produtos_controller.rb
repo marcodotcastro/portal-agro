@@ -11,7 +11,7 @@ class ProdutosController < ApplicationController
   
   private
     def set_produto
-      @produto = Produto.find(params[:id])
+      @produto = Produto.friendly.find(params[:id])
     end
 
 end
