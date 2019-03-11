@@ -61,7 +61,7 @@
           <div class="flipper">
             <div class="front" style="background-image: url(<%= url_for @produto.produtor.foto_perfil_url %>);">
               <div class="box">
-                <h2><%= @produto.produtor.nome %></h2>
+                <h2><%= @produto.produtor.nome_completo %></h2>
                 <p><%= @produto.produtor.apelido %></p>
               </div>
             </div>
@@ -79,7 +79,7 @@
                   <img src="<%= @produto.produtor.foto_perfil_url %>" alt="">
                 </div>
                 <div class="name align-self-center">
-                  <%= @produto.produtor.nome %> 
+                  <%= @produto.produtor.nome_completo %> 
                   <span class="position"><%= @produto.produtor.apelido %></span>
                   <% if @produto.produtor.video %>
                     <span class="position">

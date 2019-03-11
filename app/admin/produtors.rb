@@ -1,17 +1,19 @@
 ActiveAdmin.register Produtor do
     menu priority: 1
 
-    permit_params :perfil, :nome, :telefone, :email, :endereco, :whatsapp, :cartao, fotos: [],
+    permit_params :perfil, :nome, :sobrenome, :telefone, :email, :endereco, :whatsapp, :cartao, fotos: [],
         video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
         fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy],
         historias_attributes: [:id, :data, :titulo, :descricao, :_destroy]
     
     filter :nome
+    filter :sobrenome
     
     form do |f|
         f.inputs do
             f.input :perfil, as: :file
             f.input :nome
+            f.input :sobrenome
             f.input :telefone
             f.input :whatsapp
             f.input :cartao
@@ -43,6 +45,7 @@ ActiveAdmin.register Produtor do
             image_tag obj.foto_perfil_url, size: "50x50"
         end
         column :nome
+        column :sobrenome
         column :telefone
         column :whatsapp
         column :cartao
@@ -58,6 +61,7 @@ ActiveAdmin.register Produtor do
              image_tag obj.foto_perfil_url, size: "50x50"
             end
             row :nome
+            row :sobrenome
             row :telefone
             row :whatsapp
             row :cartao

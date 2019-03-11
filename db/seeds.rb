@@ -18,7 +18,8 @@ organico = Qualidade.create(id: 3, nome: "Orgânico", descricao: "")
    
 puts "# Produtores e Produtos"   
     produtor1 = Produtor.create(
-        nome: "Vanderley Pio", 
+        nome: "Vanderley",
+        sobrenome: "Pio",
         telefone: "(62)99998-12345", 
         email: "vanderley.pio@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
@@ -44,7 +45,8 @@ puts "# Produtores e Produtos"
     produtor1.save
     
     produtor2 = Produtor.create(
-        nome: "Wilson Frade", 
+        nome: "Wilson",
+        sobrenome: "Frade",
         telefone: "(62)99998-12345", 
         email: "wilson.frade@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
@@ -57,7 +59,8 @@ puts "# Produtores e Produtos"
     Video.create(nome: "Video 2",descricao: "Video 2", codigo: "Uit7H-78XPI", produtor: produtor2)
     
     produtor3 = Produtor.create(
-        nome: "Stephan Gaehwiler", 
+        nome: "Stephan",
+        sobrenome: "Gaehwiler",
         telefone: "(62)99998-12345", 
         email: "stephan.gaehwiler@gmail.com", 
         endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",

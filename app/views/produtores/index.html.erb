@@ -35,7 +35,7 @@
                 <%= image_tag(produtor.foto_perfil_url, class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
-              <h2><%= produtor.nome %></h2>
+              <h2><%= produtor.nome_completo %></h2>
               <span class="letter-spacing-1">Telefone: <%= produtor.telefone %> <%= produtor.whatsapp ? "<span class='fa fa-whatsapp'></span>".html_safe : "" %></span><br>
               <%= produtor.cartao ? "<span class='letter-spacing-1'>Aceita Cartão</span><br>".html_safe : "" %>
               <span class="letter-spacing-1">Email: <%= produtor.email %></span><br>

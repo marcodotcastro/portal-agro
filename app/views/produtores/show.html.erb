@@ -6,7 +6,7 @@
           <div class="flipper">
             <div class="front" style="background-image: url(<%= url_for @produtor.foto_perfil_url %>);">
               <div class="box">
-                <h2><%= @produtor.nome %></h2>
+                <h2><%= @produtor.nome_completo %></h2>
                 <p><%= @produtor.apelido %></p>
               </div>
             </div>
@@ -23,7 +23,7 @@
                   <div class="image mr-3 align-self-center">
                     <img src="<%= @produtor.foto_perfil_url %>" alt="">
                   </div>
-                  <div class="name align-self-center"><%= @produtor.nome %> <span class="position"><%= @produtor.apelido %></span> <span  class="position"><a href="https://www.youtube.com/embed/<%= @produtor.video.codigo %>" data-fancybox >Vídeo Sobre o Produtor</a></span></div>
+                  <div class="name align-self-center"><%= @produtor.nome_completo %> <span class="position"><%= @produtor.apelido %></span> <span  class="position"><a href="https://www.youtube.com/embed/<%= @produtor.video.codigo %>" data-fancybox >Vídeo Sobre o Produtor</a></span></div>
                 </div>
               <% end %>
             </div>
