@@ -1,29 +1,7 @@
-# PORTAL AGRO
-- [c] criada funcionalidade
-- [a] atualizada funcionalidade
-- [e] excluida funcionalidade
+# COMANDOS
 
-## Versão 0.1
+## Qualidade
 
-### Modulo de Administração
-- [c] Produtos
-    - [c] detalhar
-    - [c] criar
-    - [c] alterar
-    - [c] excluir
-    - [c] listar
-- [c] Produtores
-    - [c] detalhar
-    - [c] criar
-    - [c] alterar
-    - [c] excluir
-    - [c] listar
-    
-### Modulo de Consumidor/Atacadista/Varejista
+- rake rubycritic
 
-- [c] Produtos
-    - [c] detalhar
-    - [c] listar
-- [c] Produtores
-    - [c] detalhar
-    - [c] listar
+Configuração -- lib/tasks/rubycritic.rake
