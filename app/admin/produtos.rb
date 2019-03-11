@@ -1,6 +1,12 @@
 ActiveAdmin.register Produto do
   menu priority: 2
 
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
+
   permit_params :capa, :nome, :descricao, :producao, :preco, :video, :produtor_id, :categoria_id, :qualidade_id, 
     fotos: [],
     video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],

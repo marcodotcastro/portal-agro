@@ -23,14 +23,14 @@
                   <label for="children" class="font-weight-bold text-black">Qualidade</label>
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                   <%= f.select :qualidade_id_eq, options_from_collection_for_select(Qualidade.all, "id", "nome", @q.qualidade_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
+                    <%= f.select :qualidade_id_eq, options_from_collection_for_select(Qualidade.all, "id", "nome", @q.qualidade_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
                   </div>
                 </div>
                 <div class="col-md-4 mb-3 mb-md-0">
                   <label for="children" class="font-weight-bold text-black">Produtor</label>
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                   <%= f.select :produtor_id_eq, options_from_collection_for_select(Produtor.all, "id", "nome", @q.produtor_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
+                    <%= f.select :produtor_id_eq, options_from_collection_for_select(Produtor.all, "id", "nome", @q.produtor_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
                   </div>
                 </div>
               </div>
@@ -55,9 +55,9 @@
     <div class="row">
       <% @produtos.each do |produto| %>
         <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-          <%= link_to(produto, class: "room") do %>
+          <%= link_to(produtor_produto_path(produto.produtor, produto), class: "room") do %>
             <figure class="img-wrap">
-                <%= image_tag(produto.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
+              <%= image_tag(produto.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
               <h2><%= produto.nome %></h2>

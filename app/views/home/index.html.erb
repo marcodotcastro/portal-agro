@@ -2,7 +2,7 @@
 <section class="py-5">
   <div class="container">
     <div class="row align-items-center">
-     <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
+      <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
         <figure class="img-absolute">
           <%= image_tag(@produto.produtor.foto_perfil_url, class: "img-fluid mb-3") %>
         </figure>
@@ -12,9 +12,11 @@
         <h2 class="heading">Bem Vindo</h2>
         <p class="mb-4">Aqui você encontrará ....</p>
         <p>
-          <a href="https://www.youtube.com/watch?v=Uit7H-78XPI"  data-fancybox class="btn btn-primary text-white py-2 mb-3">Os Produtos</a>
+          <a href="https://www.youtube.com/watch?v=Uit7H-78XPI" data-fancybox class="btn btn-primary text-white py-2 mb-3">Os
+            Produtos</a>
           <span class="mb-3 font-family-serif"><em>&</em></span>
-          <a href="https://www.youtube.com/watch?v=cen9ZMYzUm0"  data-fancybox class="btn btn-primary text-white py-2 mb-3">Os Produtores</a>
+          <a href="https://www.youtube.com/watch?v=cen9ZMYzUm0" data-fancybox class="btn btn-primary text-white py-2 mb-3">Os
+            Produtores</a>
         </p>
       </div>
     </div>
@@ -33,9 +35,9 @@
     <div class="row">
       <% @produtos.each do |produto| %>
         <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-          <%= link_to(produto, class: "room") do %>
+          <%= link_to(produtor_produto_path(produto.produtor, produto), class: "room") do %>
             <figure class="img-wrap">
-                <%= image_tag(produto.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
+              <%= image_tag(produto.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
               <h2><%= produto.nome %></h2>
@@ -61,7 +63,7 @@
         <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
           <%= link_to(produtor, class: "room") do %>
             <figure class="img-wrap">
-                <%= image_tag(produtor.foto_perfil_url, class: "img-fluid mb-3", size: "500x500") %>
+              <%= image_tag(produtor.foto_perfil_url, class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
               <h2><%= produtor.nome_completo %></h2>

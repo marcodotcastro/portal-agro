@@ -1,6 +1,12 @@
 ActiveAdmin.register Produtor do
     menu priority: 1
 
+    controller do
+        def find_resource
+            scoped_collection.friendly.find(params[:id])
+        end
+    end
+
     permit_params :perfil, :nome, :sobrenome, :telefone, :email, :endereco, :whatsapp, :cartao, fotos: [],
         video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
         fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy],

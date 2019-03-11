@@ -1,4 +1,28 @@
+# == Schema Information
+#
+# Table name: produtores
+#
+#  id         :bigint(8)        not null, primary key
+#  apelido    :string
+#  cartao     :boolean
+#  email      :string
+#  endereco   :string
+#  nome       :string
+#  slug       :string
+#  sobrenome  :string
+#  telefone   :string
+#  whatsapp   :boolean
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_produtores_on_slug  (slug) UNIQUE
+#
+
 class Produtor < ApplicationRecord
+  extend FriendlyId
+
   has_many :produtos
   has_one :video, :dependent => :destroy
   has_many :historias, :dependent => :destroy
@@ -8,6 +32,8 @@ class Produtor < ApplicationRecord
 
   accepts_nested_attributes_for :video, allow_destroy: true
   accepts_nested_attributes_for :historias, allow_destroy: true
+
+  friendly_id :friendly_url, use: :slugged
 
   def foto_perfil_url
     #FIXME: Código duplicado
@@ -19,4 +45,13 @@ class Produtor < ApplicationRecord
   def nome_completo
     self.nome + " " + self.sobrenome
   end
+
+  def friendly_url
+    self.nome_completo
+  end
+
+  def should_generate_new_friendly_id?
+    nome_changed? || super
+  end
+
 end

@@ -19,7 +19,9 @@
   </div>
   <% if @produto.video %>
     <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
-      <p><a href="https://www.youtube.com/embed/<%= @produto.video.codigo %>" data-fancybox class="btn btn-primary text-white py-2 mr-3 text-uppercase letter-spacing-1">Vídeo Sobre o Produto</a> <span class="mr-3 font-family-serif"></span></p>
+      <p>
+        <a href="https://www.youtube.com/embed/<%= @produto.video.codigo %>" data-fancybox class="btn btn-primary text-white py-2 mr-3 text-uppercase letter-spacing-1">Vídeo
+          Sobre o Produto</a> <span class="mr-3 font-family-serif"></span></p>
     </div>
   <% end %>
 </section>
@@ -37,7 +39,7 @@
         <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
           <% @produto.fotos.each do |foto| %>
             <div class="slider-item">
-              <a href="<%= url_for foto %>" data-fancybox="images" ><img src="<%= url_for foto %>" class="img-fluid"></a>
+              <a href="<%= url_for foto %>" data-fancybox="images"><img src="<%= url_for foto %>" class="img-fluid"></a>
             </div>
           <% end %>
         </div>
@@ -50,10 +52,10 @@
 <section class="py-5 bg-light">
   <div class="container">
     <div class="row justify-content-center text-center">
-        <div class="col-md-7">
-          <h2 class="heading" data-aos="fade-up">O Produtor</h2>
-          <p data-aos="fade-up" data-aos-delay="100">O produtor ...</p>
-        </div>
+      <div class="col-md-7">
+        <h2 class="heading" data-aos="fade-up">O Produtor</h2>
+        <p data-aos="fade-up" data-aos-delay="100">O produtor ...</p>
+      </div>
     </div>
     <div class="row">
       <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
@@ -66,28 +68,29 @@
               </div>
             </div>
             <div class="back">
-               <div class="container">
+              <div class="container">
                 <br>
-                <span class="letter-spacing-1">Telefone: </span><h5><%= @produto.produtor.telefone %><%= @produto.produtor.whatsapp ? " <span class='fa fa-whatsapp'></span>".html_safe : "" %></h5>
+                <span class="letter-spacing-1">Telefone: </span>
+                <h5><%= @produto.produtor.telefone %><%= @produto.produtor.whatsapp ? " <span class='fa fa-whatsapp'></span>".html_safe : "" %></h5>
                 <span class="letter-spacing-1">Email: </span><h5><%= @produto.produtor.email %></h5>
                 <span class="letter-spacing-1">Endereço: </span><h5><%= @produto.produtor.endereco %></h5>
                 <%= @produto.produtor.cartao ? "<span class='letter-spacing-1'>Aceita Cartão</span><br>".html_safe : "" %>
-                </div>
-              <%= link_to @produto.produtor do %>
-              <div class="author d-flex">
-                <div class="image mr-3 align-self-center">
-                  <img src="<%= @produto.produtor.foto_perfil_url %>" alt="">
-                </div>
-                <div class="name align-self-center">
-                  <%= @produto.produtor.nome_completo %> 
-                  <span class="position"><%= @produto.produtor.apelido %></span>
-                  <% if @produto.produtor.video %>
-                    <span class="position">
-                      <a href="https://www.youtube.com/embed/<%= @produto.produtor.video.codigo %>" data-fancybox >Vídeo Sobre o Produtor</a>
-                    </span>
-                  <% end %>
-                </div>
               </div>
+              <%= link_to @produto.produtor do %>
+                <div class="author d-flex">
+                  <div class="image mr-3 align-self-center">
+                    <img src="<%= @produto.produtor.foto_perfil_url %>" alt="">
+                  </div>
+                  <div class="name align-self-center">
+                    <%= @produto.produtor.nome_completo %>
+                    <span class="position"><%= @produto.produtor.apelido %></span>
+                    <% if @produto.produtor.video %>
+                    <span class="position">
+                      <a href="https://www.youtube.com/embed/<%= @produto.produtor.video.codigo %>" data-fancybox>Vídeo Sobre o Produtor</a>
+                    </span>
+                    <% end %>
+                  </div>
+                </div>
               <% end %>
             </div>
           </div>
@@ -97,11 +100,11 @@
         <h2 class="heading" data-aos="fade">A História</h2>
         <div class="row justify-content-center">
           <div class="col-md-12">
-              <% @produto.produtor.historias.order(data: :asc).each do |historia| %>
-                <div class="timeline-item" date-is='<%= historia.data.year%>' data-aos="fade">
-                  <h5><%= historia.titulo %></h5>
-                  <%= historia.descricao %>
-                </div>
+            <% @produto.produtor.historias.order(data: :asc).each do |historia| %>
+              <div class="timeline-item" date-is='<%= historia.data.year %>' data-aos="fade">
+                <h5><%= historia.titulo %></h5>
+                <%= historia.descricao %>
+              </div>
             <% end %>
           </div>
         </div>
