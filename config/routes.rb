@@ -84,8 +84,8 @@
 #         estado_cidade_produtor GET        /estados/:estado_id/cidades/:cidade_id/produtores/:id(.:format)                          produtores#show
 #                  estado_cidade GET        /estados/:estado_id/cidades/:id(.:format)                                                cidades#show
 #                         estado GET        /estados/:id(.:format)                                                                   estados#show
-#                     produtores GET        /produtores(.:format)                                                                    produtores#index
-#                       produtos GET        /produtos(.:format)                                                                      produtos#index
+#                     produtores GET        /estados/goias/produtores(.:format)                                                      produtores#index
+#                       produtos GET        /estados/goias/produtos(.:format)                                                        produtos#index
 #             rails_service_blob GET        /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 #      rails_blob_representation GET        /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #             rails_disk_service GET        /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
@@ -106,6 +106,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :produtores, only: [:index]
-  resources :produtos, only: [:index]
+  resources :produtores, :path => "/estados/goias/produtores", only: [:index]
+  resources :produtos, :path => "/estados/goias/produtos", only: [:index]
 end

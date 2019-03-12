@@ -13,6 +13,13 @@
             <div class="col-md-8 col-lg-8">
               <div class="row">
                 <div class="col-md-4 mb-3 mb-md-0">
+                  <label for="children" class="font-weight-bold text-black">Cidade</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <%= f.select :produtor_cidade_id_eq, options_from_collection_for_select(Cidade.all, "id", "nome", @q.produtor_cidade_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
                   <label for="adults" class="font-weight-bold text-black">Categoria</label>
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
@@ -24,13 +31,6 @@
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                     <%= f.select :qualidade_id_eq, options_from_collection_for_select(Qualidade.all, "id", "nome", @q.qualidade_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                  <label for="children" class="font-weight-bold text-black">Produtor</label>
-                  <div class="field-icon-wrap">
-                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                    <%= f.select :produtor_id_eq, options_from_collection_for_select(Produtor.all, "id", "nome", @q.produtor_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
                   </div>
                 </div>
               </div>

@@ -132,7 +132,7 @@ produtor_stephan = Produtor.create(
     telefone: "(62)99998-12345",
     email: "stephan.gaehwiler@gmail.com",
     endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
-    apelido: "Queijo Suíço",
+    apelido: "Suíço",
     whatsapp: false,
     cartao: true
 )
