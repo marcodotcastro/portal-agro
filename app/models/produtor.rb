@@ -53,6 +53,10 @@ class Produtor < ApplicationRecord
     self.nome + " " + self.sobrenome
   end
 
+  def endereco_completo
+    self.endereco + ", " + self.cidade.nome + ", " + self.cidade.estado.nome
+  end
+
   def friendly_url
     self.nome_completo
   end

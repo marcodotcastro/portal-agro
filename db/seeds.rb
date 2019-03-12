@@ -30,9 +30,9 @@ puts "# Produtores e Produtos"
 produtor_jose_silva = Produtor.create(
     nome: "José",
     sobrenome: "Silva",
-    telefone: "(62)99998-12345",
+    telefone: "(62) 99998-12345",
     email: "jose.silva@gmail.com",
-    endereco: "R 01, Bro 9 de Julho - Corumbá de Goiás, GO",
+    endereco: "R 01, Bro 9 de Julho",
     apelido: "Zé",
     whatsapp: true,
     cartao: true
@@ -85,7 +85,7 @@ puts "# #{produto_leite.nome}"
 
 produto_soja = Produto.create(
     nome: "Soja",
-    descricao: "A soja (Glycine max), também conhecida como feijão-soja e feijão-chinês,[1] é uma planta pertence à família Fabaceae, família esta que compreende também plantas como o feijão, a lentilha e a ervilha.",
+    descricao: "A soja (Glycine max), também conhecida como feijão-soja e feijão-chinês, é uma planta pertence à família Fabaceae, família esta que compreende também plantas como o feijão, a lentilha e a ervilha.",
     preco: "R$ 60,00 sc"
 )
 
@@ -107,9 +107,9 @@ puts "# #{produto_soja.nome}"
 produtor_divino_pereira = Produtor.create(
     nome: "Divino",
     sobrenome: "Pereira",
-    telefone: "(62)99998-12345",
+    telefone: "(62) 99998-12345",
     email: "divino.pereira@gmail.com",
-    endereco: "R 02, Bro 9 de Julho - Corumbá de Goiás, GO",
+    endereco: "R 02, Bro 9 de Julho",
     apelido: "Filho do Tião",
     whatsapp: false,
     cartao: false
@@ -129,9 +129,9 @@ puts "# #{produtor_divino_pereira.nome_completo}"
 produtor_stephan = Produtor.create(
     nome: "Stephan",
     sobrenome: "Gaehwiler",
-    telefone: "(62)99998-12345",
+    telefone: "(62) 99998-12345",
     email: "stephan.gaehwiler@gmail.com",
-    endereco: "R 03, Bro 9 de Julho - Corumbá de Goiás, GO",
+    endereco: "R 03, Bro 9 de Julho",
     apelido: "Suíço",
     whatsapp: false,
     cartao: true
@@ -154,7 +154,7 @@ puts "# #{produtor_stephan.nome_completo}"
 
 produto_queijo = Produto.create(
     nome: "Queijo",
-    descricao: "A soja (Glycine max), também conhecida como feijão-soja e feijão-chinês,[1] é uma planta pertence à família Fabaceae, família esta que compreende também plantas como o feijão, a lentilha e a ervilha.",
+    descricao: "Queijo é um alimento sólido feito a partir do leite de vacas, cabras, ovelhas, búfalas e/ou outros mamíferos. O queijo é produzido pela coagulação do leite.",
     preco: "R$ 50,00 pç"
 )
 

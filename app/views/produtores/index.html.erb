@@ -49,10 +49,10 @@
             </figure>
             <div class="p-3 text-center room-info">
               <h2><%= produtor.nome_completo %></h2>
-              <span class="letter-spacing-1">Telefone: <%= produtor.telefone %> <%= produtor.whatsapp ? "<span class='fa fa-whatsapp'></span>".html_safe : "" %></span><br>
-              <%= produtor.cartao ? "<span class='letter-spacing-1'>Aceita Cartão</span><br>".html_safe : "" %>
-              <span class="letter-spacing-1">Email: <%= produtor.email %></span><br>
-              <span class="letter-spacing-1">Endereço: <%= produtor.endereco %></span><br>
+              <h6><b>Telefone:</b> <%= produtor.telefone %> <%= produtor.whatsapp ? "<span class='fa fa-whatsapp'></span>".html_safe : "" %></h6>
+              <h6><b>Email:</b> <%= produtor.email %></h6>
+              <h6><b>Endereço:</b> <%= produtor.endereco_completo %></h6>
+              <h6><b>Aceita Cartão:</b> <%= produtor.cartao ? "Sim".html_safe : "Não" %></h6>
             </div>
           <% end %>
         </div>
