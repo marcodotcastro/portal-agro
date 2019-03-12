@@ -72,6 +72,8 @@ produtor2.perfil.attach(io: File.open(Rails.root + "spec/imagens/wilson-frade-pe
 
 Video.create(nome: "Video 2", descricao: "Video 2", codigo: "Uit7H-78XPI", produtor: produtor2)
 
+produtor2.save
+
 produtor3 = Produtor.create(
     nome: "Stephan",
     sobrenome: "Gaehwiler",
@@ -88,6 +90,8 @@ produtor3.cidade = cidade
 produtor3.perfil.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-perfil.jpg"), filename: "stephan-gaehwiler-perfil.jpg")
 
 Video.create(nome: "Video 3", descricao: "Video 3", codigo: "cen9ZMYzUm0", produtor: produtor3)
+
+produtor3.save
 
 produto1 = Produto.create(
     nome: "Leite",

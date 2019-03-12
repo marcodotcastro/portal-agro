@@ -1,23 +1,23 @@
 ActiveAdmin.register Qualidade do
-    menu priority: 4
-    
-    permit_params :nome, :descricao
+  menu priority: 4
 
-    filter :nome
-    
-    index do
-        selectable_column
-        column :nome
-        column :descricao
-        actions
-    end
+  permit_params :nome, :descricao
 
-    form do |f|
-        f.inputs do
-          f.input :nome
-          f.input :descricao, as: :text
-          actions
-        end
+  filter :nome
+
+  index do
+    selectable_column
+    column :nome
+    column :descricao
+    actions
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :nome
+      f.input :descricao, as: :text
+      actions
     end
+  end
 
 end
