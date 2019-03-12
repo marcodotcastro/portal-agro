@@ -13,27 +13,29 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Quantidade de Cadastros" do
           ul do
-            li "Produto(s): #{Produto.count} cadastrado(s)"
-            li "Produtor(es): #{Produtor.count} cadastrado(s)"
             li "Administrador(es): #{AdminUser.count} cadastrado(s)"
+            li "Estado(s): #{Estado.count} cadastrado(s)"
+            li "Cidade(s): #{Cidade.count} cadastrado(s)"
+            li "Produtor(es): #{Produtor.count} cadastrado(s)"
+            li "Produto(s): #{Produto.count} cadastrado(s)"
           end
         end
       end
       column do
         panel "Quantidade de Produtos por Categoria" do
           ul do
-            li "Animal: #{Categoria.find(1).produtos.count} cadastrado(s)"
-            li "Vegetal: #{Categoria.find(2).produtos.count} cadastrado(s)"
-            li "Insdutrial: #{Categoria.find(3).produtos.count} cadastrado(s)"
+            Categoria.all.map do |c|
+              li "#{c.nome}: #{c.produtos.count} cadastrado(s)"
+            end
           end
         end
       end
       column do
         panel "Quantidade de Produtos por Qualidade" do
           ul do
-            li "Tradicional: #{Qualidade.find(1).produtos.count} cadastrado(s)"
-            li "Natural: #{Qualidade.find(2).produtos.count} cadastrado(s)"
-            li "Orgânico: #{Qualidade.find(3).produtos.count} cadastrado(s)"
+            Qualidade.all.map do |q|
+              li "#{q.nome}: #{q.produtos.count} cadastrado(s)"
+            end
           end
         end
       end
@@ -53,7 +55,16 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recentes Produtos" do
           ul do
             Produto.last(5).map do |obj|
-              li link_to("#{obj.nome}", admin_produto_path(obj)) + " é vendido por #{obj.preco} e é produzido pelo produtor " + link_to("#{obj.produtor.nome}", admin_produtor_path(obj.produtor))
+              li link_to("#{obj.produtor.nome_completo} (#{obj.produtor.apelido})", admin_produtor_path(obj.produtor)) + " vende " + link_to("#{obj.nome}", admin_produto_path(obj)) + " por #{obj.preco} "
+            end
+          end
+        end
+      end
+      column do
+        panel "Recentes Produções" do
+          ul do
+            Produto.last(5).map do |obj|
+              li link_to("#{obj.produtor.nome}", admin_produtor_path(obj.produtor)) + " teve " + obj.evolucao.to_s + " na produção de " + link_to("#{obj.nome}", admin_produto_path(obj))
             end
           end
         end
@@ -62,15 +73,22 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "Recentes Produções" do
-          ul do
-            Produto.last(5).map do |obj|
-              li link_to("#{obj.produtor.nome}", admin_produtor_path(obj.produtor)) + " atualizou sua produção de " + link_to("#{obj.nome}", admin_produto_path(obj)) + " e ocorreu " + obj.evolucao.to_s
+        panel "Produtores por Cidade" do
+          Cidade.all.map do |c|
+            ul do
+              li "Em #{c.nome} tem #{c.produtores.count} produtores cadastrados:" do
+                ul do
+                  c.produtores.map do |p|
+                    unless p.produtos.empty?
+                      li "#{p.nome} tem #{p.produtos.count} produtos cadastrados"
+                    end
+                  end
+                end
+              end
             end
           end
         end
       end
     end
-
   end
 end
