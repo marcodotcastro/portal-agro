@@ -44,6 +44,11 @@
                 <%= historia.descricao %>
               </div>
             <% end %>
+            <% if @produtor.historias.empty? %>
+              <div class="row justify-content-center text-center">
+                <h4 data-aos="fade-up">Ainda não conhecemos a sua história</h4>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -57,6 +62,11 @@
       <div class="col-md-7">
         <h2 class="heading" data-aos="fade-up">As Fotos</h2>
         <p data-aos="fade-up" data-aos-delay="100">As fotos são para ...</p>
+        <% if @produtor.fotos.empty? %>
+          <div class="row justify-content-center text-center">
+            <h4 data-aos="fade-up">Nenhuma foto cadastrada</h4>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="row">
@@ -70,19 +80,21 @@
         </div>
       </div>
     </div>
-    <% unless @produtor.fotos %>
-      <div class="row justify-content-center text-center">
-        <h4 data-aos="fade-up">Nenhuma foto disponível</h4>
-      </div>
-    <% end %>
   </div>
 </section>
+
 <section class="py-5 bg-light">
   <div class="container">
-
-
     <div class="row justify-content-center text-center mb-5">
-      <h2 class="heading" data-aos="fade-up">Os Produtos</h2>
+      <div class="col-md-7">
+        <h2 class="heading" data-aos="fade-up">Os Produtos</h2>
+        <p data-aos="fade-up" data-aos-delay="100">As produtos são para ...</p>
+        <% if @produtor.produtos.empty? %>
+          <div class="row justify-content-center text-center">
+            <h4 data-aos="fade-up">Nenhum produto cadastrado</h4>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="row">
       <% @produtor.produtos.each do |produto| %>
@@ -102,10 +114,5 @@
         </div>
       <% end %>
     </div>
-    <% unless @produtor.produtos %>
-      <div class="row justify-content-center text-center">
-        <h4 data-aos="fade-up">Nenhum produto disponível</h4>
-      </div>
-    <% end %>
   </div>
 </section>

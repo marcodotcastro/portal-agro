@@ -141,7 +141,12 @@ produtor_stephan.cidade = cidade_corumba_de_goias
 
 produtor_stephan.perfil.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-perfil.jpg"), filename: "stephan-gaehwiler-perfil.jpg")
 
+historia_1 = Historia.create(data: Date.parse("Dec 8 1930"), titulo: "O Nascimento", descricao: "Nasceu na cidade de ... em uma casa com 12 irmão...")
+historia_2 = Historia.create(data: Date.parse("Dec 8 1945"), titulo: "A Mudança", descricao: "Se mudou para ... devido ... e lá criou ...")
+historia_3 = Historia.create(data: Date.parse("Dec 8 1955"), titulo: "A Compra", descricao: "Já com 2 filhos comprou sua primeira terra de 2 alqueires ....")
+
 Video.create(nome: "Video 3", descricao: "Video 3", codigo: "cen9ZMYzUm0", produtor: produtor_stephan)
+produtor_stephan.historias << [historia_1, historia_2, historia_3]
 
 produtor_stephan.save
 
