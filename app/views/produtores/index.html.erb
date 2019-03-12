@@ -4,6 +4,19 @@
       <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
         <%= search_form_for @q do |f| %>
           <div class='row'>
+<!--            <div class="col-md-4 col-lg-4">-->
+<!--              <label for="checkin_date" class="font-weight-bold text-black">Estado</label>-->
+<!--              <div class="field-icon-wrap">-->
+<!--                <input type="text" id='q_nome_cont' name='q[nome_cont]' class="form-control">-->
+<!--              </div>-->
+<!--            </div>-->
+            <div class="col-md-4 col-lg-4">
+              <label for="checkin_date" class="font-weight-bold text-black">Cidade</label>
+              <div class="field-icon-wrap">
+                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                <%= f.select :cidade_id_eq, options_from_collection_for_select(Cidade.all, "id", "nome", @q.cidade_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
+              </div>
+            </div>
             <div class="col-md-4 col-lg-4">
               <label for="checkin_date" class="font-weight-bold text-black">Nome</label>
               <div class="field-icon-wrap">
