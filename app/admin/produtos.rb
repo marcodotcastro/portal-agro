@@ -10,7 +10,8 @@ ActiveAdmin.register Produto do
   permit_params :capa, :nome, :descricao, :producao, :preco, :video, :produtor_id, :categoria_id, :qualidade_id,
                 fotos: [],
                 video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
-                producoes_attributes: [:id, :numero, :unidade, :periodo, :_destroy]
+                producoes_attributes: [:id, :numero, :unidade, :periodo, :_destroy],
+                criacoes_attributes: [:id, :data, :titulo, :descricao, :_destroy]
 
   filter :produtor, collection: -> {
     Produtor.all.map {|map| [map.nome, map.id]}
@@ -36,6 +37,13 @@ ActiveAdmin.register Produto do
           a.input :numero
           a.input :unidade
           a.input :periodo
+        end
+      end
+      f.inputs do
+        f.has_many :criacoes, allow_destroy: true, new_record: true do |a|
+          a.input :data, as: :datepicker
+          a.input :titulo
+          a.input :descricao, as: :text
         end
       end
       f.input :fotos, as: :file, input_html: {multiple: true}
@@ -114,6 +122,13 @@ ActiveAdmin.register Produto do
           column :numero
           column :unidade
           column :periodo
+        end
+      end
+      panel "Criações" do
+        table_for produto.criacoes do
+          column :data
+          column :titulo
+          column :descricao
         end
       end
     end
