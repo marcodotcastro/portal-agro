@@ -18,7 +18,7 @@
 #  index_produtos_on_categoria_id  (categoria_id)
 #  index_produtos_on_produtor_id   (produtor_id)
 #  index_produtos_on_qualidade_id  (qualidade_id)
-#  index_produtos_on_slug          (slug) UNIQUE
+#  index_produtos_on_slug          (slug)
 #
 # Foreign Keys
 #

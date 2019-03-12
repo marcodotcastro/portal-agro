@@ -175,6 +175,13 @@ produto_queijo.fotos.attach(io: File.open(Rails.root + "spec/imagens/stephan-gae
 
 Video.create(nome: "Video 1", descricao: "Video 1", codigo: "0FuZWc8Bpw8", produto: produto_queijo)
 
+criacao_1 = Criacao.create(data: Date.parse("Dec 8 2001"), titulo: "A criação", descricao: "Criado para atender ... foi transido pela família...")
+criacao_2 = Criacao.create(data: Date.parse("Dec 8 2002"), titulo: "A transformação", descricao: "Importou as vacas devido ... e perceber ...")
+criacao_3 = Criacao.create(data: Date.parse("Dec 8 2005"), titulo: "O sentimento", descricao: "Hoje seu sonho foi realizado, devido o prêmio ....")
+
+
+produto_queijo.criacoes << [criacao_1, criacao_2, criacao_3]
+
 puts "# #{produto_queijo.nome}"
 
 

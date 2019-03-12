@@ -10,7 +10,7 @@
 #
 # Indexes
 #
-#  index_estados_on_slug  (slug) UNIQUE
+#  index_estados_on_slug  (slug)
 #
 
 require 'rails_helper'

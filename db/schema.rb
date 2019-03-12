@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_205059) do
+ActiveRecord::Schema.define(version: 2019_03_12_205060) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,7 +76,17 @@ ActiveRecord::Schema.define(version: 2019_03_12_205059) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["estado_id"], name: "index_cidades_on_estado_id"
-    t.index ["slug"], name: "index_cidades_on_slug", unique: true
+    t.index ["slug"], name: "index_cidades_on_slug"
+  end
+
+  create_table "criacoes", force: :cascade do |t|
+    t.datetime "data"
+    t.string "titulo"
+    t.string "descricao"
+    t.bigint "produto_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["produto_id"], name: "index_criacoes_on_produto_id"
   end
 
   create_table "estados", force: :cascade do |t|
@@ -84,7 +94,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_205059) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.index ["slug"], name: "index_estados_on_slug", unique: true
+    t.index ["slug"], name: "index_estados_on_slug"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -148,7 +158,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_205059) do
     t.index ["categoria_id"], name: "index_produtos_on_categoria_id"
     t.index ["produtor_id"], name: "index_produtos_on_produtor_id"
     t.index ["qualidade_id"], name: "index_produtos_on_qualidade_id"
-    t.index ["slug"], name: "index_produtos_on_slug", unique: true
+    t.index ["slug"], name: "index_produtos_on_slug"
   end
 
   create_table "qualidades", force: :cascade do |t|
@@ -172,6 +182,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_205059) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cidades", "estados"
+  add_foreign_key "criacoes", "produtos"
   add_foreign_key "historias", "produtores"
   add_foreign_key "producoes", "produtos"
   add_foreign_key "produtores", "cidades"

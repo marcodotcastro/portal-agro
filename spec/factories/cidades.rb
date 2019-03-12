@@ -12,7 +12,7 @@
 # Indexes
 #
 #  index_cidades_on_estado_id  (estado_id)
-#  index_cidades_on_slug       (slug) UNIQUE
+#  index_cidades_on_slug       (slug)
 #
 # Foreign Keys
 #
