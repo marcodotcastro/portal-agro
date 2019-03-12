@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_114658) do
+ActiveRecord::Schema.define(version: 2019_03_12_205059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,13 +74,17 @@ ActiveRecord::Schema.define(version: 2019_03_12_114658) do
     t.bigint "estado_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["estado_id"], name: "index_cidades_on_estado_id"
+    t.index ["slug"], name: "index_cidades_on_slug", unique: true
   end
 
   create_table "estados", force: :cascade do |t|
     t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_estados_on_slug", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

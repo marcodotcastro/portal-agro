@@ -76,7 +76,7 @@
                 <span class="letter-spacing-1">Endereço: </span><h5><%= @produto.produtor.endereco %></h5>
                 <%= @produto.produtor.cartao ? "<span class='letter-spacing-1'>Aceita Cartão</span><br>".html_safe : "" %>
               </div>
-              <%= link_to @produto.produtor do %>
+              <%= link_to estado_cidade_produtor_path(@produto.produtor.cidade.estado, @produto.produtor.cidade, @produto.produtor) do %>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
                     <img src="<%= @produto.produtor.foto_perfil_url %>" alt="">

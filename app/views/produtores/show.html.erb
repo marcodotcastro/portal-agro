@@ -19,7 +19,7 @@
                 <span class="letter-spacing-1">Endereço: </span><h5><%= @produtor.endereco %></h5>
                 <%= @produtor.cartao ? "<span class='letter-spacing-1'>Aceita Cartão</span><br>".html_safe : "" %>
               </div>
-              <%= link_to @produtor do %>
+              <%= link_to estado_cidade_produtor_produto_path(@produtor.cidade.estado, @produtor.cidade, @produtor) do %>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
                     <img src="<%= @produtor.foto_perfil_url %>" alt="">
@@ -87,7 +87,7 @@
     <div class="row">
       <% @produtor.produtos.each do |produto| %>
         <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-          <%= link_to(produtor_produto_path(produto.produtor, produto), class: "room") do %>
+          <%= link_to(estado_cidade_produtor_produto_path(produto.produtor.cidade.estado, produto.produtor.cidade, produto.produtor, produto), class: "room") do %>
             <figure class="img-wrap">
               <%= image_tag(produto.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
             </figure>
