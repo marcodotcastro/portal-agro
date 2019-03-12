@@ -38,7 +38,25 @@
 #                                PATCH      /admin/produtos/:id(.:format)                                                            admin/produtos#update
 #                                PUT        /admin/produtos/:id(.:format)                                                            admin/produtos#update
 #                                DELETE     /admin/produtos/:id(.:format)                                                            admin/produtos#destroy
+#     batch_action_admin_cidades POST       /admin/cidades/batch_action(.:format)                                                    admin/cidades#batch_action
+#                  admin_cidades GET        /admin/cidades(.:format)                                                                 admin/cidades#index
+#                                POST       /admin/cidades(.:format)                                                                 admin/cidades#create
+#               new_admin_cidade GET        /admin/cidades/new(.:format)                                                             admin/cidades#new
+#              edit_admin_cidade GET        /admin/cidades/:id/edit(.:format)                                                        admin/cidades#edit
+#                   admin_cidade GET        /admin/cidades/:id(.:format)                                                             admin/cidades#show
+#                                PATCH      /admin/cidades/:id(.:format)                                                             admin/cidades#update
+#                                PUT        /admin/cidades/:id(.:format)                                                             admin/cidades#update
+#                                DELETE     /admin/cidades/:id(.:format)                                                             admin/cidades#destroy
 #                admin_dashboard GET        /admin/dashboard(.:format)                                                               admin/dashboard#index
+#     batch_action_admin_estados POST       /admin/estados/batch_action(.:format)                                                    admin/estados#batch_action
+#                  admin_estados GET        /admin/estados(.:format)                                                                 admin/estados#index
+#                                POST       /admin/estados(.:format)                                                                 admin/estados#create
+#               new_admin_estado GET        /admin/estados/new(.:format)                                                             admin/estados#new
+#              edit_admin_estado GET        /admin/estados/:id/edit(.:format)                                                        admin/estados#edit
+#                   admin_estado GET        /admin/estados/:id(.:format)                                                             admin/estados#show
+#                                PATCH      /admin/estados/:id(.:format)                                                             admin/estados#update
+#                                PUT        /admin/estados/:id(.:format)                                                             admin/estados#update
+#                                DELETE     /admin/estados/:id(.:format)                                                             admin/estados#destroy
 # batch_action_admin_admin_users POST       /admin/admin_users/batch_action(.:format)                                                admin/admin_users#batch_action
 #              admin_admin_users GET        /admin/admin_users(.:format)                                                             admin/admin_users#index
 #                                POST       /admin/admin_users(.:format)                                                             admin/admin_users#create
@@ -62,10 +80,12 @@
 #                  admin_comment GET        /admin/comments/:id(.:format)                                                            admin/comments#show
 #                                DELETE     /admin/comments/:id(.:format)                                                            admin/comments#destroy
 #                           root GET        /                                                                                        home#index
-#               produtor_produto GET        /produtores/:produtor_id/produtos/:id(.:format)                                          produtos#show
-#                       produtor GET        /produtores/:id(.:format)                                                                produtores#show
-#                     produtores GET        /produtores(.:format)                                                                    produtores#index
-#                       produtos GET        /produtos(.:format)                                                                      produtos#index
+# estado_cidade_produtor_produto GET        /estados/:estado_id/cidades/:cidade_id/produtores/:produtor_id/produtos/:id(.:format)    produtos#show
+#         estado_cidade_produtor GET        /estados/:estado_id/cidades/:cidade_id/produtores/:id(.:format)                          produtores#show
+#                  estado_cidade GET        /estados/:estado_id/cidades/:id(.:format)                                                cidades#show
+#                         estado GET        /estados/:id(.:format)                                                                   estados#show
+#                     produtores GET        /estados/goias/produtores(.:format)                                                      produtores#index
+#                       produtos GET        /estados/goias/produtos(.:format)                                                        produtos#index
 #             rails_service_blob GET        /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 #      rails_blob_representation GET        /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #             rails_disk_service GET        /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
@@ -78,10 +98,14 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   root 'home#index'
-  resources :produtores, only: [:show] do
-    resources :produtos, only: [:show]
+  resources :estados, only: [:show] do
+    resources :cidades, only: [:show] do
+      resources :produtores, only: [:show] do
+        resources :produtos, only: [:show]
+      end
+    end
   end
 
-  resources :produtores, only: [:index]
-  resources :produtos, only: [:index]
+  resources :produtores, :path => "/estados/goias/produtores", only: [:index]
+  resources :produtos, :path => "/estados/goias/produtos", only: [:index]
 end

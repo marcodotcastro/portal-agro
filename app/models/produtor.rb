@@ -14,15 +14,22 @@
 #  whatsapp   :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  cidade_id  :bigint(8)
 #
 # Indexes
 #
-#  index_produtores_on_slug  (slug) UNIQUE
+#  index_produtores_on_cidade_id  (cidade_id)
+#  index_produtores_on_slug       (slug) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (cidade_id => cidades.id)
 #
 
 class Produtor < ApplicationRecord
   extend FriendlyId
 
+  belongs_to :cidade, optional: true
   has_many :produtos
   has_one :video, :dependent => :destroy
   has_many :historias, :dependent => :destroy
@@ -44,6 +51,10 @@ class Produtor < ApplicationRecord
 
   def nome_completo
     self.nome + " " + self.sobrenome
+  end
+
+  def endereco_completo
+    self.endereco + ", " + self.cidade.nome + ", " + self.cidade.estado.nome
   end
 
   def friendly_url

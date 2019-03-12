@@ -1,53 +1,6 @@
 <section class="py-5 bg-light">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-        <div class="block-2">
-          <div class="flipper">
-            <div class="front" style="background-image: url(<%= url_for @produtor.foto_perfil_url %>);">
-              <div class="box">
-                <h2><%= @produtor.nome_completo %></h2>
-                <p><%= @produtor.apelido %></p>
-              </div>
-            </div>
-            <div class="back">
-              <div class="container">
-                <br>
-                <span class="letter-spacing-1">Telefone: </span>
-                <h5><%= @produtor.telefone %><%= @produtor.whatsapp ? " <span class='fa fa-whatsapp'></span>".html_safe : "" %></h5>
-                <span class="letter-spacing-1">Email: </span><h5><%= @produtor.email %></h5>
-                <span class="letter-spacing-1">Endereço: </span><h5><%= @produtor.endereco %></h5>
-                <%= @produtor.cartao ? "<span class='letter-spacing-1'>Aceita Cartão</span><br>".html_safe : "" %>
-              </div>
-              <%= link_to @produtor do %>
-                <div class="author d-flex">
-                  <div class="image mr-3 align-self-center">
-                    <img src="<%= @produtor.foto_perfil_url %>" alt="">
-                  </div>
-                  <div class="name align-self-center"><%= @produtor.nome_completo %>
-                    <span class="position"><%= @produtor.apelido %></span>
-                    <span class="position"><a href="https://www.youtube.com/embed/<%= @produtor.video.codigo %>" data-fancybox>Vídeo Sobre o Produtor</a></span>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 mb-5">
-        <h2 class="heading" data-aos="fade">A História</h2>
-        <div class="row justify-content-center">
-          <div class="col-md-12">
-            <% @produtor.historias.order(data: :asc).each do |historia| %>
-              <div class="timeline-item" date-is='<%= historia.data.year %>' data-aos="fade">
-                <h5><%= historia.titulo %></h5>
-                <%= historia.descricao %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'produtor', produtor: @produtor %>
   </div>
 </section>
 
@@ -56,7 +9,12 @@
     <div class="row justify-content-center text-center mb-5">
       <div class="col-md-7">
         <h2 class="heading" data-aos="fade-up">As Fotos</h2>
-        <p data-aos="fade-up" data-aos-delay="100">As fotos são para ...</p>
+        <h6 data-aos="fade-up" data-aos-delay="100">As fotos são para ...</h6>
+        <% if @produtor.fotos.empty? %>
+          <div class="row justify-content-center text-center">
+            <h4 data-aos="fade-up">Nenhuma foto cadastrada</h4>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="row">
@@ -70,42 +28,41 @@
         </div>
       </div>
     </div>
-    <% unless @produtor.fotos %>
-      <div class="row justify-content-center text-center">
-        <h4 data-aos="fade-up">Nenhuma foto disponível</h4>
-      </div>
-    <% end %>
   </div>
 </section>
+
 <section class="py-5 bg-light">
   <div class="container">
-
-
     <div class="row justify-content-center text-center mb-5">
-      <h2 class="heading" data-aos="fade-up">Os Produtos</h2>
+      <div class="col-md-7">
+        <h2 class="heading" data-aos="fade-up">Os Produtos</h2>
+        <h6 data-aos="fade-up" data-aos-delay="100">As produtos são para ...</h6>
+        <% if @produtor.produtos.empty? %>
+          <div class="row justify-content-center text-center">
+            <h4 data-aos="fade-up">Nenhum produto cadastrado</h4>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="row">
       <% @produtor.produtos.each do |produto| %>
         <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-          <%= link_to(produtor_produto_path(produto.produtor, produto), class: "room") do %>
+          <%= link_to(estado_cidade_produtor_produto_path(produto.produtor.cidade.estado, produto.produtor.cidade, produto.produtor, produto), class: "room") do %>
             <figure class="img-wrap">
               <%= image_tag(produto.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
               <h2><%= produto.nome %></h2>
-              <span class="letter-spacing-1">Categoria: <%= produto.categoria.nome %></span><br>
-              <span class="letter-spacing-1">Qualidade: <%= produto.qualidade.nome %></span><br>
-              <span class="letter-spacing-1">Produção: <%= produto.producao %></span><br>
-              <span class="letter-spacing-1">Preço: <%= produto.preco %></span><br>
+              <h6><b>Estado:</b> <%= produto.produtor.cidade.estado.nome %></h6>
+              <h6><b>Cidade:</b> <%= produto.produtor.cidade.nome %></h6>
+              <h6><b>Qualidade:</b> <%= produto.qualidade.nome %></h6>
+              <h6><b>Preço:</b> <%= produto.preco %></h6>
+              <h6><b>Produção:</b> <%= produto.producao %></h6>
+            </div>
             </div>
           <% end %>
-        </div>
+          </div>
       <% end %>
-    </div>
-    <% unless @produtor.produtos %>
-      <div class="row justify-content-center text-center">
-        <h4 data-aos="fade-up">Nenhum produto disponível</h4>
       </div>
-    <% end %>
   </div>
 </section>
