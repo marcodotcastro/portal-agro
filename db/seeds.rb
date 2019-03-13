@@ -259,7 +259,7 @@ produtor_celio_fleury = Produtor.create(
     sobrenome: "Fleury",
     telefone: "(62) 99998-12345",
     email: "celio.fleury@gmail.com",
-    endereco: "R 02, Bro 9 de Julho",
+    endereco: "Rua 1, Bairro Alto Boa Vista",
     apelido: "Prefeito",
     whatsapp: false,
     cartao: false
