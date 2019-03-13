@@ -19,20 +19,6 @@
                     <%= f.select :produtor_cidade_id_eq, options_from_collection_for_select(Cidade.all, "id", "nome", @q.produtor_cidade_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
                   </div>
                 </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                  <label for="adults" class="font-weight-bold text-black">Categoria</label>
-                  <div class="field-icon-wrap">
-                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                    <%= f.select :categoria_id_eq, options_from_collection_for_select(Categoria.all, "id", "nome", @q.categoria_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                  <label for="children" class="font-weight-bold text-black">Qualidade</label>
-                  <div class="field-icon-wrap">
-                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                    <%= f.select :qualidade_id_eq, options_from_collection_for_select(Qualidade.all, "id", "nome", @q.qualidade_id_eq), {:include_blank => "Selecione"}, {:class => "form-control"} %>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -53,19 +39,17 @@
 <section class="py-5">
   <div class="container">
     <div class="row">
-      <% @produtos.each do |produto| %>
+      <% @servicos.each do |servico| %>
         <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-          <%= link_to(estado_cidade_produtor_produto_path(produto.produtor.cidade.estado, produto.produtor.cidade, produto.produtor, produto), class: "room") do %>
+          <%= link_to(estado_cidade_produtor_servico_path(servico.produtor.cidade.estado, servico.produtor.cidade, servico.produtor, servico), class: "room") do %>
             <figure class="img-wrap">
-              <%= image_tag(produto.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
+              <%= image_tag(servico.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
-              <h2><%= produto.nome %></h2>
-              <h6><b>Cidade:</b> <%= produto.produtor.cidade.nome %></h6>
-              <h6><b>Produtor:</b> <%= produto.produtor.nome_completo %></h6>
-              <h6><b>Qualidade:</b> <%= produto.qualidade.nome %></h6>
-              <h6><b>Preço:</b> <%= produto.preco_completo %></h6>
-              <h6><b>Produção:</b> <%= produto.producao %></h6>
+              <h2><%= servico.nome %></h2>
+              <h6><b>Cidade:</b> <%= servico.produtor.cidade.nome %></h6>
+              <h6><b>Produtor:</b> <%= servico.produtor.nome_completo %></h6>
+              <h6><b>Preço:</b> <%= servico.preco_completo %></h6>
             </div>
           <% end %>
         </div>

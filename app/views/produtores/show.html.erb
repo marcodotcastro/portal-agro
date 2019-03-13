@@ -65,3 +65,36 @@
     </div>
   </div>
 </section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-md-7">
+        <h2 class="heading" data-aos="fade-up">Os Serviços</h2>
+        <h6 data-aos="fade-up" data-aos-delay="100">As serviços são para ...</h6>
+        <% if @produtor.servicos.empty? %>
+          <div class="row justify-content-center text-center">
+            <h4 data-aos="fade-up">Nenhum serviço cadastrado</h4>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <% @produtor.servicos.each do |servico| %>
+        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+          <%= link_to(estado_cidade_produtor_servico_path(servico.produtor.cidade.estado, servico.produtor.cidade, servico.produtor, servico), class: "room") do %>
+            <figure class="img-wrap">
+              <%= image_tag(servico.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
+            </figure>
+            <div class="p-3 text-center room-info">
+              <h2><%= servico.nome %></h2>
+              <h6><b>Estado:</b> <%= servico.produtor.cidade.estado.nome %></h6>
+              <h6><b>Cidade:</b> <%= servico.produtor.cidade.nome %></h6>
+              <h6><b>Preço:</b> <%= servico.preco_completo %></h6>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

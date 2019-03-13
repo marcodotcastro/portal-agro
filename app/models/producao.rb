@@ -21,8 +21,8 @@
 
 class Producao < ApplicationRecord
   belongs_to :produto, optional: true
-  
-  enum medida: [ :unidade, :litro, :quilo, :saco ]
-  enum periodo: [ :dia, :semana, :mes, :ano ]
-  
+
+  enum medida: [:unidade, :litro, :quilo, :saco, :arroba]
+  enum periodo: [:dia, :semana, :mes, :ano]
+
 end

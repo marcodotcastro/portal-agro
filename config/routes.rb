@@ -102,10 +102,12 @@ Rails.application.routes.draw do
     resources :cidades, only: [:show] do
       resources :produtores, only: [:show] do
         resources :produtos, only: [:show]
+        resources :servicos, only: [:show]
       end
     end
   end
 
   resources :produtores, :path => "/estados/goias/produtores", only: [:index]
+  resources :servicos, :path => "/estados/goias/servicos", only: [:index]
   resources :produtos, :path => "/estados/goias/produtos", only: [:index]
 end

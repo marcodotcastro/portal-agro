@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_205060) do
+ActiveRecord::Schema.define(version: 2019_03_13_165433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,6 +168,19 @@ ActiveRecord::Schema.define(version: 2019_03_12_205060) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "servicos", force: :cascade do |t|
+    t.string "nome"
+    t.string "descricao"
+    t.string "preco"
+    t.integer "medida", default: 0
+    t.bigint "produtor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["produtor_id"], name: "index_servicos_on_produtor_id"
+    t.index ["slug"], name: "index_servicos_on_slug", unique: true
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string "nome"
     t.string "descricao"
@@ -189,6 +202,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_205060) do
   add_foreign_key "produtos", "categorias"
   add_foreign_key "produtos", "produtores"
   add_foreign_key "produtos", "qualidades"
+  add_foreign_key "servicos", "produtores"
   add_foreign_key "videos", "produtores"
   add_foreign_key "videos", "produtos"
 end

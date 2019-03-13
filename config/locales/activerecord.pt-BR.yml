@@ -10,6 +10,9 @@ pt-BR:
       produto:
         one: "Produto"
         other: "Produtos"
+      servico:
+        one: "Serviço"
+        other: "Serviços"
       produtor:
         one: "Produtor"
         other: "Produtores"
@@ -44,6 +47,13 @@ pt-BR:
         producao: "Produção"
         preco: "Preço"
         video: "Vídeo"
+        foto: "Foto"
+        created_at: "Criado Em"
+        updated_at: "Atualizado Em"
+      servico:
+        nome: "Nome"
+        descricao: "Descrição"
+        preco: "Preço"
         foto: "Foto"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
