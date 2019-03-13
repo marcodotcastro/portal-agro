@@ -9,7 +9,7 @@ vegetal = Categoria.create(id: 2, nome: "Vegetal", descricao: "")
 industrial = Categoria.create(id: 3, nome: "Industrial", descricao: "")
 
 puts "# Qualidade"
-normal = Qualidade.create(id: 1, nome: "Tradicional", descricao: "")
+tradicional = Qualidade.create(id: 1, nome: "Tradicional", descricao: "")
 natural = Qualidade.create(id: 2, nome: "Natural", descricao: "")
 organico = Qualidade.create(id: 3, nome: "Orgânico", descricao: "")
 
@@ -46,11 +46,11 @@ produtor_jose_silva.historias << [produtor_jose_silva_historia_1, produtor_jose_
 produtor_jose_silva.cidade = cidade_cocalzinho
 produtor_jose_silva.save
 
-puts "# #{produtor_jose_silva.nome_completo}"
+puts "## #{produtor_jose_silva.nome_completo}"
 
 produtor_jose_silva_produto_leite = Produto.create(
     nome: "Leite",
-    descricao: "Leite é uma secreção nutritiva de cor esbranquiçada e opaca produzida pelas glândulas mamárias das fêmeas dos mamíferos. O líquido é produzido pelas células secretoras das glândulas mamárias ou mamas. A secreção láctea de uma fêmea dias antes e depois do parto se chama colostro.",
+    descricao: "O leite é ..., pois ...",
     preco: "R$ 1,00"
 )
 produtor_jose_silva_produto_leite_producao_1 = Producao.create(numero: 100, medida: :litro, periodo: :dia)
@@ -63,15 +63,15 @@ produtor_jose_silva_produto_leite.capa.attach(io: File.open(Rails.root + "spec/i
 produtor_jose_silva_produto_leite.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-leite-foto-1.jpg"), filename: "jose-silva-leite-foto-1.jpg")
 produtor_jose_silva_produto_leite.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-leite-foto-2.jpg"), filename: "jose-silva-leite-foto-2.jpg")
 produtor_jose_silva_produto_leite.categoria = animal
-produtor_jose_silva_produto_leite.qualidade = normal
+produtor_jose_silva_produto_leite.qualidade = tradicional
 produtor_jose_silva_produto_leite.produtor = produtor_jose_silva
 produtor_jose_silva_produto_leite.save
 
-puts "# #{produtor_jose_silva_produto_leite.nome}"
+puts "### #{produtor_jose_silva_produto_leite.nome}"
 
 produtor_jose_silva_produto_bezerro = Produto.create(
     nome: "Bezerro",
-    descricao: "Vitelo, terneiro, bezerro ou novilho são termos utilizados para descrever o boi que se encontra na idade de 1 a 6 meses, impróprio ainda para o abate, mas tem larga utilização na recria, que é a venda desses animais para um outro produtor engordar e abater. Sua carne é chamada vitela.",
+    descricao: "O Vitelo, terneiro, bezerro ou novilho são ..., pois ...",
     preco: "R$ 1000,00"
 )
 produtor_jose_silva_produto_bezerro_producao_1 = Producao.create(numero: 10, medida: :unidade, periodo: :ano)
@@ -84,15 +84,15 @@ produtor_jose_silva_produto_bezerro.capa.attach(io: File.open(Rails.root + "spec
 produtor_jose_silva_produto_bezerro.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-bezerro-foto-1.jpg"), filename: "jose-silva-bezerro-foto-1.jpg")
 produtor_jose_silva_produto_bezerro.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-bezerro-foto-2.jpg"), filename: "jose-silva-bezerro-foto-2.jpg")
 produtor_jose_silva_produto_bezerro.categoria = animal
-produtor_jose_silva_produto_bezerro.qualidade = normal
+produtor_jose_silva_produto_bezerro.qualidade = tradicional
 produtor_jose_silva_produto_bezerro.produtor = produtor_jose_silva
 produtor_jose_silva_produto_bezerro.save
 
-puts "# #{produtor_jose_silva_produto_bezerro.nome}"
+puts "### #{produtor_jose_silva_produto_bezerro.nome}"
 
 produtor_jose_silva_produto_milho = Produto.create(
     nome: "Milho",
-    descricao: "O milho é um conhecido cereal cultivado em grande parte do mundo. O milho é extensivamente utilizado como alimento humano ou para ração animal, devido às suas qualidades nutricionais.",
+    descricao: "O milho é ..., pois ...",
     preco: "R$ 30,00"
 )
 produtor_jose_silva_produto_milho_producao_1 = Producao.create(numero: 100, medida: :saco, periodo: :ano)
@@ -104,16 +104,16 @@ produtor_jose_silva_produto_milho.producoes << [produtor_jose_silva_produto_milh
 produtor_jose_silva_produto_milho.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-milho-capa.jpg"), filename: "jose-silva-milho-capa.jpg")
 produtor_jose_silva_produto_milho.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-milho-foto-1.jpg"), filename: "jose-silva-milho-foto-1.jpg")
 produtor_jose_silva_produto_milho.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-milho-foto-2.jpg"), filename: "jose-silva-milho-foto-2.jpg")
-produtor_jose_silva_produto_milho.categoria = animal
-produtor_jose_silva_produto_milho.qualidade = normal
+produtor_jose_silva_produto_milho.categoria = vegetal
+produtor_jose_silva_produto_milho.qualidade = tradicional
 produtor_jose_silva_produto_milho.produtor = produtor_jose_silva
 produtor_jose_silva_produto_milho.save
 
-puts "# #{produtor_jose_silva_produto_milho.nome}"
+puts "### #{produtor_jose_silva_produto_milho.nome}"
 
 produtor_jose_silva_produto_pamonha = Produto.create(
     nome: "Pamonha",
-    descricao: "Pamonha é um quitute brasileiro, comum nos estados do Nordeste e ainda em Goiás, Mato Grosso, Minas Gerais, Paraná, São Paulo e Tocantins. Provavelmente descende da culinária indígena.",
+    descricao: "A Pamonha é ..., pois ...",
     preco: "R$ 3,50"
 )
 produtor_jose_silva_produto_pamonha_producao_1 = Producao.create(numero: 100, medida: :unidade, periodo: :dia)
@@ -125,13 +125,12 @@ produtor_jose_silva_produto_pamonha.producoes << [produtor_jose_silva_produto_pa
 produtor_jose_silva_produto_pamonha.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-pamonha-capa.jpg"), filename: "jose-silva-pamonha-capa.jpg")
 produtor_jose_silva_produto_pamonha.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-pamonha-foto-1.jpg"), filename: "jose-silva-pamonha-foto-1.jpg")
 produtor_jose_silva_produto_pamonha.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-pamonha-foto-2.jpg"), filename: "jose-silva-pamonha-foto-2.jpg")
-produtor_jose_silva_produto_pamonha.categoria = animal
-produtor_jose_silva_produto_pamonha.qualidade = normal
+produtor_jose_silva_produto_pamonha.categoria = industrial
+produtor_jose_silva_produto_pamonha.qualidade = tradicional
 produtor_jose_silva_produto_pamonha.produtor = produtor_jose_silva
 produtor_jose_silva_produto_pamonha.save
 
-puts "# #{produtor_jose_silva_produto_pamonha.nome}"
-
+puts "### #{produtor_jose_silva_produto_pamonha.nome}"
 
 produtor_divino_pereira = Produtor.create(
     nome: "Divino",
@@ -149,11 +148,11 @@ produtor_divino_pereira.video = produtor_divino_pereira_video_1
 produtor_divino_pereira.cidade = cidade_cocalzinho
 produtor_divino_pereira.save
 
-puts "# #{produtor_divino_pereira.nome_completo}"
+puts "## #{produtor_divino_pereira.nome_completo}"
 
 produtor_divino_pereira_produto_rocar = Servico.create(
     nome: "Roçar",
-    descricao: "Queijo é um alimento sólido feito a partir do leite de vacas, cabras, ovelhas, búfalas e/ou outros mamíferos. O queijo é produzido pela coagulação do leite.",
+    descricao: "O roçar é ..., pois ...",
     preco: "R$ 40,00",
     medida: :dia
 )
@@ -163,6 +162,7 @@ produtor_divino_pereira_produto_rocar.fotos.attach(io: File.open(Rails.root + "s
 produtor_divino_pereira_produto_rocar.produtor = produtor_divino_pereira
 produtor_divino_pereira_produto_rocar.save
 
+puts "### #{produtor_divino_pereira_produto_rocar.nome}"
 
 produtor_stephan = Produtor.create(
     nome: "Stephan",
@@ -184,11 +184,11 @@ produtor_stephan.cidade = cidade_corumba_de_goias
 produtor_stephan.video = produtor_stephan_video_1
 produtor_stephan.save
 
-puts "# #{produtor_stephan.nome_completo}"
+puts "## #{produtor_stephan.nome_completo}"
 
 pprodutor_stephan_produto_queijo = Produto.create(
     nome: "Queijo",
-    descricao: "Queijo é um alimento sólido feito a partir do leite de vacas, cabras, ovelhas, búfalas e/ou outros mamíferos. O queijo é produzido pela coagulação do leite.",
+    descricao: "O queijo é ..., pois ...",
     preco: "R$ 50,00"
 )
 pprodutor_stephan_produto_queijo_producao_1 = Producao.create(numero: 100, medida: :unidade, periodo: :ano)
@@ -209,7 +209,7 @@ pprodutor_stephan_produto_queijo.qualidade = organico
 pprodutor_stephan_produto_queijo.produtor = produtor_stephan
 pprodutor_stephan_produto_queijo.save
 
-puts "# #{pprodutor_stephan_produto_queijo.nome}"
+puts "### #{pprodutor_stephan_produto_queijo.nome}"
 
 produtor_maria_alves = Produtor.create(
     nome: "Maria",
@@ -233,11 +233,11 @@ produtor_maria_alves.video = produtor_maria_alves_video_1
 produtor_maria_alves.cidade = cidade_corumba_de_goias
 produtor_maria_alves.save
 
-puts "# #{produtor_maria_alves.nome_completo}"
+puts "## #{produtor_maria_alves.nome_completo}"
 
 produtor_maria_alves_produto_soja = Produto.create(
     nome: "Soja",
-    descricao: "A soja (Glycine max), também conhecida como feijão-soja e feijão-chinês, é uma planta pertence à família Fabaceae, família esta que compreende também plantas como o feijão, a lentilha e a ervilha.",
+    descricao: "A soja é ..., pois ...",
     preco: "R$ 60,00"
 )
 produtor_maria_alves_produto_soja_producao_4 = Producao.create(numero: 500, medida: :saco, periodo: :ano)
@@ -251,6 +251,80 @@ produtor_maria_alves_produto_soja.producoes << [produtor_maria_alves_produto_soj
 produtor_maria_alves_produto_soja.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-soja-capa.jpg"), filename: "jose-silva-soja-capa.jpg")
 produtor_maria_alves_produto_soja.save
 
-puts "# #{produtor_maria_alves_produto_soja.nome}"
+puts "### #{produtor_maria_alves_produto_soja.nome}"
+
+
+produtor_celio_fleury = Produtor.create(
+    nome: "Célio",
+    sobrenome: "Fleury",
+    telefone: "(62) 99998-12345",
+    email: "celio.fleury@gmail.com",
+    endereco: "R 02, Bro 9 de Julho",
+    apelido: "Prefeito",
+    whatsapp: false,
+    cartao: false
+)
+produtor_celio_fleury_video_1 = Video.create(nome: "Video 2", descricao: "Video 2", codigo: "Uit7H-78XPI")
+produtor_celio_fleury.perfil.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-perfil.jpg"), filename: "celio-fleury-perfil.jpg")
+produtor_celio_fleury.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-foto-1.jpg"), filename: "celio-fleury-foto-1.jpg")
+produtor_celio_fleury.video = produtor_celio_fleury_video_1
+produtor_celio_fleury.cidade = cidade_cocalzinho
+produtor_celio_fleury.save
+
+puts "## #{produtor_celio_fleury.nome_completo}"
+
+produtor_celio_fleury_produto_aluguel_pasto = Servico.create(
+    nome: "Aluguel de Pasto",
+    descricao: "O aluguel de pasto é ...., pois .....",
+    preco: "R$ 25,00",
+    medida: :cabeca
+)
+produtor_celio_fleury_produto_aluguel_pasto.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-capa.jpg"), filename: "celio-fleury-aluguel-pasto-capa.jpg")
+produtor_celio_fleury_produto_aluguel_pasto.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-foto-1.jpg"), filename: "celio-fleury-aluguel-pasto-foto-1.jpg")
+produtor_celio_fleury_produto_aluguel_pasto.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-foto-2.jpg"), filename: "celio-fleury-aluguel-pasto-foto-2.jpg")
+produtor_celio_fleury_produto_aluguel_pasto.produtor = produtor_celio_fleury
+produtor_celio_fleury_produto_aluguel_pasto.save
+
+puts "### #{produtor_celio_fleury_produto_aluguel_pasto.nome}"
+
+produtor_celio_fleury_produto_aluguel_trator = Servico.create(
+    nome: "Aluguel de Trator ",
+    descricao: "O aluguel de trator é ...., pois .....",
+    preco: "R$ 80,00",
+    medida: :hora
+)
+produtor_celio_fleury_produto_aluguel_trator.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-capa.jpg"), filename: "celio-fleury-aluguel-trator-capa.jpg")
+produtor_celio_fleury_produto_aluguel_trator.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-foto-1.jpg"), filename: "celio-fleury-aluguel-trator-foto-1.jpg")
+produtor_celio_fleury_produto_aluguel_trator.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-foto-2.jpg"), filename: "celio-fleury-aluguel-trator-foto-2.jpg")
+produtor_celio_fleury_produto_aluguel_trator.produtor = produtor_celio_fleury
+produtor_celio_fleury_produto_aluguel_trator.save
+
+puts "### #{produtor_celio_fleury_produto_aluguel_trator.nome}"
+
+produtor_celio_fleury_produto_gado_corte = Produto.create(
+    nome: "Gado de Corte",
+    descricao: "O gado de corte é ..., pois ....",
+    preco: "R$ 150,00"
+)
+produtor_celio_fleury_produto_gado_corte_producao_1 = Producao.create(numero: 100, medida: :arroba, periodo: :ano)
+produtor_celio_fleury_produto_gado_corte_producao_2 = Producao.create(numero: 120, medida: :arroba, periodo: :ano)
+
+produtor_celio_fleury_produto_gado_corte_video_1 = Video.create(nome: "Video 1", descricao: "Video 1", codigo: "0FuZWc8Bpw8")
+produtor_celio_fleury_produto_gado_corte_criacao_1 = Criacao.create(data: Date.parse("Dec 8 2001"), titulo: "A criação", descricao: "Criado para atender ... foi transido pela família...")
+produtor_celio_fleury_produto_gado_corte_criacao_2 = Criacao.create(data: Date.parse("Dec 8 2002"), titulo: "A transformação", descricao: "Importou as vacas devido ... e perceber ...")
+produtor_celio_fleury_produto_gado_corte_criacao_3 = Criacao.create(data: Date.parse("Dec 8 2005"), titulo: "O sentimento", descricao: "Hoje seu sonho foi realizado, devido o prêmio ....")
+produtor_celio_fleury_produto_gado_corte.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-capa.jpg"), filename: "celio-fleury-gado-corte-capa.jpg")
+produtor_celio_fleury_produto_gado_corte.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-foto-1.jpg"), filename: "celio-fleury-gado-corte-foto-1.jpg")
+produtor_celio_fleury_produto_gado_corte.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-foto-2.jpg"), filename: "celio-fleury-gado-corte-foto-2.jpg")
+produtor_celio_fleury_produto_gado_corte.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-foto-3.jpg"), filename: "celio-fleury-gado-corte-foto-3.jpg")
+produtor_celio_fleury_produto_gado_corte.video = produtor_celio_fleury_produto_gado_corte_video_1
+produtor_celio_fleury_produto_gado_corte.criacoes << [produtor_celio_fleury_produto_gado_corte_criacao_1, produtor_celio_fleury_produto_gado_corte_criacao_2, produtor_celio_fleury_produto_gado_corte_criacao_3]
+produtor_celio_fleury_produto_gado_corte.producoes << [produtor_celio_fleury_produto_gado_corte_producao_1, produtor_celio_fleury_produto_gado_corte_producao_2]
+produtor_celio_fleury_produto_gado_corte.categoria = animal
+produtor_celio_fleury_produto_gado_corte.qualidade = tradicional
+produtor_celio_fleury_produto_gado_corte.produtor = produtor_celio_fleury
+produtor_celio_fleury_produto_gado_corte.save
+
+puts "### #{produtor_celio_fleury_produto_gado_corte.nome}"
 
 #end

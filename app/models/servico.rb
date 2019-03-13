@@ -32,7 +32,7 @@ class Servico < ApplicationRecord
 
   friendly_id :friendly_url, use: :slugged
 
-  enum medida: [:hora, :dia, :mes, :fixo]
+  enum medida: [:hora, :dia, :mes, :fixo, :cabeca]
 
   def foto_capa_url
     #FIXME: Código duplicado
