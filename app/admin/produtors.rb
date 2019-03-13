@@ -7,7 +7,7 @@ ActiveAdmin.register Produtor do
     end
   end
 
-  permit_params :perfil, :nome, :sobrenome, :telefone, :email, :endereco, :whatsapp, :cartao, fotos: [],
+  permit_params :perfil, :nome, :sobrenome, :telefone, :email, :endereco, :whatsapp, :cartao, :cidade_id, fotos: [],
                 video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
                 fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy],
                 historias_attributes: [:id, :data, :titulo, :descricao, :_destroy]
@@ -25,6 +25,7 @@ ActiveAdmin.register Produtor do
       f.input :cartao
       f.input :email
       f.input :endereco
+      f.input :cidade_id, :as => :select, :collection => Cidade.all.map {|u| ["#{u.nome}", u.id]}
       f.input :fotos, as: :file, input_html: {multiple: true}
       f.inputs do
         #FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
