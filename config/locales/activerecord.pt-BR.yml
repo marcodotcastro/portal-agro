@@ -33,10 +33,10 @@ pt-BR:
         other: "Histórias"
       estado:
         one: "Estado"
-        other: "Estado"
+        other: "Estados"
       cidade:
         one: "Cidade"
-        other: "Cidade"
+        other: "Cidades"
       admin_user:
         one: "Administrador"
         other: "Administradores"
