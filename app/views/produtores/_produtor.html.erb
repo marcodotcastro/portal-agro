@@ -1,43 +1,35 @@
 <div class="row">
-  <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+  <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
     <div class="block-2">
       <div class="flipper">
-        <div class="front" style="background-image: url(<%= url_for produtor.foto_perfil_url %>);">
-          <div class="box">
-            <h2><%= produtor.nome_completo %></h2>
-            <h6><%= produtor.apelido %></h6>
-          </div>
-        </div>
-        <div class="back">
-          <div class="container">
-            <br>
-            <h6 class="letter-spacing-1">Telefone: </h6>
-            <h5><%= produtor.telefone %><%= produtor.whatsapp ? " <h6 class='fa fa-whatsapp'></h6>".html_safe : "" %></h5>
-            <h6 class="letter-spacing-1">Email: </h6><h5><%= produtor.email %></h5>
-            <h6 class="letter-spacing-1">Endereço: </h6><h5><%= produtor.endereco_completo %></h5>
-            <%= produtor.cartao ? "<h6 class='letter-spacing-1'>Aceita Cartão</h6>".html_safe : "" %>
-          </div>
-          <%= link_to estado_cidade_produtor_path(produtor.cidade.estado, produtor.cidade, produtor) do %>
-            <div class="author d-flex">
-              <div class="image mr-3 align-self-center">
-                <%= image_tag(url_for(produtor.foto_perfil_url), size: "70x70", alt: "") %>
-              </div>
-              <div class="name align-self-center">
-                <h6><%= produtor.nome_completo %></h6>
-                <h6 class="letter-spacing-1"><%= produtor.apelido %></h6>
-                <h6 class="letter-spacing-1">
-                  <a href="https://www.youtube.com/embed/<%= produtor.video.codigo %>" data-fancybox>Vídeo Sobre o
-                    Produtor</a></h6>
-              </div>
-            </div>
-          <% end %>
-        </div>
+        <%= link_to estado_cidade_produtor_path(produtor.cidade.estado, produtor.cidade, produtor) do %>
+          <div class="front" style="background-image: url(<%= url_for produtor.foto_perfil_url %>);"></div>
+        <% end %>
       </div>
     </div>
   </div>
-  <div class="col-md-6 mb-5">
-    <h2 class="heading" data-aos="fade">A História</h2>
+  <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+    <h6 class="letter-spacing-1">Nome: </h6>
+    <%= link_to estado_cidade_produtor_path(produtor.cidade.estado, produtor.cidade, produtor) do %>
+      <h5><%= produtor.nome_completo %> (<%= produtor.apelido %>)</h5>
+    <% end %>
+    <br>
+    <h6 class="letter-spacing-1">Telefone: </h6>
+    <h5><%= produtor.telefone %><%= produtor.whatsapp ? " <span class='fa fa-whatsapp'></span>".html_safe : "" %></h5>
+    <h6 class="letter-spacing-1">Email: </h6><h5><%= produtor.email %></h5>
+    <br>
+    <h6 class="letter-spacing-1">Endereço: </h6><h5><%= produtor.endereco_completo %></h5>
+    <br>
+    <h6 class='letter-spacing-1'>Aceita Cartão: </h6><%= produtor.cartao ? "<h5>Sim</h5>".html_safe : "<h5>Não</h5>".html_safe %>
+    <br>
+    <h6>
+      <a href="https://www.youtube.com/embed/<%= produtor.video.codigo %>" data-fancybox>Vídeo Sobre o
+        Produtor</a>
+    </h6>
+  </div>
+  <div class="col-md-4">
     <div class="row justify-content-center">
+      <h2 class="heading" data-aos="fade">A História</h2>
       <div class="col-md-12">
         <% produtor.historias.order(data: :asc).each do |historia| %>
           <div class="timeline-item" date-is='<%= historia.data.year %>' data-aos="fade">

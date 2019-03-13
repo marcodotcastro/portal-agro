@@ -970,29 +970,30 @@ textarea.form-control {
     transform-style: preserve-3d;
     position: relative; }
   .block-2 .front, .block-2 .back {
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 4px;
-    -webkit-transition: 0.6s;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: rotateY(0deg);
-    -moz-transition: 0.6s;
-    -moz-transform-style: preserve-3d;
-    -moz-transform: rotateY(0deg);
-    -o-transition: 0.6s;
-    -o-transform-style: preserve-3d;
-    -o-transform: rotateY(0deg);
-    -ms-transition: 0.6s;
-    -ms-transform-style: preserve-3d;
-    -ms-transform: rotateY(0deg);
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    transform: rotateY(0deg);
-    position: absolute;
-    top: 0;
-    left: 0; }
+    /*-webkit-backface-visibility: hidden;*/
+    /*-moz-backface-visibility: hidden;*/
+    /*-ms-backface-visibility: hidden;*/
+    /*backface-visibility: hidden;*/
+    /*border-radius: 4px;*/
+    /*-webkit-transition: 0.6s;*/
+    /*-webkit-transform-style: preserve-3d;*/
+    /*-webkit-transform: rotateY(0deg);*/
+    /*-moz-transition: 0.6s;*/
+    /*-moz-transform-style: preserve-3d;*/
+    /*-moz-transform: rotateY(0deg);*/
+    /*-o-transition: 0.6s;*/
+    /*-o-transform-style: preserve-3d;*/
+    /*-o-transform: rotateY(0deg);*/
+    /*-ms-transition: 0.6s;*/
+    /*-ms-transform-style: preserve-3d;*/
+    /*-ms-transform: rotateY(0deg);*/
+    /*transition: 0.6s;*/
+    /*transform-style: preserve-3d;*/
+    /*transform: rotateY(0deg);*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+  }
   .block-2 .front {
     -webkit-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
