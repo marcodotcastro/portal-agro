@@ -268,7 +268,7 @@ produtor_celio_fleury_video_1 = Video.create(nome: "Video 2", descricao: "Video 
 produtor_celio_fleury.perfil.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-perfil.jpg"), filename: "celio-fleury-perfil.jpg")
 produtor_celio_fleury.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-foto-1.jpg"), filename: "celio-fleury-foto-1.jpg")
 produtor_celio_fleury.video = produtor_celio_fleury_video_1
-produtor_celio_fleury.cidade = cidade_cocalzinho
+produtor_celio_fleury.cidade = cidade_corumba_de_goias
 produtor_celio_fleury.save
 
 puts "## #{produtor_celio_fleury.nome_completo}"
