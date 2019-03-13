@@ -10,7 +10,7 @@ ActiveAdmin.register Produto do
   permit_params :capa, :nome, :descricao, :producao, :preco, :video, :produtor_id, :categoria_id, :qualidade_id,
                 fotos: [],
                 video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
-                producoes_attributes: [:id, :numero, :unidade, :periodo, :_destroy],
+                producoes_attributes: [:id, :numero, :medida, :periodo, :_destroy],
                 criacoes_attributes: [:id, :data, :titulo, :descricao, :_destroy]
 
   filter :produtor, collection: -> {
@@ -35,7 +35,7 @@ ActiveAdmin.register Produto do
       f.inputs do
         f.has_many :producoes, allow_destroy: true, new_record: true do |a|
           a.input :numero
-          a.input :unidade
+          a.input :medida
           a.input :periodo
         end
       end
@@ -120,7 +120,7 @@ ActiveAdmin.register Produto do
       panel "Produções" do
         table_for produto.producoes do
           column :numero
-          column :unidade
+          column :medida
           column :periodo
         end
       end

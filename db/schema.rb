@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_205060) do
 
   create_table "producoes", force: :cascade do |t|
     t.integer "numero"
-    t.integer "unidade", default: 0
+    t.integer "medida", default: 0
     t.integer "periodo", default: 0
     t.bigint "produto_id"
     t.datetime "created_at", null: false

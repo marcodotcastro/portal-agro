@@ -55,7 +55,7 @@ class Produto < ApplicationRecord
 
   def producao
     if self.producoes
-      self.producoes.last.numero.to_s + " " + self.producoes.last.unidade + "/" + self.producoes.last.periodo
+      self.producoes.last.numero.to_s + " " + self.producoes.last.medida + "/" + self.producoes.last.periodo
     end
   end
 
@@ -70,6 +70,12 @@ class Produto < ApplicationRecord
         "uma diminuição de #{alteracao * -1}%"
       end
 
+    end
+  end
+
+  def preco_completo
+    if self.producoes
+      self.preco + " " + self.producoes.last.medida
     end
   end
 

@@ -3,9 +3,9 @@
 # Table name: producoes
 #
 #  id         :bigint(8)        not null, primary key
+#  medida     :integer          default("unidade")
 #  numero     :integer
 #  periodo    :integer          default("dia")
-#  unidade    :integer          default("unitario")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  produto_id :bigint(8)
@@ -22,7 +22,7 @@
 class Producao < ApplicationRecord
   belongs_to :produto, optional: true
   
-  enum unidade: [ :unitario, :litro, :quilo, :saco ]
+  enum medida: [ :unidade, :litro, :quilo, :saco ]
   enum periodo: [ :dia, :semana, :mes, :ano ]
   
 end

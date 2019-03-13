@@ -76,7 +76,7 @@ pt-BR:
         updated_at: "Atualizado Em"
       producao:
         numero: "Número"
-        unidade: "Unidade"
+        medida: "Medida"
         periodo: "Período"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
