@@ -1,6 +1,12 @@
 ActiveAdmin.register Estado do
   menu priority: 4
 
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
+
   permit_params :nome
 
   filter :nome
