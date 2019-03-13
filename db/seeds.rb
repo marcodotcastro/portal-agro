@@ -151,6 +151,19 @@ produtor_divino_pereira.save
 
 puts "# #{produtor_divino_pereira.nome_completo}"
 
+produtor_divino_pereira_produto_rocar = Servico.create(
+    nome: "Roçar",
+    descricao: "Queijo é um alimento sólido feito a partir do leite de vacas, cabras, ovelhas, búfalas e/ou outros mamíferos. O queijo é produzido pela coagulação do leite.",
+    preco: "R$ 40,00",
+    medida: :dia
+)
+produtor_divino_pereira_produto_rocar.capa.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-capa.jpg"), filename: "divino-pereira-roçar-capa.jpg")
+produtor_divino_pereira_produto_rocar.fotos.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-foto-1.jpg"), filename: "divino-pereira-roçar-foto-1.jpg")
+produtor_divino_pereira_produto_rocar.fotos.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-foto-2.jpg"), filename: "divino-pereira-roçar-foto-2.jpg")
+produtor_divino_pereira_produto_rocar.produtor = produtor_divino_pereira
+produtor_divino_pereira_produto_rocar.save
+
+
 produtor_stephan = Produtor.create(
     nome: "Stephan",
     sobrenome: "Gaehwiler",

@@ -31,6 +31,7 @@ class Produtor < ApplicationRecord
 
   belongs_to :cidade, optional: true
   has_many :produtos
+  has_many :servicos
   has_one :video, :dependent => :destroy
   has_many :historias, :dependent => :destroy
 
