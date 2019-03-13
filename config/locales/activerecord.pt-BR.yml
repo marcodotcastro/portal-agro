@@ -40,6 +40,9 @@ pt-BR:
       admin_user:
         one: "Administrador"
         other: "Administradores"
+      contato:
+        one: "Contato"
+        other: "Contatos"
     attributes:
       produto:
         nome: "Nome"
@@ -107,6 +110,13 @@ pt-BR:
       criacao:
         data: "Data"
         titulo: "Título"
+        descricao: "Descrição"
+        created_at: "Criado Em"
+        updated_at: "Atualizado Em"
+      contato:
+        nome: "Nome"
+        telefone: "Telefone"
+        email: "Email"
         descricao: "Descrição"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"

@@ -11,6 +11,15 @@
 #                                PUT        /admin/password(.:format)                                                                active_admin/devise/passwords#update
 #                                POST       /admin/password(.:format)                                                                active_admin/devise/passwords#create
 #                     admin_root GET        /admin(.:format)                                                                         admin/dashboard#index
+#    batch_action_admin_servicos POST       /admin/servicos/batch_action(.:format)                                                   admin/servicos#batch_action
+#                 admin_servicos GET        /admin/servicos(.:format)                                                                admin/servicos#index
+#                                POST       /admin/servicos(.:format)                                                                admin/servicos#create
+#              new_admin_servico GET        /admin/servicos/new(.:format)                                                            admin/servicos#new
+#             edit_admin_servico GET        /admin/servicos/:id/edit(.:format)                                                       admin/servicos#edit
+#                  admin_servico GET        /admin/servicos/:id(.:format)                                                            admin/servicos#show
+#                                PATCH      /admin/servicos/:id(.:format)                                                            admin/servicos#update
+#                                PUT        /admin/servicos/:id(.:format)                                                            admin/servicos#update
+#                                DELETE     /admin/servicos/:id(.:format)                                                            admin/servicos#destroy
 #  batch_action_admin_produtores POST       /admin/produtores/batch_action(.:format)                                                 admin/produtores#batch_action
 #               admin_produtores GET        /admin/produtores(.:format)                                                              admin/produtores#index
 #                                POST       /admin/produtores(.:format)                                                              admin/produtores#create
@@ -80,11 +89,17 @@
 #                  admin_comment GET        /admin/comments/:id(.:format)                                                            admin/comments#show
 #                                DELETE     /admin/comments/:id(.:format)                                                            admin/comments#destroy
 #                           root GET        /                                                                                        home#index
+#                     sobre_show GET        /sobre/show(.:format)                                                                    sobre#show
+#                       contatos GET        /contatos(.:format)                                                                      contatos#index
+#                    new_contato GET        /contatos/new(.:format)                                                                  contatos#new
+#                        contato GET        /contatos/:id(.:format)                                                                  contatos#show
 # estado_cidade_produtor_produto GET        /estados/:estado_id/cidades/:cidade_id/produtores/:produtor_id/produtos/:id(.:format)    produtos#show
+# estado_cidade_produtor_servico GET        /estados/:estado_id/cidades/:cidade_id/produtores/:produtor_id/servicos/:id(.:format)    servicos#show
 #         estado_cidade_produtor GET        /estados/:estado_id/cidades/:cidade_id/produtores/:id(.:format)                          produtores#show
 #                  estado_cidade GET        /estados/:estado_id/cidades/:id(.:format)                                                cidades#show
 #                         estado GET        /estados/:id(.:format)                                                                   estados#show
 #                     produtores GET        /estados/goias/produtores(.:format)                                                      produtores#index
+#                       servicos GET        /estados/goias/servicos(.:format)                                                        servicos#index
 #                       produtos GET        /estados/goias/produtos(.:format)                                                        produtos#index
 #             rails_service_blob GET        /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 #      rails_blob_representation GET        /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
@@ -98,6 +113,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   root 'home#index'
+  get 'sobre/show'
+  resources :contatos
+
   resources :estados, only: [:show] do
     resources :cidades, only: [:show] do
       resources :produtores, only: [:show] do
@@ -106,7 +124,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
   resources :produtores, :path => "/estados/goias/produtores", only: [:index]
   resources :servicos, :path => "/estados/goias/servicos", only: [:index]
   resources :produtos, :path => "/estados/goias/produtos", only: [:index]
