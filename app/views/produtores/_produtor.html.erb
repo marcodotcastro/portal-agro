@@ -31,25 +31,31 @@
 </div>
 
 <div class="row">
-
-  <div class="col-md-12">
-    <div class="row justify-content-center">
-      <h2 class="heading" data-aos="fade">A História</h2>
-      <div class="historia">
-        <div class="col-md-12">
-          <% produtor.historias.order(data: :asc).each do |historia| %>
-            <div class="timeline-item" date-is='<%= historia.data.year %>'>
-              <h5><%= historia.titulo %></h5>
-              <h6><%= historia.descricao %></h6>
-            </div>
-          <% end %>
-          <% if produtor.historias.empty? %>
-            <div class="row justify-content-center text-center">
-              <h4 data-aos="fade-up">Ainda não conhecemos a sua história</h4>
-            </div>
-          <% end %>
-        </div>
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-md-7">
+        <h2 class="heading" data-aos="fade">A História</h2>
+        <h6 data-aos="fade-up" data-aos-delay="100">A história é ...</h6>
+        <% if produtor.historias.empty? %>
+          <div class="row justify-content-center text-center">
+            <h4 data-aos="fade-up">Ainda não conhecemos a sua história</h4>
+          </div>
+        <% end %>
       </div>
+    </div>
+    <div class="row justify-content-center">
+      <% unless produtor.historias.empty? %>
+        <div class="historia" data-aos="fade-up">
+          <div class="col-md-12">
+            <% produtor.historias.order(data: :asc).each do |historia| %>
+              <div class="timeline-item" date-is='<%= historia.data.year %>'>
+                <h5><%= historia.titulo %></h5>
+                <h6><%= historia.descricao %></h6>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
