@@ -18,12 +18,13 @@
   </div>
 </section>
 
-<section class="py-5 bg-light">
+<section class="py-5">
   <div class="container">
     <div class="row justify-content-center text-center mb-5">
       <div class="col-md-7">
         <h2 class="heading" data-aos="fade-up">Fotos</h2>
-        <h6 data-aos="fade-up" data-aos-delay="100">Veja um pouco da qualidade e carinho que é prestado o serviço por famílias que vivem tão próximas da natureza.</h6>
+        <h6 data-aos="fade-up" data-aos-delay="100">Veja um pouco da qualidade e carinho que é prestado o serviço por
+          famílias que vivem tão próximas da natureza.</h6>
         <% if @servico.fotos.empty? %>
           <div class="row justify-content-center text-center">
             <h4 data-aos="fade-up">Nenhuma foto cadastrada</h4>
@@ -45,12 +46,13 @@
   </div>
 </section>
 
-<section class="py-5 ">
+<section class="py-5 bg-light">
   <div class="container">
     <div class="row justify-content-center text-center">
       <div class="col-md-7">
         <h2 class="heading" data-aos="fade-up">O Produtor</h2>
-        <h6 data-aos="fade-up" data-aos-delay="100">É um verdadeiro exemplo de luta, <b>conheçam sua história e se espelhem</b>.</h6>
+        <h6 data-aos="fade-up" data-aos-delay="100">É um verdadeiro exemplo de luta,
+          <b>conheçam sua história e se espelhem</b>.</h6>
       </div>
     </div>
     <%= render 'produtores/produtor', produtor: @servico.produtor %>

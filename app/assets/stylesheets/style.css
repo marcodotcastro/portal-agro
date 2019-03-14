@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .bg-light {
-    background: #f2f4fb !important;
+    /*background: #f2f4fb !important;*/
 }
 
 .container-fluid {
