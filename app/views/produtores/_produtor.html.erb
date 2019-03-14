@@ -15,7 +15,8 @@
     <% end %>
     <br>
     <h6 class="letter-spacing-1">Telefone: </h6>
-    <h5><%= produtor.telefone %><%= produtor.whatsapp ? " <span class='fa fa-whatsapp'></span>".html_safe : "" %></h5>
+    <h5><a href="tel:<%= produtor.telefone %>"><%= produtor.telefone %></a>
+      <%= produtor.whatsapp ? " <span class='fa fa-whatsapp'></span>".html_safe : "" %></h5>
     <h6 class="letter-spacing-1">Email: </h6><h5><%= produtor.email %></h5>
     <br>
     <h6 class="letter-spacing-1">Endereço: </h6><h5><%= produtor.endereco_completo %></h5>
@@ -35,7 +36,8 @@
     <div class="row justify-content-center text-center mb-5">
       <div class="col-md-7">
         <h2 class="heading" data-aos="fade">A História</h2>
-        <h6 data-aos="fade-up" data-aos-delay="100">A história é ...</h6>
+        <h6 data-aos="fade-up" data-aos-delay="100">Conheça quais os principais acontecimentos por trás desse
+          guerreiro(a).</h6>
         <% if produtor.historias.empty? %>
           <div class="row justify-content-center text-center">
             <h4 data-aos="fade-up">Ainda não conhecemos a sua história</h4>
