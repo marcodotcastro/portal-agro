@@ -1,5 +1,8 @@
 ActiveAdmin.register Cidade do
-  menu priority: 4
+  menu parent: "Configurações"
+  breadcrumb do
+    ['admin', 'configurações', 'cidades']
+  end
 
   controller do
     def find_resource

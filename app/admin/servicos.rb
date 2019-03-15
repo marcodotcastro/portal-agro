@@ -1,5 +1,8 @@
 ActiveAdmin.register Servico do
   menu priority: 2
+  breadcrumb do
+    ['admin', 'serviços']
+  end
 
   controller do
     def find_resource

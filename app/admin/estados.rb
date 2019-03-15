@@ -1,5 +1,8 @@
 ActiveAdmin.register Estado do
-  menu priority: 4
+  menu parent: "Configurações"
+  breadcrumb do
+    ['admin', 'configurações', 'estado']
+  end
 
   controller do
     def find_resource

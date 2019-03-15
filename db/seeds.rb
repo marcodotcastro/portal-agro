@@ -32,7 +32,8 @@ produtor_jose_silva = Produtor.create(
     endereco: "R 01, Bro 9 de Julho",
     apelido: "Zé",
     whatsapp: true,
-    cartao: true
+    cartao: true,
+    created_at: DateTime.now.prev_month(2)
 )
 produtor_jose_silva.perfil.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-perfil.jpg"), filename: "jose-silva-perfil.jpg")
 produtor_jose_silva.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-foto-1.jpg"), filename: "jose-silva-foto-1.jpg")
@@ -51,7 +52,8 @@ puts "## #{produtor_jose_silva.nome_completo}"
 produtor_jose_silva_produto_leite = Produto.create(
     nome: "Leite",
     descricao: "O leite é ..., pois ...",
-    preco: "R$ 1,00"
+    preco: "R$ 1,00",
+    created_at: DateTime.now.prev_month(2)
 )
 produtor_jose_silva_produto_leite_producao_1 = Producao.create(numero: 100, medida: :litro, periodo: :dia)
 produtor_jose_silva_produto_leite_producao_2 = Producao.create(numero: 150, medida: :litro, periodo: :dia)
@@ -72,7 +74,8 @@ puts "### #{produtor_jose_silva_produto_leite.nome}"
 produtor_jose_silva_produto_bezerro = Produto.create(
     nome: "Bezerro",
     descricao: "O Vitelo, terneiro, bezerro ou novilho são ..., pois ...",
-    preco: "R$ 1000,00"
+    preco: "R$ 1000,00",
+    created_at: DateTime.now.prev_month(2)
 )
 produtor_jose_silva_produto_bezerro_producao_1 = Producao.create(numero: 10, medida: :unidade, periodo: :ano)
 produtor_jose_silva_produto_bezerro_producao_2 = Producao.create(numero: 15, medida: :unidade, periodo: :ano)
@@ -93,7 +96,8 @@ puts "### #{produtor_jose_silva_produto_bezerro.nome}"
 produtor_jose_silva_produto_milho = Produto.create(
     nome: "Milho",
     descricao: "O milho é ..., pois ...",
-    preco: "R$ 30,00"
+    preco: "R$ 30,00",
+    created_at: DateTime.now.prev_month(2)
 )
 produtor_jose_silva_produto_milho_producao_1 = Producao.create(numero: 100, medida: :saco, periodo: :ano)
 produtor_jose_silva_produto_milho_producao_2 = Producao.create(numero: 150, medida: :saco, periodo: :ano)
@@ -114,7 +118,8 @@ puts "### #{produtor_jose_silva_produto_milho.nome}"
 produtor_jose_silva_produto_pamonha = Produto.create(
     nome: "Pamonha",
     descricao: "A Pamonha é ..., pois ...",
-    preco: "R$ 3,50"
+    preco: "R$ 3,50",
+    created_at: DateTime.now.prev_month(2)
 )
 produtor_jose_silva_produto_pamonha_producao_1 = Producao.create(numero: 100, medida: :unidade, periodo: :dia)
 produtor_jose_silva_produto_pamonha_producao_2 = Producao.create(numero: 150, medida: :unidade, periodo: :dia)
@@ -140,7 +145,8 @@ produtor_divino_pereira = Produtor.create(
     endereco: "R 02, Bro 9 de Julho",
     apelido: "Filho do Tião",
     whatsapp: false,
-    cartao: false
+    cartao: false,
+    created_at: DateTime.now.prev_month(2)
 )
 produtor_divino_pereira_video_1 = Video.create(nome: "Video 2", descricao: "Video 2", codigo: "Uit7H-78XPI")
 produtor_divino_pereira.perfil.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-perfil.jpg"), filename: "divino-pereira-perfil.jpg")
@@ -154,7 +160,8 @@ produtor_divino_pereira_produto_rocar = Servico.create(
     nome: "Roçar",
     descricao: "O roçar é ..., pois ...",
     preco: "R$ 40,00",
-    medida: :dia
+    medida: :dia,
+    created_at: DateTime.now.prev_month(1)
 )
 produtor_divino_pereira_produto_rocar.capa.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-capa.jpg"), filename: "divino-pereira-roçar-capa.jpg")
 produtor_divino_pereira_produto_rocar.fotos.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-foto-1.jpg"), filename: "divino-pereira-roçar-foto-1.jpg")
@@ -172,7 +179,8 @@ produtor_stephan = Produtor.create(
     endereco: "R 03, Bro 9 de Julho",
     apelido: "Suíço",
     whatsapp: false,
-    cartao: true
+    cartao: true,
+    created_at: DateTime.now.prev_month(1)
 )
 produtor_stephan_historia_1 = Historia.create(data: Date.parse("Dec 8 1930"), titulo: "O Nascimento", descricao: "Nasceu na cidade de ... em uma casa com 12 irmão...")
 produtor_stephan_historia_2 = Historia.create(data: Date.parse("Dec 8 1945"), titulo: "A Mudança", descricao: "Se mudou para ... devido ... e lá criou ...")
@@ -189,7 +197,8 @@ puts "## #{produtor_stephan.nome_completo}"
 pprodutor_stephan_produto_queijo = Produto.create(
     nome: "Queijo",
     descricao: "O queijo é ..., pois ...",
-    preco: "R$ 50,00"
+    preco: "R$ 50,00",
+    created_at: DateTime.now.prev_month(1)
 )
 pprodutor_stephan_produto_queijo_producao_1 = Producao.create(numero: 100, medida: :unidade, periodo: :ano)
 pprodutor_stephan_produto_queijo_producao_2 = Producao.create(numero: 120, medida: :unidade, periodo: :ano)
@@ -219,7 +228,8 @@ produtor_maria_alves = Produtor.create(
     endereco: "R 03, Bro 9 de Julho",
     apelido: "Mariazinha",
     whatsapp: false,
-    cartao: true
+    cartao: true,
+    created_at: DateTime.now.prev_month(1)
 )
 produtor_maria_alves.perfil.attach(io: File.open(Rails.root + "spec/imagens/maria-alves-perfil.jpg"), filename: "maria-alves-perfil.jpg")
 produtor_maria_alves.fotos.attach(io: File.open(Rails.root + "spec/imagens/maria-alves-foto-1.jpg"), filename: "maria-alves-foto-1.jpg")
@@ -238,7 +248,8 @@ puts "## #{produtor_maria_alves.nome_completo}"
 produtor_maria_alves_produto_soja = Produto.create(
     nome: "Soja",
     descricao: "A soja é ..., pois ...",
-    preco: "R$ 60,00"
+    preco: "R$ 60,00",
+    created_at: DateTime.now.prev_month(1)
 )
 produtor_maria_alves_produto_soja_producao_4 = Producao.create(numero: 500, medida: :saco, periodo: :ano)
 produtor_maria_alves_produto_soja_producao_5 = Producao.create(numero: 450, medida: :saco, periodo: :ano)

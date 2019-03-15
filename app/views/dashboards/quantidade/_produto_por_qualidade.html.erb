@@ -1,0 +1,4 @@
+<%= javascript_include_tag "https://www.google.com/jsapi" %>
+<%= javascript_include_tag "chartkick" %>
+
+<%= pie_chart Produto.joins(:qualidade).group("qualidades.nome").count %>

@@ -1,5 +1,8 @@
 ActiveAdmin.register Produto do
   menu priority: 2
+  breadcrumb do
+    ['admin', 'produtos']
+  end
 
   controller do
     def find_resource

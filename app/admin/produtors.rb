@@ -1,5 +1,8 @@
 ActiveAdmin.register Produtor do
   menu priority: 1
+  breadcrumb do
+    ['admin', 'produtores']
+  end
 
   controller do
     def find_resource

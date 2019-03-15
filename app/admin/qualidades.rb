@@ -1,5 +1,8 @@
 ActiveAdmin.register Qualidade do
-  menu priority: 4
+  menu parent: "Configurações"
+  breadcrumb do
+    ['admin', 'configurações', 'qualidade']
+  end
 
   permit_params :nome, :descricao
 

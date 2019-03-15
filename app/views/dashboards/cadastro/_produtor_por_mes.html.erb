@@ -1,0 +1,4 @@
+<%= javascript_include_tag "https://www.google.com/jsapi" %>
+<%= javascript_include_tag "chartkick" %>
+
+<%= line_chart Produtor.group_by_month(:created_at).count %>

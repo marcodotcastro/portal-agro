@@ -15,6 +15,10 @@ gem 'ransack'
 gem 'mini_magick'
 gem "rubycritic", require: false
 gem 'friendly_id', '~> 5.2.4'
+gem 'devise'
+gem 'activeadmin'
+gem "chartkick", '~> 2.2.0'
+gem 'groupdate'
 
 group :production do
   gem 'aws-sdk-s3', require: false
@@ -47,5 +51,4 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'devise'
-gem 'activeadmin'
+

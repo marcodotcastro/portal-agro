@@ -1,5 +1,8 @@
 ActiveAdmin.register Categoria do
-  menu priority: 3
+  menu parent: "Configurações"
+  breadcrumb do
+    ['admin', 'configurações', 'categoria']
+  end
 
   permit_params :nome, :descricao
 
