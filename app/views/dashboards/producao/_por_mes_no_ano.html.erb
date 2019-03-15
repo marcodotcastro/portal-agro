@@ -1,0 +1,7 @@
+<%= javascript_include_tag "https://www.google.com/jsapi" %>
+<%= javascript_include_tag "chartkick" %>
+
+<%# TODO: Relatório fake, só para uso comercial %>
+<%= line_chart Produto.all.map {|produto|
+  {name: produto.nome, data: produto.producoes.group_by_month(:created_at).sum(:numero)}
+} %>

@@ -55,9 +55,9 @@ produtor_jose_silva_produto_leite = Produto.create(
     preco: "R$ 1,00",
     created_at: DateTime.now.prev_month(2)
 )
-produtor_jose_silva_produto_leite_producao_1 = Producao.create(numero: 100, medida: :litro, periodo: :dia)
-produtor_jose_silva_produto_leite_producao_2 = Producao.create(numero: 150, medida: :litro, periodo: :dia)
-produtor_jose_silva_produto_leite_producao_3 = Producao.create(numero: 250, medida: :litro, periodo: :dia)
+produtor_jose_silva_produto_leite_producao_1 = Producao.create(numero: 100, medida: :litro, periodo: :dia, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(2))
+produtor_jose_silva_produto_leite_producao_2 = Producao.create(numero: 150, medida: :litro, periodo: :dia, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(1))
+produtor_jose_silva_produto_leite_producao_3 = Producao.create(numero: 250, medida: :litro, periodo: :dia, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(0))
 produtor_jose_silva_produto_leite_video_1 = Video.create(nome: "Video 1", descricao: "Video 1", codigo: "XRgDSQJgoCI")
 produtor_jose_silva_produto_leite.video = produtor_jose_silva_produto_leite_video_1
 produtor_jose_silva_produto_leite.producoes << [produtor_jose_silva_produto_leite_producao_1, produtor_jose_silva_produto_leite_producao_2, produtor_jose_silva_produto_leite_producao_3]
@@ -77,9 +77,9 @@ produtor_jose_silva_produto_bezerro = Produto.create(
     preco: "R$ 1000,00",
     created_at: DateTime.now.prev_month(2)
 )
-produtor_jose_silva_produto_bezerro_producao_1 = Producao.create(numero: 10, medida: :unidade, periodo: :ano)
-produtor_jose_silva_produto_bezerro_producao_2 = Producao.create(numero: 15, medida: :unidade, periodo: :ano)
-produtor_jose_silva_produto_bezerro_producao_3 = Producao.create(numero: 25, medida: :unidade, periodo: :ano)
+produtor_jose_silva_produto_bezerro_producao_1 = Producao.create(numero: 10, medida: :unidade, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(2))
+produtor_jose_silva_produto_bezerro_producao_2 = Producao.create(numero: 15, medida: :unidade, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(1))
+produtor_jose_silva_produto_bezerro_producao_3 = Producao.create(numero: 25, medida: :unidade, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(0))
 produtor_jose_silva_produto_bezerro_video_1 = Video.create(nome: "Video 1", descricao: "Video 1", codigo: "tVs8EQ9bkUA")
 produtor_jose_silva_produto_bezerro.video = produtor_jose_silva_produto_bezerro_video_1
 produtor_jose_silva_produto_bezerro.producoes << [produtor_jose_silva_produto_bezerro_producao_1, produtor_jose_silva_produto_bezerro_producao_2, produtor_jose_silva_produto_bezerro_producao_3]
@@ -99,9 +99,9 @@ produtor_jose_silva_produto_milho = Produto.create(
     preco: "R$ 30,00",
     created_at: DateTime.now.prev_month(2)
 )
-produtor_jose_silva_produto_milho_producao_1 = Producao.create(numero: 100, medida: :saco, periodo: :ano)
-produtor_jose_silva_produto_milho_producao_2 = Producao.create(numero: 150, medida: :saco, periodo: :ano)
-produtor_jose_silva_produto_milho_producao_3 = Producao.create(numero: 250, medida: :saco, periodo: :ano)
+produtor_jose_silva_produto_milho_producao_1 = Producao.create(numero: 100, medida: :saco, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(2))
+produtor_jose_silva_produto_milho_producao_2 = Producao.create(numero: 150, medida: :saco, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(1))
+produtor_jose_silva_produto_milho_producao_3 = Producao.create(numero: 250, medida: :saco, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(0))
 produtor_jose_silva_produto_milho_video_1 = Video.create(nome: "Video 1", descricao: "Video 1", codigo: "ki_hznmHIT8")
 produtor_jose_silva_produto_milho.video = produtor_jose_silva_produto_milho_video_1
 produtor_jose_silva_produto_milho.producoes << [produtor_jose_silva_produto_milho_producao_1, produtor_jose_silva_produto_milho_producao_2, produtor_jose_silva_produto_milho_producao_3]
@@ -121,9 +121,9 @@ produtor_jose_silva_produto_pamonha = Produto.create(
     preco: "R$ 3,50",
     created_at: DateTime.now.prev_month(2)
 )
-produtor_jose_silva_produto_pamonha_producao_1 = Producao.create(numero: 100, medida: :unidade, periodo: :dia)
-produtor_jose_silva_produto_pamonha_producao_2 = Producao.create(numero: 150, medida: :unidade, periodo: :dia)
-produtor_jose_silva_produto_pamonha_producao_3 = Producao.create(numero: 250, medida: :unidade, periodo: :dia)
+produtor_jose_silva_produto_pamonha_producao_1 = Producao.create(numero: 100, medida: :unidade, periodo: :dia, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(2))
+produtor_jose_silva_produto_pamonha_producao_2 = Producao.create(numero: 150, medida: :unidade, periodo: :dia, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(1))
+produtor_jose_silva_produto_pamonha_producao_3 = Producao.create(numero: 250, medida: :unidade, periodo: :dia, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(0))
 produtor_jose_silva_produto_pamonha_video_1 = Video.create(nome: "Video 1", descricao: "Video 1", codigo: "MTUVNZOOnNw")
 produtor_jose_silva_produto_pamonha.video = produtor_jose_silva_produto_pamonha_video_1
 produtor_jose_silva_produto_pamonha.producoes << [produtor_jose_silva_produto_pamonha_producao_1, produtor_jose_silva_produto_pamonha_producao_2, produtor_jose_silva_produto_pamonha_producao_3]
@@ -200,8 +200,8 @@ pprodutor_stephan_produto_queijo = Produto.create(
     preco: "R$ 50,00",
     created_at: DateTime.now.prev_month(1)
 )
-pprodutor_stephan_produto_queijo_producao_1 = Producao.create(numero: 100, medida: :unidade, periodo: :ano)
-pprodutor_stephan_produto_queijo_producao_2 = Producao.create(numero: 120, medida: :unidade, periodo: :ano)
+pprodutor_stephan_produto_queijo_producao_1 = Producao.create(numero: 100, medida: :unidade, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(1))
+pprodutor_stephan_produto_queijo_producao_2 = Producao.create(numero: 120, medida: :unidade, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(0))
 pprodutor_stephan_produto_queijo_video_1 = Video.create(nome: "Video 1", descricao: "Video 1", codigo: "0FuZWc8Bpw8")
 pprodutor_stephan_produto_queijo_criacao_1 = Criacao.create(data: Date.parse("Dec 8 2001"), titulo: "A criação", descricao: "Criado para atender ... foi transido pela família...")
 pprodutor_stephan_produto_queijo_criacao_2 = Criacao.create(data: Date.parse("Dec 8 2002"), titulo: "A transformação", descricao: "Importou as vacas devido ... e perceber ...")
@@ -251,8 +251,8 @@ produtor_maria_alves_produto_soja = Produto.create(
     preco: "R$ 60,00",
     created_at: DateTime.now.prev_month(1)
 )
-produtor_maria_alves_produto_soja_producao_4 = Producao.create(numero: 500, medida: :saco, periodo: :ano)
-produtor_maria_alves_produto_soja_producao_5 = Producao.create(numero: 450, medida: :saco, periodo: :ano)
+produtor_maria_alves_produto_soja_producao_4 = Producao.create(numero: 500, medida: :saco, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(1))
+produtor_maria_alves_produto_soja_producao_5 = Producao.create(numero: 450, medida: :saco, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(0))
 produtor_maria_alves_produto_soja_video_1 = Video.create(nome: "Video 1", descricao: "Video 1", codigo: "0FuZWc8Bpw8")
 produtor_maria_alves_produto_soja.produtor = produtor_maria_alves
 produtor_maria_alves_produto_soja.categoria = vegetal
@@ -273,7 +273,8 @@ produtor_celio_fleury = Produtor.create(
     endereco: "Rua 1, Bairro Alto Boa Vista",
     apelido: "Prefeito",
     whatsapp: false,
-    cartao: false
+    cartao: false,
+    created_at: DateTime.now.prev_month(1)
 )
 produtor_celio_fleury_video_1 = Video.create(nome: "Video 2", descricao: "Video 2", codigo: "Uit7H-78XPI")
 produtor_celio_fleury.perfil.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-perfil.jpg"), filename: "celio-fleury-perfil.jpg")
@@ -288,7 +289,8 @@ produtor_celio_fleury_produto_aluguel_pasto = Servico.create(
     nome: "Aluguel de Pasto",
     descricao: "O aluguel de pasto é ...., pois .....",
     preco: "R$ 25,00",
-    medida: :cabeca
+    medida: :cabeca,
+    created_at: DateTime.now.prev_month(1)
 )
 produtor_celio_fleury_produto_aluguel_pasto.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-capa.jpg"), filename: "celio-fleury-aluguel-pasto-capa.jpg")
 produtor_celio_fleury_produto_aluguel_pasto.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-foto-1.jpg"), filename: "celio-fleury-aluguel-pasto-foto-1.jpg")
@@ -302,7 +304,8 @@ produtor_celio_fleury_produto_aluguel_trator = Servico.create(
     nome: "Aluguel de Trator ",
     descricao: "O aluguel de trator é ...., pois .....",
     preco: "R$ 80,00",
-    medida: :hora
+    medida: :hora,
+    created_at: DateTime.now.prev_month(1)
 )
 produtor_celio_fleury_produto_aluguel_trator.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-capa.jpg"), filename: "celio-fleury-aluguel-trator-capa.jpg")
 produtor_celio_fleury_produto_aluguel_trator.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-foto-1.jpg"), filename: "celio-fleury-aluguel-trator-foto-1.jpg")
@@ -315,10 +318,11 @@ puts "### #{produtor_celio_fleury_produto_aluguel_trator.nome}"
 produtor_celio_fleury_produto_gado_corte = Produto.create(
     nome: "Gado de Corte",
     descricao: "O gado de corte é ..., pois ....",
-    preco: "R$ 150,00"
+    preco: "R$ 150,00",
+    created_at: DateTime.now.prev_month(1)
 )
-produtor_celio_fleury_produto_gado_corte_producao_1 = Producao.create(numero: 100, medida: :arroba, periodo: :ano)
-produtor_celio_fleury_produto_gado_corte_producao_2 = Producao.create(numero: 120, medida: :arroba, periodo: :ano)
+produtor_celio_fleury_produto_gado_corte_producao_1 = Producao.create(numero: 100, medida: :arroba, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(1))
+produtor_celio_fleury_produto_gado_corte_producao_2 = Producao.create(numero: 120, medida: :arroba, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(0))
 
 produtor_celio_fleury_produto_gado_corte_video_1 = Video.create(nome: "Video 1", descricao: "Video 1", codigo: "0FuZWc8Bpw8")
 produtor_celio_fleury_produto_gado_corte_criacao_1 = Criacao.create(data: Date.parse("Dec 8 2001"), titulo: "A criação", descricao: "Criado para atender ... foi transido pela família...")

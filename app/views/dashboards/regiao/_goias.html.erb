@@ -1,8 +1,4 @@
 <%= javascript_include_tag "https://www.google.com/jsapi" %>
 <%= javascript_include_tag "chartkick" %>
-
-
-<%#= geo_chart Produtor.joins(:cidade).group("cidades.nome").count, library: {region: 'BR', resolution: 'provinces' }%>
-<%= geo_chart [['State', 'Views'], ['BR-GO', 766], ['BR-TO', 300], ['BR-DF', 400],['BR-MT', 400],['BR-MS', 400]], library: {region: 'BR', resolution: 'provinces' }%>
-
-<%#= bar_chart Produtor.joins(:cidade).group("cidades.nome").count %>
+<%# TODO: Relatório fake, só para uso comercial %>
+<%= geo_chart [['State', 'Views'], ['BR-GO', 766], ['BR-TO', 300], ['BR-DF', 400], ['BR-MT', 400], ['BR-MS', 400]], library: {region: 'BR', resolution: 'provinces'} %>
