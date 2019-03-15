@@ -1,15 +1,15 @@
 ActiveAdmin.register_page "Regiao" do
-  menu parent: "Relatorios"
+  menu parent: "Relatórios", label: "Região"
   breadcrumb do
-    ['admin', 'relatorios', 'regioes']
+    ['admin', 'relatórios', 'regiões']
   end
 
 
-  content title: proc {I18n.t("active_admin.dashboard")} do
+  content title: "Relatório" do
 
     div class: "blank_slate_container", id: "dashboard_default_message" do
       span class: "blank_slate" do
-        span "Região"
+        span "Regiões"
       end
     end
 

@@ -1,7 +1,7 @@
 ActiveAdmin.register_page "Cadastro" do
-  menu parent: "Relatorios"
+  menu parent: "Relatórios"
   breadcrumb do
-    ['admin', 'relatorios', 'cadastros']
+    ['admin', 'relatórios', 'cadastros']
   end
 
 
