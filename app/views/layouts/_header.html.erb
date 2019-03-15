@@ -23,8 +23,8 @@
                     <li><%= link_to "Produtores", produtores_path %></li>
                     <li><%= link_to "Produtos", produtos_path %></li>
                     <li><%= link_to "Serviços", servicos_path %></li>
+                    <li><%= link_to "Nosso Objetivo", sobre_show_path %></li>
                     <li><%= link_to "Contato", new_contato_path %></li>
-                    <li><%= link_to "Sobre", sobre_show_path %></li>
                   </ul>
                 </div>
               </div>
@@ -43,29 +43,29 @@
       <div class="col-md-10 text-center" data-aos="fade-up">
         <%#TODO: Refatorar %>
         <% if controller_name == "home" %>
-          <span class="custom-caption text-uppercase text-white d-block  mb-3">Bem vindo ao <span class="fa fa-star text-primary"></span> Portal Agro <span class="fa fa-star text-primary"></span></span>
+          <span class="sub-heading">Bem vindo ao <span class="fa fa-star text-primary"></span> Portal Agro <span class="fa fa-star text-primary"></span></span>
           <h1 class="heading">Agricultura Familiar</h1>
-          <h1 class="heading">O Melhor da Sua Região</h1>
+          <h1 class="sub-heading">Os Melhores Produtos e Serviços da Sua Região</h1>
         <% elsif controller_name == "servicos" %>
           <% if action_name == "index" %>
-            <span class="custom-caption text-uppercase text-white d-block  mb-3"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
             <h2 class="heading">Os Serviços</h2>
+            <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
           <% else %>
-            <span class="custom-caption text-uppercase text-white d-block  mb-3"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
             <h2 class="heading">O Serviço</h2>
+            <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
           <% end %>
         <% elsif controller_name == "contatos" %>
-          <span class="custom-caption text-uppercase text-white d-block  mb-3"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
           <h2 class="heading">Contato</h2>
+          <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
         <% elsif controller_name == "sobre" %>
-          <span class="custom-caption text-uppercase text-white d-block  mb-3"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
-          <h2 class="heading">Sobre</h2>
+          <h2 class="heading">Nosso Objetivo</h2>
+          <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
         <% elsif action_name == "index" %>
-          <span class="custom-caption text-uppercase text-white d-block  mb-3"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
           <h2 class="heading">Os <%= controller_name.capitalize %></h2>
+          <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
         <% else %>
-          <span class="custom-caption text-uppercase text-white d-block  mb-3"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
           <h2 class="heading">O <%= controller_name.capitalize.singularize %></h2>
+          <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
         <% end %>
       </div>
     </div>

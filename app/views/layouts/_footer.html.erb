@@ -1,16 +1,19 @@
 <!-- Mensagem Principal -->
-<section class="section bg-image overlay" style="background-image: url('/images/agricultura-familiar-<%= Random.new.rand(1..5) %>.jpg');">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-12 col-md-9 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
-        <h2 class="text-white font-weight-bold">O Melhor da Agricultura Familiar da Sua Região.</h2>
-      </div>
-      <div class="col-12 col-md-3 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
-        <%= link_to "Compre Agora!", produtos_path, class: "btn btn-outline-white-primary py-3 text-white px-5" %>
+
+<% unless controller_name == "sobre" %>
+  <section class="section bg-image overlay" style="background-image: url('/images/agricultura-familiar-<%= Random.new.rand(1..5) %>.jpg');">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-9 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
+          <h2 class="text-white font-weight-bold">O Melhor da Agricultura Familiar da Sua Região</h2>
+        </div>
+        <div class="col-12 col-md-3 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
+          <%= link_to "Entenda Nosso Objetivo!", sobre_show_path, class: "btn btn-outline-white-primary py-3 text-white px-5" %>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+<% end %>
 
 <footer class="section footer-section">
   <div class="container">
