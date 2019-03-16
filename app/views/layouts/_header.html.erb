@@ -23,8 +23,8 @@
                     <li><%= link_to "Produtores", produtores_path %></li>
                     <li><%= link_to "Produtos", produtos_path %></li>
                     <li><%= link_to "Serviços", servicos_path %></li>
-                    <li><%= link_to "Nosso Objetivo", sobre_show_path %></li>
                     <li><%= link_to "Contato", new_contato_path %></li>
+                    <li><%= link_to "Objetivo", objetivo_path %></li>
                   </ul>
                 </div>
               </div>
@@ -56,9 +56,6 @@
           <% end %>
         <% elsif controller_name == "contatos" %>
           <h2 class="heading">Contato</h2>
-          <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
-        <% elsif controller_name == "sobre" %>
-          <h2 class="heading">Nosso Objetivo</h2>
           <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
         <% elsif action_name == "index" %>
           <h2 class="heading">Os <%= controller_name.capitalize %></h2>

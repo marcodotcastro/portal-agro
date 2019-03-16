@@ -4,12 +4,12 @@
       <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
         <%= search_form_for @q do |f| %>
           <div class='row'>
-<!--            <div class="col-md-4 col-lg-4">-->
-<!--              <label for="checkin_date" class="font-weight-bold text-black">Estado</label>-->
-<!--              <div class="field-icon-wrap">-->
-<!--                <input type="text" id='q_nome_cont' name='q[nome_cont]' class="form-control">-->
-<!--              </div>-->
-<!--            </div>-->
+            <!--            <div class="col-md-4 col-lg-4">-->
+            <!--              <label for="checkin_date" class="font-weight-bold text-black">Estado</label>-->
+            <!--              <div class="field-icon-wrap">-->
+            <!--                <input type="text" id='q_nome_cont' name='q[nome_cont]' class="form-control">-->
+            <!--              </div>-->
+            <!--            </div>-->
             <div class="col-md-4 col-lg-4">
               <label for="checkin_date" class="font-weight-bold text-black">Cidade</label>
               <div class="field-icon-wrap">
@@ -29,7 +29,7 @@
               <%= f.button "Pesquisar", class: "btn btn-primary btn-block text-white" %>
             </div>
             <div class="col-md-6 col-lg-6">
-              <%= link_to "Cancelar", request.path, class: "btn btn-primary btn-block  text-white" %>
+              <%= link_to "Cancelar", request.path, class: "btn btn-primary btn-block text-white", style: "text-decoration: none" %>
             </div>
           </div>
         <% end %>
@@ -49,7 +49,9 @@
             </figure>
             <div class="p-3 text-center room-info">
               <h2><%= produtor.nome_completo %></h2>
-              <h6><b>Telefone:</b> <%= produtor.telefone %> <%= produtor.whatsapp ? "<span class='fa fa-whatsapp'></span>".html_safe : "" %></h6>
+              <h6>
+                <b>Telefone:</b> <%= produtor.telefone %> <%= produtor.whatsapp ? "<span class='fa fa-whatsapp'></span>".html_safe : "" %>
+              </h6>
               <h6><b>Email:</b> <%= produtor.email %></h6>
               <h6><b>Endereço:</b> <%= produtor.endereco_completo %></h6>
               <h6><b>Aceita Cartão:</b> <%= produtor.cartao ? "Sim".html_safe : "Não" %></h6>
