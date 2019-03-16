@@ -19,6 +19,7 @@ gem 'devise'
 gem 'activeadmin'
 gem "chartkick", '~> 2.2.0'
 gem 'groupdate'
+gem 'simple_form'
 
 group :production do
   gem 'aws-sdk-s3', require: false

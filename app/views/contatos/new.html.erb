@@ -2,34 +2,29 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-
-        <%= form_with(model: @contato, local: true, :html => {:class => "bg-white p-md-5 p-4 mb-5 border"}) do |form| %>
+        <%= simple_form_for(@contato, local: true, :html => {:class => "bg-white p-md-5 p-4 mb-5 border"}) do |f| %>
           <div class="row">
             <div class="col-md-6 form-group">
-              <%= form.label :nome %>
-              <%= form.text_field :nome, class: "form-control" %>
+              <%= f.input :nome, class: "form-control" %>
             </div>
             <div class="col-md-6 form-group">
-              <%= form.label :telefone %>
-              <%= form.text_field :telefone, class: "form-control" %>
+              <%= f.input :telefone, class: "form-control" %>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-12 form-group">
-              <%= form.label :email %>
-              <%= form.text_field :email, class: "form-control" %>
+              <%= f.input :email, class: "form-control" %>
             </div>
           </div>
           <div class="row mb-4">
             <div class="col-md-12 form-group">
-              <%= form.label :descricao %>
-              <%= form.text_area :descricao, size: "30x8", class: "form-control" %>
+              <%= f.input :descricao, as: :text, class: "form-control", :input_html => {:cols => 30, :rows => 8} %>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 form-group">
-              <%= form.submit "Enviar" %>
+              <%= f.submit "Enviar" %>
             </div>
           </div>
         <% end %>

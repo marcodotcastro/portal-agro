@@ -12,5 +12,5 @@
 #
 
 class Contato < ApplicationRecord
-  # validates :nome, :telefone, presence: true
+  validates :nome, :telefone, :email, presence: true
 end

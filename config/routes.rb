@@ -114,7 +114,10 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'objetivo', to: "objetivo#show"
-  resources :contatos
+  resources :contatos, only: [:index]
+  post "contatos", to: "contatos#create"
+  get "contato/enviado", to: "contatos#show"
+  get 'contato', to: "contatos#new", as: "new_contato"
 
   resources :estados, only: [:show] do
     resources :cidades, only: [:show] do
