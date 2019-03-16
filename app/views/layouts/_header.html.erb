@@ -73,16 +73,18 @@
 </section>
 
 <% unless controller_name == "contatos" %>
-  <section class="py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-12 col-md-9 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
-          <h2 class="font-weight-bold">Quer Apresentar Seu Produto ou Serviço? Aqui é Grátis.</h2>
-        </div>
-        <div class="col-12 col-md-3 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
-          <%= link_to "Entre em Contato!", new_contato_path, class: "btn btn-success font-weight-bold text-dark py-3 px-5" %>
+  <% unless action_name == "index" %>
+    <section class="py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-9 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
+            <h2 class="font-weight-bold">Quer Apresentar Seu Produto ou Serviço? Aqui é Grátis.</h2>
+          </div>
+          <div class="col-12 col-md-3 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
+            <%= link_to "Entre em Contato!", new_contato_path, class: "btn btn-success font-weight-bold text-dark py-3 px-5" %>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <% end %>
 <% end %>
