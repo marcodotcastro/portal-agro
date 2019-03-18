@@ -56,11 +56,9 @@ ActiveAdmin.register Produtor do
       image_tag obj.foto_perfil_url, size: "50x50"
     end
     column :nome
-    column :sobrenome
+    column :apelido
     column :telefone
     column :whatsapp
-    column :cartao
-    column :email
     column :endereco
     column :estado, sortable: :name do |obj|
       link_to obj.cidade.estado.nome, admin_estado_path(obj.cidade.estado)

@@ -12,4 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ * Stub remove o active_admin.scss, pois está gerando conflito com o bootstrap do thema
+ *= stub active_admin
  */
