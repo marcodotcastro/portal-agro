@@ -42,7 +42,7 @@ class Servico < ApplicationRecord
   end
 
   def preco_completo
-    self.preco + " " + self.medida
+    self.preco + " por " + Servico.human_enum_name(:medidas, self.medida)
   end
 
   def friendly_url

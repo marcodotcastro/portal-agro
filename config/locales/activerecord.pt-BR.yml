@@ -56,7 +56,14 @@ pt-BR:
       servico:
         nome: "Nome"
         descricao: "Descrição"
+        medida: "Medida"
         preco: "Preço"
+        medidas:
+          hora: "hora"
+          dia: "dia"
+          mes: "mês"
+          fixo: "fixo"
+          cabeca: "cabeça"
         foto: "Foto"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
@@ -93,6 +100,17 @@ pt-BR:
         numero: "Número"
         medida: "Medida"
         periodo: "Período"
+        medidas:
+          unidade: "unidade"
+          litro: "litro"
+          quilo: "quilo"
+          saco: "saco"
+          arroba: "arroba"
+        periodos:
+          dia: "dia"
+          semana: "semana"
+          mes: "mês"
+          ano: "ano"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
       historia:

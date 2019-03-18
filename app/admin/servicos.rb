@@ -55,6 +55,9 @@ ActiveAdmin.register Servico do
       end
       row :nome
       row :descricao
+      row :medida do |servico|
+        Servico.human_enum_name(:medidas, servico.medida)
+      end
       row :preco
       row :produtor do |obj|
         link_to obj.produtor.nome, admin_produtor_path(obj.produtor)

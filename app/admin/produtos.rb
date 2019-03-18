@@ -123,8 +123,12 @@ ActiveAdmin.register Produto do
       panel "Produções" do
         table_for produto.producoes do
           column :numero
-          column :medida
-          column :periodo
+          column :medida do |producao|
+            Producao.human_enum_name(:medidas, producao.medida)
+          end
+          column :periodo do |producao|
+            Producao.human_enum_name(:periodos, producao.periodo)
+          end
         end
       end
       panel "Criações" do
