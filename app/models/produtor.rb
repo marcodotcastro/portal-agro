@@ -2,19 +2,21 @@
 #
 # Table name: produtores
 #
-#  id         :bigint(8)        not null, primary key
-#  apelido    :string
-#  cartao     :boolean
-#  email      :string
-#  endereco   :string
-#  nome       :string
-#  slug       :string
-#  sobrenome  :string
-#  telefone   :string
-#  whatsapp   :boolean
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  cidade_id  :bigint(8)
+#  id              :bigint(8)        not null, primary key
+#  apelido         :string
+#  cartao          :boolean
+#  dap             :boolean
+#  email           :string
+#  endereco        :string
+#  nome            :string
+#  pessoa_juridica :boolean
+#  slug            :string
+#  sobrenome       :string
+#  telefone        :string
+#  whatsapp        :boolean
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  cidade_id       :bigint(8)
 #
 # Indexes
 #

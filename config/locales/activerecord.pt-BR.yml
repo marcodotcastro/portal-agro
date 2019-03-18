@@ -67,6 +67,8 @@ pt-BR:
         endereco: "Endereço"
         video: "Vídeo"
         foto: "Foto"
+        dap: "DAP"
+        pessoa_juridica: "Pessoa Jurídica"
         whatsapp: "Whatsapp"
         cartao: "Cartão"
         created_at: "Criado Em"

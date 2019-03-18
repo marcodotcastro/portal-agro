@@ -16,7 +16,12 @@ ActiveAdmin.register Produtor do
                 historias_attributes: [:id, :data, :titulo, :descricao, :_destroy]
 
   filter :nome
-  filter :sobrenome
+  filter :apelido
+  filter :dap
+  filter :pessoa_juridica
+  filter :cidade, collection: -> {
+    Cidade.all.map {|map| [map.nome, map.id]}
+  }
 
   form do |f|
     f.inputs do
@@ -25,6 +30,8 @@ ActiveAdmin.register Produtor do
       f.input :sobrenome
       f.input :telefone
       f.input :whatsapp
+      f.input :dap
+      f.input :pessoa_juridica
       f.input :cartao
       f.input :email
       f.input :endereco
@@ -59,7 +66,8 @@ ActiveAdmin.register Produtor do
     column :apelido
     column :telefone
     column :whatsapp
-    column :endereco
+    column :dap
+    column :pessoa_juridica
     column :estado, sortable: :name do |obj|
       link_to obj.cidade.estado.nome, admin_estado_path(obj.cidade.estado)
     end
@@ -78,6 +86,8 @@ ActiveAdmin.register Produtor do
       row :nome
       row :sobrenome
       row :telefone
+      row :dap
+      row :pessoa_juridica
       row :whatsapp
       row :cartao
       row :email

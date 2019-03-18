@@ -31,6 +31,8 @@ produtor_jose_silva = Produtor.create(
     email: "jose.silva@gmail.com",
     endereco: "R 01, Bro 9 de Julho",
     apelido: "Zé",
+    dap: true,
+    pessoa_juridica: true,
     whatsapp: true,
     cartao: true,
     created_at: DateTime.now.prev_month(2)
@@ -144,6 +146,8 @@ produtor_divino_pereira = Produtor.create(
     email: "divino.pereira@gmail.com",
     endereco: "R 02, Bro 9 de Julho",
     apelido: "Filho do Tião",
+    dap: true,
+    pessoa_juridica: false,
     whatsapp: false,
     cartao: false,
     created_at: DateTime.now.prev_month(2)
@@ -178,6 +182,8 @@ produtor_stephan = Produtor.create(
     email: "stephan.gaehwiler@gmail.com",
     endereco: "R 03, Bro 9 de Julho",
     apelido: "Suíço",
+    dap: false,
+    pessoa_juridica: true,
     whatsapp: false,
     cartao: true,
     created_at: DateTime.now.prev_month(1)
@@ -227,6 +233,8 @@ produtor_maria_alves = Produtor.create(
     email: "maria.alves@gmail.com",
     endereco: "R 03, Bro 9 de Julho",
     apelido: "Mariazinha",
+    dap: false,
+    pessoa_juridica: false,
     whatsapp: false,
     cartao: true,
     created_at: DateTime.now.prev_month(1)
@@ -272,6 +280,8 @@ produtor_celio_fleury = Produtor.create(
     email: "celio.fleury@gmail.com",
     endereco: "Rua 1, Bairro Alto Boa Vista",
     apelido: "Prefeito",
+    dap: false,
+    pessoa_juridica: true,
     whatsapp: false,
     cartao: false,
     created_at: DateTime.now.prev_month(1)
