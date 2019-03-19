@@ -56,6 +56,7 @@ produtor_jose_silva_produto_leite = Produto.create(
     nome: "Leite",
     descricao: "O leite é ..., pois ...",
     preco: "R$ 1,00",
+    published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
 produtor_jose_silva_produto_leite_producao_1 = Producao.create(numero: 100, medida: :litro, periodo: :dia, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(2))
@@ -78,6 +79,7 @@ produtor_jose_silva_produto_bezerro = Produto.create(
     nome: "Bezerro",
     descricao: "O Vitelo, terneiro, bezerro ou novilho são ..., pois ...",
     preco: "R$ 1000,00",
+    published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
 produtor_jose_silva_produto_bezerro_producao_1 = Producao.create(numero: 10, medida: :unidade, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(2))
@@ -100,6 +102,7 @@ produtor_jose_silva_produto_milho = Produto.create(
     nome: "Milho",
     descricao: "O milho é ..., pois ...",
     preco: "R$ 30,00",
+    published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
 produtor_jose_silva_produto_milho_producao_1 = Producao.create(numero: 100, medida: :saco, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(2))
@@ -122,6 +125,7 @@ produtor_jose_silva_produto_pamonha = Produto.create(
     nome: "Pamonha",
     descricao: "A Pamonha é ..., pois ...",
     preco: "R$ 3,50",
+    published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
 produtor_jose_silva_produto_pamonha_producao_1 = Producao.create(numero: 100, medida: :unidade, periodo: :dia, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(2))
@@ -167,6 +171,7 @@ produtor_divino_pereira_produto_rocar = Servico.create(
     descricao: "O roçar é ..., pois ...",
     preco: "R$ 40,00",
     medida: :dia,
+    published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
 produtor_divino_pereira_produto_rocar.capa.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-capa.jpg"), filename: "divino-pereira-roçar-capa.jpg")
@@ -207,6 +212,7 @@ pprodutor_stephan_produto_queijo = Produto.create(
     nome: "Queijo",
     descricao: "O queijo é ..., pois ...",
     preco: "R$ 50,00",
+    published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
 pprodutor_stephan_produto_queijo_producao_1 = Producao.create(numero: 100, medida: :unidade, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(1))
@@ -261,6 +267,7 @@ produtor_maria_alves_produto_soja = Produto.create(
     nome: "Soja",
     descricao: "A soja é ..., pois ...",
     preco: "R$ 60,00",
+    published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
 produtor_maria_alves_produto_soja_producao_4 = Producao.create(numero: 500, medida: :saco, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(1))
@@ -305,6 +312,7 @@ produtor_celio_fleury_produto_aluguel_pasto = Servico.create(
     descricao: "O aluguel de pasto é ...., pois .....",
     preco: "R$ 25,00",
     medida: :cabeca,
+    published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
 produtor_celio_fleury_produto_aluguel_pasto.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-capa.jpg"), filename: "celio-fleury-aluguel-pasto-capa.jpg")
@@ -320,6 +328,7 @@ produtor_celio_fleury_produto_aluguel_trator = Servico.create(
     descricao: "O aluguel de trator é ...., pois .....",
     preco: "R$ 80,00",
     medida: :hora,
+    published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
 produtor_celio_fleury_produto_aluguel_trator.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-capa.jpg"), filename: "celio-fleury-aluguel-trator-capa.jpg")
@@ -334,6 +343,7 @@ produtor_celio_fleury_produto_gado_corte = Produto.create(
     nome: "Gado de Corte",
     descricao: "O gado de corte é ..., pois ....",
     preco: "R$ 150,00",
+    published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
 produtor_celio_fleury_produto_gado_corte_producao_1 = Producao.create(numero: 100, medida: :arroba, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(1))
