@@ -26,7 +26,7 @@
 class Servico < ApplicationRecord
   extend FriendlyId
 
-  scope :published, -> {where.not(published_at: nil)}
+  scope :published, -> {joins(:produtor).where.not(produtores: {published_at: nil}).where.not(published_at: nil)}
 
   belongs_to :produtor
 
