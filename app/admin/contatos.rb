@@ -4,4 +4,6 @@ ActiveAdmin.register Contato do
     ['admin', 'contatos']
   end
 
+  actions :index, :show
+
 end
