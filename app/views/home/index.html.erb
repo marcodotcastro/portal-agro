@@ -4,9 +4,13 @@
     <div class="row align-items-center">
       <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
         <figure class="img-absolute">
-          <%= image_tag(@produto.produtor.foto_perfil_url, class: "img-fluid mb-3") %>
+          <% if @produto.try(:produtor).try(:foto_perfil_url) %>
+            <%= image_tag(@produto.try(:produtor).try(:foto_perfil_url), class: "img-fluid mb-3") %>
+          <% end %>
         </figure>
-        <%= image_tag(@produto.foto_capa_url, class: "img-fluid rounded") %>
+        <% if @produto.try(:foto_capa_url) %>
+          <%= image_tag(@produto.try(:foto_capa_url), class: "img-fluid rounded") %>
+        <% end %>
       </div>
       <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
         <h2 class="heading">Bem Vindo</h2>
