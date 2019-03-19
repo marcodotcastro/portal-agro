@@ -50,7 +50,7 @@ produtor_jose_silva.historias << [produtor_jose_silva_historia_1, produtor_jose_
 produtor_jose_silva.cidade = cidade_cocalzinho
 produtor_jose_silva.save
 
-puts "## #{produtor_jose_silva.nome_completo}"
+puts "## #{produtor_jose_silva.nome}"
 
 produtor_jose_silva_produto_leite = Produto.create(
     nome: "Leite",
@@ -164,7 +164,7 @@ produtor_divino_pereira.video = produtor_divino_pereira_video_1
 produtor_divino_pereira.cidade = cidade_cocalzinho
 produtor_divino_pereira.save
 
-puts "## #{produtor_divino_pereira.nome_completo}"
+puts "## #{produtor_divino_pereira.nome}"
 
 produtor_divino_pereira_produto_rocar = Servico.create(
     nome: "Roçar",
@@ -206,7 +206,7 @@ produtor_stephan.cidade = cidade_corumba_de_goias
 produtor_stephan.video = produtor_stephan_video_1
 produtor_stephan.save
 
-puts "## #{produtor_stephan.nome_completo}"
+puts "## #{produtor_stephan.nome}"
 
 pprodutor_stephan_produto_queijo = Produto.create(
     nome: "Queijo",
@@ -261,7 +261,7 @@ produtor_maria_alves.video = produtor_maria_alves_video_1
 produtor_maria_alves.cidade = cidade_corumba_de_goias
 produtor_maria_alves.save
 
-puts "## #{produtor_maria_alves.nome_completo}"
+puts "## #{produtor_maria_alves.nome}"
 
 produtor_maria_alves_produto_soja = Produto.create(
     nome: "Soja",
@@ -305,7 +305,7 @@ produtor_celio_fleury.video = produtor_celio_fleury_video_1
 produtor_celio_fleury.cidade = cidade_corumba_de_goias
 produtor_celio_fleury.save
 
-puts "## #{produtor_celio_fleury.nome_completo}"
+puts "## #{produtor_celio_fleury.nome}"
 
 produtor_celio_fleury_produto_aluguel_pasto = Servico.create(
     nome: "Aluguel de Pasto",
