@@ -4,6 +4,26 @@ ActiveAdmin.register Produto do
     ['admin', 'produtos']
   end
 
+  action_item :publicar, only: :show do
+    link_to "Publicar", publicar_admin_produto_path(produto), method: :put if !produto.published_at?
+  end
+
+  action_item :nao_publicar, only: :show do
+    link_to "Não Publicar", nao_publicar_admin_produto_path(produto), method: :put if produto.published_at?
+  end
+
+  member_action :publicar, method: :put do
+    produto = Produto.friendly.find(params[:id])
+    produto.update(published_at: Time.zone.now)
+    redirect_to admin_produto_path(produto)
+  end
+
+  member_action :nao_publicar, method: :put do
+    produto = Produto.friendly.find(params[:id])
+    produto.update(published_at: nil)
+    redirect_to admin_produto_path(produto)
+  end
+
   controller do
     def find_resource
       scoped_collection.friendly.find(params[:id])
@@ -102,6 +122,7 @@ ActiveAdmin.register Produto do
       row :qualidade do |obj|
         link_to obj.qualidade.nome, admin_qualidade_path(obj.qualidade)
       end
+      row :published_at
       row :created_at
       row :updated_at
       panel "Fotos" do

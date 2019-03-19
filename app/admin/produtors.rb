@@ -4,13 +4,33 @@ ActiveAdmin.register Produtor do
     ['admin', 'produtores']
   end
 
+  action_item :publicar, only: :show do
+    link_to "Publicar", publicar_admin_produtor_path(produtor), method: :put if !produtor.published_at?
+  end
+
+  action_item :nao_publicar, only: :show do
+    link_to "Não Publicar", nao_publicar_admin_produtor_path(produtor), method: :put if produtor.published_at?
+  end
+
+  member_action :publicar, method: :put do
+    produtor = Produtor.friendly.find(params[:id])
+    produtor.update(published_at: Time.zone.now)
+    redirect_to admin_produtor_path(produtor)
+  end
+
+  member_action :nao_publicar, method: :put do
+    produtor = Produtor.friendly.find(params[:id])
+    produtor.update(published_at: nil)
+    redirect_to admin_produtor_path(produtor)
+  end
+
   controller do
     def find_resource
       scoped_collection.friendly.find(params[:id])
     end
   end
 
-  permit_params :perfil, :nome, :sobrenome, :telefone, :email, :endereco, :whatsapp, :cartao, :cidade_id, fotos: [],
+  permit_params :perfil, :nome, :sobrenome, :telefone, :email, :endereco, :whatsapp, :cartao, :publicado_em, :cidade_id, fotos: [],
                 video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
                 fotos_attributes: [:id, :nome, :descricao, :url, :principal, :_destroy],
                 historias_attributes: [:id, :data, :titulo, :descricao, :_destroy]
@@ -98,6 +118,7 @@ ActiveAdmin.register Produtor do
       row :estado do |obj|
         link_to obj.cidade.estado.nome, admin_estado_path(obj.cidade.estado)
       end
+      row :published_at
       row :created_at
       row :updated_at
     end

@@ -4,6 +4,26 @@ ActiveAdmin.register Servico do
     ['admin', 'serviços']
   end
 
+  action_item :publicar, only: :show do
+    link_to "Publicar", publicar_admin_servico_path(servico), method: :put if !servico.published_at?
+  end
+
+  action_item :nao_publicar, only: :show do
+    link_to "Não Publicar", nao_publicar_admin_servico_path(servico), method: :put if servico.published_at?
+  end
+
+  member_action :publicar, method: :put do
+    servico = Servico.friendly.find(params[:id])
+    servico.update(published_at: Time.zone.now)
+    redirect_to admin_servico_path(servico)
+  end
+
+  member_action :nao_publicar, method: :put do
+    servico = Servico.friendly.find(params[:id])
+    servico.update(published_at: nil)
+    redirect_to admin_servico_path(servico)
+  end
+
   controller do
     def find_resource
       scoped_collection.friendly.find(params[:id])
@@ -62,6 +82,7 @@ ActiveAdmin.register Servico do
       row :produtor do |obj|
         link_to obj.produtor.nome, admin_produtor_path(obj.produtor)
       end
+      row :published_at
       row :created_at
       row :updated_at
       panel "Fotos" do
