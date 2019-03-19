@@ -30,6 +30,7 @@
 #
 
 class Produtor < ApplicationRecord
+  include ProdutorHelper
   extend FriendlyId
 
   scope :published, -> {where.not(published_at: nil)}
@@ -48,8 +49,12 @@ class Produtor < ApplicationRecord
 
   friendly_id :friendly_url, use: :slugged
 
+  validates :apelido, :cartao, :dap, :endereco, :nome, :sobrenome, :pessoa_juridica, :telefone, :whatsapp, :cidade_id, presence: true
+  validates :perfil, attached: true
+  validates :fotos, attached: true
+
   def friendly_url
-    self.nome_completo
+    nome_completo(self)
   end
 
   def should_generate_new_friendly_id?

@@ -6,6 +6,25 @@ pt-BR:
         restrict_dependent_destroy:
           has_one: "Não é possível excluir o registro pois existe um %{record} dependente"
           has_many: "Não é possível excluir o registro pois existem %{record} dependentes"
+      models:
+        servico:
+          attributes:
+            capa:
+              attached: "não pode ficar em branco"
+            fotos:
+              attached: "não pode ficar em branco"
+        produto:
+          attributes:
+            capa:
+              attached: "não pode ficar em branco"
+            fotos:
+              attached: "não pode ficar em branco"
+        produtor:
+          attributes:
+            perfil:
+              attached: "não pode ficar em branco"
+            fotos:
+              attached: "não pode ficar em branco"
     models:
       produto:
         one: "Produto"

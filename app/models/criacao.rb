@@ -20,5 +20,7 @@
 #
 
 class Criacao < ApplicationRecord
-    belongs_to :produto, optional: true
+  belongs_to :produto, optional: true
+
+  validates :data, :descricao, :titulo, :produto_id, presence: true
 end

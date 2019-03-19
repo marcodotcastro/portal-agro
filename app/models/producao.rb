@@ -25,4 +25,6 @@ class Producao < ApplicationRecord
   enum medida: [:unidade, :litro, :quilo, :saco, :arroba]
   enum periodo: [:dia, :semana, :mes, :ano]
 
+  validates :medida, :numero, :periodo, :produto_id, presence: true
+
 end

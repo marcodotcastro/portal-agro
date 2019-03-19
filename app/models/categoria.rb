@@ -10,5 +10,7 @@
 #
 
 class Categoria < ApplicationRecord
-    has_many :produtos
+  has_many :produtos
+
+  validates :nome, :descricao, presence: true
 end

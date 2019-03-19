@@ -27,6 +27,8 @@ class Cidade < ApplicationRecord
 
   friendly_id :friendly_url, use: :slugged
 
+  validates :nome, :estado_id, presence: true
+
   def friendly_url
     self.nome
   end
@@ -34,5 +36,5 @@ class Cidade < ApplicationRecord
   def should_generate_new_friendly_id?
     nome_changed? || super
   end
-  
+
 end

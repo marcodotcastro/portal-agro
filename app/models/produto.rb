@@ -31,8 +31,6 @@
 class Produto < ApplicationRecord
   extend FriendlyId
 
-  validates :nome, :descricao, :preco, :categoria_id, :produtor_id, :qualidade_id,  presence: true
-
   scope :published, -> {joins(:produtor).where.not(produtores: {published_at: nil}).where.not(published_at: nil)}
 
   belongs_to :produtor
@@ -50,6 +48,10 @@ class Produto < ApplicationRecord
   accepts_nested_attributes_for :criacoes, allow_destroy: true
 
   friendly_id :friendly_url, use: :slugged
+
+  validates :nome, :descricao, :preco, :categoria_id, :produtor_id, :qualidade_id, presence: true
+  validates :capa, attached: true
+  validates :fotos, attached: true
 
   def friendly_url
     self.nome

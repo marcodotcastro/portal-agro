@@ -37,6 +37,10 @@ class Servico < ApplicationRecord
 
   enum medida: [:hora, :dia, :mes, :fixo, :cabeca]
 
+  validates :descricao, :medida, :nome, :preco, :produtor_id, presence: true
+  validates :capa, attached: true
+  validates :fotos, attached: true
+
   def friendly_url
     self.nome
   end

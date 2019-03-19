@@ -55,6 +55,7 @@ ActiveAdmin.register Produto do
       f.input :produtor_id, :as => :select, :collection => Produtor.all.map {|u| ["#{u.nome}", u.id]}
       f.input :categoria_id, :as => :select, :collection => Categoria.all.map {|u| ["#{u.nome}", u.id]}
       f.input :qualidade_id, :as => :select, :collection => Qualidade.all.map {|u| ["#{u.nome}", u.id]}
+      f.input :fotos, as: :file, input_html: {multiple: true}
       f.inputs do
         f.has_many :producoes, allow_destroy: true, new_record: true do |a|
           a.input :numero
@@ -69,7 +70,6 @@ ActiveAdmin.register Produto do
           a.input :descricao, as: :text
         end
       end
-      f.input :fotos, as: :file, input_html: {multiple: true}
       f.inputs do
         #FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
         f.has_many :video, allow_destroy: true, new_record: true do |a|

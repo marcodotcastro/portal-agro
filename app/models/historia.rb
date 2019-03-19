@@ -20,6 +20,8 @@
 #
 
 class Historia < ApplicationRecord
-    belongs_to :produtor, optional: true
-    belongs_to :produto, optional: true
+  belongs_to :produtor, optional: true
+  belongs_to :produto, optional: true
+
+  validates :data, :descricao, :titulo, :produtor_id, presence: true
 end

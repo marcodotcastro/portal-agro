@@ -20,6 +20,8 @@ class Estado < ApplicationRecord
 
   friendly_id :friendly_url, use: :slugged
 
+  validates :nome, presence: true
+
   def friendly_url
     self.nome
   end

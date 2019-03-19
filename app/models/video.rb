@@ -25,4 +25,6 @@
 class Video < ApplicationRecord
   belongs_to :produtor, optional: true
   belongs_to :produto, optional: true
+
+  validates :codigo, :nome, :descricao, presence: true
 end
