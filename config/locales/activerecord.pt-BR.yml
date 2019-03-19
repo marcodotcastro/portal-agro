@@ -51,6 +51,7 @@ pt-BR:
         preco: "Preço"
         video: "Vídeo"
         foto: "Foto"
+        published_at: "Publicado Em"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
       servico:
@@ -65,6 +66,7 @@ pt-BR:
           fixo: "fixo"
           cabeca: "cabeça"
         foto: "Foto"
+        published_at: "Publicado Em"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
       produtor:
@@ -78,6 +80,7 @@ pt-BR:
         pessoa_juridica: "Pessoa Jurídica"
         whatsapp: "Whatsapp"
         cartao: "Cartão"
+        published_at: "Publicado Em"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
       categoria:
