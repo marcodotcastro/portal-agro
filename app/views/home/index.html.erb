@@ -4,8 +4,8 @@
     <div class="row align-items-center">
       <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
         <figure class="img-absolute">
-          <% if @produto.try(:produtor).try(:foto_perfil_url) %>
-            <%= image_tag(@produto.try(:produtor).try(:foto_perfil_url), class: "img-fluid mb-3") %>
+          <% if foto_perfil_url(@produto.try(:produtor)) %>
+            <%= image_tag(foto_perfil_url(@produto.try(:produtor)), class: "img-fluid mb-3") %>
           <% end %>
         </figure>
         <% if foto_capa_url(@produto) %>

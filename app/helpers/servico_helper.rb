@@ -4,7 +4,9 @@ module ServicoHelper
     #FIXME: Código duplicado
     foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
 
-    servico.capa.attached? ? servico.capa : foto_vazia
+    if servico
+      servico.capa.attached? ? servico.capa : foto_vazia
+    end
   end
 
   def servico_preco_completo(servico)
