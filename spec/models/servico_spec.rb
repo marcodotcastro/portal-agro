@@ -6,7 +6,7 @@
 #  descricao    :string
 #  medida       :integer          default("hora")
 #  nome         :string
-#  preco        :string
+#  preco        :decimal(, )
 #  published_at :date
 #  slug         :string
 #  created_at   :datetime         not null

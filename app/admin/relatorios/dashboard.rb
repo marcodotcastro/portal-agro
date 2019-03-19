@@ -16,8 +16,8 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Recentes Produtores" do
           ul do
-            Produtor.last(5).map do |obj|
-              li link_to("#{obj.nome}", admin_produtor_path(obj)) + " é nosso novo produdor"
+            Produtor.last(5).map do |produtor|
+              li link_to("#{produtor.nome}", admin_produtor_path(produtor)) + " é nosso novo produdor"
             end
           end
         end
@@ -25,8 +25,8 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Recentes Produtos" do
           ul do
-            Produto.last(5).map do |obj|
-              li link_to("#{obj.produtor.nome_completo} (#{obj.produtor.apelido})", admin_produtor_path(obj.produtor)) + " vende " + link_to("#{obj.nome}", admin_produto_path(obj)) + " por #{obj.preco} "
+            Produto.last(5).map do |produto|
+              li link_to("#{nome_completo(produto.produtor)} (#{produto.produtor.apelido})", admin_produtor_path(produto.produtor)) + " vende " + link_to("#{produto.nome}", admin_produto_path(produto)) + " por #{produto.preco} "
             end
           end
         end
@@ -37,14 +37,13 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Recentes Produções" do
           ul do
-            Produto.last(5).map do |obj|
-              li link_to("#{obj.produtor.nome}", admin_produtor_path(obj.produtor)) + " teve " + obj.evolucao.to_s + " na produção de " + link_to("#{obj.nome}", admin_produto_path(obj))
+            Produto.last(5).map do |produto|
+              li link_to("#{produto.produtor.nome}", admin_produtor_path(produto.produtor)) + " teve " + evolucao(produto) + " na produção de " + link_to("#{produto.nome}", admin_produto_path(produto))
             end
           end
         end
       end
     end
-
 
 
   end

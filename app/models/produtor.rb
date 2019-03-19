@@ -48,21 +48,6 @@ class Produtor < ApplicationRecord
 
   friendly_id :friendly_url, use: :slugged
 
-  def foto_perfil_url
-    #FIXME: Código duplicado
-    foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
-
-    self.perfil.attached? ? self.perfil : foto_vazia
-  end
-
-  def nome_completo
-    self.nome + " " + self.sobrenome
-  end
-
-  def endereco_completo
-    self.endereco + ", " + self.cidade.nome + ", " + self.cidade.estado.nome
-  end
-
   def friendly_url
     self.nome_completo
   end

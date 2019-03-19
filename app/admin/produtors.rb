@@ -79,8 +79,8 @@ ActiveAdmin.register Produtor do
 
   index do
     selectable_column
-    column :perfil do |obj|
-      image_tag obj.foto_perfil_url, size: "50x50"
+    column :perfil do |produtor|
+      image_tag foto_perfil_url(produtor), size: "50x50"
     end
     column :nome
     column :apelido
@@ -88,11 +88,11 @@ ActiveAdmin.register Produtor do
     column :whatsapp
     column :dap
     column :pessoa_juridica
-    column :estado, sortable: :name do |obj|
-      link_to obj.cidade.estado.nome, admin_estado_path(obj.cidade.estado)
+    column :estado, sortable: :name do |produtor|
+      link_to produtor.cidade.estado.nome, admin_estado_path(produtor.cidade.estado)
     end
-    column :cidade, sortable: :name do |obj|
-      link_to obj.cidade.nome, admin_cidade_path(obj.cidade)
+    column :cidade, sortable: :name do |produtor|
+      link_to produtor.cidade.nome, admin_cidade_path(produtor.cidade)
     end
 
     actions
@@ -100,8 +100,8 @@ ActiveAdmin.register Produtor do
 
   show title: proc {|p| "Produtor: " + p.nome} do
     attributes_table do
-      row :perfil do |obj|
-        image_tag obj.foto_perfil_url, size: "50x50"
+      row :perfil do |produtor|
+        image_tag foto_perfil_url(produtor), size: "50x50"
       end
       row :nome
       row :sobrenome
@@ -112,11 +112,11 @@ ActiveAdmin.register Produtor do
       row :cartao
       row :email
       row :endereco
-      row :cidade do |obj|
-        link_to obj.cidade.nome, admin_cidade_path(obj.cidade)
+      row :cidade do |produtor|
+        link_to produtor.cidade.nome, admin_cidade_path(produtor.cidade)
       end
-      row :estado do |obj|
-        link_to obj.cidade.estado.nome, admin_estado_path(obj.cidade.estado)
+      row :estado do |produtor|
+        link_to produtor.cidade.estado.nome, admin_estado_path(produtor.cidade.estado)
       end
       row :published_at
       row :created_at
@@ -124,29 +124,29 @@ ActiveAdmin.register Produtor do
     end
     panel "Produtos" do
       table_for produtor.produtos do
-        column :capa do |obj|
-          image_tag obj.foto_capa_url, size: "50x50"
+        column :capa do |produto|
+          image_tag foto_capa_url(produto), size: "50x50"
         end
         column :nome
         column :producao
         column :preco
-        column "" do |obj|
-          span link_to "Visualizar", admin_produto_path(obj)
-          span link_to "Editar", edit_admin_produto_path(obj)
+        column "" do |produto|
+          span link_to "Visualizar", admin_produto_path(produto)
+          span link_to "Editar", edit_admin_produto_path(produto)
         end
       end
     end
     panel "Fotos" do
       table_for produtor.fotos do
-        column :foto do |obj|
-          image_tag obj, size: "50x50"
+        column :foto do |foto|
+          image_tag foto, size: "50x50"
         end
       end
     end
     panel "Vídeo" do
       table_for produtor.video do
-        column :codigo do |obj|
-          obj ? link_to("Assista", "https://www.youtube.com/watch?v=#{obj.codigo}", target: "_blank") : ""
+        column :codigo do |video|
+          video ? link_to("Assista", "https://www.youtube.com/watch?v=#{video.codigo}", target: "_blank") : ""
         end
         column :nome
         column :descricao

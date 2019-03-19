@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_131750) do
   create_table "produtos", force: :cascade do |t|
     t.string "nome"
     t.string "descricao"
-    t.string "preco"
+    t.decimal "preco"
     t.bigint "produtor_id"
     t.bigint "categoria_id"
     t.bigint "qualidade_id"
@@ -184,7 +184,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_131750) do
   create_table "servicos", force: :cascade do |t|
     t.string "nome"
     t.string "descricao"
-    t.string "preco"
+    t.decimal "preco"
     t.integer "medida", default: 0
     t.bigint "produtor_id"
     t.datetime "created_at", null: false

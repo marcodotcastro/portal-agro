@@ -5,7 +5,7 @@
 #  id           :bigint(8)        not null, primary key
 #  descricao    :string
 #  nome         :string
-#  preco        :string
+#  preco        :decimal(, )
 #  published_at :date
 #  slug         :string
 #  created_at   :datetime         not null

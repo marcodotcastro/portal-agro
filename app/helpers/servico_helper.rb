@@ -1,0 +1,14 @@
+module ServicoHelper
+
+  def foto_capa_url(servico)
+    #FIXME: Código duplicado
+    foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
+
+    servico.capa.attached? ? servico.capa : foto_vazia
+  end
+
+  def servico_preco_completo(servico)
+    number_to_currency(servico.preco).to_s + " por " + Servico.human_enum_name(:medidas, servico.medida)
+  end
+
+end

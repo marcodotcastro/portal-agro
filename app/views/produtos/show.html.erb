@@ -3,9 +3,9 @@
     <div class="row align-items-center">
       <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
         <figure class="img-absolute">
-          <%= image_tag(@produto.produtor.foto_perfil_url, class: "img-fluid mb-3") %>
+          <%= image_tag(foto_perfil_url(@produto.produtor), class: "img-fluid mb-3") %>
         </figure>
-        <%= image_tag(@produto.foto_capa_url, class: "img-fluid rounded") %>
+        <%= image_tag(foto_capa_url(@produto), class: "img-fluid rounded") %>
       </div>
       <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
         <h2 class="heading"><%= @produto.nome %></h2>
@@ -13,8 +13,8 @@
         <h6><b>Estado:</b> <%= @produto.produtor.cidade.estado.nome %></h6>
         <h6><b>Cidade:</b> <%= @produto.produtor.cidade.nome %></h6>
         <h6><b>Qualidade:</b> <%= @produto.qualidade.nome %></h6>
-        <h6><b>Preço:</b> <%= @produto.preco_completo %></h6>
-        <h6><b>Produção:</b> <%= @produto.producao %></h6>
+        <h6><b>Preço:</b> <%= produto_preco_completo(@produto) %></h6>
+        <h6><b>Produção:</b> <%= producao(@produto) %></h6>
       </div>
     </div>
   </div>
@@ -34,7 +34,8 @@
     <div class="row justify-content-center text-center mb-5">
       <div class="col-md-7">
         <h2 class="heading" data-aos="fade-up">A Criação</h2>
-        <h6 data-aos="fade-up" data-aos-delay="100">Conheça um pouco como surgiu a ideia de produzir esse produto que é responsável por manter a história dessa família.</h6>
+        <h6 data-aos="fade-up" data-aos-delay="100">Conheça um pouco como surgiu a ideia de produzir esse produto que é
+          responsável por manter a história dessa família.</h6>
         <% if @produto.criacoes.empty? %>
           <div class="row justify-content-center text-center">
             <h4 data-aos="fade-up"> Ainda não conhecemos a criação </h4>
@@ -66,7 +67,8 @@
     <div class="row justify-content-center text-center mb-5">
       <div class="col-md-7">
         <h2 class="heading" data-aos="fade-up">Fotos</h2>
-        <h6 data-aos="fade-up" data-aos-delay="100">Veja um pouco da qualidade e carinho que é produzido o seu alimento por famílias que vivem tão próximas da natureza.</h6>
+        <h6 data-aos="fade-up" data-aos-delay="100">Veja um pouco da qualidade e carinho que é produzido o seu alimento
+          por famílias que vivem tão próximas da natureza.</h6>
         <% if @produto.fotos.empty? %>
           <div class="row justify-content-center text-center">
             <h4 data-aos="fade-up">Nenhuma foto cadastrada</h4>
@@ -93,7 +95,8 @@
     <div class="row justify-content-center text-center">
       <div class="col-md-7">
         <h2 class="heading" data-aos="fade-up">O Produtor</h2>
-        <h6 data-aos="fade-up" data-aos-delay="100">É um verdadeiro exemplo de luta, <b>conheçam sua história e se espelhem</b>.</h6>
+        <h6 data-aos="fade-up" data-aos-delay="100">É um verdadeiro exemplo de luta,
+          <b>conheçam sua história e se espelhem</b>.</h6>
       </div>
     </div>
     <%= render 'produtores/produtor', produtor: @produto.produtor %>

@@ -85,21 +85,21 @@ ActiveAdmin.register Produto do
 
   index do
     selectable_column
-    column :capa do |obj|
-      image_tag obj.foto_capa_url, size: "50x50"
+    column :capa do |produto|
+      image_tag foto_capa_url(produto), size: "50x50"
     end
     column :nome
     column :descricao
     column :producao
     column :preco
-    column :produtor, sortable: :name do |obj|
-      link_to obj.produtor.nome, admin_produtor_path(obj.produtor)
+    column :produtor, sortable: :name do |produto|
+      link_to produto.produtor.nome, admin_produtor_path(produto.produtor)
     end
-    column :categoria, sortable: :name do |obj|
-      link_to obj.categoria.nome, admin_categoria_path(obj.categoria)
+    column :categoria, sortable: :name do |produto|
+      link_to produto.categoria.nome, admin_categoria_path(produto.categoria)
     end
-    column :qualidade, sortable: :name do |obj|
-      link_to obj.qualidade.nome, admin_qualidade_path(obj.qualidade)
+    column :qualidade, sortable: :name do |produto|
+      link_to produto.qualidade.nome, admin_qualidade_path(produto.qualidade)
     end
 
     actions
@@ -107,35 +107,35 @@ ActiveAdmin.register Produto do
 
   show title: proc {|p| "Produto: " + p.nome} do
     attributes_table do
-      row :capa do |obj|
-        image_tag obj.foto_capa_url, size: "50x50"
+      row :capa do |produto|
+        image_tag foto_capa_url(produto), size: "50x50"
       end
       row :nome
       row :descricao
       row :preco
-      row :produtor do |obj|
-        link_to obj.produtor.nome, admin_produtor_path(obj.produtor)
+      row :produtor do |produto|
+        link_to produto.produtor.nome, admin_produtor_path(produto.produtor)
       end
-      row :categoria do |obj|
-        link_to obj.categoria.nome, admin_categoria_path(obj.categoria)
+      row :categoria do |produto|
+        link_to produto.categoria.nome, admin_categoria_path(produto.categoria)
       end
-      row :qualidade do |obj|
-        link_to obj.qualidade.nome, admin_qualidade_path(obj.qualidade)
+      row :qualidade do |produto|
+        link_to produto.qualidade.nome, admin_qualidade_path(produto.qualidade)
       end
       row :published_at
       row :created_at
       row :updated_at
       panel "Fotos" do
         table_for produto.fotos do
-          column :foto do |obj|
-            image_tag obj, size: "50x50"
+          column :foto do |foto|
+            image_tag foto, size: "50x50"
           end
         end
       end
       panel "Vídeo" do
         table_for produto.video do
-          column :codigo do |obj|
-            obj ? link_to("Assista", "https://www.youtube.com/watch?v=#{obj.codigo}", target: "_blank") : ""
+          column :codigo do |video|
+            video ? link_to("Assista", "https://www.youtube.com/watch?v=#{video.codigo}", target: "_blank") : ""
           end
           column :nome
           column :descricao

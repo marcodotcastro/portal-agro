@@ -45,15 +45,15 @@
         <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
           <%= link_to(estado_cidade_produtor_path(produtor.cidade.estado, produtor.cidade, produtor), class: "room") do %>
             <figure class="img-wrap">
-              <%= image_tag(produtor.foto_perfil_url, class: "img-fluid mb-3", size: "500x500") %>
+              <%= image_tag(foto_perfil_url(produtor), class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
-              <h2><%= produtor.nome_completo %></h2>
+              <h2><%= nome_completo(produtor) %></h2>
               <h6>
                 <b>Telefone:</b> <%= produtor.telefone %> <%= produtor.whatsapp ? "<span class='fa fa-whatsapp'></span>".html_safe : "" %>
               </h6>
               <h6><b>Email:</b> <%= produtor.email %></h6>
-              <h6><b>Endereço:</b> <%= produtor.endereco_completo %></h6>
+              <h6><b>Endereço:</b> <%= endereco_completo(produtor) %></h6>
               <h6><b>Aceita Cartão?</b> <%= produtor.cartao ? "Sim".html_safe : "Não" %></h6>
               <h6><b>É Pessoa Jurídica?</b> <%= produtor.pessoa_juridica ? "Sim".html_safe : "Não" %></h6>
             </div>

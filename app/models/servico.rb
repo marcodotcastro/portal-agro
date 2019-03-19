@@ -6,7 +6,7 @@
 #  descricao    :string
 #  medida       :integer          default("hora")
 #  nome         :string
-#  preco        :string
+#  preco        :decimal(, )
 #  published_at :date
 #  slug         :string
 #  created_at   :datetime         not null
@@ -36,17 +36,6 @@ class Servico < ApplicationRecord
   friendly_id :friendly_url, use: :slugged
 
   enum medida: [:hora, :dia, :mes, :fixo, :cabeca]
-
-  def foto_capa_url
-    #FIXME: Código duplicado
-    foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
-
-    self.capa.attached? ? self.capa : foto_vazia
-  end
-
-  def preco_completo
-    self.preco + " por " + Servico.human_enum_name(:medidas, self.medida)
-  end
 
   def friendly_url
     self.nome

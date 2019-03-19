@@ -55,7 +55,7 @@ puts "## #{produtor_jose_silva.nome_completo}"
 produtor_jose_silva_produto_leite = Produto.create(
     nome: "Leite",
     descricao: "O leite é ..., pois ...",
-    preco: "R$ 1,00",
+    preco: 1.50,
     published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
@@ -78,7 +78,7 @@ puts "### #{produtor_jose_silva_produto_leite.nome}"
 produtor_jose_silva_produto_bezerro = Produto.create(
     nome: "Bezerro",
     descricao: "O Vitelo, terneiro, bezerro ou novilho são ..., pois ...",
-    preco: "R$ 1000,00",
+    preco: 1000.00,
     published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
@@ -101,7 +101,7 @@ puts "### #{produtor_jose_silva_produto_bezerro.nome}"
 produtor_jose_silva_produto_milho = Produto.create(
     nome: "Milho",
     descricao: "O milho é ..., pois ...",
-    preco: "R$ 30,00",
+    preco: 30.00,
     published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
@@ -124,7 +124,7 @@ puts "### #{produtor_jose_silva_produto_milho.nome}"
 produtor_jose_silva_produto_pamonha = Produto.create(
     nome: "Pamonha",
     descricao: "A Pamonha é ..., pois ...",
-    preco: "R$ 3,50",
+    preco: 3.50,
     published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
@@ -169,7 +169,7 @@ puts "## #{produtor_divino_pereira.nome_completo}"
 produtor_divino_pereira_produto_rocar = Servico.create(
     nome: "Roçar",
     descricao: "O roçar é ..., pois ...",
-    preco: "R$ 40,00",
+    preco: 40.00,
     medida: :dia,
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
@@ -211,7 +211,7 @@ puts "## #{produtor_stephan.nome_completo}"
 pprodutor_stephan_produto_queijo = Produto.create(
     nome: "Queijo",
     descricao: "O queijo é ..., pois ...",
-    preco: "R$ 50,00",
+    preco: 50.00,
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
@@ -266,7 +266,7 @@ puts "## #{produtor_maria_alves.nome_completo}"
 produtor_maria_alves_produto_soja = Produto.create(
     nome: "Soja",
     descricao: "A soja é ..., pois ...",
-    preco: "R$ 60,00",
+    preco: 60.00,
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
@@ -310,7 +310,7 @@ puts "## #{produtor_celio_fleury.nome_completo}"
 produtor_celio_fleury_produto_aluguel_pasto = Servico.create(
     nome: "Aluguel de Pasto",
     descricao: "O aluguel de pasto é ...., pois .....",
-    preco: "R$ 25,00",
+    preco: 25.00,
     medida: :cabeca,
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
@@ -326,7 +326,7 @@ puts "### #{produtor_celio_fleury_produto_aluguel_pasto.nome}"
 produtor_celio_fleury_produto_aluguel_trator = Servico.create(
     nome: "Aluguel de Trator ",
     descricao: "O aluguel de trator é ...., pois .....",
-    preco: "R$ 80,00",
+    preco: 80.00,
     medida: :hora,
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
@@ -342,7 +342,7 @@ puts "### #{produtor_celio_fleury_produto_aluguel_trator.nome}"
 produtor_celio_fleury_produto_gado_corte = Produto.create(
     nome: "Gado de Corte",
     descricao: "O gado de corte é ..., pois ....",
-    preco: "R$ 150,00",
+    preco: 150.00,
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )

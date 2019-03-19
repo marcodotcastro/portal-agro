@@ -8,8 +8,8 @@
             <%= image_tag(@produto.try(:produtor).try(:foto_perfil_url), class: "img-fluid mb-3") %>
           <% end %>
         </figure>
-        <% if @produto.try(:foto_capa_url) %>
-          <%= image_tag(@produto.try(:foto_capa_url), class: "img-fluid rounded") %>
+        <% if foto_capa_url(@produto) %>
+          <%= image_tag(foto_capa_url(@produto), class: "img-fluid rounded") %>
         <% end %>
       </div>
       <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
@@ -44,7 +44,7 @@
         <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
           <%= link_to(estado_cidade_produtor_produto_path(produto.produtor.cidade.estado, produto.produtor.cidade, produto.produtor, produto), class: "room") do %>
             <figure class="img-wrap">
-              <%= image_tag(produto.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
+              <%= image_tag(foto_capa_url(produto), class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
               <h2><%= produto.nome %></h2>
@@ -76,7 +76,7 @@
         <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
           <%= link_to(estado_cidade_produtor_servico_path(servico.produtor.cidade.estado, servico.produtor.cidade, servico.produtor, servico), class: "room") do %>
             <figure class="img-wrap">
-              <%= image_tag(servico.foto_capa_url, class: "img-fluid mb-3", size: "500x500") %>
+              <%= image_tag(foto_capa_url(servico), class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
               <h2><%= servico.nome %></h2>
@@ -102,10 +102,10 @@
         <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
           <%= link_to(estado_cidade_produtor_path(produtor.cidade.estado, produtor.cidade, produtor), class: "room") do %>
             <figure class="img-wrap">
-              <%= image_tag(produtor.foto_perfil_url, class: "img-fluid mb-3", size: "500x500") %>
+              <%= image_tag(foto_perfil_url(produtor), class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
-              <h2><%= produtor.nome_completo %></h2>
+              <h2><%= nome_completo(produtor) %></h2>
             </div>
           <% end %>
         </div>

@@ -5,7 +5,7 @@
 #  id           :bigint(8)        not null, primary key
 #  descricao    :string
 #  nome         :string
-#  preco        :string
+#  preco        :decimal(, )
 #  published_at :date
 #  slug         :string
 #  created_at   :datetime         not null
@@ -48,40 +48,7 @@ class Produto < ApplicationRecord
   accepts_nested_attributes_for :criacoes, allow_destroy: true
 
   friendly_id :friendly_url, use: :slugged
-
-  def foto_capa_url
-    #FIXME: Código duplicado
-    foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
-
-    self.capa.attached? ? self.capa : foto_vazia
-  end
-
-  def producao
-    if self.producoes
-      self.producoes.last.numero.to_s + " " + Producao.human_enum_name(:medidas, self.producoes.last.medida) + " por " + Producao.human_enum_name(:periodos, self.producoes.last.periodo)
-    end
-  end
-
-  def evolucao
-    if self.producoes
-      ultima_e_penultima = self.producoes.last(2)
-      alteracao = (((ultima_e_penultima.last.numero.to_f / ultima_e_penultima.first.numero.to_f) - 1) * 100).round(2)
-
-      if alteracao >= 0
-        "um aumento de #{alteracao}%"
-      else
-        "uma diminuição de #{alteracao * -1}%"
-      end
-
-    end
-  end
-
-  def preco_completo
-    if self.producoes
-      self.preco + " por " + self.producoes.last.medida
-    end
-  end
-
+  
   def friendly_url
     self.nome
   end
