@@ -10,6 +10,7 @@
 #  endereco        :string
 #  nome            :string
 #  pessoa_juridica :boolean
+#  published_at    :date
 #  slug            :string
 #  sobrenome       :string
 #  telefone        :string
@@ -30,6 +31,8 @@
 
 class Produtor < ApplicationRecord
   extend FriendlyId
+
+  scope :published, -> {where.not(published_at: nil)}
 
   belongs_to :cidade, optional: true
   has_many :produtos

@@ -6,6 +6,7 @@
 #  descricao    :string
 #  nome         :string
 #  preco        :string
+#  published_at :date
 #  slug         :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -29,6 +30,8 @@
 
 class Produto < ApplicationRecord
   extend FriendlyId
+
+  scope :published, -> {where.not(published_at: nil)}
 
   belongs_to :produtor
   belongs_to :categoria

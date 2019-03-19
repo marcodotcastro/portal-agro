@@ -2,15 +2,16 @@
 #
 # Table name: servicos
 #
-#  id          :bigint(8)        not null, primary key
-#  descricao   :string
-#  medida      :integer          default("hora")
-#  nome        :string
-#  preco       :string
-#  slug        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  produtor_id :bigint(8)
+#  id           :bigint(8)        not null, primary key
+#  descricao    :string
+#  medida       :integer          default("hora")
+#  nome         :string
+#  preco        :string
+#  published_at :date
+#  slug         :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  produtor_id  :bigint(8)
 #
 # Indexes
 #
@@ -24,6 +25,8 @@
 
 class Servico < ApplicationRecord
   extend FriendlyId
+
+  scope :published, -> {where.not(published_at: nil)}
 
   belongs_to :produtor
 
