@@ -10,6 +10,7 @@
 #  endereco        :string
 #  nome            :string
 #  pessoa_juridica :boolean
+#  published_at    :date
 #  slug            :string
 #  sobrenome       :string
 #  telefone        :string
@@ -32,7 +33,7 @@ class ProdutoresController < ApplicationController
   before_action :set_produtor, only: [:show]
    
   def index
-    @q = Produtor.ransack(params[:q])
+    @q = Produtor.published.ransack(params[:q])
     @produtores = @q.result(distinct: true)
   end
    

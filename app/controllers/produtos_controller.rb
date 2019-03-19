@@ -6,6 +6,7 @@
 #  descricao    :string
 #  nome         :string
 #  preco        :string
+#  published_at :date
 #  slug         :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -31,7 +32,7 @@ class ProdutosController < ApplicationController
   before_action :set_produto, only: [:show]
    
   def index
-    @q = Produto.ransack(params[:q])
+    @q = Produto.published.ransack(params[:q])
     @produtos = @q.result(distinct: true)
   end
 
