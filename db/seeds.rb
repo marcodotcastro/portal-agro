@@ -35,6 +35,7 @@ produtor_jose_silva = Produtor.create(
     pessoa_juridica: true,
     whatsapp: true,
     cartao: true,
+    published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
 produtor_jose_silva.perfil.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-perfil.jpg"), filename: "jose-silva-perfil.jpg")
@@ -150,6 +151,7 @@ produtor_divino_pereira = Produtor.create(
     pessoa_juridica: false,
     whatsapp: false,
     cartao: false,
+    published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
 produtor_divino_pereira_video_1 = Video.create(nome: "Video 2", descricao: "Video 2", codigo: "Uit7H-78XPI")
@@ -186,6 +188,7 @@ produtor_stephan = Produtor.create(
     pessoa_juridica: true,
     whatsapp: false,
     cartao: true,
+    published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
 produtor_stephan_historia_1 = Historia.create(data: Date.parse("Dec 8 1930"), titulo: "O Nascimento", descricao: "Nasceu na cidade de ... em uma casa com 12 irmão...")
@@ -237,6 +240,7 @@ produtor_maria_alves = Produtor.create(
     pessoa_juridica: false,
     whatsapp: false,
     cartao: true,
+    published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
 produtor_maria_alves.perfil.attach(io: File.open(Rails.root + "spec/imagens/maria-alves-perfil.jpg"), filename: "maria-alves-perfil.jpg")
@@ -284,6 +288,7 @@ produtor_celio_fleury = Produtor.create(
     pessoa_juridica: true,
     whatsapp: false,
     cartao: false,
+    published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
 produtor_celio_fleury_video_1 = Video.create(nome: "Video 2", descricao: "Video 2", codigo: "Uit7H-78XPI")
