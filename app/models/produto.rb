@@ -51,7 +51,6 @@ class Produto < ApplicationRecord
 
   validates :nome, :descricao, :preco, :categoria_id, :produtor_id, :qualidade_id, presence: true
   validates :capa, attached: true
-  validates :fotos, attached: true
 
   def friendly_url
     self.nome

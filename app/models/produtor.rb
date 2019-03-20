@@ -49,9 +49,8 @@ class Produtor < ApplicationRecord
 
   friendly_id :friendly_url, use: :slugged
 
-  validates :apelido, :cartao, :dap, :endereco, :nome, :sobrenome, :pessoa_juridica, :telefone, :whatsapp, :cidade_id, presence: true
+  validates :apelido, :endereco, :nome, :sobrenome, :telefone, :cidade_id, presence: true
   validates :perfil, attached: true
-  validates :fotos, attached: true
 
   def friendly_url
     nome_completo(self)
