@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_131750) do
+ActiveRecord::Schema.define(version: 2019_03_20_143157) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -150,6 +153,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_131750) do
     t.boolean "dap"
     t.boolean "pessoa_juridica"
     t.date "published_at"
+    t.integer "licenciamento_ambiental"
     t.index ["cidade_id"], name: "index_produtores_on_cidade_id"
     t.index ["slug"], name: "index_produtores_on_slug", unique: true
   end
@@ -165,6 +169,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_131750) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.date "published_at"
+    t.integer "selo_inspecao"
     t.index ["categoria_id"], name: "index_produtos_on_categoria_id"
     t.index ["produtor_id"], name: "index_produtos_on_produtor_id"
     t.index ["qualidade_id"], name: "index_produtos_on_qualidade_id"

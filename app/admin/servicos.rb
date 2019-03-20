@@ -55,14 +55,16 @@ ActiveAdmin.register Servico do
 
   index do
     selectable_column
-    column :capa do |service|
-      image_tag foto_capa_url(service), size: "50x50"
+    column :capa do |servico|
+      image_tag foto_capa_url(servico), size: "50x50"
     end
     column :nome
     column :descricao
-    column :preco
-    column :produtor, sortable: :name do |service|
-      link_to service.produtor.nome, admin_produtor_path(service.produtor)
+    column :preco do |servico|
+      servico_preco_completo(servico)
+    end
+    column :produtor, sortable: :name do |servico|
+      link_to servico.produtor.nome, admin_produtor_path(servico.produtor)
     end
 
     actions
@@ -70,8 +72,8 @@ ActiveAdmin.register Servico do
 
   show title: proc {|p| "Serviço: " + p.nome} do
     attributes_table do
-      row :capa do |service|
-        image_tag foto_capa_url(service), size: "50x50"
+      row :capa do |servico|
+        image_tag foto_capa_url(servico), size: "50x50"
       end
       row :nome
       row :descricao
@@ -79,8 +81,8 @@ ActiveAdmin.register Servico do
         Servico.human_enum_name(:medidas, servico.medida)
       end
       row :preco
-      row :produtor do |service|
-        link_to service.produtor.nome, admin_produtor_path(service.produtor)
+      row :produtor do |servico|
+        link_to servico.produtor.nome, admin_produtor_path(servico.produtor)
       end
       row :published_at
       row :created_at

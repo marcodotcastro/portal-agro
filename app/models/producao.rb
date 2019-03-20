@@ -14,10 +14,6 @@
 #
 #  index_producoes_on_produto_id  (produto_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (produto_id => produtos.id)
-#
 
 class Producao < ApplicationRecord
   belongs_to :produto, optional: true

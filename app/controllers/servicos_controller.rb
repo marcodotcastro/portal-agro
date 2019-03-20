@@ -18,10 +18,6 @@
 #  index_servicos_on_produtor_id  (produtor_id)
 #  index_servicos_on_slug         (slug) UNIQUE
 #
-# Foreign Keys
-#
-#  fk_rails_...  (produtor_id => produtores.id)
-#
 
 class ServicosController < ApplicationController
   before_action :set_servico, only: [:show]

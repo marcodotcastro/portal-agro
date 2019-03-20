@@ -14,10 +14,6 @@
 #
 #  index_historias_on_produtor_id  (produtor_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (produtor_id => produtores.id)
-#
 
 class Historia < ApplicationRecord
   belongs_to :produtor, optional: true

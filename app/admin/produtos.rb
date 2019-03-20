@@ -30,7 +30,7 @@ ActiveAdmin.register Produto do
     end
   end
 
-  permit_params :capa, :nome, :descricao, :producao, :preco, :video, :produtor_id, :categoria_id, :qualidade_id,
+  permit_params :capa, :nome, :descricao, :preco, :video, :produtor_id, :categoria_id, :qualidade_id,
                 fotos: [],
                 video_attributes: [:id, :nome, :descricao, :codigo, :_destroy],
                 producoes_attributes: [:id, :numero, :medida, :periodo, :_destroy],
@@ -42,9 +42,10 @@ ActiveAdmin.register Produto do
   filter :categoria, collection: -> {
     Categoria.all.map {|map| [map.nome, map.id]}
   }
-
   filter :nome
   filter :preco
+  filter :selo_inspecao, as: :select, :collection => Produto.selo_inspecoes.map {|k, v| [Produto.human_enum_name(:selo_inspecoes, k), v]}
+
 
   form do |f|
     f.inputs do
@@ -52,6 +53,9 @@ ActiveAdmin.register Produto do
       f.input :nome
       f.input :descricao, as: :text
       f.input :preco
+      f.input :selo_inspecao, :as => :select do |produto|
+        Produto.human_enum_name(:selo_inspecoes, produto.selo_inspecao)
+      end
       f.input :produtor_id, :as => :select, :collection => Produtor.all.map {|u| ["#{u.nome}", u.id]}
       f.input :categoria_id, :as => :select, :collection => Categoria.all.map {|u| ["#{u.nome}", u.id]}
       f.input :qualidade_id, :as => :select, :collection => Qualidade.all.map {|u| ["#{u.nome}", u.id]}
@@ -90,8 +94,9 @@ ActiveAdmin.register Produto do
     end
     column :nome
     column :descricao
-    column :producao
-    column :preco
+    column :preco do |produto|
+      produto_preco_completo(produto)
+    end
     column :produtor, sortable: :name do |produto|
       link_to produto.produtor.nome, admin_produtor_path(produto.produtor)
     end
@@ -112,7 +117,12 @@ ActiveAdmin.register Produto do
       end
       row :nome
       row :descricao
-      row :preco
+      row :preco do |produto|
+        produto_preco_completo(produto)
+      end
+      row :selo_inspecao, :as => :select do |produto|
+        Produto.human_enum_name(:selo_inspecoes, produto.selo_inspecao)
+      end
       row :produtor do |produto|
         link_to produto.produtor.nome, admin_produtor_path(produto.produtor)
       end

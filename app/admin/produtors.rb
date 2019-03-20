@@ -42,6 +42,7 @@ ActiveAdmin.register Produtor do
   filter :cidade, collection: -> {
     Cidade.all.map {|map| [map.nome, map.id]}
   }
+  filter :licenciamento_ambiental, as: :select, :collection => Produtor.licenciamento_ambientais.map {|k, v| [Produtor.human_enum_name(:licenciamento_ambientais, k), v]}
 
   form do |f|
     f.inputs do
@@ -55,6 +56,9 @@ ActiveAdmin.register Produtor do
       f.input :cartao
       f.input :email
       f.input :endereco
+      f.input :licenciamento_ambiental, :as => :select do |produtor|
+        Produtor.human_enum_name(:licenciamento_ambientais, produtor.licenciamento_ambiental)
+      end
       f.input :cidade_id, :as => :select, :collection => Cidade.all.map {|u| ["#{u.nome}", u.id]}
       f.input :fotos, as: :file, input_html: {multiple: true}
       f.inputs do
@@ -112,6 +116,9 @@ ActiveAdmin.register Produtor do
       row :cartao
       row :email
       row :endereco
+      row :licenciamento_ambiental, :as => :select do |produtor|
+        Produtor.human_enum_name(:licenciamento_ambientais, produtor.licenciamento_ambiental)
+      end
       row :cidade do |produtor|
         link_to produtor.cidade.nome, admin_cidade_path(produtor.cidade)
       end
@@ -128,8 +135,12 @@ ActiveAdmin.register Produtor do
           image_tag foto_capa_url(produto), size: "50x50"
         end
         column :nome
-        column :producao
-        column :preco
+        column :preco do |produto|
+          produto_preco_completo(produto)
+        end
+        column :selo_inspecao, :as => :select do |produto|
+          Produto.human_enum_name(:selo_inspecoes, produto.selo_inspecao)
+        end
         column "" do |produto|
           span link_to "Visualizar", admin_produto_path(produto)
           span link_to "Editar", edit_admin_produto_path(produto)

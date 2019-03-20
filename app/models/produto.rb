@@ -2,17 +2,18 @@
 #
 # Table name: produtos
 #
-#  id           :bigint(8)        not null, primary key
-#  descricao    :string
-#  nome         :string
-#  preco        :decimal(, )
-#  published_at :date
-#  slug         :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  categoria_id :bigint(8)
-#  produtor_id  :bigint(8)
-#  qualidade_id :bigint(8)
+#  id            :bigint(8)        not null, primary key
+#  descricao     :string
+#  nome          :string
+#  preco         :decimal(, )
+#  published_at  :date
+#  selo_inspecao :integer
+#  slug          :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  categoria_id  :bigint(8)
+#  produtor_id   :bigint(8)
+#  qualidade_id  :bigint(8)
 #
 # Indexes
 #
@@ -21,15 +22,11 @@
 #  index_produtos_on_qualidade_id  (qualidade_id)
 #  index_produtos_on_slug          (slug)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (categoria_id => categorias.id)
-#  fk_rails_...  (produtor_id => produtores.id)
-#  fk_rails_...  (qualidade_id => qualidades.id)
-#
 
 class Produto < ApplicationRecord
   extend FriendlyId
+
+  enum selo_inspecao: [:sim, :sie, :sif]
 
   scope :published, -> {joins(:produtor).where.not(produtores: {published_at: nil}).where.not(published_at: nil)}
 

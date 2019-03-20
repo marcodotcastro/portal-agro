@@ -70,6 +70,11 @@ pt-BR:
         preco: "Preço"
         video: "Vídeo"
         foto: "Foto"
+        selo_inspecao: "Selo de Inspeção"
+        selo_inspecoes:
+          sim: "Serviço de Inspeção Municipal (SIM)"
+          sie: "Serviço de Inspeção Estadual (SIE)"
+          sif: "Serviço de Inspeção Federal (SIF)"
         published_at: "Publicado Em"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
@@ -99,6 +104,11 @@ pt-BR:
         pessoa_juridica: "Pessoa Jurídica"
         whatsapp: "Whatsapp"
         cartao: "Cartão"
+        licenciamento_ambiental: "Licenciamento Ambiental"
+        licenciamento_ambientais:
+          lp: "Licença Prévia (LP)"
+          li: "  Licença de Instalação (LI)"
+          lo: "  Licença de Operação (LO)"
         published_at: "Publicado Em"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"

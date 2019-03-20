@@ -35,6 +35,7 @@ produtor_jose_silva = Produtor.new(
     pessoa_juridica: true,
     whatsapp: true,
     cartao: true,
+    licenciamento_ambiental: :lp,
     published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
@@ -56,6 +57,7 @@ produtor_jose_silva_produto_leite = Produto.new(
     nome: "Leite",
     descricao: "O leite é ..., pois ...",
     preco: 1.50,
+    selo_inspecao: :sim,
     published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
@@ -79,6 +81,7 @@ produtor_jose_silva_produto_bezerro = Produto.new(
     nome: "Bezerro",
     descricao: "O Vitelo, terneiro, bezerro ou novilho são ..., pois ...",
     preco: 1000.00,
+    selo_inspecao: :sim,
     published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
@@ -125,6 +128,7 @@ produtor_jose_silva_produto_pamonha = Produto.new(
     nome: "Pamonha",
     descricao: "A Pamonha é ..., pois ...",
     preco: 3.50,
+    selo_inspecao: :sim,
     published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
@@ -155,6 +159,7 @@ produtor_divino_pereira = Produtor.new(
     pessoa_juridica: false,
     whatsapp: false,
     cartao: false,
+    licenciamento_ambiental: :lp,
     published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
@@ -193,6 +198,7 @@ produtor_stephan = Produtor.new(
     pessoa_juridica: true,
     whatsapp: false,
     cartao: true,
+    licenciamento_ambiental: :li,
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
@@ -212,6 +218,7 @@ pprodutor_stephan_produto_queijo = Produto.new(
     nome: "Queijo",
     descricao: "O queijo é ..., pois ...",
     preco: 50.00,
+    selo_inspecao: :sie,
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
@@ -246,6 +253,7 @@ produtor_maria_alves = Produtor.new(
     pessoa_juridica: false,
     whatsapp: false,
     cartao: true,
+    licenciamento_ambiental: :lp,
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
@@ -295,6 +303,7 @@ produtor_celio_fleury = Produtor.new(
     pessoa_juridica: true,
     whatsapp: false,
     cartao: false,
+    licenciamento_ambiental: :lo,
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
@@ -343,6 +352,7 @@ produtor_celio_fleury_produto_gado_corte = Produto.new(
     nome: "Gado de Corte",
     descricao: "O gado de corte é ..., pois ....",
     preco: 150.00,
+    selo_inspecao: :sif,
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
