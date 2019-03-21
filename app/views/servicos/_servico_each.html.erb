@@ -8,7 +8,7 @@
       <h6><b>Preço:</b> <%= servico_preco_completo(servico) %></h6>
       <p>
         <a class="btn btn-primary" data-toggle="collapse" href="#<%= "consumidor_" + servico.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "consumidor_" + servico.id.to_s %>">
-          Consumidor?
+          <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="Informações para quem quer comprar um produto" style="font-size:75%;"> Consumidor?</span>
         </a>
       </p>
       <div class="collapse" id="<%= "consumidor_" + servico.id.to_s %>">

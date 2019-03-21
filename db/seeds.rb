@@ -9,9 +9,9 @@ vegetal = Categoria.create!(id: 2, nome: "Vegetal", descricao: "São os produtos
 industrial = Categoria.create!(id: 3, nome: "Industrial", descricao: "São os produtos que foram transformados. Ex: Queijo, doces, bacon, etc")
 
 puts "# Qualidade"
-tradicional = Qualidade.create!(id: 1, nome: "Tradicional", descricao: "São produtos cultivado ou criados nas formas antigas, ou seja a base de herbicidas, agrotóxico e pesticida.")
-natural = Qualidade.create!(id: 2, nome: "Natural", descricao: "São produtos cultivado ou criados nas formas novas, ou seja sem a base de herbicidas, agrotóxico e pesticida, e NÃO TEM o selo de orgânico")
-organico = Qualidade.create!(id: 3, nome: "Orgânico", descricao: "São produtos cultivado ou criados nas formas novas, ou seja sem a base de herbicidas, agrotóxico e pesticida, e TEM o selo de orgânico")
+tradicional = Qualidade.create!(id: 1, nome: "Tradicional", descricao: "São produtos cultivados ou criados nas formas antigas, ou seja a base de herbicidas, agrotóxico e pesticida.")
+natural = Qualidade.create!(id: 2, nome: "Natural", descricao: "São produtos cultivados ou criados nas formas novas, ou seja sem a base de herbicidas, agrotóxico e pesticida, e NÃO TEM o selo de orgânico")
+organico = Qualidade.create!(id: 3, nome: "Orgânico", descricao: "São produtos cultivados ou criados nas formas novas, ou seja sem a base de herbicidas, agrotóxico e pesticida, e TEM o selo de orgânico")
 
 puts "# Estado"
 estado = Estado.create!(id: 1, nome: "Goiás")
