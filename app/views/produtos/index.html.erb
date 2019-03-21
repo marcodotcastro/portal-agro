@@ -54,41 +54,7 @@
   <div class="container">
     <div class="row">
       <% @produtos.each do |produto| %>
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-          <%= link_to(estado_cidade_produtor_produto_path(produto.produtor.cidade.estado, produto.produtor.cidade, produto.produtor, produto), class: "room") do %>
-            <figure class="img-wrap">
-              <%= image_tag(foto_capa_url(produto), class: "img-fluid mb-3", size: "500x500") %>
-            </figure>
-            <div class="p-3 text-center room-info">
-              <h2><%= produto.nome %></h2>
-              <h6><b>Preço:</b> <%= produto_preco_completo(produto) %></h6>
-              <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#<%= produto.produtor.nome.tr(" ", "_") + produto.nome.tr(" ", "_") + "_" + produto.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= produto.produtor.nome.tr(" ", "_") + produto.nome.tr(" ", "_") + "_" + produto.id.to_s %>">
-                  Consumidor?
-                </a>
-                <a class="btn btn-primary" data-toggle="collapse" href="#<%= produto.nome.tr(" ", "_") + "_" + produto.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= produto.nome.tr(" ", "_") + "_" + produto.id.to_s %>">
-                  Atacadista?
-                </a>
-              </p>
-              <div class="collapse" id="<%= produto.produtor.nome.tr(" ", "_") + produto.nome.tr(" ", "_") + "_" + produto.id.to_s %>">
-                <div class="card card-body">
-                  <h6><b>Produtor:</b> <%= nome_completo(produto.produtor) %></h6>
-                  <h6><b>Cidade:</b> <%= cidade_completo(produto.produtor) %></h6>
-                  <h6><b>Qualidade:</b> <%= produto.qualidade.nome %></h6>
-                </div>
-              </div>
-              <div class="collapse" id="<%= produto.nome.tr(" ", "_") + "_" + produto.id.to_s %>">
-                <div class="card card-body">
-                  <h6><b>Produção:</b> <%= producao(produto) %></h6>
-                  <% if produto.categoria.nome.eql?("Animal") %>
-                    <h6><b>Selo Inspeção:</b> <%= Produto.human_enum_name(:selo_inspecoes, produto.selo_inspecao) %>
-                    </h6>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
+        <%= render 'produto_each', produto: produto %>
       <% end %>
     </div>
   </div>

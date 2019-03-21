@@ -47,20 +47,7 @@
     </div>
     <div class="row">
       <% @produtor.produtos.each do |produto| %>
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-          <%= link_to(estado_cidade_produtor_produto_path(produto.produtor.cidade.estado, produto.produtor.cidade, produto.produtor, produto), class: "room") do %>
-            <figure class="img-wrap">
-              <%= image_tag(foto_capa_url(produto), class: "img-fluid mb-3", size: "500x500") %>
-            </figure>
-            <div class="p-3 text-center room-info">
-              <h2><%= produto.nome %></h2>
-              <h6><b>Cidade:</b> <%= cidade_completo(produto.produtor) %></h6>
-              <h6><b>Qualidade:</b> <%= produto.qualidade.nome %></h6>
-              <h6><b>Preço:</b> <%= produto_preco_completo(produto) %></h6>
-              <h6><b>Produção:</b> <%= producao(produto) %></h6>
-            </div>
-          <% end %>
-        </div>
+        <%= render 'produtos/produto_each', produto: produto %>
       <% end %>
     </div>
   </div>
