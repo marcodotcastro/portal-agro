@@ -10,8 +10,7 @@
       <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
         <h2 class="heading"><%= @servico.nome %></h2>
         <h6 class="mb-4"><%= @servico.descricao %></h6>
-        <h6><b>Estado:</b> <%= @servico.produtor.cidade.estado.nome %></h6>
-        <h6><b>Cidade:</b> <%= @servico.produtor.cidade.nome %></h6>
+        <h6><b>Cidade:</b> <%= cidade_completo(@servico.produtor)%></h6>
         <h6><b>Preço:</b> <%= servico_preco_completo(@servico) %></h6>
       </div>
     </div>

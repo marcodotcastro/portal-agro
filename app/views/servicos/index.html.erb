@@ -27,7 +27,7 @@
               <%= f.button "Pesquisar", class: "btn btn-primary btn-block text-white" %>
             </div>
             <div class="col-md-6 col-lg-6">
-              <%= link_to "Cancelar", request.path, class: "btn btn-primary btn-block text-white", style: "text-decoration: none"  %>
+              <%= link_to "Cancelar", request.path, class: "btn btn-primary btn-block text-white", style: "text-decoration: none" %>
             </div>
           </div>
         <% end %>
@@ -47,7 +47,7 @@
             </figure>
             <div class="p-3 text-center room-info">
               <h2><%= servico.nome %></h2>
-              <h6><b>Cidade:</b> <%= servico.produtor.cidade.nome %></h6>
+              <h6><b>Cidade:</b> <%= cidade_completo(servico.produtor) %></h6>
               <h6><b>Produtor:</b> <%= nome_completo(servico.produtor) %></h6>
               <h6><b>Preço:</b> <%= servico_preco_completo(servico) %></h6>
             </div>

@@ -18,11 +18,11 @@
       <%= produtor.whatsapp ? " <span class='fa fa-whatsapp'></span>".html_safe : "" %></h5>
     <h6 class="letter-spacing-1">Email: </h6><h5><%= produtor.email %></h5>
     <br>
-    <h6 class="letter-spacing-1">Endereço: </h6><h5><%= endereco_completo(produtor) %></h5>
+    <h6 class="letter-spacing-1">Cidade: </h6><h5><%= cidade_completo(produtor) %></h5>
     <br>
     <h6 class='letter-spacing-1'>Aceita
       Cartão? </h6><%= produtor.cartao ? "<h5>Sim</h5>".html_safe : "<h5>Não</h5>".html_safe %>
-    <h6 class='letter-spacing-1'>É Pessoa Jurídica?</h6><%= produtor.pessoa_juridica ? "<h5>Sim</h5>".html_safe : "<h5>Não</h5>".html_safe %>
+    <h6 class='letter-spacing-1'>Pessoa Jurídica?</h6><%= produtor.pessoa_juridica ? "<h5>Sim</h5>".html_safe : "<h5>Não</h5>".html_safe %>
     <br>
     <h6>
       <a href="https://www.youtube.com/embed/<%= produtor.video.codigo %>" data-fancybox>Vídeo Sobre o

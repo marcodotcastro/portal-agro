@@ -16,4 +16,8 @@ module ProdutorHelper
     produtor.endereco + ", " + produtor.cidade.nome + ", " + produtor.cidade.estado.nome
   end
 
+  def cidade_completo(produtor)
+    produtor.cidade.nome + " (" + produtor.cidade.estado.nome + ") "
+  end
+
 end

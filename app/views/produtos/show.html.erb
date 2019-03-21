@@ -10,8 +10,7 @@
       <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
         <h2 class="heading"><%= @produto.nome %></h2>
         <h6 class="mb-4"><%= @produto.descricao %></h6>
-        <h6><b>Estado:</b> <%= @produto.produtor.cidade.estado.nome %></h6>
-        <h6><b>Cidade:</b> <%= @produto.produtor.cidade.nome %></h6>
+        <h6><b>Cidade:</b> <%= cidade_completo(@produto.produtor) %></h6>
         <h6><b>Qualidade:</b> <%= @produto.qualidade.nome %></h6>
         <h6><b>Preço:</b> <%= produto_preco_completo(@produto) %></h6>
         <h6><b>Produção:</b> <%= producao(@produto) %></h6>
