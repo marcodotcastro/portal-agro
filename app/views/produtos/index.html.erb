@@ -66,6 +66,9 @@
               <h6><b>Qualidade:</b> <%= produto.qualidade.nome %></h6>
               <h6><b>Preço:</b> <%= produto_preco_completo(produto) %></h6>
               <h6><b>Produção:</b> <%= producao(produto) %></h6>
+              <% if produto.categoria.nome.eql?("Animal") %>
+                <h6><b>Selo Inspeção:</b> <%= Produto.human_enum_name(:selo_inspecoes, produto.selo_inspecao) %></h6>
+              <% end %>
             </div>
           <% end %>
         </div>
