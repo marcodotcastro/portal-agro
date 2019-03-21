@@ -1,0 +1,29 @@
+<div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+  <%= link_to(estado_cidade_produtor_path(produtor.cidade.estado, produtor.cidade, produtor), class: "room") do %>
+    <figure class="img-wrap">
+      <%= image_tag(foto_perfil_url(produtor), class: "img-fluid mb-3", size: "500x500") %>
+    </figure>
+    <div class="p-3 text-center room-info">
+      <h2><%= nome_completo(produtor) %></h2>
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#<%= "consumidor_" + produtor.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "consumidor_" + produtor.id.to_s %>">
+          Consumidor?
+        </a>
+        <a class="btn btn-primary" data-toggle="collapse" href="#<%= "atacadista_" + produtor.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "atacadista_" + produtor.id.to_s %>">
+          Atacadista?
+        </a>
+      </p>
+      <div class="collapse" id="<%= "consumidor_" + produtor.id.to_s %>">
+        <div class="card card-body">
+          <h6><b>Cidade:</b> <%= cidade_completo(produtor) %></h6>
+          <h6><b>Aceita Cartão?</b> <%= produtor.cartao ? "Sim".html_safe : "Não" %></h6>
+        </div>
+      </div>
+      <div class="collapse" id="<%= "atacadista_" + produtor.id.to_s %>">
+        <div class="card card-body">
+          <h6><b>Pessoa Jurídica?</b> <%= produtor.pessoa_juridica ? "Sim".html_safe : "Não" %></h6>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
