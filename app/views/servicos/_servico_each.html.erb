@@ -1,0 +1,23 @@
+<div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+  <%= link_to(estado_cidade_produtor_servico_path(servico.produtor.cidade.estado, servico.produtor.cidade, servico.produtor, servico), class: "room") do %>
+    <figure class="img-wrap">
+      <%= image_tag(foto_capa_url(servico), class: "img-fluid mb-3", size: "500x500") %>
+    </figure>
+    <div class="p-3 text-center room-info">
+      <h2><%= servico.nome %></h2>
+      <h6><b>Preço:</b> <%= servico_preco_completo(servico) %></h6>
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#<%= "consumidor_" + servico.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "consumidor_" + servico.id.to_s %>">
+          Consumidor?
+        </a>
+      </p>
+      <div class="collapse" id="<%= "consumidor_" + servico.id.to_s %>">
+        <div class="card card-body">
+          <h6><b>Cidade:</b> <%= cidade_completo(servico.produtor) %></h6>
+          <h6><b>Produtor:</b> <%= nome_completo(servico.produtor) %></h6>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+</div>

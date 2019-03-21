@@ -10,8 +10,17 @@
       <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
         <h2 class="heading"><%= @servico.nome %></h2>
         <h6 class="mb-4"><%= @servico.descricao %></h6>
-        <h6><b>Cidade:</b> <%= cidade_completo(@servico.produtor)%></h6>
         <h6><b>Preço:</b> <%= servico_preco_completo(@servico) %></h6>
+        <p>
+          <a class="btn btn-primary" data-toggle="collapse" href="#<%= "consumidor_" + @servico.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "consumidor_" + @servico.id.to_s %>">
+            Consumidor?
+          </a>
+        </p>
+        <div class="collapse" id="<%= "consumidor_" + @servico.id.to_s %>">
+          <div class="card card-body">
+            <h6><b>Cidade:</b> <%= cidade_completo(@servico.produtor) %></h6>
+          </div>
+        </div>
       </div>
     </div>
   </div>
