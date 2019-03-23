@@ -21,6 +21,7 @@
             <h6><b>Cidade:</b> <%= cidade_completo(@servico.produtor) %></h6>
           </div>
         </div>
+        <h6>Compartilhe<%= social_share_button_tag("#{@servico.nome} (#{servico_preco_completo(@servico)}) em #{cidade_completo(@servico.produtor)} ") %></h6>
       </div>
     </div>
   </div>

@@ -22,7 +22,8 @@
         <div class="collapse" id="<%= "consumidor_" + @produto.id.to_s %>">
           <div class="card card-body">
             <h6><b>Cidade:</b> <%= cidade_completo(@produto.produtor) %></h6>
-            <h6><span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="<%= @produto.qualidade.descricao %>"></span><b>
+            <h6>
+              <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="<%= @produto.qualidade.descricao %>"></span><b>
               Qualidade: <%= @produto.qualidade.nome %></b></h6>
           </div>
         </div>
@@ -35,6 +36,7 @@
             <% end %>
           </div>
         </div>
+        <h6>Compartilhe<%= social_share_button_tag("#{@produto.nome} (#{produto_preco_completo(@produto)}) em #{cidade_completo(@produto.produtor)} ") %></h6>
       </div>
     </div>
   </div>

@@ -42,22 +42,22 @@
     <div class="row site-hero-inner justify-content-center align-items-center">
       <div class="col-md-10 text-center" data-aos="fade-up">
         <%#TODO: Refatorar %>
-        <% if controller_name == "home" %>
+        <% if controller_name.eql? "home" %>
           <span class="sub-heading">Bem vindo ao <span class="fa fa-star text-primary"></span> Portal Agro <span class="fa fa-star text-primary"></span></span>
           <h1 class="heading">Agricultura Familiar</h1>
           <h1 class="sub-heading">Os Melhores Produtos e Serviços da Sua Região</h1>
-        <% elsif controller_name == "servicos" %>
-          <% if action_name == "index" %>
+        <% elsif controller_name.eql? "servicos" %>
+          <% if action_name.eql? "index" %>
             <h2 class="heading">Os Serviços</h2>
             <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
           <% else %>
             <h2 class="heading">O Serviço</h2>
             <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
           <% end %>
-        <% elsif controller_name == "contatos" %>
+        <% elsif controller_name.eql? "contatos" %>
           <h2 class="heading">Contato</h2>
           <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
-        <% elsif action_name == "index" %>
+        <% elsif action_name.eql? "index" %>
           <h2 class="heading">Os <%= controller_name.capitalize %></h2>
           <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
         <% else %>
@@ -69,8 +69,8 @@
   </div>
 </section>
 
-<% unless controller_name == "contatos" %>
-  <% unless action_name == "index" %>
+<% unless controller_name.eql? "contatos" %>
+  <% unless action_name.eql? "index" %>
     <section class="py-5">
       <div class="container">
         <div class="row align-items-center">
