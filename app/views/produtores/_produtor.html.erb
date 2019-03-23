@@ -29,9 +29,6 @@
           Produtor</a>
       </h6>
     <% end %>
-    <% unless controller_name.eql? "produtos" %>
-      <h6>Compartilhe<%= social_share_button_tag("#{nome_completo(produtor)} (#{produtor.apelido}) produtor em #{cidade_completo(produtor)}") %></h6>
-    <% end %>
   </div>
 </div>
 
