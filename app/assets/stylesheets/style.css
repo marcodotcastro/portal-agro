@@ -1499,8 +1499,8 @@ textarea.form-control {
     -ms-transform: scale(1);
     transform: scale(1);
     margin-bottom: 0 !important;
-    height: 220px;
-    width: 330px;
+    height: auto;
+    width: auto;
 }
 
 .room:hover .img-wrap img, .room:focus .img-wrap img {
