@@ -25,6 +25,10 @@ class ServicosController < ApplicationController
   def index
     @q = Servico.published.ransack(params[:q])
     @servicos = @q.result(distinct: true).page(params[:page])
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def show

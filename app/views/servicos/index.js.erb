@@ -1,0 +1,2 @@
+$('#paginacao').html('<%= escape_javascript(paginate(@servicos, remote: true, theme: 'twitter-bootstrap-4', pagination_class: "pagination", nav_class: "d-inline-b").to_s) %>');
+$('#servicos').html('<%= escape_javascript render 'servico_each', servicos: @servicos  %>');
