@@ -1,33 +1,42 @@
 pt-BR:
   header:
-    logo: "Portal Agro"
+    logo: 'Portal Agro'
     menu:
-      produtor: "Produtores"
-      produto: "Produtos"
-      servico: "Serviços"
-      contato: "Contato"
-      objetivo: "Objetivo"
+      produtor: 'Produtores'
+      produto: 'Produtos'
+      servico: 'Serviços'
+      contato: 'Contato'
+      objetivo: 'Objetivo'
     mensagem_principal:
-      mensagem_secundaria: "Os Melhores Produtos e Serviços da Sua Região"
+      mensagem_secundaria: 'Os Melhores Produtos e Serviços da Sua Região'
       home:
-        bem_vindo: "Bem vindo ao "
-        mensagam_primaria: "Agricultura Familiar"
+        bem_vindo: 'Bem vindo ao '
+        mensagam_primaria: 'Agricultura Familiar'
       servicos:
         mensagam_primaria:
-          singular: "O Serviço"
-          plural: "Os Serviços"
+          singular: 'O Serviço'
+          plural: 'Os Serviços'
       contatos:
-        mensagem_primaria: "Contato"
+        mensagem_primaria: 'Contato'
       outros:
-        singular: "O"
-        plural: "Os"
+        singular: 'O'
+        plural: 'Os'
     mensagem_secundaria:
-      mensagem_primaria: "Quer Apresentar Seu Produto ou Serviço? Aqui é Grátis."
-      mensagem_secundaria: "Entre em Contato!"
-
+      mensagem_primaria: 'Quer Apresentar Seu Produto ou Serviço? Aqui é Grátis.'
+      mensagem_secundaria: 'Entre em Contato!'
   footer:
     mensagem_secundaria:
-      mensagem_primaria: "O Melhor da Agricultura Familiar da Sua Região"
-      mensagem_secundaria: "Entenda Nosso Objetivo!"
-    copyright: "Portal Agro &copy;2019 Todos os direitos reservados"
+      mensagem_primaria: 'O Melhor da Agricultura Familiar da Sua Região'
+      mensagem_secundaria: 'Entenda Nosso Objetivo!'
+    copyright: 'Portal Agro &copy;2019 Todos os direitos reservados'
   home:
+    produtos:
+      plural: 'Os Produtos'
+      mensagem: "Ao comprar os produtos, além de ter produtos com qualidade direto da roça, <b>você estará ajudando para que a história dessas famílias continuem</b>."
+    produtores:
+      plural: 'Os Produtores'
+      mesagem: "São os verdadeiros exemplos de luta, <b>conheçam suas histórias e se espelhem</b>."
+    servicos:
+      plural: 'Os Serviços'
+      mesagem: "Outros trabalhos do meio rural que é mais uma forma digna de se <b>alimentar sua família e manter sua história</b>."
+    mensagem_principal: "<h2 class='heading'>Bem Vindo</h2><h6 class='mb-4'>Aqui você encontra os produtores rurais de sua cidade com seus produtos e serviços.</h6><h6 class='mb-4'>É possível também conhecer suas histórias e <b>se inspirar com vida desses verdadeiros guerreiros</b>.</h6>"
