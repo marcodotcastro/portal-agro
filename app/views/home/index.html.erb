@@ -41,6 +41,7 @@
               <%= image_tag(foto_capa_url(produto), class: "img-fluid mb-3") %>
             </figure>
             <div class="p-3 text-center room-info">
+              <b><%= visitas_ao_produto(produto) %> <span class="ion-ios-eye"></span></b>
               <h2><%= produto.nome %></h2>
             </div>
           <% end %>
@@ -67,6 +68,7 @@
               <%= image_tag(foto_capa_url(servico), class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
+              <b><%= visitas_ao_servico(servico) %> <span class="ion-ios-eye"></span></b>
               <h2><%= servico.nome %></h2>
             </div>
           <% end %>
@@ -93,6 +95,7 @@
               <%= image_tag(foto_perfil_url(produtor), class: "img-fluid mb-3", size: "500x500") %>
             </figure>
             <div class="p-3 text-center room-info">
+              <b><%= visitas_ao_produtor(produtor) %> <span class="ion-ios-eye"></span></b>
               <h2><%= nome_completo(produtor) %></h2>
             </div>
           <% end %>
