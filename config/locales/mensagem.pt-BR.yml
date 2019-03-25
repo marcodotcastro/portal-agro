@@ -40,3 +40,9 @@ pt-BR:
       plural: 'Os Serviços'
       mesagem: "Outros trabalhos do meio rural que é mais uma forma digna de se <b>alimentar sua família e manter sua história</b>."
     mensagem_principal: "<h2 class='heading'>Bem Vindo</h2><h6 class='mb-4'>Aqui você encontra os produtores rurais de sua cidade com seus produtos e serviços.</h6><h6 class='mb-4'>É possível também conhecer suas histórias e <b>se inspirar com vida desses verdadeiros guerreiros</b>.</h6>"
+  contato:
+    show:
+      mensagem_primaria: "<h2 class='sub-heading'>Obrigado pela Visita!</h2><h3>Já recebemos seu contato.</h3><p><h3>O mais breve possível responderemos.</h3></p>"
+      mensagem_secundaria: "Os Agricultores Familiares Agradecem."
+    new:
+      endereco: "<span class='d-block'>Endereço:</span><span>Corumbá de Goiás, Goiás</span>"
