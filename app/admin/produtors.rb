@@ -86,6 +86,9 @@ ActiveAdmin.register Produtor do
     column :perfil do |produtor|
       image_tag foto_perfil_url(produtor), size: "50x50"
     end
+    column :visitas do |produtor|
+      visitas_ao_produtor(produtor)
+    end
     column :nome
     column :apelido
     column :telefone

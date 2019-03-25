@@ -58,6 +58,9 @@ ActiveAdmin.register Servico do
     column :capa do |servico|
       image_tag foto_capa_url(servico), size: "50x50"
     end
+    column :visitas do |servico|
+      visitas_ao_servico(servico)
+    end
     column :nome
     column :descricao
     column :preco do |servico|

@@ -92,6 +92,9 @@ ActiveAdmin.register Produto do
     column :capa do |produto|
       image_tag foto_capa_url(produto), size: "50x50"
     end
+    column :visitas do |produto|
+      visitas_ao_produto(produto)
+    end
     column :nome
     column :descricao
     column :preco do |produto|
