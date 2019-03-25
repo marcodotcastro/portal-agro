@@ -26,4 +26,8 @@ pt-BR:
       mensagem_secundaria: "Entre em Contato!"
 
   footer:
+    mensagem_secundaria:
+      mensagem_primaria: "O Melhor da Agricultura Familiar da Sua Região"
+      mensagem_secundaria: "Entenda Nosso Objetivo!"
+    copyright: "Portal Agro &copy;2019 Todos os direitos reservados"
   home:
