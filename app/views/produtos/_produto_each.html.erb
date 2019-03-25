@@ -7,7 +7,7 @@
       <h2><%= produto.nome %></h2>
       <h6><b>Preço:</b> <%= produto_preco_completo(produto) %></h6>
       <a class="btn btn-primary" data-toggle="collapse" href="#<%= "consumidor_" + produto.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "consumidor_" + produto.id.to_s %>">
-        <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="Informações para quem quer comprar um produto" style="font-size:75%;"> Consumidor?</span>
+        <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="Informações para quem quer comprar poucos produtos" style="font-size:75%;"> Consumidor?</span>
       </a>
       <a class="btn btn-primary" data-toggle="collapse" href="#<%= "atacadista_" + produto.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "atacadista_" + produto.id.to_s %>">
         <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="Informações para quem quer comprar vários produtos" style="font-size:75%;"> Atacadista?</span>

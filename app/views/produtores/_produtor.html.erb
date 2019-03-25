@@ -24,7 +24,7 @@
       Jurídica?</h6><%= produtor.pessoa_juridica ? "<h5>Sim</h5>".html_safe : "<h5>Não</h5>".html_safe %>
     <% if produtor.video %>
       <h6>
-        <a class="btn btn-primary" href="https://www.youtube.com/embed/<%= produtor.video.codigo %>" data-fancybox>Vídeo
+        <a class="btn btn-outline-primary" href="https://www.youtube.com/embed/<%= produtor.video.codigo %>" data-fancybox>Vídeo
           Sobre o
           Produtor</a>
       </h6>
@@ -33,7 +33,7 @@
   </div>
 </div>
 <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
-  <button class="clipboard-btn btn btn-outline-success" data-clipboard-text="<%= "#{produtor.nome} (#{produtor.apelido}) " + url_for(:only_path => false) %>">
+  <button class="clipboard-btn btn btn-outline-success" data-clipboard-text="<%= "Produtor(a) #{produtor.nome} (#{produtor.apelido}) " + url_for(:only_path => false) %>">
     Copie e Compartilhe no
     <span class="fa fa-whatsapp"></span>
     <span class="fa fa-facebook"></span>
