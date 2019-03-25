@@ -37,4 +37,8 @@ module ProdutoHelper
     end
   end
 
+  def visitas_ao_produto(produto)
+    Ahoy::Event.where_props(produto_id: produto.id).count
+  end
+
 end

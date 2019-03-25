@@ -25,18 +25,20 @@
 
 class ProdutosController < ApplicationController
   before_action :set_produto, only: [:show]
-   
+
   def index
     @q = Produto.published.ransack(params[:q])
     @produtos = @q.result(distinct: true)
   end
 
   def show
+    ahoy.track(@produto.nome, {produto_id: @produto.id})
   end
-  
+
   private
-    def set_produto
-      @produto = Produto.friendly.find(params[:id])
-    end
+
+  def set_produto
+    @produto = Produto.friendly.find(params[:id])
+  end
 
 end

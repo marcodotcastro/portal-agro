@@ -25,6 +25,7 @@
 
 class Produto < ApplicationRecord
   extend FriendlyId
+  visitable :ahoy_visit
 
   enum selo_inspecao: [:sim, :sie, :sif]
 
