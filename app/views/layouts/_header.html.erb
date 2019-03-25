@@ -2,7 +2,7 @@
 <header class="site-header js-site-header">
   <div class="container-fluid">
     <div class="row align-items-center">
-      <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="/">Portal Agro</a></div>
+      <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="/"><%= t "header.logo" %></a></div>
       <div class="col-6 col-lg-8">
 
 
@@ -20,11 +20,11 @@
                 <div class="col-md-6 mx-auto">
                   <ul class="list-unstyled menu">
                     <li class="active"><a href="/">Principal</a></li>
-                    <li><%= link_to "Produtores", produtores_path %></li>
-                    <li><%= link_to "Produtos", produtos_path %></li>
-                    <li><%= link_to "Serviços", servicos_path %></li>
-                    <li><%= link_to "Contato", new_contato_path %></li>
-                    <li><%= link_to "Objetivo", objetivo_path %></li>
+                    <li><%= link_to t("header.menu.produtor"), produtores_path %></li>
+                    <li><%= link_to t("header.menu.produto"), produtos_path %></li>
+                    <li><%= link_to t("header.menu.servico"), servicos_path %></li>
+                    <li><%= link_to t("header.menu.contato"), new_contato_path %></li>
+                    <li><%= link_to t("header.menu.objetivo"), objetivo_path %></li>
                   </ul>
                 </div>
               </div>
@@ -43,26 +43,33 @@
       <div class="col-md-10 text-center" data-aos="fade-up">
         <%#TODO: Refatorar %>
         <% if controller_name.eql? "home" %>
-          <span class="sub-heading">Bem vindo ao <span class="fa fa-star text-primary"></span> Portal Agro <span class="fa fa-star text-primary"></span></span>
-          <h1 class="heading">Agricultura Familiar</h1>
-          <h1 class="sub-heading">Os Melhores Produtos e Serviços da Sua Região</h1>
+          <span class="sub-heading"><%= t("header.mensagem_principal.home.bem_vindo") %>
+            <span class="fa fa-star text-primary"></span> <%= t("header.logo") %>
+            <span class="fa fa-star text-primary"></span></span>
+          <h1 class="heading"><%= t("header.mensagem_principal.home.mensagam_primaria") %></h1>
+          <h1 class="sub-heading"><%= t("header.mensagem_principal.mensagem_secundaria") %></h1>
         <% elsif controller_name.eql? "servicos" %>
           <% if action_name.eql? "index" %>
-            <h2 class="heading">Os Serviços</h2>
-            <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
+            <h2 class="heading"><%= t("header.mensagem_principal.servicos.mensagam_primaria.plural") %></h2>
+            <span class="sub-heading"><span class="fa fa-star text-primary"></span> <%= t("header.mensagem_principal.mensagem_secundaria") %>
+              <span class="fa fa-star text-primary"></span></span>
           <% else %>
-            <h2 class="heading">O Serviço</h2>
-            <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
+            <h2 class="heading"><%= t("header.mensagem_principal.servicos.mensagam_primaria.singular") %></h2>
+            <span class="sub-heading"><span class="fa fa-star text-primary"></span> <%= t("header.mensagem_principal.mensagem_secundaria") %>
+              <span class="fa fa-star text-primary"></span></span>
           <% end %>
         <% elsif controller_name.eql? "contatos" %>
-          <h2 class="heading">Contato</h2>
-          <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
+          <h2 class="heading"><%= t("header.mensagem_principal.contatos.mensagem_primaria") %></h2>
+          <span class="sub-heading"><span class="fa fa-star text-primary"></span> <%= t("header.mensagem_principal.mensagem_secundaria") %>
+            <span class="fa fa-star text-primary"></span></span>
         <% elsif action_name.eql? "index" %>
-          <h2 class="heading">Os <%= controller_name.capitalize %></h2>
-          <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
+          <h2 class="heading"><%= t("header.mensagem_principal.outros.plural") %> <%= controller_name.capitalize %></h2>
+          <span class="sub-heading"><span class="fa fa-star text-primary"></span> <%= t("header.mensagem_principal.mensagem_secundaria") %>
+            <span class="fa fa-star text-primary"></span></span>
         <% else %>
-          <h2 class="heading">O <%= controller_name.capitalize.singularize %></h2>
-          <span class="sub-heading"><span class="fa fa-star text-primary"></span> O Melhor da Agricultura Familiar da Sua Região <span class="fa fa-star text-primary"></span></span>
+          <h2 class="heading"><%= t("header.mensagem_principal.outros.singular") %> <%= controller_name.capitalize.singularize %></h2>
+          <span class="sub-heading"><span class="fa fa-star text-primary"></span> <%= t("header.mensagem_principal.mensagem_secundaria") %>
+            <span class="fa fa-star text-primary"></span></span>
         <% end %>
       </div>
     </div>
@@ -75,10 +82,10 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-12 col-md-9 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
-            <h2 class="font-weight-bold">Quer Apresentar Seu Produto ou Serviço? Aqui é Grátis.</h2>
+            <h2 class="font-weight-bold"><%= t("header.mensagem_secundaria.mensagem_primaria") %></h2>
           </div>
           <div class="col-12 col-md-3 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
-            <%= link_to "Entre em Contato!", new_contato_path, class: "btn btn-success font-weight-bold text-dark py-3 px-5" %>
+            <%= link_to t("header.mensagem_secundaria.mensagem_secundaria"), new_contato_path, class: "btn btn-success font-weight-bold text-dark py-3 px-5" %>
           </div>
         </div>
       </div>

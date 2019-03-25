@@ -1,0 +1,29 @@
+pt-BR:
+  header:
+    logo: "Portal Agro"
+    menu:
+      produtor: "Produtores"
+      produto: "Produtos"
+      servico: "Serviços"
+      contato: "Contato"
+      objetivo: "Objetivo"
+    mensagem_principal:
+      mensagem_secundaria: "Os Melhores Produtos e Serviços da Sua Região"
+      home:
+        bem_vindo: "Bem vindo ao "
+        mensagam_primaria: "Agricultura Familiar"
+      servicos:
+        mensagam_primaria:
+          singular: "O Serviço"
+          plural: "Os Serviços"
+      contatos:
+        mensagem_primaria: "Contato"
+      outros:
+        singular: "O"
+        plural: "Os"
+    mensagem_secundaria:
+      mensagem_primaria: "Quer Apresentar Seu Produto ou Serviço? Aqui é Grátis."
+      mensagem_secundaria: "Entre em Contato!"
+
+  footer:
+  home:
