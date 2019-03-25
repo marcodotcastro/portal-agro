@@ -32,6 +32,10 @@ class ProdutoresController < ApplicationController
   def index
     @q = Produtor.published.ransack(params[:q])
     @produtores = @q.result(distinct: true).page(params[:page])
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def show

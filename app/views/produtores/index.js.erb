@@ -1,0 +1,2 @@
+$('#paginacao').html('<%= escape_javascript(paginate(@produtores, remote: true, theme: 'twitter-bootstrap-4', pagination_class: "pagination", nav_class: "d-inline-b").to_s) %>');
+$('#produtores').html('<%= escape_javascript render 'produtor_each', produtores: @produtores  %>');
