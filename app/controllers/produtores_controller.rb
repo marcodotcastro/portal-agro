@@ -40,6 +40,18 @@ class ProdutoresController < ApplicationController
 
   def show
     ahoy.track(@produtor.nome, {produtor_id: @produtor.id})
+
+    @produtos = @produtor.produtos.page(params[:page])
+    @servicos = @produtor.servicos.page(params[:page])
+
+    respond_to do |format|
+      if params[:paginate].eql? "produto"
+        format.js {render "produtos/index"}
+      elsif params[:paginate].eql? "servico"
+        format.js {render "servicos/index"}
+      end
+      format.html
+    end
   end
 
   private

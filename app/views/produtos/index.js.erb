@@ -1,2 +1,2 @@
-$('#paginacao').html('<%= escape_javascript(paginate(@produtos, remote: true, theme: 'twitter-bootstrap-4', pagination_class: "pagination", nav_class: "d-inline-b").to_s) %>');
-$('#produtos').html('<%= escape_javascript render 'produto_each', produtos: @produtos  %>');
+$('#paginacao_produtos').html('<%= escape_javascript(paginate(@produtos, remote: true, theme: 'twitter-bootstrap-4', pagination_class: "pagination", nav_class: "d-inline-b").to_s) %>');
+$('#produtos').html('<%= escape_javascript render 'produtos/produto_each', produtos: @produtos  %>');

@@ -45,10 +45,11 @@
         <% end %>
       </div>
     </div>
-    <div class="row">
-      <% @produtor.produtos.each do |produto| %>
-        <%= render 'produtos/index', produto: produto %>
-      <% end %>
+    <div id="paginacao_produtos" class="row justify-content-center text-center mb-5" data-aos="fade-up">
+      <%= paginate @produtos, :params => {:paginate => "produto"}, remote: true, theme: 'twitter-bootstrap-4', pagination_class: "pagination", nav_class: "d-inline-b" %>
+    </div>
+    <div id="produtos">
+      <%= render 'produtos/produto_each', produtos: @produtos %>
     </div>
   </div>
 </section>
@@ -67,10 +68,12 @@
         <% end %>
       </div>
     </div>
-    <div class="row">
-      <% @produtor.servicos.each do |servico| %>
-        <%= render "servicos/servico_each", servico: servico %>
-      <% end %>
+
+    <div id="paginacao_servicos" class="row justify-content-center text-center mb-5" data-aos="fade-up">
+      <%= paginate @servicos, :params => {:paginate => "servico"}, remote: true, theme: 'twitter-bootstrap-4', pagination_class: "pagination", nav_class: "d-inline-b" %>
+    </div>
+    <div id="servicos">
+      <%= render 'servicos/servico_each', servicos: @servicos %>
     </div>
   </div>
 </section>
