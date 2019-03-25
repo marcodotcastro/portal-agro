@@ -11,7 +11,6 @@ ActiveAdmin.register_page "Dashboard" do
         span "Bem Vindo ao Portal Agro"
       end
     end
-
     columns do
       column do
         panel "Recentes Produtores" do
@@ -22,11 +21,23 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
+    end
+
+    columns do
       column do
         panel "Recentes Produtos" do
           ul do
             Produto.last(5).map do |produto|
-              li link_to("#{nome_completo(produto.produtor)} (#{produto.produtor.apelido})", admin_produtor_path(produto.produtor)) + " vende " + link_to("#{produto.nome}", admin_produto_path(produto)) + " por #{produto.preco} "
+              li link_to("#{nome_completo(produto.produtor)} (#{produto.produtor.apelido})", admin_produtor_path(produto.produtor)) + " vende " + link_to("#{produto.nome}", admin_produto_path(produto)) + " por #{produto_preco_completo(produto)} "
+            end
+          end
+        end
+      end
+      column do
+        panel "Recentes Serviços" do
+          ul do
+            Servico.last(5).map do |servico|
+              li link_to("#{nome_completo(servico.produtor)} (#{servico.produtor.apelido})", admin_produtor_path(servico.produtor)) + " vende " + link_to("#{servico.nome}", admin_servico_path(servico)) + " por #{servico_preco_completo(servico)} "
             end
           end
         end
