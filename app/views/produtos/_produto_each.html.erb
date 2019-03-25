@@ -1,38 +1,41 @@
-<div class="col-md-12 col-lg-4 mb-5" data-aos="fade-up">
-  <%= link_to(estado_cidade_produtor_produto_path(produto.produtor.cidade.estado, produto.produtor.cidade, produto.produtor, produto), class: "room") do %>
-    <figure class="img-wrap">
-      <%= image_tag(foto_capa_url(produto), class: "img-fluid mb-3", size: "500x500") %>
-    </figure>
-    <div class="text-center room-info">
-      <b><%= visitas_ao_produto(produto) %> <span class="ion-ios-eye"></span></b>
-      <h2><%= produto.nome %> </h2>
-      <h6><b>Preço:</b> <%= produto_preco_completo(produto) %></h6>
-      <a class="btn btn-primary" data-toggle="collapse" href="#<%= "consumidor_" + produto.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "consumidor_" + produto.id.to_s %>">
-        <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="Informações para quem quer comprar poucos produtos" style="font-size:75%;"> Consumidor?</span>
-      </a>
-      <a class="btn btn-primary" data-toggle="collapse" href="#<%= "atacadista_" + produto.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "atacadista_" + produto.id.to_s %>">
-        <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="Informações para quem quer comprar vários produtos" style="font-size:75%;"> Atacadista?</span>
-      </a>
-      <div class="collapse" id="<%= "consumidor_" + produto.id.to_s %>">
-        <div class="card card-body">
-          <h6><b>Produtor:</b> <%= nome_completo(produto.produtor) %></h6>
-          <h6><b>Cidade:</b> <%= cidade_completo(produto.produtor) %></h6>
-          <h6>
-            <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="<%= produto.qualidade.descricao %>"></span><b>
-            Qualidade: <%= produto.qualidade.nome %></b>
-          </h6>
+<div class="row">
+  <% produtos.each do |produto| %>
+    <div class="col-md-12 col-lg-4 mb-5" data-aos="fade-up">
+      <%= link_to(estado_cidade_produtor_produto_path(produto.produtor.cidade.estado, produto.produtor.cidade, produto.produtor, produto), class: "room") do %>
+        <figure class="img-wrap">
+          <%= image_tag(foto_capa_url(produto), class: "img-fluid mb-3", size: "500x500") %>
+        </figure>
+        <div class="text-center room-info">
+          <b><%= visitas_ao_produto(produto) %> <span class="ion-ios-eye"></span></b>
+          <h2><%= produto.nome %> </h2>
+          <h6><b>Preço:</b> <%= produto_preco_completo(produto) %></h6>
+          <a class="btn btn-primary" data-toggle="collapse" href="#<%= "consumidor_" + produto.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "consumidor_" + produto.id.to_s %>">
+            <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="Informações para quem quer comprar poucos produtos" style="font-size:75%;"> Consumidor?</span>
+          </a>
+          <a class="btn btn-primary" data-toggle="collapse" href="#<%= "atacadista_" + produto.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "atacadista_" + produto.id.to_s %>">
+            <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="Informações para quem quer comprar vários produtos" style="font-size:75%;"> Atacadista?</span>
+          </a>
+          <div class="collapse" id="<%= "consumidor_" + produto.id.to_s %>">
+            <div class="card card-body">
+              <h6><b>Produtor:</b> <%= nome_completo(produto.produtor) %></h6>
+              <h6><b>Cidade:</b> <%= cidade_completo(produto.produtor) %></h6>
+              <h6>
+                <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="<%= produto.qualidade.descricao %>"></span><b>
+                Qualidade: <%= produto.qualidade.nome %></b>
+              </h6>
+            </div>
+          </div>
+          <div class="collapse" id="<%= "atacadista_" + produto.id.to_s %>">
+            <div class="card card-body">
+              <h6><b>Produção:</b> <%= producao(produto) %></h6>
+              <% if produto.categoria.nome.eql?("Animal") %>
+                <h6><b>Selo Inspeção:</b> <%= Produto.human_enum_name(:selo_inspecoes, produto.selo_inspecao) %>
+                </h6>
+              <% end %>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="collapse" id="<%= "atacadista_" + produto.id.to_s %>">
-        <div class="card card-body">
-          <h6><b>Produção:</b> <%= producao(produto) %></h6>
-          <% if produto.categoria.nome.eql?("Animal") %>
-            <h6><b>Selo Inspeção:</b> <%= Produto.human_enum_name(:selo_inspecoes, produto.selo_inspecao) %>
-            </h6>
-          <% end %>
-        </div>
-      </div>
-
+      <% end %>
     </div>
   <% end %>
 </div>

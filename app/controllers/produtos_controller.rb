@@ -29,6 +29,10 @@ class ProdutosController < ApplicationController
   def index
     @q = Produto.published.ransack(params[:q])
     @produtos = @q.result(distinct: true).page(params[:page])
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def show

@@ -47,7 +47,7 @@
     </div>
     <div class="row">
       <% @produtor.produtos.each do |produto| %>
-        <%= render 'produtos/produto_each', produto: produto %>
+        <%= render 'produtos/index', produto: produto %>
       <% end %>
     </div>
   </div>
