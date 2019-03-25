@@ -21,6 +21,7 @@
 
 class Servico < ApplicationRecord
   extend FriendlyId
+  visitable :ahoy_visit
 
   scope :published, -> {joins(:produtor).where.not(produtores: {published_at: nil}).where.not(published_at: nil)}
 

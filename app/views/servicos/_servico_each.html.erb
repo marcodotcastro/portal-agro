@@ -3,7 +3,8 @@
     <figure class="img-wrap">
       <%= image_tag(foto_capa_url(servico), class: "img-fluid mb-3", size: "500x500") %>
     </figure>
-    <div class="p-3 text-center room-info">
+    <div class="text-center room-info">
+      <b><%= visitas_ao_servico(servico) %> <span class="ion-ios-eye"></span></b>
       <h2><%= servico.nome %></h2>
       <h6><b>Preço:</b> <%= servico_preco_completo(servico) %></h6>
       <p>

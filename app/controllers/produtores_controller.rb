@@ -28,18 +28,20 @@
 
 class ProdutoresController < ApplicationController
   before_action :set_produtor, only: [:show]
-   
+
   def index
     @q = Produtor.published.ransack(params[:q])
     @produtores = @q.result(distinct: true)
   end
-   
+
   def show
+    ahoy.track(@produtor.nome, {produtor_id: @produtor.id})
   end
-  
+
   private
-    def set_produtor
-      @produtor = Produtor.friendly.find(params[:id])
-    end
+
+  def set_produtor
+    @produtor = Produtor.friendly.find(params[:id])
+  end
 
 end

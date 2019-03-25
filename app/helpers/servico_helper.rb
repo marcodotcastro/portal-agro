@@ -13,4 +13,8 @@ module ServicoHelper
     number_to_currency(servico.preco).to_s + " por " + Servico.human_enum_name(:medidas, servico.medida)
   end
 
+  def visitas_ao_servico(servico)
+    Ahoy::Event.where_props(servico_id: servico.id).count
+  end
+
 end

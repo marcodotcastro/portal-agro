@@ -21,18 +21,20 @@
 
 class ServicosController < ApplicationController
   before_action :set_servico, only: [:show]
-   
+
   def index
     @q = Servico.published.ransack(params[:q])
     @servicos = @q.result(distinct: true)
   end
 
   def show
+    ahoy.track(@servico.nome, {servico_id: @servico.id})
   end
-  
+
   private
-    def set_servico
-      @servico = Servico.friendly.find(params[:id])
-    end
+
+  def set_servico
+    @servico = Servico.friendly.find(params[:id])
+  end
 
 end

@@ -29,6 +29,7 @@
 class Produtor < ApplicationRecord
   include ProdutorHelper
   extend FriendlyId
+  visitable :ahoy_visit
 
   enum licenciamento_ambiental: [:lp, :li, :lo]
 

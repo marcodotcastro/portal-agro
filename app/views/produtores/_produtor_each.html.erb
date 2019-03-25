@@ -3,7 +3,8 @@
     <figure class="img-wrap">
       <%= image_tag(foto_perfil_url(produtor), class: "img-fluid mb-3", size: "500x500") %>
     </figure>
-    <div class="p-3 text-center room-info">
+    <div class="text-center room-info">
+      <b><%= visitas_ao_produtor(produtor) %> <span class="ion-ios-eye"></span></b>
       <h2><%= nome_completo(produtor) %></h2>
       <p>
         <a class="btn btn-primary" data-toggle="collapse" href="#<%= "consumidor_" + produtor.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "consumidor_" + produtor.id.to_s %>">
@@ -13,6 +14,7 @@
           <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="Informações para quem quer comprar vários produtos" style="font-size:75%;"> Atacadista?</span>
         </a>
       </p>
+
       <div class="collapse" id="<%= "consumidor_" + produtor.id.to_s %>">
         <div class="card card-body">
           <h6><b>Cidade:</b> <%= cidade_completo(produtor) %></h6>

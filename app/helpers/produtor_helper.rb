@@ -20,4 +20,8 @@ module ProdutorHelper
     produtor.cidade.nome + " (" + produtor.cidade.estado.nome + ") "
   end
 
+  def visitas_ao_produtor(produtor)
+    Ahoy::Event.where_props(produtor_id: produtor.id).count
+  end
+
 end
