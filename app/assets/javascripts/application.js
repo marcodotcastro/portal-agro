@@ -15,22 +15,58 @@
 //= require turbolinks
 //= require Chart.bundle
 //= require chartkick
+//= require clipboard
 //= require_tree .
 
-$(document).ready(function() {
-        $(".menu-icon").on("click", function() {
-              $("nav ul").toggleClass("showing");
-        });
-  });
+$(document).ready(function () {
+    $(".menu-icon").on("click", function () {
+        $("nav ul").toggleClass("showing");
+    });
+});
 
-  // Scrolling Effect
+// Scrolling Effect
 
-$(window).on("scroll", function() {
-    if($(window).scrollTop()) {
-          $('nav').addClass('black');
-    }
-
-    else {
-          $('nav').removeClass('black');
+$(window).on("scroll", function () {
+    if ($(window).scrollTop()) {
+        $('nav').addClass('black');
+    } else {
+        $('nav').removeClass('black');
     }
 })
+
+$(document).ready(function () {
+
+    // Tooltip
+
+    $('.clipboard-btn').tooltip({
+        trigger: 'click',
+        placement: 'bottom'
+    });
+
+    function setTooltip(btn, message) {
+        $(btn).tooltip('show')
+            .attr('data-original-title', message)
+            .tooltip('show');
+    }
+
+    function hideTooltip(btn) {
+        setTimeout(function () {
+            $(btn).tooltip('hide');
+        }, 1000);
+    }
+
+// Clipboard
+
+    var clipboard = new Clipboard('.clipboard-btn');
+
+    clipboard.on('success', function (e) {
+        setTooltip(e.trigger, 'Copiado!');
+        hideTooltip(e.trigger);
+    });
+
+    clipboard.on('error', function (e) {
+        setTooltip(e.trigger, 'Não Copiado!');
+        hideTooltip(e.trigger);
+    });
+
+});

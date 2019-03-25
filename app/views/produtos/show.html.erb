@@ -41,13 +41,20 @@
   </div>
   <% if @produto.video %>
     <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
-      <p>
-        <a href="https://www.youtube.com/embed/<%= @produto.video.codigo %>" data-fancybox class="btn btn-primary text-white py-2 mr-3 text-uppercase letter-spacing-1">Vídeo
-          Sobre o Produto</a>
-        <span class="mr-3 font-family-serif"></span>
-      </p>
+      <a href="https://www.youtube.com/embed/<%= @produto.video.codigo %>" data-fancybox class="btn btn-primary text-white py-2 mr-3 text-uppercase letter-spacing-1">Vídeo
+        Sobre o Produto</a>
+      <span class="mr-3 font-family-serif"></span>
     </div>
   <% end %>
+  <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+    <button class="clipboard-btn btn btn-outline-success" data-clipboard-text="<%= "#{@produto.nome}, #{produto_preco_completo(@produto)}, do #{@produto.produtor.nome} (#{@produto.produtor.apelido}) " + url_for(:only_path => false) %>">
+      Copie e Compartilhe no
+      <span class="fa fa-whatsapp"></span>
+      <span class="fa fa-facebook"></span>
+      <span class="fa fa-instagram"></span>
+      <span class="fa fa-twitter"></span>
+    </button>
+  </div>
 </section>
 
 <section class="py-5">
@@ -55,7 +62,8 @@
     <div class="row justify-content-center text-center mb-5">
       <div class="col-md-7">
         <h2 class="heading" data-aos="fade-up">A Criação</h2>
-        <h6 data-aos="fade-up" data-aos-delay="100">Conheça um pouco como surgiu a ideia de produzir esse produto que é
+        <h6 data-aos="fade-up" data-aos-delay="100">Conheça um pouco como surgiu a ideia de produzir esse produto
+          que é
           responsável por manter a história dessa família.</h6>
         <% if @produto.criacoes.empty? %>
           <div class="row justify-content-center text-center">
@@ -88,7 +96,8 @@
     <div class="row justify-content-center text-center mb-5">
       <div class="col-md-7">
         <h2 class="heading" data-aos="fade-up">Fotos</h2>
-        <h6 data-aos="fade-up" data-aos-delay="100">Veja um pouco da qualidade e carinho que é produzido o seu alimento
+        <h6 data-aos="fade-up" data-aos-delay="100">Veja um pouco da qualidade e carinho que é produzido o
+          seu alimento
           por famílias que vivem tão próximas da natureza.</h6>
         <% if @produto.fotos.empty? %>
           <div class="row justify-content-center text-center">
