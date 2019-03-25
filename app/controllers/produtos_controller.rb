@@ -28,7 +28,7 @@ class ProdutosController < ApplicationController
 
   def index
     @q = Produto.published.ransack(params[:q])
-    @produtos = @q.result(distinct: true)
+    @produtos = @q.result(distinct: true).page(params[:page])
   end
 
   def show

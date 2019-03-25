@@ -24,7 +24,7 @@ class ServicosController < ApplicationController
 
   def index
     @q = Servico.published.ransack(params[:q])
-    @servicos = @q.result(distinct: true)
+    @servicos = @q.result(distinct: true).page(params[:page])
   end
 
   def show

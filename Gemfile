@@ -22,6 +22,8 @@ gem 'groupdate'
 gem 'simple_form'
 gem 'clipboard-rails'
 gem 'ahoy_matey'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 group :production do
   gem 'aws-sdk-s3', require: false

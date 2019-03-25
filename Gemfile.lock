@@ -106,6 +106,9 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.1)
       msgpack (~> 1.0)
+    bootstrap4-kaminari-views (1.0.1)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     browser (2.5.3)
     builder (3.2.3)
     byebug (11.0.0)
@@ -409,6 +412,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap (>= 1.1.0)
+  bootstrap4-kaminari-views
   capybara (>= 2.15)
   chartkick (~> 2.2.0)
   chromedriver-helper
@@ -419,6 +423,7 @@ DEPENDENCIES
   friendly_id (~> 5.2.4)
   groupdate
   jbuilder (~> 2.5)
+  kaminari
   listen (>= 3.0.5, < 3.2)
   mini_magick
   pg

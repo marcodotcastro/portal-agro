@@ -31,7 +31,7 @@ class ProdutoresController < ApplicationController
 
   def index
     @q = Produtor.published.ransack(params[:q])
-    @produtores = @q.result(distinct: true)
+    @produtores = @q.result(distinct: true).page(params[:page])
   end
 
   def show
