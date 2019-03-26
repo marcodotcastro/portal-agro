@@ -11,6 +11,8 @@
 #                                PUT        /admin/password(.:format)                                                                active_admin/devise/passwords#update
 #                                POST       /admin/password(.:format)                                                                active_admin/devise/passwords#create
 #                     admin_root GET        /admin(.:format)                                                                         admin/dashboard#index
+#         publicar_admin_servico PUT        /admin/servicos/:id/publicar(.:format)                                                   admin/servicos#publicar
+#     nao_publicar_admin_servico PUT        /admin/servicos/:id/nao_publicar(.:format)                                               admin/servicos#nao_publicar
 #    batch_action_admin_servicos POST       /admin/servicos/batch_action(.:format)                                                   admin/servicos#batch_action
 #                 admin_servicos GET        /admin/servicos(.:format)                                                                admin/servicos#index
 #                                POST       /admin/servicos(.:format)                                                                admin/servicos#create
@@ -20,6 +22,8 @@
 #                                PATCH      /admin/servicos/:id(.:format)                                                            admin/servicos#update
 #                                PUT        /admin/servicos/:id(.:format)                                                            admin/servicos#update
 #                                DELETE     /admin/servicos/:id(.:format)                                                            admin/servicos#destroy
+#        publicar_admin_produtor PUT        /admin/produtores/:id/publicar(.:format)                                                 admin/produtores#publicar
+#    nao_publicar_admin_produtor PUT        /admin/produtores/:id/nao_publicar(.:format)                                             admin/produtores#nao_publicar
 #  batch_action_admin_produtores POST       /admin/produtores/batch_action(.:format)                                                 admin/produtores#batch_action
 #               admin_produtores GET        /admin/produtores(.:format)                                                              admin/produtores#index
 #                                POST       /admin/produtores(.:format)                                                              admin/produtores#create
@@ -38,15 +42,6 @@
 #                                PATCH      /admin/categorias/:id(.:format)                                                          admin/categorias#update
 #                                PUT        /admin/categorias/:id(.:format)                                                          admin/categorias#update
 #                                DELETE     /admin/categorias/:id(.:format)                                                          admin/categorias#destroy
-#    batch_action_admin_produtos POST       /admin/produtos/batch_action(.:format)                                                   admin/produtos#batch_action
-#                 admin_produtos GET        /admin/produtos(.:format)                                                                admin/produtos#index
-#                                POST       /admin/produtos(.:format)                                                                admin/produtos#create
-#              new_admin_produto GET        /admin/produtos/new(.:format)                                                            admin/produtos#new
-#             edit_admin_produto GET        /admin/produtos/:id/edit(.:format)                                                       admin/produtos#edit
-#                  admin_produto GET        /admin/produtos/:id(.:format)                                                            admin/produtos#show
-#                                PATCH      /admin/produtos/:id(.:format)                                                            admin/produtos#update
-#                                PUT        /admin/produtos/:id(.:format)                                                            admin/produtos#update
-#                                DELETE     /admin/produtos/:id(.:format)                                                            admin/produtos#destroy
 #     batch_action_admin_cidades POST       /admin/cidades/batch_action(.:format)                                                    admin/cidades#batch_action
 #                  admin_cidades GET        /admin/cidades(.:format)                                                                 admin/cidades#index
 #                                POST       /admin/cidades(.:format)                                                                 admin/cidades#create
@@ -56,7 +51,6 @@
 #                                PATCH      /admin/cidades/:id(.:format)                                                             admin/cidades#update
 #                                PUT        /admin/cidades/:id(.:format)                                                             admin/cidades#update
 #                                DELETE     /admin/cidades/:id(.:format)                                                             admin/cidades#destroy
-#                admin_dashboard GET        /admin/dashboard(.:format)                                                               admin/dashboard#index
 #     batch_action_admin_estados POST       /admin/estados/batch_action(.:format)                                                    admin/estados#batch_action
 #                  admin_estados GET        /admin/estados(.:format)                                                                 admin/estados#index
 #                                POST       /admin/estados(.:format)                                                                 admin/estados#create
@@ -84,15 +78,36 @@
 #                                PATCH      /admin/qualidades/:id(.:format)                                                          admin/qualidades#update
 #                                PUT        /admin/qualidades/:id(.:format)                                                          admin/qualidades#update
 #                                DELETE     /admin/qualidades/:id(.:format)                                                          admin/qualidades#destroy
+#         publicar_admin_produto PUT        /admin/produtos/:id/publicar(.:format)                                                   admin/produtos#publicar
+#     nao_publicar_admin_produto PUT        /admin/produtos/:id/nao_publicar(.:format)                                               admin/produtos#nao_publicar
+#    batch_action_admin_produtos POST       /admin/produtos/batch_action(.:format)                                                   admin/produtos#batch_action
+#                 admin_produtos GET        /admin/produtos(.:format)                                                                admin/produtos#index
+#                                POST       /admin/produtos(.:format)                                                                admin/produtos#create
+#              new_admin_produto GET        /admin/produtos/new(.:format)                                                            admin/produtos#new
+#             edit_admin_produto GET        /admin/produtos/:id/edit(.:format)                                                       admin/produtos#edit
+#                  admin_produto GET        /admin/produtos/:id(.:format)                                                            admin/produtos#show
+#                                PATCH      /admin/produtos/:id(.:format)                                                            admin/produtos#update
+#                                PUT        /admin/produtos/:id(.:format)                                                            admin/produtos#update
+#                                DELETE     /admin/produtos/:id(.:format)                                                            admin/produtos#destroy
+#                 admin_cadastro GET        /admin/cadastro(.:format)                                                                admin/cadastro#index
+#                   admin_regiao GET        /admin/regiao(.:format)                                                                  admin/regiao#index
+#                  admin_visitas GET        /admin/visitas(.:format)                                                                 admin/visitas#index
+#                admin_dashboard GET        /admin/dashboard(.:format)                                                               admin/dashboard#index
+#               admin_quantidade GET        /admin/quantidade(.:format)                                                              admin/quantidade#index
+#                 admin_producao GET        /admin/producao(.:format)                                                                admin/producao#index
+#    batch_action_admin_contatos POST       /admin/contatos/batch_action(.:format)                                                   admin/contatos#batch_action
+#                 admin_contatos GET        /admin/contatos(.:format)                                                                admin/contatos#index
+#                  admin_contato GET        /admin/contatos/:id(.:format)                                                            admin/contatos#show
 #                 admin_comments GET        /admin/comments(.:format)                                                                admin/comments#index
 #                                POST       /admin/comments(.:format)                                                                admin/comments#create
 #                  admin_comment GET        /admin/comments/:id(.:format)                                                            admin/comments#show
 #                                DELETE     /admin/comments/:id(.:format)                                                            admin/comments#destroy
 #                           root GET        /                                                                                        home#index
-#                     sobre_show GET        /sobre/show(.:format)                                                                    sobre#show
+#                       objetivo GET        /objetivo(.:format)                                                                      objetivo#show
 #                       contatos GET        /contatos(.:format)                                                                      contatos#index
-#                    new_contato GET        /contatos/new(.:format)                                                                  contatos#new
-#                        contato GET        /contatos/:id(.:format)                                                                  contatos#show
+#                                POST       /contatos(.:format)                                                                      contatos#create
+#                contato_enviado GET        /contato/enviado(.:format)                                                               contatos#show
+#                    new_contato GET        /contato(.:format)                                                                       contatos#new
 # estado_cidade_produtor_produto GET        /estados/:estado_id/cidades/:cidade_id/produtores/:produtor_id/produtos/:id(.:format)    produtos#show
 # estado_cidade_produtor_servico GET        /estados/:estado_id/cidades/:cidade_id/produtores/:produtor_id/servicos/:id(.:format)    servicos#show
 #         estado_cidade_produtor GET        /estados/:estado_id/cidades/:cidade_id/produtores/:id(.:format)                          produtores#show
