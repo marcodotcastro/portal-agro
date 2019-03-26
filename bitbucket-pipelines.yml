@@ -15,7 +15,7 @@ pipelines:
           - database
 definitions:
   services:
-    databsae:
+    database:
       image: postgres
       environment:
         POSTGRES_DB: portal_agro_test
