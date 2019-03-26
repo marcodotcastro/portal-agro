@@ -33,12 +33,7 @@ RSpec.describe Produto, type: :model do
 
   it "um produto" do
     expect(@produto.nome).to eq("Leite")
-  end
-
-  it "criando um produto" do
-    produto = build(:produto, nome: "Soja")
-
-    expect(produto).to be_valid
+    expect(@produto.produtor.nome).to eq("José")
   end
 
 end

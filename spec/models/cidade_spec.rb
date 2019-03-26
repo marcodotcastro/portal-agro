@@ -28,11 +28,4 @@ RSpec.describe Cidade, type: :model do
     expect(@cidade.estado.nome).to eq("Goiás")
   end
 
-  it "criando uma cidade" do
-    cidade = build(:cidade, nome: "Cocalzinho")
-
-    expect(cidade).to be_valid
-  end
-
-
 end

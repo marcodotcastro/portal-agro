@@ -25,10 +25,4 @@ RSpec.describe Estado, type: :model do
     expect(@estado.nome).to eq("Goiás")
   end
 
-  it "criando um estado" do
-    estado = build(:estado, nome: "São Paulo")
-
-    expect(estado).to be_valid
-  end
-
 end
