@@ -53,6 +53,10 @@ class Produtor < ApplicationRecord
   validates :apelido, :endereco, :nome, :sobrenome, :telefone, :cidade_id, presence: true
   validates :perfil, attached: true
 
+  def set_ahoy_visit
+
+  end
+
   def friendly_url
     nome_completo(self)
   end

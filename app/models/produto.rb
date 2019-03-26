@@ -51,6 +51,10 @@ class Produto < ApplicationRecord
   validates :nome, :descricao, :preco, :categoria_id, :produtor_id, :qualidade_id, presence: true
   validates :capa, attached: true
 
+  def set_ahoy_visit
+
+  end
+
   def friendly_url
     self.nome
   end

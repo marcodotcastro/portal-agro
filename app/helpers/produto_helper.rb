@@ -10,6 +10,8 @@ module ProdutoHelper
   def produto_preco_completo(produto)
     if produto.producoes.any?
       number_to_currency(produto.preco).to_s + " por " + Producao.human_enum_name(:medidas, produto.producoes.last.medida)
+    else
+      "Produção não cadastrada"
     end
   end
 
@@ -37,6 +39,7 @@ module ProdutoHelper
     end
   end
 
+  #TODO: Mover para model
   def visitas_ao_produto(produto)
     Ahoy::Event.where_props(produto_id: produto.id).count
   end
