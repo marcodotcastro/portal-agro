@@ -17,9 +17,5 @@ definitions:
   services:
     database:
       image: postgres
-      environment:
-        POSTGRES_DB: portal_agro_test
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
   caches:
     bundler: ./vendor
