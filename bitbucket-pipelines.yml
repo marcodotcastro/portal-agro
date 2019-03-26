@@ -1,0 +1,25 @@
+image: ruby:2.6.1
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - bundler
+        script:
+          - apt-get update && apt-get install -y build-essential libpq-dev nodejs
+          - bundle install
+          - bundle exec rails db:setup RAILS_ENV=test
+          - bundle exec rails db:test:prepare RAILS_ENV=test
+          - bundle exec rspec
+        services:
+          - database
+definitions:
+  services:
+    databsae:
+      image: postgres
+      environment:
+        POSTGRES_DB: portal_agro_test
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+  caches:
+    bundler: ./vendor
