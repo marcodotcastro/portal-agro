@@ -4,12 +4,13 @@ pipelines:
   default:
     - step:
         script:
-            - curl https://cli-assets.heroku.com/install.sh | sh
+          - pipe: atlassian/heroku-deploy:0.1.1
     - step:
         deployment: test
         caches:
           - bundler
         script:
+          - heroku auth:token
           - apt-get update && apt-get install -y build-essential libpq-dev nodejs
           - bundle install
           - bundle exec rails db:setup RAILS_ENV=test
