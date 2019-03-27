@@ -5,6 +5,10 @@ pipelines:
     - step:
         script:
           - pipe: atlassian/heroku-deploy:0.1.1
+            variables:
+              HEROKU_API_KEY: '30824f32-76ac-4d92-b023-d1582f5e6b40'
+              HEROKU_APP_NAME: 'portal-agro'
+              ZIP_FILE: 'porta-agro.tar.gz'
     - step:
         deployment: test
         caches:
