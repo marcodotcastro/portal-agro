@@ -3,18 +3,6 @@ image: ruby:2.6.1
 pipelines:
   default:
     - step:
-        deployment: test
-        caches:
-          - bundler
-        script:
-          - apt-get update && apt-get install -y build-essential libpq-dev nodejs
-          - bundle install
-          - bundle exec rails db:setup RAILS_ENV=test
-          - bundle exec rails db:test:prepare RAILS_ENV=test
-          - bundle exec rspec
-        services:
-          - database
-    - step:
         deployment: staging
         caches:
           - bundler
