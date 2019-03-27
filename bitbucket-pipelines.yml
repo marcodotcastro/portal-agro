@@ -11,6 +11,7 @@ pipelines:
           - curl https://cli-assets.heroku.com/install.sh | sh
           - heroku git:remote -a portal-agro
           - git remote -v
+          - cat ~/.netrc
           - heroku run rails db:migrate
         services:
           - database
