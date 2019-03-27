@@ -3,6 +3,9 @@ image: ruby:2.6.1
 pipelines:
   default:
     - step:
+        script:
+            - curl https://cli-assets.heroku.com/install.sh | sh
+    - step:
         deployment: test
         caches:
           - bundler
