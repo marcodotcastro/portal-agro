@@ -3,13 +3,26 @@ image: ruby:2.6.1
 pipelines:
   default:
     - step:
+        name: Running Test
+        deployment: test
+        caches:
+          - bundler
+        script:
+          - bundle install
+          - bundle exec rails db:setup RAILS_ENV=test
+          - bundle exec rails db:test:prepare RAILS_ENV=test
+          - bundle exec rspec
+        services:
+          - database
+    - step:
+        name: Running Deploy Staging
         deployment: staging
         caches:
           - bundler
         script:
-          - apt-get update && apt-get install -y build-essential libpq-dev nodejs
+          - apt-get update
           - curl https://cli-assets.heroku.com/install.sh | sh
-          - heroku git:remote -a portal-agro  
+          - heroku git:remote -a portal-agro
           - git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_API_NAME.git HEAD:master
           - heroku run rails db:migrate
         services:
