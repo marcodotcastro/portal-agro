@@ -10,7 +10,7 @@ pipelines:
           - apt-get update && apt-get install -y build-essential libpq-dev nodejs
           - curl https://cli-assets.heroku.com/install.sh | sh
           - heroku git:remote -a portal-agro
-          - git push heroku master
+          - git remote -v
           - heroku run rails db:migrate
         services:
           - database
