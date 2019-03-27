@@ -10,6 +10,7 @@ pipelines:
           - apt-get update && apt-get install -y build-essential libpq-dev nodejs
           - curl https://cli-assets.heroku.com/install.sh | sh
           - heroku git:remote -a portal-agro
+          - heroku config:set HEROKU_API_KEY=$HEROKU_API_KEY
           - heroku login
           - git remote -v
           - cat ~/.netrc
