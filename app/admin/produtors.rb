@@ -62,7 +62,7 @@ ActiveAdmin.register Produtor do
       f.input :cidade_id, :as => :select, :collection => Cidade.all.map {|u| ["#{u.nome}", u.id]}
       f.input :fotos, as: :file, input_html: {multiple: true}
       f.inputs do
-        #FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
+        # FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
         f.has_many :video, allow_destroy: true, new_record: true do |a|
           a.input :codigo
           a.input :nome

@@ -13,7 +13,7 @@ ActiveAdmin.register_page "Producao" do
     end
     columns do
       column do
-        # TODO: Relatório fake, só para uso comercial
+        # TODO: Relatório fake, só para uso comercial. Remover assim que possível.
         panel "Por Mês no Ano" do
           render partial: 'dashboards/producao/por_mes_no_ano'
         end

@@ -51,7 +51,7 @@ class Produto < ApplicationRecord
   validates :nome, :descricao, :preco, :categoria_id, :produtor_id, :qualidade_id, presence: true
   validates :capa, attached: true
 
-  #FIXME: Bug do ahoy, verificar se existe alguma solução melhor
+  # TODO: Bug do ahoy, verificar se existe alguma solução melhor
   def set_ahoy_visit
   end
 

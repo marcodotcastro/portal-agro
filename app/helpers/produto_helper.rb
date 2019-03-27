@@ -1,7 +1,7 @@
 module ProdutoHelper
 
   def foto_capa_url(produto)
-    #FIXME: Código duplicado
+    # FIXME: Código duplicado
     foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
 
     produto.capa.attached? ? produto.capa : foto_vazia
@@ -39,7 +39,7 @@ module ProdutoHelper
     end
   end
 
-  #TODO: Mover para model
+  # TODO: Mover para model
   def visitas_ao_produto(produto)
     Ahoy::Event.where_props(produto_id: produto.id).count
   end

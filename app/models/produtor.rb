@@ -53,7 +53,7 @@ class Produtor < ApplicationRecord
   validates :apelido, :endereco, :nome, :sobrenome, :telefone, :cidade_id, presence: true
   validates :perfil, attached: true
 
-  #FIXME: Bug do ahoy, verificar se existe alguma solução melhor
+  # TODO: Bug do ahoy, verificar se existe alguma solução melhor
   def set_ahoy_visit
   end
 

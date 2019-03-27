@@ -75,7 +75,7 @@ ActiveAdmin.register Produto do
         end
       end
       f.inputs do
-        #FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
+        # FIXME: O cadastro has_one no activeadmin é o mesmo do has_many, manter o bug
         f.has_many :video, allow_destroy: true, new_record: true do |a|
           a.input :nome
           a.input :descricao, as: :text

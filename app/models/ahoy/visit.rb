@@ -37,6 +37,6 @@ class Ahoy::Visit < ApplicationRecord
   self.table_name = "ahoy_visits"
 
   has_many :events, class_name: "Ahoy::Event"
-    # FIXME: Erro ao abrir active admin
-    # belongs_to :user, optional: true
+  # TODO: Erro ao abrir active admin. Verificar como resolver.
+  # belongs_to :user, optional: true
 end

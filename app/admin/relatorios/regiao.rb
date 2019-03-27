@@ -14,7 +14,7 @@ ActiveAdmin.register_page "Regiao" do
     end
 
     columns do
-      #TODO: Relatório fake, só para uso comercial
+      # TODO: Relatório fake, só para uso comercial. Remover assim que possível.
       column do
         panel "Estados" do
           render partial: 'dashboards/regiao/goias'

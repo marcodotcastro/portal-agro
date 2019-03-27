@@ -425,7 +425,6 @@ textarea.form-control {
 
 .section {
     padding: 7em 0;
-    /*FIXME: Sobreescrevendo o activeadmin*/
     border-radius: 0px !important;
     box-shadow: none !important;
     margin-bottom: 0px !important;

@@ -1,7 +1,7 @@
 module ServicoHelper
 
   def foto_capa_url(servico)
-    #FIXME: Código duplicado
+    # FIXME: Código duplicado
     foto_vazia = "https://bikepower.com.br/images/sem_foto.png"
 
     if servico
