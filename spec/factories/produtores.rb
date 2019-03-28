@@ -28,6 +28,8 @@
 
 FactoryBot.define do
   factory :produtor do
+    nome {"José"}
+    sobrenome {"Silva"}
     apelido {"Zé"}
     cartao {true}
     dap {true}
@@ -35,12 +37,32 @@ FactoryBot.define do
     email {"email@gmail.com"}
     endereco {"Rua 123"}
     licenciamento_ambiental {:lp}
-    nome {"José"}
     pessoa_juridica {true}
-    sobrenome {"Silva"}
     telefone {"61988776655"}
     whatsapp {true}
     association :cidade, :factory => :cidade
+
+
+    trait :com_produtos do
+      after(:create) do |produtor|
+        create_list(:produto, 3, produtor: produtor)
+      end
+    end
+
+    trait :com_servicos do
+      after(:create) do |produtor|
+        create_list(:servico, 3, produtor: produtor)
+      end
+    end
+
+    trait :com_produtos_e_servicos do
+      after(:create) do |produtor|
+        create_list(:produto, 3, produtor: produtor)
+      end
+      after(:create) do |produtor|
+        create_list(:servico, 3, produtor: produtor)
+      end
+    end
 
   end
 end

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Entrar em Contato", :type => :feature do
+feature "Entrar em Contato", :type => :feature do
 
   scenario "entrar em contato com todos os dados" do
     visit new_contato_path

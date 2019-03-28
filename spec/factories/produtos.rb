@@ -25,14 +25,16 @@
 
 FactoryBot.define do
   factory :produto do
-    nome {"Leite"}
+    sequence :nome do |n|
+      "Leite #{n}"
+    end
     descricao {"O leite é bom..."}
     preco {20.0}
     selo_inspecao {1}
     capa {fixture_file_upload(Rails.root.join('spec', 'imagens', 'jose-silva-leite-capa.jpg'), 'image/png')}
-    association :produtor, :factory => :produtor
-    association :qualidade, :factory => :qualidade
-    association :categoria, :factory => :categoria
+    produtor
+    qualidade
+    categoria
 
     trait :com_producao do
       after :create do |produto|
