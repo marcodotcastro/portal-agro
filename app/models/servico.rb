@@ -26,7 +26,7 @@ class Servico < ApplicationRecord
 
   scope :published, -> {joins(:produtor).where.not(produtores: {published_at: nil}).where.not(published_at: nil)}
 
-  belongs_to :produtor
+  belongs_to :produtor, optional: true
 
   has_one_attached :capa
   has_many_attached :fotos

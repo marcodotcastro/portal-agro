@@ -32,9 +32,9 @@ class Produto < ApplicationRecord
 
   scope :published, -> {joins(:produtor).where.not(produtores: {published_at: nil}).where.not(published_at: nil)}
 
-  belongs_to :produtor
-  belongs_to :categoria
-  belongs_to :qualidade
+  belongs_to :produtor, optional: true
+  belongs_to :categoria, optional: true
+  belongs_to :qualidade, optional: true
   has_many :producoes, :dependent => :destroy
   has_one :video, :dependent => :destroy
   has_many :criacoes, :dependent => :destroy

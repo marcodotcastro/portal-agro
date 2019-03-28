@@ -31,7 +31,7 @@ require 'rails_helper'
 describe "Produtor", type: :model do
 
   before(:all) do
-    @produtor = create(:produtor, :com_produtos, :com_servicos)
+    @produtor = create(:expect_produtor, :com_produtos, :com_servicos)
   end
 
   it "com produtos" do
