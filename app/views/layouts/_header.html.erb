@@ -43,11 +43,22 @@
       <div class="col-md-10 text-center" data-aos="fade-up">
         <%# TODO: Refatorar %>
         <% if controller_name.eql? "home" %>
-          <span class="sub-heading"><%= t("header.mensagem_principal.home.bem_vindo") %>
-            <span class="fa fa-star text-primary"></span> <%= t("header.logo") %>
-            <span class="fa fa-star text-primary"></span></span>
-          <h1 class="heading"><%= t("header.mensagem_principal.home.mensagam_primaria") %></h1>
-          <h1 class="sub-heading"><%= t("header.mensagem_principal.mensagem_secundaria") %></h1>
+
+          <%# TODO: Mover esse JS para o local correto %>
+          <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+
+          <span id="typed"></span>
+
+          <script type="text/javascript" charset="utf-8">
+              var typed = new Typed('#typed', {
+                  strings: ['<span class="sub-heading"><%= t("header.mensagem_principal.home.bem_vindo") %><span class="fa fa-star text-primary"></span><%= t("header.logo") %><span class="fa fa-star text-primary"></span></span> ^1000\\n <h1 class="heading"><%= t("header.mensagem_principal.home.mensagam_primaria") %></h1> ^1000\\n <h1 class="sub-heading"><%= t("header.mensagem_principal.mensagem_secundaria") %></h1>'],
+                  typeSpeed: 40,
+                  backSpeed: 0,
+                  cursorChar: '_',
+              });
+          </script>
+
+
         <% elsif controller_name.eql? "servicos" %>
           <% if action_name.eql? "index" %>
             <h2 class="heading"><%= t("header.mensagem_principal.servicos.mensagam_primaria.plural") %></h2>
@@ -92,3 +103,4 @@
     </section>
   <% end %>
 <% end %>
+
