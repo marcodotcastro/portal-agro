@@ -31,16 +31,16 @@ require 'rails_helper'
 describe "Produtor", type: :model do
 
   before(:all) do
-    @produtor = create(:expect_produtor, :com_produtos, :com_servicos)
+    @produtor = create(:produtor, :com_produtos, :com_servicos)
   end
 
   it "com produtos" do
-    expect(@produtor.produtos.first.nome).to eq("Leite 1")
+    expect(@produtor.produtos.first.nome).to eq("Leite 6")
     expect(@produtor.nome).to eq("José")
   end
 
   it "com serviços" do
-    expect(@produtor.servicos.first.nome).to eq("Roçar 1")
+    expect(@produtor.servicos.first.nome).to eq("Roçar 4")
     expect(@produtor.nome).to eq("José")
   end
 
