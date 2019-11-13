@@ -17,7 +17,7 @@ gem "rubycritic", require: false
 gem 'friendly_id', '~> 5.2.4'
 gem 'devise'
 gem 'activeadmin'
-gem "chartkick", '~> 2.2.0'
+gem "chartkick", '~> 3.2.0'
 gem 'groupdate'
 gem 'simple_form'
 gem 'clipboard-rails'
