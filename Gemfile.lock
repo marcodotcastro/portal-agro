@@ -254,7 +254,7 @@ GEM
       pry (~> 0.10)
     psych (3.1.0)
     public_suffix (3.0.3)
-    puma (3.12.0)
+    puma (3.12.2)
     rack (2.0.6)
     rack-mini-profiler (1.0.2)
       rack (>= 1.2.0)
@@ -430,7 +430,7 @@ DEPENDENCIES
   mini_magick
   pg
   pry-byebug
-  puma (~> 3.11)
+  puma (~> 3.12)
   rack-mini-profiler
   rails (~> 5.2.2)
   rails_layout
