@@ -14,6 +14,10 @@
 #  index_cidades_on_estado_id  (estado_id)
 #  index_cidades_on_slug       (slug)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (estado_id => estados.id)
+#
 
 require 'rails_helper'
 

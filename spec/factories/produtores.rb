@@ -25,6 +25,10 @@
 #  index_produtores_on_cidade_id  (cidade_id)
 #  index_produtores_on_slug       (slug) UNIQUE
 #
+# Foreign Keys
+#
+#  fk_rails_...  (cidade_id => cidades.id)
+#
 
 FactoryBot.define do
   factory :produtor do

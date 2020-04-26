@@ -249,4 +249,16 @@ ActiveRecord::Schema.define(version: 2019_03_25_125831) do
     t.index ["produtor_id"], name: "index_videos_on_produtor_id"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cidades", "estados"
+  add_foreign_key "criacoes", "produtos"
+  add_foreign_key "historias", "produtores"
+  add_foreign_key "producoes", "produtos"
+  add_foreign_key "produtores", "cidades"
+  add_foreign_key "produtos", "categorias"
+  add_foreign_key "produtos", "produtores"
+  add_foreign_key "produtos", "qualidades"
+  add_foreign_key "servicos", "produtores"
+  add_foreign_key "videos", "produtores"
+  add_foreign_key "videos", "produtos"
 end

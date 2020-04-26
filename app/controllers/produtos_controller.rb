@@ -22,6 +22,12 @@
 #  index_produtos_on_qualidade_id  (qualidade_id)
 #  index_produtos_on_slug          (slug)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (categoria_id => categorias.id)
+#  fk_rails_...  (produtor_id => produtores.id)
+#  fk_rails_...  (qualidade_id => qualidades.id)
+#
 
 class ProdutosController < ApplicationController
   before_action :set_produto, only: [:show]

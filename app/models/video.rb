@@ -16,6 +16,11 @@
 #  index_videos_on_produto_id   (produto_id)
 #  index_videos_on_produtor_id  (produtor_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (produto_id => produtos.id)
+#  fk_rails_...  (produtor_id => produtores.id)
+#
 
 class Video < ApplicationRecord
   belongs_to :produtor, optional: true
