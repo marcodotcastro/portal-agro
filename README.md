@@ -1,6 +1,6 @@
 # Informações Negociais
 
-Video de Apresentação do Negócio, clique no imagem
+Video de Apresentação do Negócio, clique na imagem
 
 [![Apresentação no Negócio](http://img.youtube.com/vi/oTl51RvgUnI/0.jpg)](http://www.youtube.com/watch?v=oTl51RvgUnI)
 
