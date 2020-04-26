@@ -1,12 +1,22 @@
-# INFORMAÇÕES
+# Informações Negociais
 
-## Qualidade
+[![Apresentação no Negócio](http://img.youtube.com/vi/oTl51RvgUnI/0.jpg)](http://www.youtube.com/watch?v=oTl51RvgUnI)
 
-```
-rake rubycritic
-```
+[Apresentação](https://prezi.com/p/_rif-zlt6law/?present=1)
 
-Configuração -- lib/tasks/rubycritic.rake
+## Principais Funcionalidades
+
+[![Apresentação das Funcionalidades](http://img.youtube.com/vi/ro1X4nfyRUM/0.jpg)](http://www.youtube.com/watch?v=ro1X4nfyRUM)
+
+# Informações Técnicas
+
+## Variáveis de Ambiente
+
+### Image Server
+- ENV['AWS_ACCESS_KEY_ID']
+- ENV['AWS_SECRET_ACCESS_KEY_ID']
+- ENV['AWS_REGION']
+- ENV['AWS_BUCKET']
 
 ## Deploy
 
@@ -19,6 +29,15 @@ rails c
 Rails.application.load_seed
 ```
 PS: Por algum muito motivo rodar o `rails db:seed` via `heroku run rails db:seed` não funciona
+
+## Qualidade
+
+```
+shell> rubycritic app
+```
+
+Configuração -- lib/tasks/rubycritic.rake
+
 
 ## Infraestrutura
 
