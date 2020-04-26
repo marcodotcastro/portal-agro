@@ -22,17 +22,21 @@ Video de Apresentação das Funcionalidades, clique na imagem
 - ENV['AWS_REGION']
 - ENV['AWS_BUCKET']
 
-## Deploy
+## Running
 
-### Heroku
+> Clone o projeto
+
+> Instale o ruby 2.6.6
+
+> Agora execute
 
 ```
-heroku run bash
-rails db:migrate 
-rails c
-Rails.application.load_seed
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed 
+rails s
 ```
-PS: Por algum muito motivo rodar o `rails db:seed` via `heroku run rails db:seed` não funciona
 
 ## Qualidade
 
