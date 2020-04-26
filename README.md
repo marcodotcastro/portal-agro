@@ -37,11 +37,12 @@ PS: Por algum muito motivo rodar o `rails db:seed` via `heroku run rails db:seed
 ## Qualidade
 
 ```
-shell> rubycritic app
+shell> rake rubycritic app
 ```
 
 Configuração -- lib/tasks/rubycritic.rake
 
+![Qualidade](public/images/qualidade.png)
 
 ## Infraestrutura
 
