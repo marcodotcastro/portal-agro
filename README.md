@@ -1,6 +1,7 @@
 # Informações Negociais
 
 Video de Apresentação do Negócio, clique no imagem
+
 [![Apresentação no Negócio](http://img.youtube.com/vi/oTl51RvgUnI/0.jpg)](http://www.youtube.com/watch?v=oTl51RvgUnI)
 
 [Apresentação Completa no Prezi](https://prezi.com/p/_rif-zlt6law/?present=1)
@@ -8,6 +9,7 @@ Video de Apresentação do Negócio, clique no imagem
 ## Principais Funcionalidades
 
 Video de Apresentação das Funcionalidades, clique na imagem
+
 [![Apresentação das Funcionalidades](http://img.youtube.com/vi/ro1X4nfyRUM/0.jpg)](http://www.youtube.com/watch?v=ro1X4nfyRUM)
 
 # Informações Técnicas
