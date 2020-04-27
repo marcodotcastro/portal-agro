@@ -2,7 +2,7 @@
 
 Video de Apresentação do Negócio, clique na imagem
 
-[![Apresentação no Negócio](http://img.youtube.com/vi/oTl51RvgUnI/0.jpg)](http://www.youtube.com/watch?v=oTl51RvgUnI)
+[![Apresentação no Negócio](http://img.youtube.com/vi/OyRMxqm2UOg/0.jpg)](http://www.youtube.com/watch?v=OyRMxqm2UOg)
 
 [Apresentação Completa no Prezi](https://prezi.com/p/_rif-zlt6law/?present=1)
 
@@ -10,7 +10,7 @@ Video de Apresentação do Negócio, clique na imagem
 
 Video de Apresentação das Funcionalidades, clique na imagem
 
-[![Apresentação das Funcionalidades](http://img.youtube.com/vi/ro1X4nfyRUM/0.jpg)](http://www.youtube.com/watch?v=ro1X4nfyRUM)
+[![Apresentação das Funcionalidades](http://img.youtube.com/vi/WZc8HBwzSpk/0.jpg)](http://www.youtube.com/watch?v=WZc8HBwzSpk)
 
 # Informações Técnicas
 
