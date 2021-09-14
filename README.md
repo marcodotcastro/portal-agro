@@ -32,9 +32,7 @@ Relatório | HOME_PROJECT/tmp/rubycritic/overview.html | HOME_PROJECT/coverage/i
 
 ```
 bundle install
-rails db:create
-rails db:migrate
-rails db:seed 
+rails db:create db:migrate db:seed 
 rails s
 ```
 

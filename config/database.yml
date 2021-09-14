@@ -2,7 +2,8 @@ development:
   adapter: postgresql
   encoding: unicode
   database: portal_agro_development
-  host: localhost
+  host: db
+  port: 5432
   pool: 5
   username: postgres
   password: postgres
@@ -11,7 +12,8 @@ test:
   adapter: postgresql
   encoding: unicode
   database: portal_agro_test
-  host: localhost
+  host: db
+  port: 5432
   pool: 5
   username: postgres
   password: postgres
@@ -20,7 +22,8 @@ production:
   adapter: postgresql
   encoding: unicode
   database: portal_agro_production
-  host: localhost
+  host: db
+  port: 5432
   pool: 5
   username: postgres
   password: postgres

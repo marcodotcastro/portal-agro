@@ -39,9 +39,9 @@ produtor_jose_silva = Produtor.new(
     published_at: DateTime.now.prev_month(2),
     created_at: DateTime.now.prev_month(2)
 )
-produtor_jose_silva.perfil.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-perfil.jpg"), filename: "jose-silva-perfil.jpg")
-produtor_jose_silva.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-foto-1.jpg"), filename: "jose-silva-foto-1.jpg")
-produtor_jose_silva.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-foto-2.jpg"), filename: "jose-silva-foto-2.jpg")
+# produtor_jose_silva.perfil.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-perfil.jpg"), filename: "jose-silva-perfil.jpg")
+# produtor_jose_silva.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-foto-1.jpg"), filename: "jose-silva-foto-1.jpg")
+# produtor_jose_silva.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-foto-2.jpg"), filename: "jose-silva-foto-2.jpg")
 produtor_jose_silva_video_1 = Video.new(nome: "Video 1", descricao: "Video 1", codigo: "Fdbk4v4a16Y")
 produtor_jose_silva.video = produtor_jose_silva_video_1
 produtor_jose_silva.cidade = cidade_cocalzinho
@@ -66,9 +66,9 @@ produtor_jose_silva_produto_leite_producao_2 = Producao.new(numero: 150, medida:
 produtor_jose_silva_produto_leite_producao_3 = Producao.new(numero: 250, medida: :litro, periodo: :dia, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(0))
 produtor_jose_silva_produto_leite_video_1 = Video.new(nome: "Video 1", descricao: "Video 1", codigo: "XRgDSQJgoCI")
 produtor_jose_silva_produto_leite.video = produtor_jose_silva_produto_leite_video_1
-produtor_jose_silva_produto_leite.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-leite-capa.jpg"), filename: "jose-silva-leite-capa.jpg")
-produtor_jose_silva_produto_leite.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-leite-foto-1.jpg"), filename: "jose-silva-leite-foto-1.jpg")
-produtor_jose_silva_produto_leite.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-leite-foto-2.jpg"), filename: "jose-silva-leite-foto-2.jpg")
+# produtor_jose_silva_produto_leite.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-leite-capa.jpg"), filename: "jose-silva-leite-capa.jpg")
+# produtor_jose_silva_produto_leite.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-leite-foto-1.jpg"), filename: "jose-silva-leite-foto-1.jpg")
+# produtor_jose_silva_produto_leite.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-leite-foto-2.jpg"), filename: "jose-silva-leite-foto-2.jpg")
 produtor_jose_silva_produto_leite.categoria = animal
 produtor_jose_silva_produto_leite.qualidade = tradicional
 produtor_jose_silva_produto_leite.produtor = produtor_jose_silva
@@ -90,9 +90,9 @@ produtor_jose_silva_produto_bezerro_producao_2 = Producao.new(numero: 15, medida
 produtor_jose_silva_produto_bezerro_producao_3 = Producao.new(numero: 25, medida: :unidade, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(0))
 produtor_jose_silva_produto_bezerro_video_1 = Video.new(nome: "Video 1", descricao: "Video 1", codigo: "tVs8EQ9bkUA")
 produtor_jose_silva_produto_bezerro.video = produtor_jose_silva_produto_bezerro_video_1
-produtor_jose_silva_produto_bezerro.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-bezerro-capa.jpg"), filename: "jose-silva-bezerro-capa.jpg")
-produtor_jose_silva_produto_bezerro.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-bezerro-foto-1.jpg"), filename: "jose-silva-bezerro-foto-1.jpg")
-produtor_jose_silva_produto_bezerro.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-bezerro-foto-2.jpg"), filename: "jose-silva-bezerro-foto-2.jpg")
+# produtor_jose_silva_produto_bezerro.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-bezerro-capa.jpg"), filename: "jose-silva-bezerro-capa.jpg")
+# produtor_jose_silva_produto_bezerro.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-bezerro-foto-1.jpg"), filename: "jose-silva-bezerro-foto-1.jpg")
+# produtor_jose_silva_produto_bezerro.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-bezerro-foto-2.jpg"), filename: "jose-silva-bezerro-foto-2.jpg")
 produtor_jose_silva_produto_bezerro.categoria = animal
 produtor_jose_silva_produto_bezerro.qualidade = tradicional
 produtor_jose_silva_produto_bezerro.produtor = produtor_jose_silva
@@ -113,9 +113,9 @@ produtor_jose_silva_produto_milho_producao_2 = Producao.new(numero: 150, medida:
 produtor_jose_silva_produto_milho_producao_3 = Producao.new(numero: 250, medida: :saco, periodo: :ano, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(0))
 produtor_jose_silva_produto_milho_video_1 = Video.new(nome: "Video 1", descricao: "Video 1", codigo: "ki_hznmHIT8")
 produtor_jose_silva_produto_milho.video = produtor_jose_silva_produto_milho_video_1
-produtor_jose_silva_produto_milho.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-milho-capa.jpg"), filename: "jose-silva-milho-capa.jpg")
-produtor_jose_silva_produto_milho.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-milho-foto-1.jpg"), filename: "jose-silva-milho-foto-1.jpg")
-produtor_jose_silva_produto_milho.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-milho-foto-2.jpg"), filename: "jose-silva-milho-foto-2.jpg")
+# produtor_jose_silva_produto_milho.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-milho-capa.jpg"), filename: "jose-silva-milho-capa.jpg")
+# produtor_jose_silva_produto_milho.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-milho-foto-1.jpg"), filename: "jose-silva-milho-foto-1.jpg")
+# produtor_jose_silva_produto_milho.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-milho-foto-2.jpg"), filename: "jose-silva-milho-foto-2.jpg")
 produtor_jose_silva_produto_milho.categoria = vegetal
 produtor_jose_silva_produto_milho.qualidade = tradicional
 produtor_jose_silva_produto_milho.produtor = produtor_jose_silva
@@ -137,9 +137,9 @@ produtor_jose_silva_produto_pamonha_producao_2 = Producao.new(numero: 150, medid
 produtor_jose_silva_produto_pamonha_producao_3 = Producao.new(numero: 250, medida: :unidade, periodo: :dia, created_at: produtor_jose_silva_produto_leite.created_at.prev_month(0))
 produtor_jose_silva_produto_pamonha_video_1 = Video.new(nome: "Video 1", descricao: "Video 1", codigo: "MTUVNZOOnNw")
 produtor_jose_silva_produto_pamonha.video = produtor_jose_silva_produto_pamonha_video_1
-produtor_jose_silva_produto_pamonha.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-pamonha-capa.jpg"), filename: "jose-silva-pamonha-capa.jpg")
-produtor_jose_silva_produto_pamonha.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-pamonha-foto-1.jpg"), filename: "jose-silva-pamonha-foto-1.jpg")
-produtor_jose_silva_produto_pamonha.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-pamonha-foto-2.jpg"), filename: "jose-silva-pamonha-foto-2.jpg")
+# produtor_jose_silva_produto_pamonha.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-pamonha-capa.jpg"), filename: "jose-silva-pamonha-capa.jpg")
+# produtor_jose_silva_produto_pamonha.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-pamonha-foto-1.jpg"), filename: "jose-silva-pamonha-foto-1.jpg")
+# produtor_jose_silva_produto_pamonha.fotos.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-pamonha-foto-2.jpg"), filename: "jose-silva-pamonha-foto-2.jpg")
 produtor_jose_silva_produto_pamonha.categoria = industrial
 produtor_jose_silva_produto_pamonha.qualidade = tradicional
 produtor_jose_silva_produto_pamonha.produtor = produtor_jose_silva
@@ -164,7 +164,7 @@ produtor_divino_pereira = Produtor.new(
     created_at: DateTime.now.prev_month(2)
 )
 produtor_divino_pereira_video_1 = Video.new(nome: "Video 2", descricao: "Video 2", codigo: "Uit7H-78XPI")
-produtor_divino_pereira.perfil.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-perfil.jpg"), filename: "divino-pereira-perfil.jpg")
+# produtor_divino_pereira.perfil.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-perfil.jpg"), filename: "divino-pereira-perfil.jpg")
 produtor_divino_pereira.video = produtor_divino_pereira_video_1
 produtor_divino_pereira.cidade = cidade_cocalzinho
 produtor_divino_pereira.save!
@@ -179,9 +179,9 @@ produtor_divino_pereira_produto_rocar = Servico.new(
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
-produtor_divino_pereira_produto_rocar.capa.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-capa.jpg"), filename: "divino-pereira-roçar-capa.jpg")
-produtor_divino_pereira_produto_rocar.fotos.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-foto-1.jpg"), filename: "divino-pereira-roçar-foto-1.jpg")
-produtor_divino_pereira_produto_rocar.fotos.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-foto-2.jpg"), filename: "divino-pereira-roçar-foto-2.jpg")
+# produtor_divino_pereira_produto_rocar.capa.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-capa.jpg"), filename: "divino-pereira-roçar-capa.jpg")
+# produtor_divino_pereira_produto_rocar.fotos.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-foto-1.jpg"), filename: "divino-pereira-roçar-foto-1.jpg")
+# produtor_divino_pereira_produto_rocar.fotos.attach(io: File.open(Rails.root + "spec/imagens/divino-pereira-roçar-foto-2.jpg"), filename: "divino-pereira-roçar-foto-2.jpg")
 produtor_divino_pereira_produto_rocar.produtor = produtor_divino_pereira
 produtor_divino_pereira_produto_rocar.save!
 
@@ -206,7 +206,7 @@ produtor_stephan_historia_1 = Historia.new(data: Date.parse("Dec 8 1930"), titul
 produtor_stephan_historia_2 = Historia.new(data: Date.parse("Dec 8 1945"), titulo: "A Mudança", descricao: "Se mudou para ... devido ... e lá criou ...")
 produtor_stephan_historia_3 = Historia.new(data: Date.parse("Dec 8 1955"), titulo: "A Compra", descricao: "Já com 2 filhos comprou sua primeira terra de 2 alqueires ....")
 produtor_stephan_video_1 = Video.new(nome: "Video 3", descricao: "Video 3", codigo: "cen9ZMYzUm0")
-produtor_stephan.perfil.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-perfil.jpg"), filename: "stephan-gaehwiler-perfil.jpg")
+# produtor_stephan.perfil.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-perfil.jpg"), filename: "stephan-gaehwiler-perfil.jpg")
 produtor_stephan.cidade = cidade_corumba_de_goias
 produtor_stephan.video = produtor_stephan_video_1
 produtor_stephan.save!
@@ -228,10 +228,10 @@ pprodutor_stephan_produto_queijo_video_1 = Video.new(nome: "Video 1", descricao:
 pprodutor_stephan_produto_queijo_criacao_1 = Criacao.new(data: Date.parse("Dec 8 2001"), titulo: "A criação", descricao: "Criado para atender ... foi transido pela família...")
 pprodutor_stephan_produto_queijo_criacao_2 = Criacao.new(data: Date.parse("Dec 8 2002"), titulo: "A transformação", descricao: "Importou as vacas devido ... e perceber ...")
 pprodutor_stephan_produto_queijo_criacao_3 = Criacao.new(data: Date.parse("Dec 8 2005"), titulo: "O sentimento", descricao: "Hoje seu sonho foi realizado, devido o prêmio ....")
-pprodutor_stephan_produto_queijo.capa.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-queijo-capa.jpg"), filename: "stephan-gaehwiler-queijo-capa.jpg")
-pprodutor_stephan_produto_queijo.fotos.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-queijo-foto-1.jpg"), filename: "stephan-gaehwiler-queijo-foto-1.jpg")
-pprodutor_stephan_produto_queijo.fotos.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-queijo-foto-2.jpg"), filename: "stephan-gaehwiler-queijo-foto-2.jpg")
-pprodutor_stephan_produto_queijo.fotos.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-queijo-foto-3.jpg"), filename: "stephan-gaehwiler-queijo-foto-3.jpg")
+# pprodutor_stephan_produto_queijo.capa.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-queijo-capa.jpg"), filename: "stephan-gaehwiler-queijo-capa.jpg")
+# pprodutor_stephan_produto_queijo.fotos.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-queijo-foto-1.jpg"), filename: "stephan-gaehwiler-queijo-foto-1.jpg")
+# pprodutor_stephan_produto_queijo.fotos.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-queijo-foto-2.jpg"), filename: "stephan-gaehwiler-queijo-foto-2.jpg")
+# pprodutor_stephan_produto_queijo.fotos.attach(io: File.open(Rails.root + "spec/imagens/stephan-gaehwiler-queijo-foto-3.jpg"), filename: "stephan-gaehwiler-queijo-foto-3.jpg")
 pprodutor_stephan_produto_queijo.video = pprodutor_stephan_produto_queijo_video_1
 pprodutor_stephan_produto_queijo.categoria = industrial
 pprodutor_stephan_produto_queijo.qualidade = organico
@@ -257,9 +257,9 @@ produtor_maria_alves = Produtor.new(
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
-produtor_maria_alves.perfil.attach(io: File.open(Rails.root + "spec/imagens/maria-alves-perfil.jpg"), filename: "maria-alves-perfil.jpg")
-produtor_maria_alves.fotos.attach(io: File.open(Rails.root + "spec/imagens/maria-alves-foto-1.jpg"), filename: "maria-alves-foto-1.jpg")
-produtor_maria_alves.fotos.attach(io: File.open(Rails.root + "spec/imagens/maria-alves-foto-2.jpg"), filename: "maria-alves-foto-2.jpg")
+# produtor_maria_alves.perfil.attach(io: File.open(Rails.root + "spec/imagens/maria-alves-perfil.jpg"), filename: "maria-alves-perfil.jpg")
+# produtor_maria_alves.fotos.attach(io: File.open(Rails.root + "spec/imagens/maria-alves-foto-1.jpg"), filename: "maria-alves-foto-1.jpg")
+# produtor_maria_alves.fotos.attach(io: File.open(Rails.root + "spec/imagens/maria-alves-foto-2.jpg"), filename: "maria-alves-foto-2.jpg")
 produtor_maria_alves_historia_1 = Historia.new(data: Date.parse("Dec 8 1930"), titulo: "O Nascimento", descricao: "Nasceu na cidade de ... em uma casa com 12 irmão...")
 produtor_maria_alves_historia_2 = Historia.new(data: Date.parse("Dec 8 1945"), titulo: "A Mudança", descricao: "Se mudou para ... devido ... e lá criou ...")
 produtor_maria_alves_historia_3 = Historia.new(data: Date.parse("Dec 8 1955"), titulo: "A Compra", descricao: "Já com 2 filhos comprou sua primeira terra de 2 alqueires ....")
@@ -285,7 +285,7 @@ produtor_maria_alves_produto_soja.produtor = produtor_maria_alves
 produtor_maria_alves_produto_soja.categoria = vegetal
 produtor_maria_alves_produto_soja.qualidade = natural
 produtor_maria_alves_produto_soja.video = produtor_maria_alves_produto_soja_video_1
-produtor_maria_alves_produto_soja.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-soja-capa.jpg"), filename: "jose-silva-soja-capa.jpg")
+# produtor_maria_alves_produto_soja.capa.attach(io: File.open(Rails.root + "spec/imagens/jose-silva-soja-capa.jpg"), filename: "jose-silva-soja-capa.jpg")
 produtor_maria_alves_produto_soja.save!
 produtor_maria_alves_produto_soja.producoes << [produtor_maria_alves_produto_soja_producao_4, produtor_maria_alves_produto_soja_producao_5]
 
@@ -308,8 +308,8 @@ produtor_celio_fleury = Produtor.new(
     created_at: DateTime.now.prev_month(1)
 )
 produtor_celio_fleury_video_1 = Video.new(nome: "Video 2", descricao: "Video 2", codigo: "Uit7H-78XPI")
-produtor_celio_fleury.perfil.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-perfil.jpg"), filename: "celio-fleury-perfil.jpg")
-produtor_celio_fleury.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-foto-1.jpg"), filename: "celio-fleury-foto-1.jpg")
+# produtor_celio_fleury.perfil.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-perfil.jpg"), filename: "celio-fleury-perfil.jpg")
+# produtor_celio_fleury.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-foto-1.jpg"), filename: "celio-fleury-foto-1.jpg")
 produtor_celio_fleury.video = produtor_celio_fleury_video_1
 produtor_celio_fleury.cidade = cidade_corumba_de_goias
 produtor_celio_fleury.save!
@@ -324,9 +324,9 @@ produtor_celio_fleury_produto_aluguel_pasto = Servico.new(
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
-produtor_celio_fleury_produto_aluguel_pasto.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-capa.jpg"), filename: "celio-fleury-aluguel-pasto-capa.jpg")
-produtor_celio_fleury_produto_aluguel_pasto.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-foto-1.jpg"), filename: "celio-fleury-aluguel-pasto-foto-1.jpg")
-produtor_celio_fleury_produto_aluguel_pasto.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-foto-2.jpg"), filename: "celio-fleury-aluguel-pasto-foto-2.jpg")
+# produtor_celio_fleury_produto_aluguel_pasto.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-capa.jpg"), filename: "celio-fleury-aluguel-pasto-capa.jpg")
+# produtor_celio_fleury_produto_aluguel_pasto.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-foto-1.jpg"), filename: "celio-fleury-aluguel-pasto-foto-1.jpg")
+# produtor_celio_fleury_produto_aluguel_pasto.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-pasto-foto-2.jpg"), filename: "celio-fleury-aluguel-pasto-foto-2.jpg")
 produtor_celio_fleury_produto_aluguel_pasto.produtor = produtor_celio_fleury
 produtor_celio_fleury_produto_aluguel_pasto.save!
 
@@ -340,9 +340,9 @@ produtor_celio_fleury_produto_aluguel_trator = Servico.new(
     published_at: DateTime.now.prev_month(1),
     created_at: DateTime.now.prev_month(1)
 )
-produtor_celio_fleury_produto_aluguel_trator.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-capa.jpg"), filename: "celio-fleury-aluguel-trator-capa.jpg")
-produtor_celio_fleury_produto_aluguel_trator.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-foto-1.jpg"), filename: "celio-fleury-aluguel-trator-foto-1.jpg")
-produtor_celio_fleury_produto_aluguel_trator.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-foto-2.jpg"), filename: "celio-fleury-aluguel-trator-foto-2.jpg")
+# produtor_celio_fleury_produto_aluguel_trator.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-capa.jpg"), filename: "celio-fleury-aluguel-trator-capa.jpg")
+# produtor_celio_fleury_produto_aluguel_trator.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-foto-1.jpg"), filename: "celio-fleury-aluguel-trator-foto-1.jpg")
+# produtor_celio_fleury_produto_aluguel_trator.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-aluguel-trator-foto-2.jpg"), filename: "celio-fleury-aluguel-trator-foto-2.jpg")
 produtor_celio_fleury_produto_aluguel_trator.produtor = produtor_celio_fleury
 produtor_celio_fleury_produto_aluguel_trator.save!
 
@@ -363,10 +363,10 @@ produtor_celio_fleury_produto_gado_corte_video_1 = Video.new(nome: "Video 1", de
 produtor_celio_fleury_produto_gado_corte_criacao_1 = Criacao.new(data: Date.parse("Dec 8 2001"), titulo: "A criação", descricao: "Criado para atender ... foi transido pela família...")
 produtor_celio_fleury_produto_gado_corte_criacao_2 = Criacao.new(data: Date.parse("Dec 8 2002"), titulo: "A transformação", descricao: "Importou as vacas devido ... e perceber ...")
 produtor_celio_fleury_produto_gado_corte_criacao_3 = Criacao.new(data: Date.parse("Dec 8 2005"), titulo: "O sentimento", descricao: "Hoje seu sonho foi realizado, devido o prêmio ....")
-produtor_celio_fleury_produto_gado_corte.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-capa.jpg"), filename: "celio-fleury-gado-corte-capa.jpg")
-produtor_celio_fleury_produto_gado_corte.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-foto-1.jpg"), filename: "celio-fleury-gado-corte-foto-1.jpg")
-produtor_celio_fleury_produto_gado_corte.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-foto-2.jpg"), filename: "celio-fleury-gado-corte-foto-2.jpg")
-produtor_celio_fleury_produto_gado_corte.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-foto-3.jpg"), filename: "celio-fleury-gado-corte-foto-3.jpg")
+# produtor_celio_fleury_produto_gado_corte.capa.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-capa.jpg"), filename: "celio-fleury-gado-corte-capa.jpg")
+# produtor_celio_fleury_produto_gado_corte.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-foto-1.jpg"), filename: "celio-fleury-gado-corte-foto-1.jpg")
+# produtor_celio_fleury_produto_gado_corte.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-foto-2.jpg"), filename: "celio-fleury-gado-corte-foto-2.jpg")
+# produtor_celio_fleury_produto_gado_corte.fotos.attach(io: File.open(Rails.root + "spec/imagens/celio-fleury-gado-corte-foto-3.jpg"), filename: "celio-fleury-gado-corte-foto-3.jpg")
 produtor_celio_fleury_produto_gado_corte.video = produtor_celio_fleury_produto_gado_corte_video_1
 produtor_celio_fleury_produto_gado_corte.categoria = animal
 produtor_celio_fleury_produto_gado_corte.qualidade = tradicional
