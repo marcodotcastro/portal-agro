@@ -142,6 +142,9 @@ GEM
     concurrent-ruby (1.1.6)
     crass (1.0.6)
     database_cleaner (1.7.0)
+    debase (0.2.3)
+      debase-ruby_core_source (>= 0.10.2)
+    debase-ruby_core_source (0.10.12)
     debug_inspector (0.0.3)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -328,6 +331,8 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    ruby-debug-ide (0.7.2)
+      rake (>= 0.8.1)
     ruby_dep (1.5.0)
     ruby_parser (3.13.0)
       sexp_processor (~> 4.9)
@@ -421,12 +426,14 @@ DEPENDENCIES
   binding_of_caller
   bootsnap (>= 1.1.0)
   bootstrap4-kaminari-views
+  byebug
   capybara (>= 2.15)
   chartkick (~> 3.3.0)
   chromedriver-helper
   clipboard-rails
   coffee-rails (~> 4.2)
   database_cleaner
+  debase (= 0.2.3)
   devise
   factory_bot_rails
   friendly_id (~> 5.2.4)
@@ -443,6 +450,7 @@ DEPENDENCIES
   rails_layout
   ransack
   rspec-rails (~> 3.8)
+  ruby-debug-ide (= 0.7.2)
   rubycritic
   sass-rails (~> 5.0)
   selenium-webdriver

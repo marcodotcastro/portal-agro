@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: tail -f /dev/null
+    container_name: "portal-agro-web"
+    environment:
+      - RAILS_ENV=production
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "80:3000"
+    depends_on:
+      - db
+      - redis
+    networks:
+      - app
+  db:
+    image: postgres
+    container_name: "portal-agro-db"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGDATA: postgres
+    networks:
+      - app
+  redis:
+    image: redis
+    container_name: "portal-agro-redis"
+    ports:
+      - "63791:6379"
+    networks:
+      - app
+  sidekiq:
+    build: .
+    container_name: "portal-agro-sidekiq"
+    volumes:
+      - .:/app
+    links:
+      - db
+      - redis
+    command: bash -c "yarn install --check-files && bundle && bundle exec sidekiq -q default"
+    networks:
+      - app
+networks:
+  app:
+    driver: bridge

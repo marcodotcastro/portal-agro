@@ -30,6 +30,9 @@ group :production do
 end
 
 group :development, :test do
+  gem 'debase', "0.2.3"
+  gem 'ruby-debug-ide', "0.7.2"
+  gem 'byebug'
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
   gem 'database_cleaner'
