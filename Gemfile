@@ -24,7 +24,7 @@ gem 'clipboard-rails'
 gem 'ahoy_matey'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
-
+gem 'rails_12factor'
 group :production do
   gem 'aws-sdk-s3', require: false
 end
