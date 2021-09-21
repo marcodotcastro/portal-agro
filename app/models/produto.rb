@@ -55,7 +55,7 @@ class Produto < ApplicationRecord
   friendly_id :friendly_url, use: :slugged
 
   validates :nome, :descricao, :preco, :categoria_id, :produtor_id, :qualidade_id, presence: true
-  # validates :capa, attached: true
+  validates :capa, attached: true
 
   # TODO: Bug do ahoy, verificar se existe alguma solução melhor
   def set_ahoy_visit
