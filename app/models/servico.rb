@@ -40,7 +40,7 @@ class Servico < ApplicationRecord
   enum medida: [:hora, :dia, :mes, :fixo, :cabeca]
 
   validates :descricao, :medida, :nome, :preco, :produtor_id, presence: true
-  # validates :capa, attached: true
+  validates :capa, attached: true
 
   # TODO: Bug do ahoy, verificar se existe alguma solução melhor
   def set_ahoy_visit
