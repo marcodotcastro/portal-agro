@@ -1,5 +1,12 @@
 {
   "name": "workspace",
   "private": true,
+  "engines": {
+    "node": ">=22 <23"
+  },
+  "scripts": {
+    "bmad:install": "npm exec --yes --package=node@22 --package=bmad-method -- bmad-method install --directory . --modules bmm --tools none --yes",
+    "bmad:update": "npm exec --yes --package=node@22 --package=bmad-method -- bmad-method install --directory . --action update --yes"
+  },
   "dependencies": {}
 }

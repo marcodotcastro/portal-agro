@@ -15,3 +15,9 @@ Video de Apresentação do Negócio, clique na imagem | Video de Apresentação 
 * [Qualidade](https://github.com/marcodotcastro/portal-agro/wiki/Qualidade)
 * [Modelo de Dados](https://github.com/marcodotcastro/portal-agro/wiki/Modelo-de-Dados)
 * [Instalação e Configuração](https://github.com/marcodotcastro/portal-agro/wiki/Instala%C3%A7%C3%A3o-e-Configura%C3%A7%C3%A3o)
+
+# BMAD
+
+* Node recomendado para o projeto: `22` (arquivo `.nvmrc`)
+* Instalar BMAD: `npm run bmad:install`
+* Atualizar BMAD: `npm run bmad:update`
