@@ -1,4 +1,4 @@
-FROM ruby:2.6.6
+FROM ruby:2.6.7
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client npm build-essential patch ruby-dev zlib1g-dev liblzma-dev
 RUN npm install yarn -g
 RUN mkdir /app

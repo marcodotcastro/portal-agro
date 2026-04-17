@@ -11,7 +11,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: portal_agro_development
-  host: db
+  host: <%= ENV.fetch("DB_HOST", "localhost") %>
   port: 5432
   pool: 5
   username: postgres
@@ -21,9 +21,8 @@ test:
   adapter: postgresql
   encoding: unicode
   database: portal_agro_test
-  host: db
+  host: <%= ENV.fetch("DB_HOST", "localhost") %>
   port: 5432
   pool: 5
   username: postgres
   password: postgres
-

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) {|repo| "https://github.com/#{repo}.git"}
 
-ruby '2.6.6'
+ruby '~> 2.6.0'
 gem 'pg'
 gem 'rails', '~> 5.2.2'
 gem 'puma', '~> 4.3'
@@ -60,5 +60,4 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 

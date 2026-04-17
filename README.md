@@ -21,3 +21,10 @@ Video de Apresentação do Negócio, clique na imagem | Video de Apresentação 
 * Node recomendado para o projeto: `22` (arquivo `.nvmrc`)
 * Instalar BMAD: `npm run bmad:install`
 * Atualizar BMAD: `npm run bmad:update`
+
+# Execução local com Foreman
+
+* Instalar foreman: `gem install foreman`
+* Selecionar Ruby do projeto: `rvm use 2.6.7`
+* Iniciar aplicação: `foreman start -f Procfile.dev`
+* Para usar outra porta: `PORT=3010 foreman start -f Procfile.dev`
