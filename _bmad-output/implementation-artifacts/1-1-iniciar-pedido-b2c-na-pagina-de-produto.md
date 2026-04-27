@@ -1,6 +1,6 @@
 # Story 1.1: Iniciar Pedido B2C na Pagina de Produto
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -17,19 +17,25 @@ so that eu nao precise abrir WhatsApp para comecar a compra.
 
 ## Tasks / Subtasks
 
-- [ ] Adicionar entrada de navegacao para iniciar pedido no detalhe do produto (AC: 1)
-- [ ] Atualizar `app/views/produtos/show.html.erb` com CTA visivel "Fazer Pedido" proximo das informacoes comerciais
-- [ ] Garantir que o CTA carregue o contexto do produto atual (id/slug) para o formulario
-- [ ] Criar rota e endpoint para tela de inicio do pedido (AC: 1)
-- [ ] Definir rota REST para `pedidos#new` sem quebrar as rotas atuais de `produtos#show`
-- [ ] Criar `PedidosController#new` para carregar o produto alvo e montar o formulario inicial
-- [ ] Criar tela de formulario inicial de pedido vinculada ao produto (AC: 1, 2)
-- [ ] Implementar `app/views/pedidos/new.html.erb` exibindo nome do produto selecionado e campos base do pedido
-- [ ] Usar estrutura Bootstrap responsiva (grid simples, `col-12`, espacamentos ja usados no projeto)
-- [ ] Nao implementar persistencia nesta story; somente abertura do formulario com contexto correto (fronteira com Story 1.2)
-- [ ] Cobrir comportamento principal com testes automatizados (AC: 1, 2)
-- [ ] Criar spec de feature para validar fluxo: abrir pagina de produto -> clicar em "Fazer Pedido" -> ver formulario com produto correto
-- [ ] Validar que a pagina renderiza elementos responsivos basicos sem regressao de navegacao
+- [x] Adicionar entrada de navegacao para iniciar pedido no detalhe do produto (AC: 1)
+- [x] Atualizar `app/views/produtos/show.html.erb` com CTA visivel "Fazer Pedido" proximo das informacoes comerciais
+- [x] Garantir que o CTA carregue o contexto do produto atual (id/slug) para o formulario
+- [x] Criar rota e endpoint para tela de inicio do pedido (AC: 1)
+- [x] Definir rota REST para `pedidos#new` sem quebrar as rotas atuais de `produtos#show`
+- [x] Criar `PedidosController#new` para carregar o produto alvo e montar o formulario inicial
+- [x] Criar tela de formulario inicial de pedido vinculada ao produto (AC: 1, 2)
+- [x] Implementar `app/views/pedidos/new.html.erb` exibindo nome do produto selecionado e campos base do pedido
+- [x] Usar estrutura Bootstrap responsiva (grid simples, `col-12`, espacamentos ja usados no projeto)
+- [x] Nao implementar persistencia nesta story; somente abertura do formulario com contexto correto (fronteira com Story 1.2)
+- [x] Cobrir comportamento principal com testes automatizados (AC: 1, 2)
+- [x] Criar spec de feature para validar fluxo: abrir pagina de produto -> clicar em "Fazer Pedido" -> ver formulario com produto correto
+- [x] Validar que a pagina renderiza elementos responsivos basicos sem regressao de navegacao
+
+### Review Findings
+
+- [ ] [Review][Patch] Formulario de pedido envia dados pessoais via query string por usar `GET` no submit [app/views/pedidos/new.html.erb:12]
+- [ ] [Review][Patch] Acesso direto a `/pedidos/new` sem `produto_id` nao possui tratamento explicito e depende de excecao [app/controllers/pedidos_controller.rb:10]
+- [ ] [Review][Patch] Cobertura de teste valida apenas caminho feliz e nao cobre ausencia/invalidade de `produto_id` [spec/features/iniciar_pedido_b2c_spec.rb:4]
 
 ## Dev Notes
 
@@ -68,15 +74,29 @@ GPT-5 Codex
 
 ### Debug Log References
 
-- Sem execucao de app/testes nesta etapa; artefato de planejamento somente.
+- `rtk bundle exec rspec spec/features/iniciar_pedido_b2c_spec.rb` (vermelho inicial: link "Fazer Pedido" ausente)
+- `rtk bundle exec rspec spec/features/iniciar_pedido_b2c_spec.rb` (verde apos implementacao)
+- `rtk bundle exec rspec` (1a execucao: 2 falhas por acoplamento de sequence em specs legadas)
+- Ajuste no spec novo para nao consumir sequence global de produtos
+- `rtk bundle exec rspec` (2a execucao: 13 exemplos, 0 falhas)
 
 ### Completion Notes List
 
-- Ultimate context engine analysis completed - comprehensive developer guide created.
-- Story delimitada para iniciar o pedido sem antecipar persistencia da Story 1.2.
-- Guardrails adicionados para reutilizar padroes existentes e reduzir risco de regressao.
+- Implementado fluxo inicial de pedido B2C com CTA em produto, rota dedicada e formulario vinculado ao produto.
+- Mantida fronteira da Story 1.1: sem persistencia de pedido, somente abertura e preenchimento inicial do formulario.
+- Adicionado teste de feature para AC principal e ajustado para nao interferir em sequencias de testes existentes.
+- Suite completa de regressao executada com sucesso.
 
 ### File List
 
+- app/controllers/pedidos_controller.rb
+- app/views/pedidos/new.html.erb
+- app/views/produtos/show.html.erb
+- config/routes.rb
+- spec/features/iniciar_pedido_b2c_spec.rb
 - _bmad-output/implementation-artifacts/1-1-iniciar-pedido-b2c-na-pagina-de-produto.md
 - _bmad-output/implementation-artifacts/sprint-status.yaml
+
+## Change Log
+
+- 2026-04-27: Story 1.1 implementada e validada; status atualizado para `review`.

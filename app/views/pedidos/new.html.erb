@@ -1,0 +1,64 @@
+<section class="section contact-section py-5" id="pedido-b2c">
+  <div class="container">
+    <% if flash.now[:notice].present? %>
+      <div class="row justify-content-center mb-3">
+        <div class="col-12 col-lg-8">
+          <div class="alert alert-success mb-0"><%= flash.now[:notice] %></div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-md-8">
+        <h2 class="heading">Pedido para <%= @produto.nome %></h2>
+        <h6 class="mb-0">Preencha os dados iniciais para iniciar seu pedido B2C.</h6>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8" data-aos="fade-up" data-aos-delay="100">
+        <%= form_with scope: :pedido, url: pedidos_path, method: :post, local: true, html: { class: "bg-white p-md-5 p-4 mb-5 border" } do |f| %>
+          <%= f.hidden_field :produto_id, value: @produto.to_param %>
+
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <%= f.label :nome, "Nome", class: "font-weight-bold text-black" %>
+              <%= f.text_field :nome, class: "form-control", required: true %>
+            </div>
+            <div class="col-md-6 form-group">
+              <%= f.label :contato, "Contato", class: "font-weight-bold text-black" %>
+              <%= f.text_field :contato, class: "form-control", required: true %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <%= f.label :quantidade, "Quantidade", class: "font-weight-bold text-black" %>
+              <%= f.number_field :quantidade, class: "form-control", min: 1, required: true %>
+            </div>
+            <div class="col-md-6 form-group">
+              <%= f.label :produto, "Produto", class: "font-weight-bold text-black" %>
+              <input class="form-control" type="text" value="<%= @produto.nome %>" readonly>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md-12 form-group">
+              <%= f.label :observacoes, "Observações", class: "font-weight-bold text-black" %>
+              <%= f.text_area :observacoes, class: "form-control", rows: 4 %>
+            </div>
+          </div>
+
+          <div class="row align-items-center">
+            <div class="col-md-6 form-group mb-0">
+              <%= f.submit "Continuar", class: "btn btn-primary btn-block text-white" %>
+            </div>
+            <div class="col-md-6 mt-3 mt-md-0">
+              <small class="text-muted d-block">Etapa de envio do pedido será concluída na Story 1.2.</small>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -11,6 +11,9 @@
         <h2 class="heading"><%= @produto.nome %></h2>
         <h6 class="mb-4"><%= @produto.descricao %></h6>
         <h6><b>Preço:</b> <%= produto_preco_completo(@produto) %></h6>
+        <p class="mt-3 mb-3">
+          <%= link_to "Fazer Pedido", new_pedido_path(produto_id: @produto), class: "btn btn-success btn-block" %>
+        </p>
         <p>
           <a class="btn btn-primary" data-toggle="collapse" href="#<%= "consumidor_" + @produto.id.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "consumidor_" + @produto.id.to_s %>">
             <span class="ion-ios-information-outline" data-toggle="tooltip" data-placement="top" title="Informações para quem quer comprar poucos produtos" style="font-size:75%;"> Consumidor?</span>

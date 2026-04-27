@@ -134,6 +134,7 @@ Rails.application.routes.draw do
   post "contatos", to: "contatos#create"
   get "contato/enviado", to: "contatos#show"
   get 'contato', to: "contatos#new", as: "new_contato"
+  resources :pedidos, only: [:new, :create]
 
   resources :estados, only: [:show] do
     resources :cidades, only: [:show] do

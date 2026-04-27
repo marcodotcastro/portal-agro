@@ -1,5 +1,5 @@
 # generated: 2026-04-27 17:37:22 -0300
-# last_updated: 2026-04-27 17:42:03 -0300
+# last_updated: 2026-04-27 17:48:17 -0300
 # project: portal-agro
 # project_key: NOKEY
 # tracking_system: file-system
@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-04-27 17:37:22 -0300
-last_updated: 2026-04-27 17:42:03 -0300
+last_updated: 2026-04-27 17:48:17 -0300
 project: portal-agro
 project_key: NOKEY
 tracking_system: file-system
@@ -43,7 +43,7 @@ story_location: /home/marcodotcastro/RubymineProjects/portal-agro/_bmad-output/i
 
 development_status:
   epic-1: in-progress
-  1-1-iniciar-pedido-b2c-na-pagina-de-produto: ready-for-dev
+  1-1-iniciar-pedido-b2c-na-pagina-de-produto: review
   1-2-enviar-pedido-com-validacao-e-persistencia: backlog
   1-3-listar-pedidos-no-painel-do-produtor: backlog
   1-4-atualizar-status-do-pedido: backlog
