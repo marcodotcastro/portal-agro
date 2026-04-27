@@ -26,5 +26,15 @@ Video de Apresentação do Negócio, clique na imagem | Video de Apresentação 
 
 * Instalar foreman: `gem install foreman`
 * Selecionar Ruby do projeto: `rvm use 2.6.7`
+* Subir dependências via Docker: `docker compose up -d db redis`
 * Iniciar aplicação: `foreman start -f Procfile.dev`
+* Porta padrão da aplicação: `3003`
 * Para usar outra porta: `PORT=3010 foreman start -f Procfile.dev`
+
+# Portas padrão do projeto (isoladas)
+
+* App (Rails): `3003`
+* PostgreSQL (Docker -> host): `55432`
+* Redis (Docker -> host): `56379`
+
+Você pode sobrescrever esses valores com variáveis de ambiente (veja `.env.example`).
