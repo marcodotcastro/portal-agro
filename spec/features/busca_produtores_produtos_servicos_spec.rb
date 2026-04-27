@@ -9,6 +9,7 @@ feature "Busca por nome em produtores, produtos e serviços", type: :feature do
     termo = "Produtor Inexistente"
 
     visit produtores_path
+    expect(page).to have_css("form[action='#{produtores_path}']")
     fill_in "q_nome_cont", with: termo
     click_button "Pesquisar"
 
@@ -20,6 +21,7 @@ feature "Busca por nome em produtores, produtos e serviços", type: :feature do
     termo = "Produto Inexistente"
 
     visit produtos_path
+    expect(page).to have_css("form[action='#{produtos_path}']")
     fill_in "q_nome_cont", with: termo
     click_button "Pesquisar"
 
@@ -31,6 +33,7 @@ feature "Busca por nome em produtores, produtos e serviços", type: :feature do
     termo = "Serviço Inexistente"
 
     visit servicos_path
+    expect(page).to have_css("form[action='#{servicos_path}']")
     fill_in "q_nome_cont", with: termo
     click_button "Pesquisar"
 

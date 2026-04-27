@@ -70,3 +70,24 @@ $(document).ready(function () {
     });
 
 });
+
+function scrollToSearchFilters() {
+    var pathMatch = /^\/estados\/goias\/(produtores|produtos|servicos)$/.test(window.location.pathname);
+    var hasSearchQuery = window.location.search.indexOf("q%5B") >= 0 || window.location.search.indexOf("q[") >= 0;
+
+    if (!pathMatch || !hasSearchQuery) return;
+
+    var anchor = document.querySelector('[data-search-filters-anchor="true"]');
+    if (!anchor) return;
+
+    var header = document.querySelector('.site-header');
+    var headerHeight = header ? header.getBoundingClientRect().height : 0;
+    var visualGap = 56;
+    var targetTop = anchor.getBoundingClientRect().top + window.pageYOffset - headerHeight - visualGap;
+
+    window.requestAnimationFrame(function () {
+        window.scrollTo(0, Math.max(targetTop, 0));
+    });
+}
+
+document.addEventListener('turbolinks:load', scrollToSearchFilters);
