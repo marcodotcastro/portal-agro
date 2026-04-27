@@ -74,8 +74,9 @@ $(document).ready(function () {
 function scrollToSearchFilters() {
     var pathMatch = /^\/estados\/goias\/(produtores|produtos|servicos)$/.test(window.location.pathname);
     var hasSearchQuery = window.location.search.indexOf("q%5B") >= 0 || window.location.search.indexOf("q[") >= 0;
+    var hasScrollFlag = window.location.search.indexOf("scroll_to_filters=1") >= 0;
 
-    if (!pathMatch || !hasSearchQuery) return;
+    if (!pathMatch || (!hasSearchQuery && !hasScrollFlag)) return;
 
     var anchor = document.querySelector('[data-search-filters-anchor="true"]');
     if (!anchor) return;
@@ -87,6 +88,11 @@ function scrollToSearchFilters() {
 
     window.requestAnimationFrame(function () {
         window.scrollTo(0, Math.max(targetTop, 0));
+
+        // Keep URL clean after the one-time cancel scroll.
+        if (hasScrollFlag && window.history && window.history.replaceState) {
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
     });
 }
 

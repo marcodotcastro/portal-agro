@@ -27,7 +27,7 @@
               <%= f.button "Pesquisar", class: "btn btn-primary btn-block text-white" %>
             </div>
             <div class="col-md-6 col-lg-6">
-              <%= link_to "Cancelar", request.path, class: "btn btn-primary btn-block text-white", style: "text-decoration: none" %>
+              <%= link_to "Cancelar", "#{request.path}?scroll_to_filters=1", class: "btn btn-primary btn-block text-white", style: "text-decoration: none" %>
             </div>
           </div>
         <% end %>

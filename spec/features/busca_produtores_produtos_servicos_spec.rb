@@ -10,6 +10,7 @@ feature "Busca por nome em produtores, produtos e serviços", type: :feature do
 
     visit produtores_path
     expect(page).to have_css("form[action='#{produtores_path}']")
+    expect(page).to have_link("Cancelar", href: "#{produtores_path}?scroll_to_filters=1")
     fill_in "q_nome_cont", with: termo
     click_button "Pesquisar"
 
@@ -22,6 +23,7 @@ feature "Busca por nome em produtores, produtos e serviços", type: :feature do
 
     visit produtos_path
     expect(page).to have_css("form[action='#{produtos_path}']")
+    expect(page).to have_link("Cancelar", href: "#{produtos_path}?scroll_to_filters=1")
     fill_in "q_nome_cont", with: termo
     click_button "Pesquisar"
 
@@ -34,6 +36,7 @@ feature "Busca por nome em produtores, produtos e serviços", type: :feature do
 
     visit servicos_path
     expect(page).to have_css("form[action='#{servicos_path}']")
+    expect(page).to have_link("Cancelar", href: "#{servicos_path}?scroll_to_filters=1")
     fill_in "q_nome_cont", with: termo
     click_button "Pesquisar"
 
