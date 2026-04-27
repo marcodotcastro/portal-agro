@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_09_101054) do
+ActiveRecord::Schema.define(version: 2026_04_27_212500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -167,6 +167,18 @@ ActiveRecord::Schema.define(version: 2022_04_09_101054) do
     t.index ["produtor_id"], name: "index_historias_on_produtor_id"
   end
 
+  create_table "pedidos", force: :cascade do |t|
+    t.bigint "produto_id", null: false
+    t.string "nome", null: false
+    t.string "contato", null: false
+    t.integer "quantidade", null: false
+    t.text "observacoes"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["produto_id"], name: "index_pedidos_on_produto_id"
+  end
+
   create_table "producoes", force: :cascade do |t|
     t.integer "numero"
     t.integer "medida", default: 0
@@ -259,6 +271,7 @@ ActiveRecord::Schema.define(version: 2022_04_09_101054) do
   add_foreign_key "cidades", "estados"
   add_foreign_key "criacoes", "produtos"
   add_foreign_key "historias", "produtores"
+  add_foreign_key "pedidos", "produtos"
   add_foreign_key "producoes", "produtos"
   add_foreign_key "produtores", "cidades"
   add_foreign_key "produtos", "categorias"

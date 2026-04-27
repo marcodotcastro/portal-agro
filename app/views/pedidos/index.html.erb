@@ -1,0 +1,98 @@
+<section class="py-5 pedidos-panel">
+  <div class="container">
+    <% total_pedidos = @pedidos.size %>
+    <% total_novos = @pedidos.count(&:novo?) %>
+    <% total_em_contato = @pedidos.count(&:em_contato?) %>
+    <% total_concluidos = @pedidos.count(&:concluido?) %>
+
+    <div class="pedidos-panel__hero mb-4">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mb-4 mb-lg-0">
+          <p class="pedidos-panel__eyebrow mb-2">Gestão de atendimento</p>
+          <h2 class="heading text-white mb-2">Painel de Pedidos</h2>
+          <p class="mb-0 text-white pedidos-panel__subtitle">
+            Organize os contatos mais recentes e acompanhe o avanço de cada solicitação.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-right">
+          <%= link_to produtos_path, class: "btn btn-light pedidos-panel__hero-button" do %>
+            <span class="ion-ios-cart mr-2"></span>
+            Ver produtos
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-6 col-lg-3 mb-3">
+        <div class="pedidos-panel__metric pedidos-panel__metric--total">
+          <small>Total</small>
+          <strong><%= total_pedidos %></strong>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 mb-3">
+        <div class="pedidos-panel__metric pedidos-panel__metric--novo">
+          <small>Novos</small>
+          <strong><%= total_novos %></strong>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 mb-3">
+        <div class="pedidos-panel__metric pedidos-panel__metric--contato">
+          <small>Em contato</small>
+          <strong><%= total_em_contato %></strong>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 mb-3">
+        <div class="pedidos-panel__metric pedidos-panel__metric--concluido">
+          <small>Concluídos</small>
+          <strong><%= total_concluidos %></strong>
+        </div>
+      </div>
+    </div>
+
+    <% if @pedidos.any? %>
+      <div class="pedidos-panel__list">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="mb-0">Pedidos Recebidos</h5>
+          <small class="text-muted">Mais recentes primeiro</small>
+        </div>
+
+        <% @pedidos.each do |pedido| %>
+          <article class="pedidos-panel__item mb-3">
+            <div class="d-flex flex-wrap justify-content-between align-items-start mb-3">
+              <div>
+                <small class="text-muted d-block">Comprador</small>
+                <h6 class="mb-1"><%= pedido.nome %></h6>
+                <small class="text-muted"><%= pedido.contato %></small>
+              </div>
+              <span class="pedidos-panel__badge <%= pedido_status_badge_class(pedido.status) %>">
+                <%= pedido_status_label(pedido.status) %>
+              </span>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-5 mb-3 mb-md-0">
+                <small class="text-muted d-block">Produto</small>
+                <span class="pedidos-panel__value"><%= pedido.produto.nome %></span>
+              </div>
+              <div class="col-6 col-md-2 mb-3 mb-md-0">
+                <small class="text-muted d-block">Quantidade</small>
+                <span class="pedidos-panel__value"><%= pedido.quantidade %></span>
+              </div>
+              <div class="col-6 col-md-5 text-md-right">
+                <small class="text-muted d-block">Data/Hora</small>
+                <span class="pedidos-panel__value"><%= pedido.created_at.strftime("%d/%m/%Y %H:%M") %></span>
+              </div>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="pedidos-panel__empty text-center">
+        <span class="ion-ios-paper-outline pedidos-panel__empty-icon d-block mb-2"></span>
+        <h5 class="mb-2">Nenhum pedido recebido</h5>
+        <p class="text-muted mb-0">Assim que um novo pedido for criado, ele aparecerá aqui.</p>
+      </div>
+    <% end %>
+  </div>
+</section>

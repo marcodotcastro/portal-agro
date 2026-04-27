@@ -1,9 +1,18 @@
 <section class="section contact-section py-5" id="pedido-b2c">
   <div class="container">
-    <% if flash.now[:notice].present? %>
+    <% pedido = (@pedido || Pedido.new(produto: @produto)) %>
+    <% if flash[:notice].present? || flash.now[:notice].present? %>
       <div class="row justify-content-center mb-3">
         <div class="col-12 col-lg-8">
-          <div class="alert alert-success mb-0"><%= flash.now[:notice] %></div>
+          <div class="alert alert-success mb-0"><%= flash[:notice] || flash.now[:notice] %></div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if flash[:alert].present? || flash.now[:alert].present? %>
+      <div class="row justify-content-center mb-3">
+        <div class="col-12 col-lg-8">
+          <div class="alert alert-danger mb-0"><%= flash[:alert] || flash.now[:alert] %></div>
         </div>
       </div>
     <% end %>
@@ -17,24 +26,36 @@
 
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8" data-aos="fade-up" data-aos-delay="100">
-        <%= form_with scope: :pedido, url: pedidos_path, method: :post, local: true, html: { class: "bg-white p-md-5 p-4 mb-5 border" } do |f| %>
+        <%= form_with model: pedido, scope: :pedido, url: pedidos_path, method: :post, local: true, html: { class: "bg-white p-md-5 p-4 mb-5 border" } do |f| %>
           <%= f.hidden_field :produto_id, value: @produto.to_param %>
 
           <div class="row">
             <div class="col-md-6 form-group">
               <%= f.label :nome, "Nome", class: "font-weight-bold text-black" %>
-              <%= f.text_field :nome, class: "form-control", required: true %>
+              <% nome_invalid = pedido.errors.include?(:nome) %>
+              <%= f.text_field :nome, class: "form-control #{'is-invalid' if nome_invalid}", required: true %>
+              <% if nome_invalid %>
+                <div class="invalid-feedback d-block"><%= pedido.errors.full_messages_for(:nome).join(", ") %></div>
+              <% end %>
             </div>
             <div class="col-md-6 form-group">
               <%= f.label :contato, "Contato", class: "font-weight-bold text-black" %>
-              <%= f.text_field :contato, class: "form-control", required: true %>
+              <% contato_invalid = pedido.errors.include?(:contato) %>
+              <%= f.text_field :contato, class: "form-control #{'is-invalid' if contato_invalid}", required: true %>
+              <% if contato_invalid %>
+                <div class="invalid-feedback d-block"><%= pedido.errors.full_messages_for(:contato).join(", ") %></div>
+              <% end %>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6 form-group">
               <%= f.label :quantidade, "Quantidade", class: "font-weight-bold text-black" %>
-              <%= f.number_field :quantidade, class: "form-control", min: 1, required: true %>
+              <% quantidade_invalid = pedido.errors.include?(:quantidade) %>
+              <%= f.number_field :quantidade, class: "form-control #{'is-invalid' if quantidade_invalid}", min: 1, required: true %>
+              <% if quantidade_invalid %>
+                <div class="invalid-feedback d-block"><%= pedido.errors.full_messages_for(:quantidade).join(", ") %></div>
+              <% end %>
             </div>
             <div class="col-md-6 form-group">
               <%= f.label :produto, "Produto", class: "font-weight-bold text-black" %>
@@ -51,10 +72,10 @@
 
           <div class="row align-items-center">
             <div class="col-md-6 form-group mb-0">
-              <%= f.submit "Continuar", class: "btn btn-primary btn-block text-white" %>
+              <%= f.submit "Enviar pedido", class: "btn btn-primary btn-block text-white" %>
             </div>
             <div class="col-md-6 mt-3 mt-md-0">
-              <small class="text-muted d-block">Etapa de envio do pedido será concluída na Story 1.2.</small>
+              <small class="text-muted d-block">Você receberá uma confirmação na tela após o envio.</small>
             </div>
           </div>
         <% end %>

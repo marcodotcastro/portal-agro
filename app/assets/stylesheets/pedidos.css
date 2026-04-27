@@ -1,0 +1,146 @@
+.pedidos-panel {
+  background: linear-gradient(180deg, #f4f7ef 0%, #ffffff 38%);
+}
+
+.pedidos-panel__hero {
+  background: linear-gradient(135deg, #2e5e2f 0%, #1f4620 100%);
+  border-radius: 12px;
+  box-shadow: 0 22px 45px -30px rgba(22, 47, 23, 0.8);
+  padding: 32px;
+}
+
+.pedidos-panel__eyebrow {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pedidos-panel__subtitle {
+  max-width: 540px;
+  opacity: 0.88;
+}
+
+.pedidos-panel__hero-button {
+  border: 0;
+  color: #1f4620;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.pedidos-panel__metric {
+  background: #ffffff;
+  border: 1px solid #ebefde;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px -24px rgba(0, 0, 0, 0.8);
+  height: 100%;
+  padding: 16px;
+}
+
+.pedidos-panel__metric small {
+  color: #667064;
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.pedidos-panel__metric strong {
+  color: #1d231c;
+  display: block;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.pedidos-panel__metric--novo strong {
+  color: #2e7d32;
+}
+
+.pedidos-panel__metric--contato strong {
+  color: #9a6200;
+}
+
+.pedidos-panel__metric--concluido strong {
+  color: #2b7a78;
+}
+
+.pedidos-panel__list {
+  background: #ffffff;
+  border: 1px solid #ebefde;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.pedidos-panel__item {
+  background: #fdfdf9;
+  border: 1px solid #edf0e3;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.pedidos-panel__item:last-child {
+  margin-bottom: 0 !important;
+}
+
+.pedidos-panel__badge {
+  border-radius: 999px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 6px 12px;
+  text-transform: uppercase;
+}
+
+.pedidos-panel__badge--novo {
+  background: rgba(46, 125, 50, 0.16);
+  color: #266a2a;
+}
+
+.pedidos-panel__badge--em-contato {
+  background: rgba(234, 179, 8, 0.2);
+  color: #855400;
+}
+
+.pedidos-panel__badge--concluido {
+  background: rgba(43, 122, 120, 0.16);
+  color: #226260;
+}
+
+.pedidos-panel__badge--cancelado {
+  background: rgba(127, 127, 127, 0.14);
+  color: #525252;
+}
+
+.pedidos-panel__badge--padrao {
+  background: rgba(95, 99, 104, 0.12);
+  color: #4a4f54;
+}
+
+.pedidos-panel__value {
+  color: #1d231c;
+  font-weight: 600;
+}
+
+.pedidos-panel__empty {
+  background: #ffffff;
+  border: 1px dashed #d8dfc6;
+  border-radius: 10px;
+  padding: 32px 20px;
+}
+
+.pedidos-panel__empty-icon {
+  color: #587456;
+  font-size: 44px;
+}
+
+@media (max-width: 991.98px) {
+  .pedidos-panel__hero {
+    padding: 26px;
+  }
+
+  .pedidos-panel__hero-button {
+    width: 100%;
+  }
+}

@@ -62,6 +62,9 @@ pt-BR:
       contato:
         one: "Contato"
         other: "Contatos"
+      pedido:
+        one: "Pedido"
+        other: "Pedidos"
     attributes:
       produto:
         nome: "Nome"
@@ -172,6 +175,17 @@ pt-BR:
         descricao: "Descrição"
         created_at: "Criado Em"
         updated_at: "Atualizado Em"
+      pedido:
+        nome: "Nome"
+        contato: "Contato"
+        quantidade: "Quantidade"
+        observacoes: "Observações"
+        status: "Status"
+        statuses:
+          novo: "Novo"
+          em_contato: "Em contato"
+          concluido: "Concluído"
+          cancelado: "Cancelado"
       admin_user:
         email: "Email"
         password: "Senha"

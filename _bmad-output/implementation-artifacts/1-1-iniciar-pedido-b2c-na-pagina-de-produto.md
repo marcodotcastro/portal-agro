@@ -1,6 +1,6 @@
 # Story 1.1: Iniciar Pedido B2C na Pagina de Produto
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,9 +33,9 @@ so that eu nao precise abrir WhatsApp para comecar a compra.
 
 ### Review Findings
 
-- [ ] [Review][Patch] Formulario de pedido envia dados pessoais via query string por usar `GET` no submit [app/views/pedidos/new.html.erb:12]
-- [ ] [Review][Patch] Acesso direto a `/pedidos/new` sem `produto_id` nao possui tratamento explicito e depende de excecao [app/controllers/pedidos_controller.rb:10]
-- [ ] [Review][Patch] Cobertura de teste valida apenas caminho feliz e nao cobre ausencia/invalidade de `produto_id` [spec/features/iniciar_pedido_b2c_spec.rb:4]
+- [x] [Review][Patch] Formulario de pedido envia dados pessoais via query string por usar `GET` no submit [app/views/pedidos/new.html.erb:12]
+- [x] [Review][Patch] Acesso direto a `/pedidos/new` sem `produto_id` nao possui tratamento explicito e depende de excecao [app/controllers/pedidos_controller.rb:10]
+- [x] [Review][Patch] Cobertura de teste valida apenas caminho feliz e nao cobre ausencia/invalidade de `produto_id` [spec/features/iniciar_pedido_b2c_spec.rb:4]
 
 ## Dev Notes
 
@@ -79,6 +79,7 @@ GPT-5 Codex
 - `rtk bundle exec rspec` (1a execucao: 2 falhas por acoplamento de sequence em specs legadas)
 - Ajuste no spec novo para nao consumir sequence global de produtos
 - `rtk bundle exec rspec` (2a execucao: 13 exemplos, 0 falhas)
+- `rtk bundle exec rspec spec/features/iniciar_pedido_b2c_spec.rb` (review fix: 3 exemplos, 0 falhas)
 
 ### Completion Notes List
 
@@ -86,6 +87,9 @@ GPT-5 Codex
 - Mantida fronteira da Story 1.1: sem persistencia de pedido, somente abertura e preenchimento inicial do formulario.
 - Adicionado teste de feature para AC principal e ajustado para nao interferir em sequencias de testes existentes.
 - Suite completa de regressao executada com sucesso.
+- Corrigido submit para `POST /pedidos`, removendo envio de dados em query string.
+- Tratado acesso sem `produto_id` com redirecionamento seguro e alerta, evitando `RecordNotFound`.
+- Coberto cenario de submit e ausencia de `produto_id` em spec de feature.
 
 ### File List
 
@@ -100,3 +104,4 @@ GPT-5 Codex
 ## Change Log
 
 - 2026-04-27: Story 1.1 implementada e validada; status atualizado para `review`.
+- 2026-04-27: Findings de review corrigidos; status atualizado para `done`.
