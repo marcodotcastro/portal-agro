@@ -1,0 +1,47 @@
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-sm border-0 p-4 p-md-5">
+          <h2 class="font-weight-bold text-dark mb-2">Fale Conosco</h2>
+          <p class="text-muted mb-4">Entre em contato com a equipe e diretores da Cooperativa Portal Agro.</p>
+
+          <%= form_with model: @contact, url: contacts_path, method: :post do |f| %>
+            <% if @contact.errors.any? %>
+              <div class="alert alert-danger">
+                <ul class="mb-0">
+                  <% @contact.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="form-group mb-3">
+              <label class="font-weight-bold text-dark small text-uppercase">Seu Nome Completo</label>
+              <%= f.text_field :name, class: "form-control", placeholder: "Ex: Roberto Souza", required: true %>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 form-group mb-3">
+                <label class="font-weight-bold text-dark small text-uppercase">Telefone / WhatsApp</label>
+                <%= f.text_field :phone, class: "form-control", placeholder: "(62) 99999-0000" %>
+              </div>
+              <div class="col-md-6 form-group mb-3">
+                <label class="font-weight-bold text-dark small text-uppercase">E-mail</label>
+                <%= f.email_field :email, class: "form-control", placeholder: "seuemail@exemplo.com" %>
+              </div>
+            </div>
+
+            <div class="form-group mb-4">
+              <label class="font-weight-bold text-dark small text-uppercase">Mensagem ou Dúvida</label>
+              <%= f.text_area :message, rows: 4, class: "form-control", placeholder: "Como a cooperativa pode ajudar você?", required: true %>
+            </div>
+
+            <%= f.submit "Enviar Mensagem", class: "btn btn-success btn-block font-weight-bold py-3 shadow-sm" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

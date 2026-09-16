@@ -18,13 +18,14 @@
             <div class="container">
               <div class="row full-height align-items-center">
                 <div class="col-md-6 mx-auto">
-                  <ul class="list-unstyled menu">
                     <li class="active"><a href="/">Principal</a></li>
-                    <li><%= link_to t("header.menu.produtor"), produtores_path %></li>
-                    <li><%= link_to t("header.menu.produto"), produtos_path %></li>
-                    <li><%= link_to t("header.menu.servico"), servicos_path %></li>
-                    <li><%= link_to t("header.menu.contato"), new_contato_path %></li>
-                    <li><%= link_to t("header.menu.objetivo"), objetivo_path %></li>
+                    <li><%= link_to "Produtores", producers_path %></li>
+                    <li><%= link_to "Safras & Produtos", products_path %></li>
+                    <li><%= link_to "Simulação & Cotação", new_order_path %></li>
+                    <li><%= link_to "Painel de Pedidos", orders_path %></li>
+                    <li><%= link_to "Serviços", services_path %></li>
+                    <li><%= link_to "Contato", new_contact_path %></li>
+                    <li><%= link_to "Objetivo", objetivo_path %></li>
                   </ul>
                 </div>
               </div>
@@ -96,7 +97,7 @@
             <h2 class="font-weight-bold"><%= t("header.mensagem_secundaria.mensagem_primaria") %></h2>
           </div>
           <div class="col-12 col-md-3 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
-            <%= link_to t("header.mensagem_secundaria.mensagem_secundaria"), new_contato_path, class: "btn btn-success font-weight-bold text-dark py-3 px-5" %>
+            <%= link_to t("header.mensagem_secundaria.mensagem_secundaria"), new_contact_path, class: "btn btn-success font-weight-bold text-dark py-3 px-5" %>
           </div>
         </div>
       </div>

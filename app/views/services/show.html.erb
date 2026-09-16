@@ -1,0 +1,36 @@
+<section class="py-5">
+  <div class="container">
+    <div class="mb-4">
+      <%= link_to "← Voltar aos Serviços", services_path, class: "btn btn-outline-secondary btn-sm" %>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm overflow-hidden">
+          <div style="height: 220px; background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%); display: flex; align-items: center; justify-content: center; color: white;">
+            <div class="text-center px-4">
+              <span class="badge badge-light text-primary mb-2">Assistência Especializada</span>
+              <h2 class="text-white font-weight-bold mb-1"><%= @service.name %></h2>
+              <p class="text-white-50 mb-0">Prestador: <%= @service.producer&.name || 'Cooperativa' %></p>
+            </div>
+          </div>
+          <div class="card-body p-4 p-md-5">
+            <h4 class="font-weight-bold text-dark mb-3">Escopo e Descrição do Serviço</h4>
+            <p class="text-muted leading-relaxed mb-4"><%= @service.description.presence || "Serviço com garantia de qualidade e suporte técnico qualificado." %></p>
+
+            <div class="row bg-light p-4 rounded mb-4">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <span class="text-muted small d-block">Preço Estimado</span>
+                <h3 class="text-success font-weight-bold mb-0">R$ <%= sprintf('%.2f', @service.price || 0) %></h3>
+                <small class="text-muted"><%= @service.unit.presence || "Por diária / tarefa" %></small>
+              </div>
+              <div class="col-sm-6 text-sm-right align-self-center">
+                <%= link_to "Solicitar Contratação", new_contact_path, class: "btn btn-success font-weight-bold px-4 py-2" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

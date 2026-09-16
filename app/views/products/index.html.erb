@@ -1,8 +1,53 @@
-<h1>Products</h1>
-<lo>
-  <% @products.each do |product| %>
-    <li>
-      <%= product.description %>
-    </li>
-  <% end %>
-</lo>
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row mb-4 align-items-center">
+      <div class="col-md-8">
+        <h2 class="font-weight-bold text-dark mb-1">Catálogo Reativo de Safras e Produtos</h2>
+        <p class="text-muted mb-0">Pesquise produtos e lotes agrícolas da cooperativa com resposta instantânea (&lt;50ms).</p>
+      </div>
+      <div class="col-md-4 text-md-right mt-3 mt-md-0">
+        <%= link_to "Simulador de Cotação", new_order_path, class: "btn btn-success px-4 py-2 font-weight-bold shadow-sm" %>
+      </div>
+    </div>
+
+    <!-- Filtro Reativo com Stimulus & Turbo Frame -->
+    <div class="card shadow-sm border-0 mb-5 p-4" data-controller="filter">
+      <%= search_form_for @q, url: products_path, method: :get, data: { turbo_frame: "products_results", filter_target: "form" } do |f| %>
+        <div class="row align-items-end">
+          <div class="col-md-5 mb-3 mb-md-0">
+            <label class="font-weight-bold text-dark small text-uppercase">Buscar por Nome / Cultura</label>
+            <%= f.search_field :name_cont, class: "form-control shadow-sm", placeholder: "Ex: Milho, Soja, Tomate...", data: { action: "input->filter#search", filter_target: "input" } %>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0">
+            <label class="font-weight-bold text-dark small text-uppercase">Categoria</label>
+            <%= f.select :category_id_eq, options_from_collection_for_select(Category.order(:name), :id, :name, @q.category_id_eq), { include_blank: "Todas as Categorias" }, class: "form-control shadow-sm", data: { action: "change->filter#search" } %>
+          </div>
+          <div class="col-md-3">
+            <%= link_to "Limpar Filtros", products_path, class: "btn btn-outline-secondary btn-block font-weight-bold", data: { turbo_frame: "products_results" } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Lista Reativa Turbo Frame -->
+    <turbo-frame id="products_results">
+      <div class="row" id="products_grid">
+        <% if @products.any? %>
+          <%= render partial: "product", collection: @products, as: :product %>
+        <% else %>
+          <div class="col-12 py-5 text-center">
+            <div class="p-5 bg-white rounded shadow-sm">
+              <h4 class="text-secondary font-weight-bold">Nenhum produto encontrado</h4>
+              <p class="text-muted">Tente ajustar os termos de busca ou filtros selecionados.</p>
+              <%= link_to "Ver todos os produtos", products_path, class: "btn btn-primary btn-sm mt-2", data: { turbo_frame: "products_results" } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <%= paginate @products if @products.respond_to?(:total_pages) %>
+      </div>
+    </turbo-frame>
+  </div>
+</section>

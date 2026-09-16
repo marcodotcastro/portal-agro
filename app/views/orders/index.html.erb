@@ -1,0 +1,71 @@
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row mb-4 align-items-center">
+      <div class="col-md-8">
+        <h2 class="font-weight-bold text-dark mb-1">Painel Cooperativo de Pedidos & Cotações</h2>
+        <p class="text-muted mb-0">Visão consolidada de pedidos gerados por compradores e indústrias para os produtores.</p>
+      </div>
+      <div class="col-md-4 text-md-right mt-3 mt-md-0">
+        <%= link_to "Nova Simulação de Cotação", new_order_path, class: "btn btn-success px-4 py-2 font-weight-bold shadow-sm" %>
+      </div>
+    </div>
+
+    <div class="card shadow-sm border-0 overflow-hidden">
+      <div class="table-responsive">
+        <table class="table table-hover mb-0">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col" class="border-0">#</th>
+              <th scope="col" class="border-0">Comprador</th>
+              <th scope="col" class="border-0">Safra / Produto</th>
+              <th scope="col" class="border-0">Produtor</th>
+              <th scope="col" class="border-0 text-center">Quantidade</th>
+              <th scope="col" class="border-0 text-right">Valor Estimado</th>
+              <th scope="col" class="border-0 text-center">Status</th>
+              <th scope="col" class="border-0 text-right">Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if @orders.any? %>
+              <% @orders.each do |order| %>
+                <tr>
+                  <td class="font-weight-bold text-muted">#<%= order.id %></td>
+                  <td>
+                    <strong><%= order.customer_name %></strong><br>
+                    <small class="text-muted"><%= order.customer_contact %></small>
+                  </td>
+                  <td>
+                    <span class="font-weight-bold text-dark"><%= order.product&.name || "Safra Diversa" %></span>
+                  </td>
+                  <td>
+                    <span class="text-secondary"><%= order.product&.producer&.name || "Cooperativa Central" %></span>
+                  </td>
+                  <td class="text-center">
+                    <span class="badge badge-secondary px-2 py-1"><%= order.quantity %> un</span>
+                  </td>
+                  <td class="text-right font-weight-bold text-success">
+                    <% unit_price = order.product&.price || 0 %>
+                    R$ <%= sprintf('%.2f', (order.quantity * unit_price) + (order.quantity * 12.50)) %>
+                  </td>
+                  <td class="text-center">
+                    <span class="badge badge-success text-uppercase px-2 py-1"><%= order.status || 'Novo Pedido' %></span>
+                  </td>
+                  <td class="text-right text-muted small">
+                    <%= order.created_at.strftime("%d/%m/%Y %H:%M") %>
+                  </td>
+                </tr>
+              <% end %>
+            <% else %>
+              <tr>
+                <td colspan="8" class="text-center py-5">
+                  <p class="text-muted mb-2">Nenhum pedido registrado no momento.</p>
+                  <%= link_to "Simular primeiro pedido", new_order_path, class: "btn btn-primary btn-sm" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

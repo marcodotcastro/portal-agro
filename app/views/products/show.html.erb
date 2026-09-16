@@ -1,0 +1,66 @@
+<section class="py-5">
+  <div class="container">
+    <div class="mb-4">
+      <%= link_to "← Voltar ao Catálogo", products_path, class: "btn btn-outline-secondary btn-sm" %>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="card border-0 shadow-sm overflow-hidden mb-4">
+          <div style="height: 300px; background: linear-gradient(135deg, #1b4332 0%, #40916c 100%); display: flex; align-items: center; justify-content: center; color: white;">
+            <div class="text-center px-4">
+              <span class="badge badge-light text-dark mb-3"><%= @product.category&.name || 'Geral' %></span>
+              <h2 class="text-white font-weight-bold"><%= @product.name %></h2>
+              <p class="text-white-50 mb-0">Produtor: <%= @product.producer&.name %></p>
+            </div>
+          </div>
+          <div class="card-body p-4">
+            <h4 class="font-weight-bold text-dark mb-3">Informações Técnicas</h4>
+            <p class="text-muted leading-relaxed"><%= @product.description.presence || "Safra cultivada seguindo os rigorosos padrões de qualidade e sustentabilidade da cooperativa." %></p>
+
+            <hr class="my-4">
+
+            <div class="row">
+              <div class="col-6 mb-3">
+                <span class="text-muted small d-block">Categoria</span>
+                <strong class="text-dark"><%= @product.category&.name || 'Geral' %></strong>
+              </div>
+              <div class="col-6 mb-3">
+                <span class="text-muted small d-block">Padrão de Qualidade</span>
+                <strong class="text-dark"><%= @product.quality&.name || 'Convencional Certificado' %></strong>
+              </div>
+              <div class="col-6 mb-3">
+                <span class="text-muted small d-block">Produtor Associado</span>
+                <strong><%= link_to @product.producer.name, producer_path(@product.producer), class: "text-success" if @product.producer %></strong>
+              </div>
+              <div class="col-6 mb-3">
+                <span class="text-muted small d-block">Preço Base de Referência</span>
+                <h4 class="text-success font-weight-bold mb-0">R$ <%= sprintf('%.2f', @product.price) %></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="card border-0 shadow-sm p-4 bg-light sticky-top" style="top: 2rem;">
+          <h4 class="font-weight-bold text-dark mb-2">Simulação Rápida de Compra</h4>
+          <p class="text-muted small mb-4">Calcule o volume e valores estimados diretamente com a cooperativa.</p>
+
+          <div class="p-3 bg-white rounded shadow-sm mb-3">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="text-muted">Valor Unitário:</span>
+              <strong>R$ <%= sprintf('%.2f', @product.price) %></strong>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span class="text-muted">Disponibilidade:</span>
+              <span class="badge badge-success">Pronta Entrega</span>
+            </div>
+          </div>
+
+          <%= link_to "Iniciar Simulação Completa", new_order_path(product_id: @product.id), class: "btn btn-success btn-lg btn-block font-weight-bold shadow-sm py-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

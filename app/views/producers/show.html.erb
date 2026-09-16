@@ -1,0 +1,76 @@
+<section class="py-5">
+  <div class="container">
+    <div class="mb-4">
+      <%= link_to "← Voltar aos Produtores", producers_path, class: "btn btn-outline-secondary btn-sm" %>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm overflow-hidden mb-4">
+          <div style="height: 240px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); display: flex; align-items: center; justify-content: center; color: white;">
+            <div class="text-center px-4">
+              <span class="badge badge-light text-primary mb-2"><%= @producer.legal_entity? ? 'Pessoa Jurídica' : 'Produtor Rural Familiar' %></span>
+              <h2 class="text-white font-weight-bold mb-1"><%= @producer.name %></h2>
+              <% if @producer.nickname.present? %>
+                <p class="text-white-50 mb-0">Fazenda: <%= @producer.nickname %></p>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="card-body p-4">
+            <h4 class="font-weight-bold text-dark mb-3">Sobre a Propriedade</h4>
+            <div class="row mb-4">
+              <div class="col-md-6 mb-3">
+                <span class="text-muted small d-block">Município</span>
+                <strong class="text-dark"><%= @producer.city ? "#{@producer.city.name} - #{@producer.city.state&.name}" : "Goiás - GO" %></strong>
+              </div>
+              <div class="col-md-6 mb-3">
+                <span class="text-muted small d-block">Endereço / Região</span>
+                <strong class="text-dark"><%= @producer.address.presence || "Zona Rural" %></strong>
+              </div>
+              <div class="col-md-6 mb-3">
+                <span class="text-muted small d-block">Telefone / WhatsApp</span>
+                <strong class="text-dark"><%= @producer.phone.presence || "Via Cooperativa" %></strong>
+              </div>
+              <div class="col-md-6 mb-3">
+                <span class="text-muted small d-block">Licença Ambiental</span>
+                <span class="badge badge-info"><%= @producer.environmental_license&.upcase || "Regularizada" %></span>
+              </div>
+            </div>
+
+            <hr>
+
+            <h4 class="font-weight-bold text-dark mb-4">Safras e Produtos Disponíveis</h4>
+            <% if @products.any? %>
+              <div class="row">
+                <%= render partial: "products/product", collection: @products, as: :product %>
+              </div>
+            <% else %>
+              <p class="text-muted">Nenhum produto cadastrado para este produtor no momento.</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm p-4 bg-light sticky-top" style="top: 2rem;">
+          <h4 class="font-weight-bold text-dark mb-2">Painel de Negociação</h4>
+          <p class="text-muted small mb-4">Comercialize diretamente com o produtor através do simulador integrado.</p>
+
+          <div class="p-3 bg-white rounded shadow-sm mb-3">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="text-muted">Status do Produtor:</span>
+              <span class="badge badge-success">Ativo e Homologado</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span class="text-muted">Formas de Pagamento:</span>
+              <span class="small font-weight-bold"><%= @producer.accepts_card? ? "Cartão / Faturado" : "Depósito / PIX" %></span>
+            </div>
+          </div>
+
+          <%= link_to "Simular Pedido de Safra", new_order_path, class: "btn btn-success btn-lg btn-block font-weight-bold shadow-sm py-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

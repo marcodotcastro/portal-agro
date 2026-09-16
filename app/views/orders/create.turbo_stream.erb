@@ -1,0 +1,42 @@
+<%= turbo_stream.prepend "orders_table_body" do %>
+  <tr>
+    <td class="font-weight-bold text-muted">#<%= @order.id %></td>
+    <td>
+      <strong><%= @order.customer_name %></strong><br>
+      <small class="text-muted"><%= @order.customer_contact %></small>
+    </td>
+    <td>
+      <span class="font-weight-bold text-dark"><%= @order.product&.name || "Safra Diversa" %></span>
+    </td>
+    <td>
+      <span class="text-secondary"><%= @order.product&.producer&.name || "Cooperativa Central" %></span>
+    </td>
+    <td class="text-center">
+      <span class="badge badge-secondary px-2 py-1"><%= @order.quantity %> un</span>
+    </td>
+    <td class="text-right font-weight-bold text-success">
+      <% unit_price = @order.product&.price || 0 %>
+      R$ <%= sprintf('%.2f', (@order.quantity * unit_price) + (@order.quantity * 12.50)) %>
+    </td>
+    <td class="text-center">
+      <span class="badge badge-success text-uppercase px-2 py-1"><%= @order.status || 'Novo Pedido' %></span>
+    </td>
+    <td class="text-right text-muted small">
+      <%= @order.created_at.strftime("%d/%m/%Y %H:%M") %>
+    </td>
+  </tr>
+<% end %>
+
+<%= turbo_stream.replace "order_form" do %>
+  <div class="p-5 bg-white text-center rounded shadow-sm">
+    <div class="mb-3 text-success">
+      <span class="fa fa-check-circle fa-4x"></span>
+    </div>
+    <h3 class="font-weight-bold text-dark mb-2">Simulação e Pedido Confirmados!</h3>
+    <p class="text-muted mb-4">Seu pedido para <strong><%= @order.product&.name %></strong> foi registrado e despachado para a cooperativa.</p>
+    <div class="btn-group">
+      <%= link_to "Realizar Nova Simulação", new_order_path, class: "btn btn-outline-success font-weight-bold" %>
+      <%= link_to "Ver Painel de Pedidos", orders_path, class: "btn btn-success font-weight-bold" %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,38 @@
+<div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+  <div class="card h-100 shadow-sm border-0 rounded overflow-hidden">
+    <div style="height: 200px; background: linear-gradient(135deg, #2b580c 0%, #639a67 100%); display: flex; align-items: center; justify-content: center; color: white;">
+      <div class="text-center px-3">
+        <span class="badge badge-light text-dark mb-2"><%= product.category&.name || 'Geral' %></span>
+        <h4 class="text-white font-weight-bold mb-0"><%= product.name %></h4>
+      </div>
+    </div>
+    <div class="card-body d-flex flex-column">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="text-muted small">Produtor:</span>
+        <strong class="text-dark"><%= product.producer&.name || 'Cooperativa' %></strong>
+      </div>
+      <% if product.quality.present? %>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted small">Qualidade:</span>
+          <span class="badge badge-info"><%= product.quality.name %></span>
+        </div>
+      <% end %>
+      <% if product.producer&.city.present? %>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted small">Origem:</span>
+          <span class="text-secondary small"><%= product.producer.city.name %> - <%= product.producer.city.state&.name %></span>
+        </div>
+      <% end %>
+      <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+        <div>
+          <span class="text-muted small d-block">Preço Base</span>
+          <h5 class="text-success font-weight-bold mb-0">R$ <%= sprintf('%.2f', product.price) %></h5>
+        </div>
+        <div class="btn-group">
+          <%= link_to "Detalhes", product_path(product), class: "btn btn-outline-secondary btn-sm", data: { turbo_frame: "_top" } %>
+          <%= link_to "Simular Pedido", new_order_path(product_id: product.id), class: "btn btn-success btn-sm font-weight-bold", data: { turbo_frame: "_top" } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

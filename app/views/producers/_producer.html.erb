@@ -1,0 +1,36 @@
+<div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+  <div class="card h-100 shadow-sm border-0 rounded overflow-hidden">
+    <div style="height: 180px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); display: flex; align-items: center; justify-content: center; color: white;">
+      <div class="text-center px-3">
+        <span class="badge badge-light text-primary mb-2"><%= producer.legal_entity? ? 'Pessoa Jurídica' : 'Agricultura Familiar' %></span>
+        <h4 class="text-white font-weight-bold mb-0"><%= producer.name %></h4>
+        <% if producer.nickname.present? %>
+          <small class="text-white-50">"<%= producer.nickname %>"</small>
+        <% end %>
+      </div>
+    </div>
+    <div class="card-body d-flex flex-column">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="text-muted small">Localização:</span>
+        <strong class="text-dark">
+          <%= producer.city ? "#{producer.city.name} - #{producer.city.state&.name}" : "Goiás - GO" %>
+        </strong>
+      </div>
+      <% if producer.phone.present? %>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted small">Contato:</span>
+          <span class="text-secondary small"><%= producer.phone %></span>
+        </div>
+      <% end %>
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="text-muted small">Produtos Cadastrados:</span>
+        <span class="badge badge-success"><%= producer.products.count %> itens</span>
+      </div>
+
+      <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+        <span class="text-muted small"><%= producer.accepts_card? ? 'Aceita Cartão' : 'À Vista / Faturamento' %></span>
+        <%= link_to "Ver Perfil & Safras", producer_path(producer), class: "btn btn-outline-primary btn-sm font-weight-bold", data: { turbo_frame: "_top" } %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -123,28 +123,28 @@
 #           rails_direct_uploads POST       /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  get 'products/index'
-  get 'home/index'
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-
   root 'home#index'
-  get 'objetivo', to: "objetivo#show"
-  resources :contatos, only: [:index]
-  post "contatos", to: "contatos#create"
-  get "contato/enviado", to: "contatos#show"
-  get 'contato', to: "contatos#new", as: "new_contato"
-  resources :pedidos, only: [:index, :new, :create]
+  get 'home/index', to: 'home#index'
+  get 'objective', to: 'objetivo#show'
+  get 'objetivo', to: 'objetivo#show'
 
-  resources :estados, only: [:show] do
-    resources :cidades, only: [:show] do
-      resources :produtores, only: [:show] do
-        resources :produtos, only: [:show]
-        resources :servicos, only: [:show]
-      end
-    end
-  end
-  resources :produtores, :path => "/estados/goias/produtores", only: [:index]
-  resources :servicos, :path => "/estados/goias/servicos", only: [:index]
-  resources :produtos, :path => "/estados/goias/produtos", only: [:index]
+  devise_for :admin_users
+
+  resources :producers, only: [:index, :show]
+  resources :products, only: [:index, :show]
+  resources :orders, only: [:index, :new, :create]
+  resources :services, only: [:index, :show]
+  resources :contacts, only: [:index, :create, :show]
+  get 'contact', to: 'contacts#index', as: 'new_contact'
+  get 'contact_sent', to: 'contacts#show', as: 'contact_sent'
+
+  # Legacy Portuguese compatibility redirects
+  get 'produtores', to: redirect('/producers')
+  get 'produtores/:id', to: redirect('/producers/%{id}')
+  get 'produtos', to: redirect('/products')
+  get 'produtos/:id', to: redirect('/products/%{id}')
+  get 'pedidos', to: redirect('/orders')
+  get 'pedidos/new', to: redirect('/orders/new')
+  get 'servicos', to: redirect('/services')
+  get 'contatos', to: redirect('/contacts')
 end

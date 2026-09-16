@@ -1,0 +1,102 @@
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row mb-4 align-items-center">
+      <div class="col-md-8">
+        <h2 class="font-weight-bold text-dark mb-1">Simulador Interativo de Cotação de Safras</h2>
+        <p class="text-muted mb-0">Simule pedidos e contratos agrícolas em tempo real com cálculo dinâmico de insumos e frete cooperativo.</p>
+      </div>
+      <div class="col-md-4 text-md-right mt-3 mt-md-0">
+        <%= link_to "Ver Pedidos Registrados", orders_path, class: "btn btn-outline-primary px-4 py-2 font-weight-bold" %>
+      </div>
+    </div>
+
+    <div class="row" data-controller="calculator" data-calculator-unit-price-value="<%= @product&.price || 0 %>" data-calculator-freight-per-unit-value="12.50">
+      <!-- Formulário de Simulação -->
+      <div class="col-lg-7 mb-4">
+        <div class="card shadow-sm border-0 p-4">
+          <h4 class="font-weight-bold text-dark mb-3">Parâmetros do Pedido</h4>
+
+          <%= form_with model: @order, url: orders_path, method: :post, id: "order_form", data: { turbo: true } do |f| %>
+            <% if @order.errors.any? %>
+              <div class="alert alert-danger">
+                <ul class="mb-0">
+                  <% @order.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="form-group mb-3">
+              <label class="font-weight-bold text-dark small text-uppercase">Produto / Safra Selecionada</label>
+              <select name="order[product_id]" class="form-control" data-calculator-target="unitPriceSelect" data-action="change->calculator#productChanged">
+                <% @products.each do |p| %>
+                  <option value="<%= p.id %>" data-price="<%= p.price %>" <%= "selected" if p.id == @product&.id %>>
+                    <%= p.name %> - R$ <%= sprintf('%.2f', p.price) %> (Produtor: <%= p.producer&.name || 'Cooperativa' %>)
+                  </option>
+                <% end %>
+              </select>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 form-group mb-3">
+                <label class="font-weight-bold text-dark small text-uppercase">Quantidade de Sacas / Unidades</label>
+                <%= f.number_field :quantity, min: 1, value: @order.quantity || 1, class: "form-control form-control-lg", data: { calculator_target: "quantity", action: "input->calculator#calculate" } %>
+              </div>
+              <div class="col-md-6 form-group mb-3">
+                <label class="font-weight-bold text-dark small text-uppercase">Nome do Comprador / Empresa</label>
+                <%= f.text_field :customer_name, class: "form-control form-control-lg", placeholder: "Ex: Agroindústria Centro-Oeste" %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 form-group mb-3">
+                <label class="font-weight-bold text-dark small text-uppercase">Contato / Telefone / E-mail</label>
+                <%= f.text_field :customer_contact, class: "form-control", placeholder: "(62) 98888-7777 ou compras@empresa.com.br" %>
+              </div>
+            </div>
+
+            <div class="form-group mb-4">
+              <label class="font-weight-bold text-dark small text-uppercase">Observações de Frete e Entrega</label>
+              <%= f.text_area :notes, rows: 3, class: "form-control", placeholder: "Informações adicionais sobre prazo de entrega, local de descarregamento ou faturamento..." %>
+            </div>
+
+            <%= f.submit "Confirmar e Enviar Pedido", class: "btn btn-success btn-lg btn-block font-weight-bold shadow-sm py-3" %>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Resumo Reativo em Tempo Real -->
+      <div class="col-lg-5">
+        <div class="card border-0 shadow-sm p-4 bg-white sticky-top" style="top: 2rem;">
+          <h4 class="font-weight-bold text-dark mb-1">Demonstrativo da Simulação</h4>
+          <p class="text-muted small mb-4">Atualizado instantaneamente conforme os volumes informados.</p>
+
+          <div class="p-3 bg-light rounded mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="text-muted">Subtotal Safra:</span>
+              <strong class="text-dark font-weight-bold" data-calculator-target="subtotal">R$ 0,00</strong>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="text-muted">Frete Cooperativo Estimado:</span>
+              <span class="text-secondary font-weight-bold" data-calculator-target="freight">R$ 0,00</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center text-muted small">
+              <span>Tarifa Logística:</span>
+              <span>R$ 12,50 / un</span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="font-weight-bold text-dark">Valor Total Estimado:</span>
+              <h4 class="text-success font-weight-bold mb-0" data-calculator-target="total">R$ 0,00</h4>
+            </div>
+          </div>
+
+          <div class="alert alert-info small mb-0">
+            <strong>Garantia de Origem:</strong> Todo pedido simulado é roteado diretamente para a cooperativa e o produtor associado com rastreabilidade completa.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

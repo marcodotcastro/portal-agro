@@ -1,0 +1,53 @@
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row mb-4 align-items-center">
+      <div class="col-md-8">
+        <h2 class="font-weight-bold text-dark mb-1">Produtores & Cooperados</h2>
+        <p class="text-muted mb-0">Rede de produtores rurais, fazendas e agricultores familiares cadastrados.</p>
+      </div>
+      <div class="col-md-4 text-md-right mt-3 mt-md-0">
+        <%= link_to "Catálogo de Safras", products_path, class: "btn btn-outline-success px-4 py-2 font-weight-bold" %>
+      </div>
+    </div>
+
+    <!-- Filtro Reativo com Stimulus & Turbo Frame -->
+    <div class="card shadow-sm border-0 mb-5 p-4" data-controller="filter">
+      <%= search_form_for @q, url: producers_path, method: :get, data: { turbo_frame: "producers_results", filter_target: "form" } do |f| %>
+        <div class="row align-items-end">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label class="font-weight-bold text-dark small text-uppercase">Buscar por Nome do Produtor ou Fazenda</label>
+            <%= f.search_field :name_or_nickname_cont, class: "form-control shadow-sm", placeholder: "Ex: Fazenda Boa Vista, João Silva...", data: { action: "input->filter#search", filter_target: "input" } %>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0">
+            <label class="font-weight-bold text-dark small text-uppercase">Cidade</label>
+            <%= f.select :city_id_eq, options_from_collection_for_select(City.order(:name), :id, :name, @q.city_id_eq), { include_blank: "Todas as Cidades" }, class: "form-control shadow-sm", data: { action: "change->filter#search" } %>
+          </div>
+          <div class="col-md-2">
+            <%= link_to "Limpar", producers_path, class: "btn btn-outline-secondary btn-block font-weight-bold", data: { turbo_frame: "producers_results" } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Lista Reativa Turbo Frame -->
+    <turbo-frame id="producers_results">
+      <div class="row" id="producers_grid">
+        <% if @producers.any? %>
+          <%= render partial: "producer", collection: @producers, as: :producer %>
+        <% else %>
+          <div class="col-12 py-5 text-center">
+            <div class="p-5 bg-white rounded shadow-sm">
+              <h4 class="text-secondary font-weight-bold">Nenhum produtor encontrado</h4>
+              <p class="text-muted">Tente ajustar os critérios de busca.</p>
+              <%= link_to "Ver todos os produtores", producers_path, class: "btn btn-primary btn-sm mt-2", data: { turbo_frame: "producers_results" } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <%= paginate @producers if @producers.respond_to?(:total_pages) %>
+      </div>
+    </turbo-frame>
+  </div>
+</section>

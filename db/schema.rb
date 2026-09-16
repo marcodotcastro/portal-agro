@@ -2,18 +2,17 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2026_04_27_212500) do
-
+ActiveRecord::Schema[8.0].define(version: 2026_09_16_233000) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -102,48 +101,30 @@ ActiveRecord::Schema.define(version: 2026_04_27_212500) do
     t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
   end
 
-  create_table "categorias", force: :cascade do |t|
-    t.string "nome"
-    t.string "descricao"
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "cidades", force: :cascade do |t|
-    t.string "nome"
-    t.bigint "estado_id"
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.bigint "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.index ["estado_id"], name: "index_cidades_on_estado_id"
-    t.index ["slug"], name: "index_cidades_on_slug"
+    t.index ["slug"], name: "index_cities_on_slug"
+    t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
-  create_table "contatos", force: :cascade do |t|
-    t.string "nome"
-    t.string "telefone"
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
     t.string "email"
-    t.text "descricao"
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "criacoes", force: :cascade do |t|
-    t.datetime "data"
-    t.string "titulo"
-    t.string "descricao"
-    t.bigint "produto_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["produto_id"], name: "index_criacoes_on_produto_id"
-  end
-
-  create_table "estados", force: :cascade do |t|
-    t.string "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "slug"
-    t.index ["slug"], name: "index_estados_on_slug"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -157,127 +138,139 @@ ActiveRecord::Schema.define(version: 2026_04_27_212500) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "historias", force: :cascade do |t|
-    t.datetime "data"
-    t.string "titulo"
-    t.string "descricao"
-    t.bigint "produtor_id"
+  create_table "harvests", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "unit", default: 0
+    t.integer "period", default: 0
+    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["produtor_id"], name: "index_historias_on_produtor_id"
+    t.index ["product_id"], name: "index_harvests_on_product_id"
   end
 
-  create_table "pedidos", force: :cascade do |t|
-    t.bigint "produto_id", null: false
-    t.string "nome", null: false
-    t.string "contato", null: false
-    t.integer "quantidade", null: false
-    t.text "observacoes"
+  create_table "livestocks", force: :cascade do |t|
+    t.datetime "activity_date"
+    t.string "title"
+    t.string "description"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_livestocks_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.string "customer_name", null: false
+    t.string "customer_contact", null: false
+    t.integer "quantity", null: false
+    t.text "notes"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["produto_id"], name: "index_pedidos_on_produto_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
   end
 
-  create_table "producoes", force: :cascade do |t|
-    t.integer "numero"
-    t.integer "medida", default: 0
-    t.integer "periodo", default: 0
-    t.bigint "produto_id"
+  create_table "producers", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["produto_id"], name: "index_producoes_on_produto_id"
+    t.boolean "whatsapp"
+    t.boolean "accepts_card"
+    t.string "nickname"
+    t.string "last_name"
+    t.string "slug"
+    t.bigint "city_id"
+    t.boolean "dap"
+    t.boolean "legal_entity"
+    t.date "published_at"
+    t.integer "environmental_license"
+    t.index ["city_id"], name: "index_producers_on_city_id"
+    t.index ["slug"], name: "index_producers_on_slug", unique: true
   end
 
   create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.decimal "price"
+    t.bigint "producer_id"
+    t.bigint "category_id"
+    t.bigint "quality_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.date "published_at"
+    t.integer "inspection_seal"
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["producer_id"], name: "index_products_on_producer_id"
+    t.index ["quality_id"], name: "index_products_on_quality_id"
+    t.index ["slug"], name: "index_products_on_slug"
+  end
+
+  create_table "qualities", force: :cascade do |t|
+    t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "produtores", force: :cascade do |t|
-    t.string "nome"
-    t.string "telefone"
-    t.string "email"
-    t.string "endereco"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "whatsapp"
-    t.boolean "cartao"
-    t.string "apelido"
-    t.string "sobrenome"
-    t.string "slug"
-    t.bigint "cidade_id"
-    t.boolean "dap"
-    t.boolean "pessoa_juridica"
-    t.date "published_at"
-    t.integer "licenciamento_ambiental"
-    t.index ["cidade_id"], name: "index_produtores_on_cidade_id"
-    t.index ["slug"], name: "index_produtores_on_slug", unique: true
-  end
-
-  create_table "produtos", force: :cascade do |t|
-    t.string "nome"
-    t.string "descricao"
-    t.decimal "preco"
-    t.bigint "produtor_id"
-    t.bigint "categoria_id"
-    t.bigint "qualidade_id"
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.decimal "price"
+    t.integer "unit", default: 0
+    t.bigint "producer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
     t.date "published_at"
-    t.integer "selo_inspecao"
-    t.index ["categoria_id"], name: "index_produtos_on_categoria_id"
-    t.index ["produtor_id"], name: "index_produtos_on_produtor_id"
-    t.index ["qualidade_id"], name: "index_produtos_on_qualidade_id"
-    t.index ["slug"], name: "index_produtos_on_slug"
+    t.index ["producer_id"], name: "index_services_on_producer_id"
+    t.index ["slug"], name: "index_services_on_slug", unique: true
   end
 
-  create_table "qualidades", force: :cascade do |t|
-    t.string "nome"
-    t.string "descricao"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "servicos", force: :cascade do |t|
-    t.string "nome"
-    t.string "descricao"
-    t.decimal "preco"
-    t.integer "medida", default: 0
-    t.bigint "produtor_id"
+  create_table "states", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.date "published_at"
-    t.index ["produtor_id"], name: "index_servicos_on_produtor_id"
-    t.index ["slug"], name: "index_servicos_on_slug", unique: true
+    t.index ["slug"], name: "index_states_on_slug"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.datetime "story_date"
+    t.string "title"
+    t.string "description"
+    t.bigint "producer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["producer_id"], name: "index_stories_on_producer_id"
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string "nome"
-    t.string "descricao"
-    t.string "codigo"
-    t.bigint "produtor_id"
-    t.bigint "produto_id"
+    t.string "title"
+    t.string "description"
+    t.string "embed_code"
+    t.bigint "producer_id"
+    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["produto_id"], name: "index_videos_on_produto_id"
-    t.index ["produtor_id"], name: "index_videos_on_produtor_id"
+    t.index ["producer_id"], name: "index_videos_on_producer_id"
+    t.index ["product_id"], name: "index_videos_on_product_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "cidades", "estados"
-  add_foreign_key "criacoes", "produtos"
-  add_foreign_key "historias", "produtores"
-  add_foreign_key "pedidos", "produtos"
-  add_foreign_key "producoes", "produtos"
-  add_foreign_key "produtores", "cidades"
-  add_foreign_key "produtos", "categorias"
-  add_foreign_key "produtos", "produtores"
-  add_foreign_key "produtos", "qualidades"
-  add_foreign_key "servicos", "produtores"
-  add_foreign_key "videos", "produtores"
-  add_foreign_key "videos", "produtos"
+  add_foreign_key "cities", "states"
+  add_foreign_key "harvests", "products"
+  add_foreign_key "livestocks", "products"
+  add_foreign_key "orders", "products"
+  add_foreign_key "producers", "cities", column: "city_id"
+  add_foreign_key "products", "categories", column: "category_id"
+  add_foreign_key "products", "producers"
+  add_foreign_key "products", "qualities", column: "quality_id"
+  add_foreign_key "services", "producers"
+  add_foreign_key "stories", "producers"
+  add_foreign_key "videos", "producers"
+  add_foreign_key "videos", "products"
 end
