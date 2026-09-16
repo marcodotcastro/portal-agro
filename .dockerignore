@@ -1,0 +1,12 @@
+.git
+.gitignore
+log/*
+tmp/*
+!log/.keep
+!tmp/.keep
+storage/*
+!storage/.keep
+test/*
+spec/*
+node_modules
+.env*
