@@ -6,7 +6,7 @@ Bundler.require(*Rails.groups)
 
 module Workspace
   class Application < Rails::Application
-    config.load_defaults 5.2
+    config.load_defaults 8.0
 
     # Permite que seja criada arquivos durante os generates
     config.generators do |g|
