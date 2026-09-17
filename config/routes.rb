@@ -123,6 +123,9 @@
 #           rails_direct_uploads POST       /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
+  get "/up", to: proc { [200, { "Content-Type" => "text/html" }, ["<!DOCTYPE html><html><body style=\"background-color: green\"></body></html>"]] }
+  get "/sentinel", to: "sentinel#index"
+  post "/sentinel/simulate", to: "sentinel#simulate"
   root 'home#index'
   get 'home/index', to: 'home#index'
   get 'objective', to: 'objetivo#show'

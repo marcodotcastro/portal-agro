@@ -26,6 +26,7 @@
                     <li class="<%= 'active' if controller_name == 'services' %>"><%= link_to "Serviços", services_path %></li>
                     <li class="<%= 'active' if controller_name == 'contacts' %>"><%= link_to "Contato", new_contact_path %></li>
                     <li class="<%= 'active' if controller_name == 'objetivo' %>"><%= link_to "Objetivo", objetivo_path %></li>
+                    <li class="<%= 'active' if controller_name == 'sentinel' %>"><%= link_to "⚡ Sentinel", "/sentinel" %></li>
                   </ul>
                 </div>
               </div>
@@ -66,6 +67,10 @@
           <span class="sub-heading text-warning font-weight-bold text-uppercase">Atendimento Direto</span>
           <h1 class="heading font-weight-bold text-white mb-2">Fale com a Cooperativa</h1>
           <p class="lead text-white-50">Canal direto com a diretoria técnica e suporte comercial.</p>
+        <% elsif controller_name == "sentinel" %>
+          <span class="sub-heading text-warning font-weight-bold text-uppercase">Observabilidade & Auto-Cura</span>
+          <h1 class="heading font-weight-bold text-white mb-2">Sentinel Playground</h1>
+          <p class="lead text-white-50">Injeção sintética de falhas e despacho agêntico para o Google Jules.</p>
         <% else %>
           <h1 class="heading font-weight-bold text-white mb-2">Portal Agro</h1>
           <p class="lead text-white-50">Tecnologia e sustentabilidade no campo.</p>

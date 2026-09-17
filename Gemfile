@@ -5,7 +5,7 @@ ruby '>= 3.2.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 8.0.0'
-gem 'pg', '~> 1.5'
+gem 'sqlite3', '>= 2.1'
 gem 'puma', '>= 6.0'
 
 # Modern asset pipeline
