@@ -1,31 +1,31 @@
-<!-- Menu -->
+<!-- Menu do Topo -->
 <header class="site-header js-site-header">
   <div class="container-fluid">
     <div class="row align-items-center">
-      <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="/"><%= t "header.logo" %></a></div>
+      <div class="col-6 col-lg-4 site-logo" data-aos="fade">
+        <a href="/" class="font-weight-bold text-white text-uppercase" style="letter-spacing: 2px;">Portal Agro</a>
+      </div>
       <div class="col-6 col-lg-8">
-
-
         <div class="site-menu-toggle js-site-menu-toggle" data-aos="fade">
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <!-- END menu-toggle -->
 
         <div class="site-navbar js-site-navbar">
           <nav role="navigation">
             <div class="container">
               <div class="row full-height align-items-center">
                 <div class="col-md-6 mx-auto">
-                    <li class="active"><a href="/">Principal</a></li>
-                    <li><%= link_to "Produtores", producers_path %></li>
-                    <li><%= link_to "Safras & Produtos", products_path %></li>
-                    <li><%= link_to "Simulação & Cotação", new_order_path %></li>
-                    <li><%= link_to "Painel de Pedidos", orders_path %></li>
-                    <li><%= link_to "Serviços", services_path %></li>
-                    <li><%= link_to "Contato", new_contact_path %></li>
-                    <li><%= link_to "Objetivo", objetivo_path %></li>
+                  <ul class="list-unstyled menu">
+                    <li class="<%= 'active' if controller_name == 'home' %>"><a href="/">Principal</a></li>
+                    <li class="<%= 'active' if controller_name == 'producers' %>"><%= link_to "Produtores", producers_path %></li>
+                    <li class="<%= 'active' if controller_name == 'products' %>"><%= link_to "Safras & Produtos", products_path %></li>
+                    <li class="<%= 'active' if controller_name == 'orders' && action_name == 'new' %>"><%= link_to "Simulação & Cotação", new_order_path %></li>
+                    <li class="<%= 'active' if controller_name == 'orders' && action_name == 'index' %>"><%= link_to "Painel de Pedidos", orders_path %></li>
+                    <li class="<%= 'active' if controller_name == 'services' %>"><%= link_to "Serviços", services_path %></li>
+                    <li class="<%= 'active' if controller_name == 'contacts' %>"><%= link_to "Contato", new_contact_path %></li>
+                    <li class="<%= 'active' if controller_name == 'objetivo' %>"><%= link_to "Objetivo", objetivo_path %></li>
                   </ul>
                 </div>
               </div>
@@ -37,71 +37,57 @@
   </div>
 </header>
 
-<!-- Mensagem Principal -->
-<section class="site-hero overlay" style="background-image: url('/images/agricultura-familiar-<%= Random.new.rand(1..5) %>.jpg')" data-stellar-background-ratio="0.5">
+<!-- Banner Hero Principal -->
+<section class="site-hero overlay" style="background-image: url('/images/agricultura-familiar-1.jpg'); background-size: cover; background-position: center;" data-stellar-background-ratio="0.5">
   <div class="container">
-    <div class="row site-hero-inner justify-content-center align-items-center">
+    <div class="row site-hero-inner justify-content-center align-items-center" style="min-height: 480px;">
       <div class="col-md-10 text-center" data-aos="fade-up">
-        <%# TODO: Refatorar %>
-        <% if controller_name.eql? "home" %>
-
-          <%# TODO: Mover esse JS para o local correto %>
-          <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
-
-          <span id="typed"></span>
-
-          <script type="text/javascript" charset="utf-8">
-              var typed = new Typed('#typed', {
-                  strings: ['<span class="sub-heading"><%= t("header.mensagem_principal.home.bem_vindo") %><span class="fa fa-star text-primary"></span><%= t("header.logo") %><span class="fa fa-star text-primary"></span></span> ^1000 <h1 class="heading"><%= t("header.mensagem_principal.home.mensagam_primaria") %></h1> ^1000 <h1 class="sub-heading"><%= t("header.mensagem_principal.mensagem_secundaria") %></h1>'],
-                  typeSpeed: 40,
-                  backSpeed: 0,
-                  cursorChar: '_',
-              });
-          </script>
-
-
-        <% elsif controller_name.eql? "servicos" %>
-          <% if action_name.eql? "index" %>
-            <h2 class="heading"><%= t("header.mensagem_principal.servicos.mensagam_primaria.plural") %></h2>
-            <span class="sub-heading"><span class="fa fa-star text-primary"></span> <%= t("header.mensagem_principal.mensagem_secundaria") %>
-              <span class="fa fa-star text-primary"></span></span>
-          <% else %>
-            <h2 class="heading"><%= t("header.mensagem_principal.servicos.mensagam_primaria.singular") %></h2>
-            <span class="sub-heading"><span class="fa fa-star text-primary"></span> <%= t("header.mensagem_principal.mensagem_secundaria") %>
-              <span class="fa fa-star text-primary"></span></span>
-          <% end %>
-        <% elsif controller_name.eql? "contatos" %>
-          <h2 class="heading"><%= t("header.mensagem_principal.contatos.mensagem_primaria") %></h2>
-          <span class="sub-heading"><span class="fa fa-star text-primary"></span> <%= t("header.mensagem_principal.mensagem_secundaria") %>
-            <span class="fa fa-star text-primary"></span></span>
-        <% elsif action_name.eql? "index" %>
-          <h2 class="heading"><%= t("header.mensagem_principal.outros.plural") %> <%= controller_name.capitalize %></h2>
-          <span class="sub-heading"><span class="fa fa-star text-primary"></span> <%= t("header.mensagem_principal.mensagem_secundaria") %>
-            <span class="fa fa-star text-primary"></span></span>
+        <% if controller_name == "home" %>
+          <span class="sub-heading text-warning font-weight-bold text-uppercase" style="letter-spacing: 2px;">Bem-vindo à Cooperativa Portal Agro</span>
+          <h1 class="heading font-weight-bold text-white mb-3">Agricultura Familiar & Cooperativismo</h1>
+          <p class="lead text-white-50 mx-auto" style="max-width: 680px;">Conectando produtores certificados a agroindústrias e compradores com agilidade e rastreabilidade total.</p>
+        <% elsif controller_name == "products" %>
+          <span class="sub-heading text-warning font-weight-bold text-uppercase">Catálogo de Safras</span>
+          <h1 class="heading font-weight-bold text-white mb-2">Produtos & Culturas Agrícolas</h1>
+          <p class="lead text-white-50">Lotes de soja, milho, café especial e hortifrúti em comercialização.</p>
+        <% elsif controller_name == "producers" %>
+          <span class="sub-heading text-warning font-weight-bold text-uppercase">Rede de Cooperados</span>
+          <h1 class="heading font-weight-bold text-white mb-2">Produtores & Fazendas</h1>
+          <p class="lead text-white-50">Produtores rurais familiares e propriedades agrícolas homologadas.</p>
+        <% elsif controller_name == "orders" %>
+          <span class="sub-heading text-warning font-weight-bold text-uppercase">Comercialização & Contratos</span>
+          <h1 class="heading font-weight-bold text-white mb-2">Simulação & Painel de Pedidos</h1>
+          <p class="lead text-white-50">Cotação dinâmica em tempo real com logística e frete cooperativo integrados.</p>
+        <% elsif controller_name == "services" %>
+          <span class="sub-heading text-warning font-weight-bold text-uppercase">Assistência & Tecnologia</span>
+          <h1 class="heading font-weight-bold text-white mb-2">Serviços Agrícolas Especializados</h1>
+          <p class="lead text-white-50">Manejo de solo, pulverização e telemetria para cooperados.</p>
+        <% elsif controller_name == "contacts" %>
+          <span class="sub-heading text-warning font-weight-bold text-uppercase">Atendimento Direto</span>
+          <h1 class="heading font-weight-bold text-white mb-2">Fale com a Cooperativa</h1>
+          <p class="lead text-white-50">Canal direto com a diretoria técnica e suporte comercial.</p>
         <% else %>
-          <h2 class="heading"><%= t("header.mensagem_principal.outros.singular") %> <%= controller_name.capitalize.singularize %></h2>
-          <span class="sub-heading"><span class="fa fa-star text-primary"></span> <%= t("header.mensagem_principal.mensagem_secundaria") %>
-            <span class="fa fa-star text-primary"></span></span>
+          <h1 class="heading font-weight-bold text-white mb-2">Portal Agro</h1>
+          <p class="lead text-white-50">Tecnologia e sustentabilidade no campo.</p>
         <% end %>
       </div>
     </div>
   </div>
 </section>
 
-<% unless controller_name.eql? "contatos" %>
-  <% unless action_name.eql? "index" %>
-    <section class="py-5">
+<% unless controller_name == "contacts" %>
+  <% unless action_name == "index" %>
+    <section class="py-4 bg-light border-bottom">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-12 col-md-9 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
-            <h2 class="font-weight-bold"><%= t("header.mensagem_secundaria.mensagem_primaria") %></h2>
+          <div class="col-12 col-md-9 text-center text-md-left mb-3 mb-md-0">
+            <h4 class="font-weight-bold mb-0 text-dark">Dúvidas sobre safras, lotes ou assistência técnica?</h4>
           </div>
-          <div class="col-12 col-md-3 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
-            <%= link_to t("header.mensagem_secundaria.mensagem_secundaria"), new_contact_path, class: "btn btn-success font-weight-bold text-dark py-3 px-5" %>
+          <div class="col-12 col-md-3 text-center text-md-right">
+            <%= link_to "Fale Conosco", new_contact_path, class: "btn btn-success font-weight-bold py-2 px-4 shadow-sm" %>
           </div>
         </div>
       </div>
     </section>
   <% end %>
 <% end %>
-
