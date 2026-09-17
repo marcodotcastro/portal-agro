@@ -1,11 +1,12 @@
 class HomeController < ApplicationController
-  layout "home"
-  
-  def index
-    @produto = Produto.all.sample(1).first
+  layout "application"
 
-    @produtos = Produto.all.sample(3)
-    @servicos = Servico.all.sample(3)
-    @produtores = Produtor.all.sample(3)
+  def index
+    @product = Product.published.order("RANDOM()").first || Product.first
+    @products = Product.published.limit(3)
+    @products = Product.limit(3) if @products.empty?
+    @services = Service.limit(3)
+    @producers = Producer.published.limit(3)
+    @producers = Producer.limit(3) if @producers.empty?
   end
 end
