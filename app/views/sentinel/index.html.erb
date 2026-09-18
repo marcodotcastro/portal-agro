@@ -8,7 +8,7 @@
               <span class="badge badge-primary px-3 py-2 text-uppercase mb-2" style="background: #2563eb; letter-spacing: 0.08em; font-size: 0.75rem;">Laboratório Volt &bull; Nó N-4103.10</span>
               <h1 class="h3 font-weight-bold text-white mb-1">Sentinel Playground — Portal Agro</h1>
               <p class="text-white-50 mb-0" style="font-size: 0.95rem;">
-                Injete incidentes sintéticos, prescreva ações cirúrgicas e despache missões TDD diretamente para o <strong>Google Jules</strong> via Sentinel Engine.
+                Reporte melhorias visuais/funcionais ou injete falhas sintéticas para despachar missões prescritivas diretamente ao assistente via Sentinel Engine.
               </p>
             </div>
             <div class="mt-3 mt-md-0">
@@ -31,24 +31,27 @@
       <div class="col-lg-7 mb-4">
         <div class="card border-0 shadow-sm p-4 p-md-5" style="border-radius: 12px; background: #ffffff;">
           <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="h5 font-weight-bold text-dark mb-0">Disparar Falha Controlada & Missão</h2>
+            <h2 class="h5 font-weight-bold text-dark mb-0">Disparar Missão ou Simular Falha</h2>
             <span class="badge badge-info px-2 py-1" style="font-family: monospace; font-size: 0.75rem;">ORIGEM: PORTAL AGRO</span>
           </div>
 
           <%= form_with url: "/sentinel/simulate", method: :post, local: true do %>
             <div class="form-group mb-3">
-              <label for="service_origin" class="font-weight-bold text-dark small text-uppercase">Serviço de Origem</label>
-              <input type="text" id="service_origin" class="form-control" value="Portal Agro (https://portalagro.marcocastro.pro)" readonly style="background-color: #f8fafc; font-family: monospace; font-size: 0.85rem;">
+              <label for="report_type" class="font-weight-bold text-dark small text-uppercase">Tipo de Registro</label>
+              <select name="report_type" id="report_type" class="form-control" onchange="toggleReportType(this.value)" style="font-weight: 600;">
+                <option value="improvement" selected>Melhoria / Ajuste Visual ou Funcional (Feature Request)</option>
+                <option value="incident">Falha Técnica / Erro (Bug Report)</option>
+              </select>
             </div>
 
             <div class="form-group mb-3">
-              <label for="error_class" class="font-weight-bold text-dark small text-uppercase">Classe do Erro</label>
-              <input type="text" name="error_class" id="error_class" class="form-control" value="ZeroDivisionError" required style="font-family: monospace;">
+              <label for="error_class" id="lbl_class" class="font-weight-bold text-dark small text-uppercase">Categoria da Missão</label>
+              <input type="text" name="error_class" id="error_class" class="form-control" value="UI/UX Improvement" required style="font-family: monospace;">
             </div>
 
             <div class="form-group mb-3">
-              <label for="message" class="font-weight-bold text-dark small text-uppercase">Mensagem do Erro</label>
-              <input type="text" name="message" id="message" class="form-control" value="Divisao por zero simulada no Portal Agro" required>
+              <label for="message" id="lbl_msg" class="font-weight-bold text-dark small text-uppercase">O que você observou? (Cenário Atual)</label>
+              <input type="text" name="message" id="message" class="form-control" value="O botão na tela de produtores está verde e deveria ser azul" required>
             </div>
 
             <div class="form-group mb-3">
@@ -61,16 +64,21 @@
               </select>
             </div>
 
+            <div class="form-group mb-3">
+              <label for="screen" class="font-weight-bold text-dark small text-uppercase">Tela / Referência do Componente</label>
+              <input type="text" name="screen" id="screen" class="form-control" value="https://portalagro.marcocastro.pro/producers" style="font-family: monospace;">
+            </div>
+
             <div class="form-group mb-4">
-              <label for="prescriptive_action" class="font-weight-bold text-dark small text-uppercase">Ação Prescritiva para o Assistente</label>
-              <textarea name="prescriptive_action" id="prescriptive_action" rows="4" class="form-control" style="resize: vertical; font-size: 0.9rem;" placeholder="Descreva a ação cirúrgica que o Google Jules deve realizar no repositório...">Adicionar validacao no model Produtor para evitar divisao por zero no calculo de taxa e cobrir com teste TDD em test/models/producer_test.rb.</textarea>
-              <small class="form-text text-muted">
-                Esta instrução será convertida no Playbook TDD (Red &rarr; Green &rarr; Refactor &rarr; PR) e despachada para o Sentinel Engine.
+              <label for="prescriptive_action" id="lbl_action" class="font-weight-bold text-dark small text-uppercase">O que o assistente deve executar? (Ação Prescritiva)</label>
+              <textarea name="prescriptive_action" id="prescriptive_action" rows="4" class="form-control" style="resize: vertical; font-size: 0.9rem;" placeholder="Descreva a ação que o assistente deve realizar no repositório...">Alterar a cor do botão para azul (#2563eb) com fidelidade ao Volt Design System e cobrir com testes.</textarea>
+              <small class="form-text text-muted" id="help_action">
+                Esta instrução será convertida no Playbook de Melhoria (feat(ui): ...) e despachada para o Sentinel Hub.
               </small>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="background: #2563eb; border-color: #2563eb; border-radius: 8px; font-size: 1rem; letter-spacing: 0.02em;">
-              ⚡ Disparar Simulação & Criar Missão no Jules
+            <button type="submit" id="btn_submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="background: #2563eb; border-color: #2563eb; border-radius: 8px; font-size: 1rem; letter-spacing: 0.02em;">
+              Disparar Missão de Melhoria
             </button>
           <% end %>
         </div>
@@ -79,22 +87,22 @@
       <div class="col-lg-5 mb-4">
         <div class="card border-0 shadow-sm p-4 mb-4" style="border-radius: 12px; background: #ffffff;">
           <h3 class="h6 font-weight-bold text-uppercase text-primary mb-3" style="letter-spacing: 0.05em;">
-            Como funciona a Auto-Cura Jules
+            Sentinel &amp; Esteira Agêntica
           </h3>
           <p class="text-muted small mb-3">
-            Ao disparar a simulação a partir do Portal Agro:
+            O Portal Agro integra-se nativamente à central de observabilidade:
           </p>
           <ol class="small text-muted pl-3 mb-0" style="line-height: 1.7;">
-            <li>O <code style="color: #2563eb;">Volt::Sentinel::Client</code> empacota a exceção e despacha via POST assíncrono para o Sentinel Engine (<code style="color: #6b21a8;">status.marcocastro.pro</code>).</li>
+            <li>O <code style="color: #2563eb;">VoltSentinelClient</code> empacota a notificação (erro ou melhoria) e despacha via POST assíncrono para o Sentinel Engine (<code style="color: #6b21a8;">status.marcocastro.pro</code>).</li>
             <li>O Sentinel Engine valida a API key do Portal Agro e enfileira o <code style="color: #059669;">TriggerAutoHealingJob</code> via Solid Queue.</li>
-            <li>É gerada a tarefa no <strong>Google Jules</strong> com prompt estrito (Red &rarr; Green &rarr; Refactor) sob a URL <code style="color: #7c3aed;">https://jules.google.com/task/volt-heal-xxxx</code>.</li>
-            <li>O card de incidente com link direto e detalhes prescritivos é transmitido via Solid Cable para o dashboard de observabilidade.</li>
+            <li>É gerada a tarefa estruturada (Playbook TDD para bugs ou Playbook feat(ui) para melhorias) sob URL rastreável.</li>
+            <li>O card correspondente é transmitido via Solid Cable para o dashboard de observabilidade.</li>
           </ol>
         </div>
 
         <div class="card border-0 shadow-sm p-4" style="border-radius: 12px; background: #ffffff;">
           <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3 class="h6 font-weight-bold text-dark mb-0">Simulações Recentes nesta Sessão</h3>
+            <h3 class="h6 font-weight-bold text-dark mb-0">Envios Recentes nesta Sessão</h3>
             <span class="badge badge-secondary" style="font-size: 0.75rem;">Sessão Local</span>
           </div>
 
@@ -103,7 +111,7 @@
               <% @recent_simulations.each do |sim| %>
                 <div class="list-group-item px-0 py-2 border-bottom">
                   <div class="d-flex justify-content-between align-items-center">
-                    <strong class="small text-danger"><%= sim["error_class"] %></strong>
+                    <strong class="small text-primary"><%= sim["error_class"] %></strong>
                     <span class="badge badge-success small">HTTP <%= sim["http_status"] %></span>
                   </div>
                   <div class="text-muted small text-truncate"><%= sim["message"] %></div>
@@ -116,7 +124,7 @@
             </div>
           <% else %>
             <p class="text-muted small mb-0">
-              Nenhuma simulação disparada nesta sessão. Preencha o formulário para testar a esteira.
+              Nenhuma ação disparada nesta sessão. Preencha o formulário para testar a esteira.
             </p>
           <% end %>
 
@@ -130,3 +138,36 @@
     </div>
   </div>
 </section>
+
+<script>
+  function toggleReportType(val) {
+    var lblClass = document.getElementById('lbl_class');
+    var inpClass = document.getElementById('error_class');
+    var lblMsg = document.getElementById('lbl_msg');
+    var inpMsg = document.getElementById('message');
+    var lblAct = document.getElementById('lbl_action');
+    var inpAct = document.getElementById('prescriptive_action');
+    var helpAct = document.getElementById('help_action');
+    var btn = document.getElementById('btn_submit');
+
+    if (val === 'improvement') {
+      lblClass.innerText = 'Categoria da Missão';
+      inpClass.value = 'UI/UX Improvement';
+      lblMsg.innerText = 'O que você observou? (Cenário Atual)';
+      inpMsg.value = 'O botão na tela de produtores está verde e deveria ser azul';
+      lblAct.innerText = 'O que o assistente deve executar? (Ação Prescritiva)';
+      inpAct.value = 'Alterar a cor do botão para azul (#2563eb) com fidelidade ao Volt Design System e cobrir com testes.';
+      helpAct.innerText = 'Esta instrução será convertida no Playbook de Melhoria (feat(ui): ...) e despachada para o Sentinel Hub.';
+      btn.innerText = 'Disparar Missão de Melhoria';
+    } else {
+      lblClass.innerText = 'Classe do Erro / Exceção';
+      inpClass.value = 'ZeroDivisionError';
+      lblMsg.innerText = 'Mensagem do Erro';
+      inpMsg.value = 'Divisao por zero simulada no Portal Agro';
+      lblAct.innerText = 'Ação Prescritiva para o Assistente';
+      inpAct.value = 'Adicionar validacao no model Produtor para evitar divisao por zero no calculo de taxa e cobrir com teste TDD em test/models/producer_test.rb.';
+      helpAct.innerText = 'Esta instrução será convertida no Playbook TDD (Red -> Green -> Refactor -> PR) e despachada para o Sentinel Engine.';
+      btn.innerText = 'Disparar Simulação de Erro';
+    }
+  }
+</script>
