@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.volt
+    image: portal-agro:volt
+    container_name: portal-agro-volt
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3001}:3000"
+    environment:
+      RAILS_ENV: production
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE:-dummy_secret_key_base_portal_agro_volt_ok}
+      RAILS_SERVE_STATIC_FILES: "true"
+      RAILS_LOG_TO_STDOUT: "true"
+      PORT: "3000"
+    volumes:
+      - ./storage:/rails/storage
